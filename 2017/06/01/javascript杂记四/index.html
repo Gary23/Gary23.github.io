@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="css笔记," />
+  <meta name="keywords" content="javascript笔记," />
 
 
 
@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="word-spacing 单词间距判断是否是单词的依据是有没有空格 行高的测量方式假如文字是12px，行高是16px，那么文字上下空隙分别是2px，假如行高是15px，那么上方是1px，下方是2px。 white-space 强制不换行值为nowrap为强制不换行，默认是normal。 text-indent  首行缩进。通常设置em，这样文字尺寸改变了也不用该缩进值，只需要设置2em便一直是2个">
-<meta name="keywords" content="css笔记">
+<meta name="description" content="BOM操作的常用属性和方法open()：打开一个新的页面，格式为open(页面的url,打开的方式)，如果url为空则打开一个空白页面。如果打开方式为空，默认为新窗口方式打开。这个方法返回新窗口的window对象。 close()：关闭一个页面，但是这个方法有点兼容性问题，firefox默认无法关闭，chrome默认直接关闭，ie：询问用户。 navigator.userAgent：返回浏览器的名">
+<meta name="keywords" content="javascript笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="css杂记一">
-<meta property="og:url" content="http://yoursite.com/2017/05/21/css杂记一/index.html">
+<meta property="og:title" content="javascript杂记四">
+<meta property="og:url" content="http://yoursite.com/2017/06/01/javascript杂记四/index.html">
 <meta property="og:site_name" content="Gary23">
-<meta property="og:description" content="word-spacing 单词间距判断是否是单词的依据是有没有空格 行高的测量方式假如文字是12px，行高是16px，那么文字上下空隙分别是2px，假如行高是15px，那么上方是1px，下方是2px。 white-space 强制不换行值为nowrap为强制不换行，默认是normal。 text-indent  首行缩进。通常设置em，这样文字尺寸改变了也不用该缩进值，只需要设置2em便一直是2个">
-<meta property="og:updated_time" content="2017-05-21T07:57:13.901Z">
+<meta property="og:description" content="BOM操作的常用属性和方法open()：打开一个新的页面，格式为open(页面的url,打开的方式)，如果url为空则打开一个空白页面。如果打开方式为空，默认为新窗口方式打开。这个方法返回新窗口的window对象。 close()：关闭一个页面，但是这个方法有点兼容性问题，firefox默认无法关闭，chrome默认直接关闭，ie：询问用户。 navigator.userAgent：返回浏览器的名">
+<meta property="og:updated_time" content="2017-06-01T09:30:31.938Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="css杂记一">
-<meta name="twitter:description" content="word-spacing 单词间距判断是否是单词的依据是有没有空格 行高的测量方式假如文字是12px，行高是16px，那么文字上下空隙分别是2px，假如行高是15px，那么上方是1px，下方是2px。 white-space 强制不换行值为nowrap为强制不换行，默认是normal。 text-indent  首行缩进。通常设置em，这样文字尺寸改变了也不用该缩进值，只需要设置2em便一直是2个">
+<meta name="twitter:title" content="javascript杂记四">
+<meta name="twitter:description" content="BOM操作的常用属性和方法open()：打开一个新的页面，格式为open(页面的url,打开的方式)，如果url为空则打开一个空白页面。如果打开方式为空，默认为新窗口方式打开。这个方法返回新窗口的window对象。 close()：关闭一个页面，但是这个方法有点兼容性问题，firefox默认无法关闭，chrome默认直接关闭，ie：询问用户。 navigator.userAgent：返回浏览器的名">
 
 
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/21/css杂记一/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/01/javascript杂记四/"/>
 
 
 
 
 
-  <title> css杂记一 | Gary23 </title>
+  <title> javascript杂记四 | Gary23 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -310,7 +310,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/21/css杂记一/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/01/javascript杂记四/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="PJ Yu">
@@ -331,7 +331,7 @@
             
             
               
-                css杂记一
+                javascript杂记四
               
             
           </h1>
@@ -346,8 +346,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-21T15:52:05+08:00">
-                2017-05-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-01T17:29:52+08:00">
+                2017-06-01
               </time>
             
 
@@ -382,51 +382,76 @@
       
 
       
-        <h2 id="word-spacing-单词间距"><a href="#word-spacing-单词间距" class="headerlink" title="word-spacing 单词间距"></a>word-spacing 单词间距</h2><p>判断是否是单词的依据是有没有空格</p>
-<h2 id="行高的测量方式"><a href="#行高的测量方式" class="headerlink" title="行高的测量方式"></a>行高的测量方式</h2><p>假如文字是12px，行高是16px，那么文字上下空隙分别是2px，假如行高是15px，那么上方是1px，下方是2px。</p>
-<h2 id="white-space-强制不换行"><a href="#white-space-强制不换行" class="headerlink" title="white-space 强制不换行"></a>white-space 强制不换行</h2><p>值为nowrap为强制不换行，默认是normal。</p>
-<h2 id="text-indent-首行缩进。"><a href="#text-indent-首行缩进。" class="headerlink" title="text-indent  首行缩进。"></a>text-indent  首行缩进。</h2><p>通常设置em，这样文字尺寸改变了也不用该缩进值，只需要设置2em便一直是2个字的距离。</p>
-<h2 id="文字和空格的大小"><a href="#文字和空格的大小" class="headerlink" title="文字和空格的大小"></a>文字和空格的大小</h2><p>字体本身原本是一张张的图片，通过一定的编码方式确定是哪个文字，文字和文字之间本身也有一定的缝隙，算上缝隙才算是一个文字的大小，所以文字大小最好是从上到下测量。而宋体中一个空格的大小差不多是一个文字的一半。</p>
-<h2 id="伪类的顺序"><a href="#伪类的顺序" class="headerlink" title="伪类的顺序"></a>伪类的顺序</h2><p>a:link 未访问过,a:visited 访问过后,a:bover 鼠标移入,a:active 鼠标按下。</p>
-<h2 id="clear属性"><a href="#clear属性" class="headerlink" title="clear属性"></a>clear属性</h2><p>给一个元素加上clear属性，那么对应方向上的元素就不会浮动了。值可以设置为left|right|both|none|inherit。<br>clear:both是左右两侧都不能浮动。</p>
-<h2 id="清除浮动的方法"><a href="#清除浮动的方法" class="headerlink" title="清除浮动的方法"></a>清除浮动的方法</h2><p>清除浮动是为了让元素回归文档流，回归到同一层级。</p>
-<h4 id="加高度"><a href="#加高度" class="headerlink" title="加高度"></a>加高度</h4><p>给浮动元素的父元素加一个固定的高度。缺点是扩展性不好。有时候高度不能写死。</p>
-<h4 id="父级浮动"><a href="#父级浮动" class="headerlink" title="父级浮动"></a>父级浮动</h4><p>给浮动元素的父元素加浮动，缺点是父元素的父元素仍然会有问题，当前元素的父元素同时也是更上级元素的子元素。而且<code>margin:0 auto;</code>会失效</p>
-<h4 id="inline-block"><a href="#inline-block" class="headerlink" title="inline-block"></a>inline-block</h4><p>给浮动元素的父元素加inline-block，缺点也是<code>margin:0 auto;</code>会失效</p>
-<h4 id="使用空白元素"><a href="#使用空白元素" class="headerlink" title="使用空白元素"></a>使用空白元素</h4><p>在浮动元素的后面增加一个没有内容的块级元素设置css为clear:both。缺点是只要清除浮动就要放一个空白元素，而且ie6仍会有2px的默认高度。</p>
-<h4 id="br"><a href="#br" class="headerlink" title="br"></a>br</h4><p>在浮动元素后面增加一个<code>&lt;br clear=&quot;all&quot; /&gt;</code>。缺点也是只要清除浮动就要放一个空白元素。</p>
-<h4 id="伪类清除浮动"><a href="#伪类清除浮动" class="headerlink" title="伪类清除浮动"></a>伪类清除浮动</h4><p>假设浮动元素的父元素添加一个class名为clearfix。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.clearfix &#123;</div><div class="line">    *zoom:1;</div><div class="line">&#125;</div><div class="line">.clearfix:after &#123;</div><div class="line">    content:&apos;&apos;;</div><div class="line">    display:block;</div><div class="line">    clear:both;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>zoom是为了兼容ie浏览器，当设置了zoom之后会检索设置对象的缩放比例，所设置的元素就会扩大或缩小，高度就被重新计算了，所以可以清除浮动，*号是hack的写法，只有ie6、7浏览器可以识别。</p>
-<h4 id="overflow"><a href="#overflow" class="headerlink" title="overflow"></a>overflow</h4><p>给浮动元素的父元素设置overflow:hidden。原理是触发BFC。缺点是比浮动长的内容会被直接剪裁掉。</p>
-<h2 id="BFC和haslayout"><a href="#BFC和haslayout" class="headerlink" title="BFC和haslayout"></a>BFC和haslayout</h2><p><strong>BFC(block formatting context)</strong>:BFC是块级元素格式化上下文。是标准浏览器块级元素的标准(除了ie6、7、8之外都是标准浏览器)。</p>
-<p><strong>haslayout</strong>:ie浏览器特有的。</p>
-<p>只要触发了这两个其一，那么这个触发的区域就是一个独立的区域不受外界影响，也可以理解为元素就不会脱离标准文档流了。</p>
-<p>触发BFC的情况</p>
+        <h2 id="BOM操作的常用属性和方法"><a href="#BOM操作的常用属性和方法" class="headerlink" title="BOM操作的常用属性和方法"></a>BOM操作的常用属性和方法</h2><p>open()：打开一个新的页面，格式为<code>open(页面的url,打开的方式)</code>，如果url为空则打开一个空白页面。如果打开方式为空，默认为新窗口方式打开。这个方法返回新窗口的window对象。</p>
+<p>close()：关闭一个页面，但是这个方法有点兼容性问题，firefox默认无法关闭，chrome默认直接关闭，ie：询问用户。</p>
+<p>navigator.userAgent：返回浏览器的名称和版本。</p>
+<p>location：浏览器地址信息，本身不是字符串，是object格式。</p>
+<p>location：就是url地址本身。</p>
+<p>location.search：url中?后面的内容。</p>
+<p>location.hash：url中#后面的内容。</p>
+<h4 id="窗口尺寸与大小"><a href="#窗口尺寸与大小" class="headerlink" title="窗口尺寸与大小"></a>窗口尺寸与大小</h4><p>可视区的尺寸：<code>document.documentElement.clientWidth</code>和<code>document.documentElement.clientHeight</code>。</p>
+<p>滚动条滚动的距离：<code>document.documentElement.scrollTop</code>和<code>document.documentElement.scrollLeft</code>。在chrome浏览器中要使用<code>document.body.scrollTop</code>和<code>document.body.scrollLeft</code>。</p>
+<p>元素内容的宽高：<code>div.scrollHeight</code>和<code>div.scrollWidth</code>。</p>
+<p>文档的宽高：<code>document.documentElement.offsetHeight</code>和<code>document.documentElement.offsetWidth</code>。也可以使用<code>document.body.offsetHeight</code>和<code>document.body.offsetWidth</code>。</p>
+<h4 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h4><p>onscroll：当滚动条滚动的时候触发。</p>
+<p>onresize：当浏览器尺寸改变的时候触发。</p>
+<p>onfocus：当元素获取焦点时触发。</p>
+<p>onblur：当元素失去焦点时触发。</p>
+<p>focus()：给元素设置焦点。</p>
+<p>blur()：让元素失去焦点。</p>
+<p>select()：选择指定元素里面的文本内容。只能选择用户可以输入的内容。</p>
+<p>onmousemove：鼠标在一个元素上移动时触发。</p>
+<p>onkeydown：当键盘按键按下的时候触发。能够响应用户输入的元素才支持键盘事件，和焦点事件一样。如果按下不抬起来会连续触发。</p>
+<p>onkeyup：当键盘按键抬起时触发。</p>
+<p>oncontextmenu：当右键菜单显示出来时触发。</p>
+<p>event事件对象：当一个事件发生时，这个对象发生的这个事件有关的一些详细的信息都会临时保存到event对象中，以便在需要时使用。</p>
+<h4 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h4><p>标准浏览器的方法：<code>div.addEventListener(事件名称，事件处理函数，捕获/冒泡);</code>。false是冒泡，true是捕获。</p>
 <ol>
-<li>float的值不会none。</li>
-<li>overflow的值不为visble(这就是overflow:hidden可以清楚浮动的原理，让其触发BFC)。</li>
-<li>display的值为table-cell、table-caption、inline-block中的任何一个。</li>
-<li>position的值不为relative和staic。</li>
-<li>width|height|min-width|min-height的值不是auto的时候。</li>
+<li><p>有捕获。</p>
+</li>
+<li><p>事件名称没有on。</p>
+</li>
+<li><p>this指向调用该函数的对象。</p>
+</li>
+<li><p>事件执行的顺序是正序。</p>
+</li>
 </ol>
-<p>触发haslayout的情况</p>
+<p>非标准浏览器方法：<code>div.attachEvent(&#39;on&#39;+事件名称，事件处理函数)</code>;</p>
 <ol>
-<li>zoom的值不会normal的时候。给ie浏览器设置zoom:1清楚浮动就是为了触发haslayout。</li>
+<li><p>没有捕获。</p>
+</li>
+<li><p>事件名称有on。</p>
+</li>
+<li><p>this指向window(可以通过call()来解决这个问题)。</p>
+</li>
+<li><p>事件执行的顺序是倒序。</p>
+</li>
 </ol>
-<h2 id="css-hack"><a href="#css-hack" class="headerlink" title="css hack"></a>css hack</h2><ul>
-<li><p><code>\9</code>所有ie10及以下的浏览器。<code>\9</code>是写在属性值的后面。</p>
-</li>
-<li><p><code>*</code>ie7及以下浏览器，写在属性的开头。</p>
-</li>
-<li><p><code>_</code>ie6及以下浏览器，写在属性的开头。</p>
-</li>
-</ul>
-<p>hack的书写顺序要从高版本往低版本写，因为css是按照顺序执行，后面的覆盖前面的，所以先做统一处理，最后再去处理个别低版本浏览器。另外hack不是一个标准的方法，所以一般不要使用。</p>
-<h2 id="禁止选中文字"><a href="#禁止选中文字" class="headerlink" title="禁止选中文字"></a>禁止选中文字</h2><p>不同的浏览器设置的内容不一样，user-select不是一个W3C的标准，浏览器的支持不完成，需要对不同的浏览器进行调整。</p>
-<p>user-select有2个值（none表示不能选中文本，text表示可以选择文本）</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-moz-user-select</span><span class="selector-pseudo">:none</span>;	<span class="comment">/*火狐*/</span></div><div class="line"></div><div class="line"><span class="selector-tag">-webkit-user-select</span><span class="selector-pseudo">:none</span>;	<span class="comment">/*webkit浏览器*/</span></div><div class="line"></div><div class="line"><span class="selector-tag">-ms-user-select</span><span class="selector-pseudo">:none</span>;	<span class="comment">/*IE10*/</span></div><div class="line"></div><div class="line"><span class="selector-tag">-khtml-user-select</span><span class="selector-pseudo">:none</span>;	<span class="comment">/*早期浏览器*/</span></div><div class="line"></div><div class="line"><span class="selector-tag">user-select</span><span class="selector-pseudo">:none</span>;</div></pre></td></tr></table></figure>
-<p>ie6至ie9还没发现有css属性支持</p>
+<h4 id="事件取消"><a href="#事件取消" class="headerlink" title="事件取消"></a>事件取消</h4><p>非标准浏览器方法：<code>div.dettachEvent(&#39;on&#39;+事件名称,事件处理函数);</code></p>
+<p>标准浏览器方法：<code>div.removeEventListener(事件名称，事件处理函数，捕获/冒泡)</code></p>
+<h4 id="事件流"><a href="#事件流" class="headerlink" title="事件流"></a>事件流</h4><p>事件流和样式位置没关系，和html的结构有关系</p>
+<p>事件冒泡：当一个元素接收到事件的时候，会把它接收到的所有事件传播给它的父级，一直到顶层(window)。父级元素只要有相关的事件处理函数，那么就会被执行。阻止冒泡设置事件函数：<code>event.cancelBubble = true;</code></p>
+<p>冒泡最主要的作用是父元素和子元素都需要的事件处理函数，只需要绑定给父元素就可以了，而如果希望只有子元素才执行的事件处理函数可以通过设置阻止冒泡来接解决。</p>
+<p>事件捕获：捕获和冒泡相反，是从最外层元素传播到目标元素。其他并没什么不同。</p>
+<p>控制事件是捕获还是冒泡是由addEventListener中的第三个参数决定的，false为冒泡事件监控是出去的由内向外的，true为捕获事件监控是进来的由外向内的。</p>
+<h4 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h4><p>cookie的作用就是存储数据。长时间去保存一个值，比如用户上次访问的时间等。</p>
+<p>当用户访问了某个网站时候，可以通过cookie向访问者的电脑上存储数据，每个浏览器存储的位置不同，所以不同浏览器存储的cookie不能互相通用。</p>
+<p>cookie的存储是以域名的形式区分的，也就是说每个网站的cookie文件是不同文件夹存放的，一个域名下的cookie也可能有多个文件。所以每个cookie文件是可以设置名字的。否则cookie文件会很大很乱。</p>
+<p><code>document.cookie = &#39;username=ypj&#39;;</code>这就设置了一个cookie文件的名字和值。</p>
+<p><code>document.cookie;</code>读取当前网站下的下所有的cookie的内容，是字符串格式。</p>
+<p>一个域名下存放cookie的个数是有限制的，不同浏览器存放的个数不同。</p>
+<p>每个cookie存放的内容大小也是有限制的，也是根据浏览器不同限制也不同。</p>
+<p>默认情况下，cookie的周期是整个浏览器结束进程的时候。</p>
+<p>如果想长时间存放一个cookie，需要在设置这个cookie的时候同时给他设置一个过期的时间。当过期后cookie就会被销毁。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> oDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">oDate.setDate(oDate.getDate() + <span class="number">5</span>);  <span class="comment">// 保存5天</span></div><div class="line"><span class="built_in">document</span>.cookie = <span class="string">'username=ypj;expires='</span> + oDate.toGMTString()  <span class="comment">// 将oDate又object转为string;</span></div></pre></td></tr></table></figure>
+<p>cookie在存储特殊字符的时候可能会出现问题，需要通过encodeURI()编码来解决。解码使用decodeURI()方法。参数都是字符。</p>
+<p>用js读取cookie时候只能获取整个字符串，没法直接获取某个cookie的键值，同样设置的时候也不方便，所以可以写两个方法来方便操作。</p>
+<p>获取cookie</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getCookie</span>(<span class="params">key</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> arr1 = <span class="built_in">document</span>.cookie.split(<span class="string">';'</span>);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; arr1.length;i++)&#123;</div><div class="line">        <span class="keyword">var</span> arr2 = arr1[i].split(<span class="string">'='</span>);</div><div class="line">        <span class="keyword">if</span>(arr2[<span class="number">0</span>] == key)&#123;</div><div class="line">            <span class="keyword">return</span> <span class="built_in">decodeURI</span>(arr[<span class="number">1</span>]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>设置cookie</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setCookie</span>(<span class="params">key,value,t</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> oDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">    oDate.setDate(oDate.getDate() + t);</div><div class="line">    <span class="built_in">document</span>.cookie = key + <span class="string">'='</span> + value + <span class="string">';expires='</span> + oDate.toGMTString();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>删除cookie</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeCookie</span>(<span class="params">key</span>)</span>&#123;</div><div class="line">    setCookie(key,<span class="string">''</span>,<span class="number">-1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -456,7 +481,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/css笔记/" rel="tag"># css笔记</a>
+            <a href="/tags/javascript笔记/" rel="tag"># javascript笔记</a>
           
         </div>
       
@@ -469,18 +494,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/01/javascript杂记2/" rel="next" title="javascript杂记二">
-                <i class="fa fa-chevron-left"></i> javascript杂记二
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/21/javascript笔记1/" rel="prev" title="javascript杂记一">
-                javascript杂记一 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/06/01/hexo配置/" rel="prev" title="hexo配置">
+                hexo配置 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -626,7 +647,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#word-spacing-单词间距"><span class="nav-number">1.</span> <span class="nav-text">word-spacing 单词间距</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#行高的测量方式"><span class="nav-number">2.</span> <span class="nav-text">行高的测量方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#white-space-强制不换行"><span class="nav-number">3.</span> <span class="nav-text">white-space 强制不换行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#text-indent-首行缩进。"><span class="nav-number">4.</span> <span class="nav-text">text-indent  首行缩进。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文字和空格的大小"><span class="nav-number">5.</span> <span class="nav-text">文字和空格的大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#伪类的顺序"><span class="nav-number">6.</span> <span class="nav-text">伪类的顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clear属性"><span class="nav-number">7.</span> <span class="nav-text">clear属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清除浮动的方法"><span class="nav-number">8.</span> <span class="nav-text">清除浮动的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#加高度"><span class="nav-number">8.0.1.</span> <span class="nav-text">加高度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#父级浮动"><span class="nav-number">8.0.2.</span> <span class="nav-text">父级浮动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#inline-block"><span class="nav-number">8.0.3.</span> <span class="nav-text">inline-block</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用空白元素"><span class="nav-number">8.0.4.</span> <span class="nav-text">使用空白元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#br"><span class="nav-number">8.0.5.</span> <span class="nav-text">br</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#伪类清除浮动"><span class="nav-number">8.0.6.</span> <span class="nav-text">伪类清除浮动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#overflow"><span class="nav-number">8.0.7.</span> <span class="nav-text">overflow</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BFC和haslayout"><span class="nav-number">9.</span> <span class="nav-text">BFC和haslayout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css-hack"><span class="nav-number">10.</span> <span class="nav-text">css hack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#禁止选中文字"><span class="nav-number">11.</span> <span class="nav-text">禁止选中文字</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#BOM操作的常用属性和方法"><span class="nav-number">1.</span> <span class="nav-text">BOM操作的常用属性和方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#窗口尺寸与大小"><span class="nav-number">1.0.1.</span> <span class="nav-text">窗口尺寸与大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件"><span class="nav-number">1.0.2.</span> <span class="nav-text">事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件绑定"><span class="nav-number">1.0.3.</span> <span class="nav-text">事件绑定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件取消"><span class="nav-number">1.0.4.</span> <span class="nav-text">事件取消</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件流"><span class="nav-number">1.0.5.</span> <span class="nav-text">事件流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cookie"><span class="nav-number">1.0.6.</span> <span class="nav-text">cookie</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
