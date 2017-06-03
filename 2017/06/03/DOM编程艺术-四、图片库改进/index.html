@@ -1,0 +1,954 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="DOM编程艺术," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="在这一章主要是用上一章的思想改进图片库，所以我会把之前的javascript图片库案例拿来看看是不是符合上一章所说的规则。 1、支持平稳退化吗？可以确定，图片库如果禁用了javascript功能，也已经留了退路，网页里的所有链接都是可用的，虽然用户体验游影响，但网页的功能并未受到损害，而如果当时在href中写的不是链接而是伪协议或是’#’，那么禁用javascript后它会无法使用。 2、java">
+<meta name="keywords" content="DOM编程艺术">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DOM编程艺术--四、图片库改进">
+<meta property="og:url" content="http://yoursite.com/2017/06/03/DOM编程艺术-四、图片库改进/index.html">
+<meta property="og:site_name" content="Gary23">
+<meta property="og:description" content="在这一章主要是用上一章的思想改进图片库，所以我会把之前的javascript图片库案例拿来看看是不是符合上一章所说的规则。 1、支持平稳退化吗？可以确定，图片库如果禁用了javascript功能，也已经留了退路，网页里的所有链接都是可用的，虽然用户体验游影响，但网页的功能并未受到损害，而如果当时在href中写的不是链接而是伪协议或是’#’，那么禁用javascript后它会无法使用。 2、java">
+<meta property="og:updated_time" content="2017-06-03T02:25:19.689Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DOM编程艺术--四、图片库改进">
+<meta name="twitter:description" content="在这一章主要是用上一章的思想改进图片库，所以我会把之前的javascript图片库案例拿来看看是不是符合上一章所说的规则。 1、支持平稳退化吗？可以确定，图片库如果禁用了javascript功能，也已经留了退路，网页里的所有链接都是可用的，虽然用户体验游影响，但网页的功能并未受到损害，而如果当时在href中写的不是链接而是伪协议或是’#’，那么禁用javascript后它会无法使用。 2、java">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/06/03/DOM编程艺术-四、图片库改进/"/>
+
+
+
+
+
+  <title> DOM编程艺术--四、图片库改进 | Gary23 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Gary23</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/03/DOM编程艺术-四、图片库改进/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="PJ Yu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gary23">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                DOM编程艺术--四、图片库改进
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-03T10:17:04+08:00">
+                2017-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在这一章主要是用上一章的思想改进图片库，所以我会把之前的javascript图片库案例拿来看看是不是符合上一章所说的规则。</p>
+<h2 id="1、支持平稳退化吗？"><a href="#1、支持平稳退化吗？" class="headerlink" title="1、支持平稳退化吗？"></a>1、支持平稳退化吗？</h2><p>可以确定，图片库如果禁用了javascript功能，也已经留了退路，网页里的所有链接都是可用的，虽然用户体验游影响，但网页的功能并未受到损害，而如果当时在href中写的不是链接而是伪协议或是’#’，那么禁用javascript后它会无法使用。</p>
+<h2 id="2、javascript与html分离吗？"><a href="#2、javascript与html分离吗？" class="headerlink" title="2、javascript与html分离吗？"></a>2、javascript与html分离吗？</h2><p>在图片库中它们确实是混在了一起，onclick直接插入到了html中，理想情况下，应该在外部文件里添加onclick事件处理函数。</p>
+<p>我需要编写一个简短的函数把有关操作关联到onclick事件上，我想让函数完成以下工作：</p>
+<ol>
+<li><p>检查浏览器是否理解getElementsTagByName。</p>
+</li>
+<li><p>检查浏览器是否理解getElementById。</p>
+</li>
+<li><p>检查网页是否存在一个id为imagegallery的元素。</p>
+</li>
+<li><p>遍历imagegalery元素中的所有链接。</p>
+</li>
+<li><p>设置onclick事件，让它在有关链接被点击时完成以下操作。</p>
+<ul>
+<li>把这个链接作为参数传递给showPic函数。</li>
+<li>取消链接被点击时的默认行为。</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">prepareGallery</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(!<span class="built_in">document</span>.getElementsByTagName) <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    <span class="keyword">if</span>(!<span class="built_in">document</span>.getElementById) <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    <span class="keyword">if</span>(!<span class="built_in">document</span>.getElementById(<span class="string">'imagegallery'</span>)) <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    <span class="keyword">var</span> gallery = <span class="built_in">document</span>.getElementById(<span class="string">'imagegallery'</span>);</div><div class="line">    <span class="keyword">var</span> links = gallery.getElementsByTagName(<span class="string">'a'</span>);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; links.length; i++)&#123;</div><div class="line">        links[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            showPic(<span class="keyword">this</span>);</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>为了方便获取元素，我将<code>&lt;ul&gt;</code>的id设为’imagegallery’。</p>
+<p>函数的第一部分是检查点，如果不支持或没有检查的内容就离开，其实也可以写为<code>if(!document.getElementsByTagName || !document.getElementById) return false;</code>将两个检查写到一起，但是这样写代码太过冗长不利于阅读，所以将代码写在一行并不一定是个好主意。</p>
+<p>代码中我用变量名存储获取到的元素，避免了代码写得太长，在给变量起名时，应该选择一些有意义的单词来命名，可以让代码更容易阅读和理解，并且一定要避免使用保留字和函数或方法名。</p>
+<p>函数的最后是一个遍历，links存储了列表中的所有a元素，并且是一个伪数组，所以可以遍历得到每个a元素并且将onclick事件绑定给该元素，这样绑定之后，该事件处理函数的this就是绑定该事件的元素，至此可以从html中彻底删除onclick事件了。</p>
+<h2 id="3、共享onload事件"><a href="#3、共享onload事件" class="headerlink" title="3、共享onload事件"></a>3、共享onload事件</h2><p>现在我还需要一个功能，就是要在DOM树加载完之后再执行上面的prepareGallery函数，如果只有一个函数用<code>window.onload = prepareGallery</code>即可，但如果有多个函数，就不能直接这样写，后面的会覆盖前面的，所以我还要再写一个函数完成这个绑定功能。</p>
+<ol>
+<li><p>把现有的window.onload事件处理函数的值存入变量oldonload。</p>
+</li>
+<li><p>如果在这个处理函数上还没有绑定函数，就像平时那样把新函数添加给它。</p>
+</li>
+<li><p>如果在这个处理函数上已经绑定了函数，就把新函数追加到现有指令的末尾。</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addLoadEvent</span>(<span class="params">func</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> oldonload = <span class="built_in">window</span>.onload;</div><div class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> <span class="built_in">window</span>.onload != <span class="string">'function'</span>)&#123;</div><div class="line">        <span class="built_in">window</span>.onload = func;</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            oldonload();</div><div class="line">            func();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个函数将把那些在页面加载完毕时执行的函数创建一个队列，参数func就是要执行的函数。</p>
+<h2 id="4、不要做太多的假设"><a href="#4、不要做太多的假设" class="headerlink" title="4、不要做太多的假设"></a>4、不要做太多的假设</h2><p>下面我要改造一下showPic函数，因为我发现showPic函数并没有任何检查和测试，所以需要一些语句来检查这些元素是否存在。</p>
+<p>showPic函数负责完成两件事：</p>
+<ol>
+<li><p>找出id属性是placeholder的图片并修改其src属性。这个是核心功能，必须完成的任务。</p>
+</li>
+<li><p>找出id属性是description的元素并修改其第一个子元素的nodeValue属性。这个功能只是锦上添花，所以只要placeholder图片存在，即使description元素不在，切换显示新图片的操作也将照常进行。</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">showPic</span>(<span class="params">whichpic</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span>(!<span class="built_in">document</span>.getElementById(<span class="string">'placeholder'</span>)) <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    <span class="keyword">var</span> source = whichpic.getAttribute(<span class="string">"href"</span>);</div><div class="line">    <span class="keyword">var</span> placeholder = <span class="built_in">document</span>.getElementById(<span class="string">"placeholder"</span>);</div><div class="line">    placeholder.setAttribute(<span class="string">"src"</span>, source);</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">document</span>.getElementById(<span class="string">'description'</span>))&#123;</div><div class="line">        <span class="keyword">var</span> text = whichpic.getAttribute(<span class="string">'title'</span>);</div><div class="line">        <span class="keyword">var</span> description = <span class="built_in">document</span>.getElementById(<span class="string">'description'</span>);</div><div class="line">        description.firstChild.nodeValue = text;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>现在这个函数完成了检测，只要图片可以正常获取就返回true，但是还有一个问题，就是如果把placeholder图片从标记文档里删掉，无论点击imagegallery清单里的哪一个链接，都没有任何反应，这不符合平稳退化，此时应该让浏览器打开那个被点击的链接，而不是什么都不发生。</p>
+<p>导致这个问题的原因是prepareGallery函数中是假设showPic肯定会切换图片成功，基于这一点才取消了a元素onclick事件的默认行为<code>links[i].onclick = function(){showPic(this);return false;}</code>，但是现在在showPic中，如果图片切换成功才返回true，如果图片切换失败会返回false。所以如果showPic返回了false就不应该取消点击事件，而是该让a元素的链接正常打开，让切换图片的操作照常进行。所以是否取消默认行为应该由showPic函数决定。</p>
+<p>为了达到这个目的，应该先验证showPic的返回值，以便决定是否阻止默认行为，如果showPic返回true，那么更新placeholder，取消默认事件。如果showPic返回false，那么就不取消默认事件。在onclick事件处理函数中，我们可以利用逻辑非来对showPic的返回值进行取反。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">links[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> !showPic(<span class="keyword">this</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>现在这个函数已经相当完善，虽然它们的长度有所增加，但它们对标记的依赖和假设已经比原来少多了，尽管如此，在showPic函数里仍存在一些需要处理的假设。</p>
+<ol>
+<li><p>如果a元素的title属性存在，变量text将被赋值a元素的title属性，如果不存在，变量text将被赋值为一个空字符串。</p>
+</li>
+<li><p>假设placeholder元素是否是一张图片，可以用nodeName属性来测试，要注意的是，nodeName属性总是返回的值总是大写字母。</p>
+</li>
+<li><p>假设description元素的第一个子元素是一个文本节点，可以用nodeType属性来检测，如果nodeType的值是3，就是一个文本节点。</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">showPic</span>(<span class="params">whichpic</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (!<span class="built_in">document</span>.getElementById(<span class="string">'placeholder'</span>)) <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    <span class="keyword">var</span> source = whichpic.getAttribute(<span class="string">"href"</span>);</div><div class="line">    <span class="keyword">var</span> placeholder = <span class="built_in">document</span>.getElementById(<span class="string">"placeholder"</span>);</div><div class="line">    <span class="keyword">if</span> (placeholder.nodeName != <span class="string">'IMG'</span>) <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    placeholder.setAttribute(<span class="string">"src"</span>, source);</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">document</span>.getElementById(<span class="string">'description'</span>)) &#123;</div><div class="line">        <span class="keyword">var</span> text = whichpic.getAttribute(<span class="string">'title'</span>) ? whichpic.getAttribute(<span class="string">'title'</span>) : <span class="string">''</span>;</div><div class="line">        <span class="keyword">var</span> description = <span class="built_in">document</span>.getElementById(<span class="string">'description'</span>);</div><div class="line">        <span class="keyword">if</span>(description.firstChild.nodeType == <span class="number">3</span>)&#123;</div><div class="line">            description.firstChild.nodeValue = text;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>showPic的代码变得更多了，在实际中，你需要自己决定是否真的需要这些检查，它们针对的是html文档有可能不再你的控制范围内的情况，但理想情况下，脚本不应该对html文档的内容和结构做太多假设。</p>
+<h2 id="5、键盘访问事件"><a href="#5、键盘访问事件" class="headerlink" title="5、键盘访问事件"></a>5、键盘访问事件</h2><p>前面的代码只能用鼠标操作，而浏览器web页面也是可以用键盘进行操作的，有个名叫onkeypress的事件处理函数就是专门用来处理键盘事件的，按下键盘的任何一个按键都会触发onkeypress事件。</p>
+<p>如果想把onkeypress事件加到上面的案例并完成和onclick相同的操作，只需要这样写<code>links[i].onkeypress = links[i].onclick;</code>，但是在这个案例中我认为并不需要键盘访问事件，有onclick事件足矣，我想说的是，在这里完全体现出了javascript和html分离带来的方便，如果像是最开始那样把javascript写在html中，将不得不去修改每行html语句，而现在只要在javascript代码中加一条语句即可。</p>
+<h2 id="6、DOM-Core和HTML-DOM"><a href="#6、DOM-Core和HTML-DOM" class="headerlink" title="6、DOM Core和HTML-DOM"></a>6、DOM Core和HTML-DOM</h2><p>至此，我在编写javascript代码时只用到了以下几个DOM方法：getElementById、getElementsByTagName、getAttribute、setAttribute。</p>
+<p>这些方法都是DOM Core的组成部分，它们并不是专属javascript语言，支持DOM的任何一种程序设计语言都可以使用它们，它们的用途也并非仅限于处理网页，它们可以用来处理任何一种标记语言(比如XML)编写出来的文档。<br>像onclick属于HTML-DOM，它们在DOM Core出现之前很久就已经为人们所熟知，比如HTML-DOM提供了一个forms对象，写法是<code>document.forms</code>可以代替<code>document.getElementsByTagName(forms)</code>。还有<code>element.src</code>可以代替<code>element.getAttribute</code>。</p>
+<p>它们的区别是HTML-DOM只能处理web文档，我使用DOM Core也是因为其兼容多种类型的文档，其实这个完全是根据使用场景来选择，并没有绝对的对错之分。</p>
+<h2 id="7、增加css"><a href="#7、增加css" class="headerlink" title="7、增加css"></a>7、增加css</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">    <span class="attribute">font-family</span>: <span class="string">"Helvetica"</span>,<span class="string">"Arial"</span>,serif;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#333</span>;</div><div class="line">    <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">1em</span> <span class="number">10%</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">h1</span> &#123;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#333</span>;</div><div class="line">    <span class="attribute">background-color</span>: transparent;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">a</span> &#123;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#c60</span>;</div><div class="line">    <span class="attribute">background-color</span>: transparent;</div><div class="line">    <span class="attribute">font-weight</span>: bold;</div><div class="line">    <span class="attribute">text-decoration</span>: none;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">ul</span> &#123;</div><div class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">li</span> &#123;</div><div class="line">    <span class="attribute">float</span>: left;</div><div class="line">    <span class="attribute">padding</span>: <span class="number">1em</span>;</div><div class="line">    <span class="attribute">list-style</span>: none;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">img</span>&#123;</div><div class="line">    <span class="attribute">display</span>: block;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-id">#imagegallery</span> &#123;</div><div class="line">    <span class="attribute">list-style</span>: none;</div><div class="line">    <span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-id">#imagegallery</span> <span class="selector-tag">li</span> &#123;</div><div class="line">    <span class="attribute">display</span>: inline;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-id">#imagegallery</span> <span class="selector-tag">li</span> <span class="selector-tag">a</span> <span class="selector-tag">img</span> &#123;</div><div class="line">    <span class="attribute">border</span>: <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="8、把图片的文字链接改为缩略图"><a href="#8、把图片的文字链接改为缩略图" class="headerlink" title="8、把图片的文字链接改为缩略图"></a>8、把图片的文字链接改为缩略图</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span> = <span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span> = <span class="string">"utf-8"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Image Gallery<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">""</span> <span class="attr">href</span>=<span class="string">"./css/style.css"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Snapshots<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"imagegallery"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span> = <span class="string">"images/fireworks.jpg"</span> <span class="attr">title</span> = <span class="string">"A fireworks display"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/thumbnail_fireworks.jpg"</span> <span class="attr">alt</span>=<span class="string">"Fireworks"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span> = <span class="string">"images/coffee.jpg"</span> <span class="attr">title</span> = <span class="string">"A cup of black offee"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/thumbnail_coffee.jpg"</span> <span class="attr">alt</span>=<span class="string">"Coffee"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span> = <span class="string">"images/rose.jpg"</span> <span class="attr">title</span> = <span class="string">"A red,red rose"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/thumbnail_rose.jpg"</span> <span class="attr">alt</span>=<span class="string">"Rose"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span> = <span class="string">"images/bigben.jpg"</span> <span class="attr">title</span> = <span class="string">"The famous clock"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/thumbnail_bigben.jpg"</span> <span class="attr">alt</span>=<span class="string">"Big Ben"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span> = <span class="string">"placeholder"</span> <span class="attr">src</span> = <span class="string">"images/placeholder.gif"</span> <span class="attr">alt</span> = <span class="string">"my image galley"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"description"</span>&gt;</span>Choose an image<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"script/script.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/DOM编程艺术/" rel="tag"># DOM编程艺术</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/03/DOM编程艺术-五、动态创建标记/" rel="next" title="DOM编程艺术--五、动态创建标记">
+                <i class="fa fa-chevron-left"></i> DOM编程艺术--五、动态创建标记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/03/DOM编程艺术-三、最佳实践/" rel="prev" title="DOM编程艺术--三、最佳实践">
+                DOM编程艺术--三、最佳实践 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="PJ Yu" />
+          <p class="site-author-name" itemprop="name">PJ Yu</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Gary23" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com/Gary23" title="Gary23" target="_blank">Gary23</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、支持平稳退化吗？"><span class="nav-number">1.</span> <span class="nav-text">1、支持平稳退化吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、javascript与html分离吗？"><span class="nav-number">2.</span> <span class="nav-text">2、javascript与html分离吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、共享onload事件"><span class="nav-number">3.</span> <span class="nav-text">3、共享onload事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、不要做太多的假设"><span class="nav-number">4.</span> <span class="nav-text">4、不要做太多的假设</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、键盘访问事件"><span class="nav-number">5.</span> <span class="nav-text">5、键盘访问事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6、DOM-Core和HTML-DOM"><span class="nav-number">6.</span> <span class="nav-text">6、DOM Core和HTML-DOM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7、增加css"><span class="nav-number">7.</span> <span class="nav-text">7、增加css</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8、把图片的文字链接改为缩略图"><span class="nav-number">8.</span> <span class="nav-text">8、把图片的文字链接改为缩略图</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PJ Yu</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

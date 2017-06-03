@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="javascript笔记," />
+  <meta name="keywords" content="PJ.Yu的博客" />
 
 
 
@@ -93,17 +93,12 @@
 
 
 
-<meta name="description" content="BOM操作的常用属性和方法open()：打开一个新的页面，格式为open(页面的url,打开的方式)，如果url为空则打开一个空白页面。如果打开方式为空，默认为新窗口方式打开。这个方法返回新窗口的window对象。 close()：关闭一个页面，但是这个方法有点兼容性问题，firefox默认无法关闭，chrome默认直接关闭，ie：询问用户。 navigator.userAgent：返回浏览器的名">
-<meta name="keywords" content="javascript笔记">
-<meta property="og:type" content="article">
-<meta property="og:title" content="javascript杂记四">
-<meta property="og:url" content="http://yoursite.com/2017/06/01/javascript杂记四/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gary23">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="Gary23">
-<meta property="og:description" content="BOM操作的常用属性和方法open()：打开一个新的页面，格式为open(页面的url,打开的方式)，如果url为空则打开一个空白页面。如果打开方式为空，默认为新窗口方式打开。这个方法返回新窗口的window对象。 close()：关闭一个页面，但是这个方法有点兼容性问题，firefox默认无法关闭，chrome默认直接关闭，ie：询问用户。 navigator.userAgent：返回浏览器的名">
-<meta property="og:updated_time" content="2017-06-01T09:30:31.938Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="javascript杂记四">
-<meta name="twitter:description" content="BOM操作的常用属性和方法open()：打开一个新的页面，格式为open(页面的url,打开的方式)，如果url为空则打开一个空白页面。如果打开方式为空，默认为新窗口方式打开。这个方法返回新窗口的window对象。 close()：关闭一个页面，但是这个方法有点兼容性问题，firefox默认无法关闭，chrome默认直接关闭，ie：询问用户。 navigator.userAgent：返回浏览器的名">
+<meta name="twitter:title" content="Gary23">
 
 
 
@@ -131,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/06/01/javascript杂记四/"/>
+  <link rel="canonical" href="http://yoursite.com/page/2/"/>
 
 
 
 
 
-  <title> javascript杂记四 | Gary23 </title>
+  <title> Gary23 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -162,7 +157,9 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left 
+   page-home 
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -299,9 +296,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
 
@@ -310,7 +307,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/01/javascript杂记四/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/21/javascript笔记1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="PJ Yu">
@@ -331,7 +328,10 @@
             
             
               
-                javascript杂记四
+                
+                <a class="post-title-link" href="/2017/05/21/javascript笔记1/" itemprop="url">
+                  javascript杂记一
+                </a>
               
             
           </h1>
@@ -346,8 +346,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-01T17:29:52+08:00">
-                2017-06-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-21T14:34:25+08:00">
+                2017-05-21
               </time>
             
 
@@ -382,147 +382,324 @@
       
 
       
-        <h2 id="BOM操作的常用属性和方法"><a href="#BOM操作的常用属性和方法" class="headerlink" title="BOM操作的常用属性和方法"></a>BOM操作的常用属性和方法</h2><p>open()：打开一个新的页面，格式为<code>open(页面的url,打开的方式)</code>，如果url为空则打开一个空白页面。如果打开方式为空，默认为新窗口方式打开。这个方法返回新窗口的window对象。</p>
-<p>close()：关闭一个页面，但是这个方法有点兼容性问题，firefox默认无法关闭，chrome默认直接关闭，ie：询问用户。</p>
-<p>navigator.userAgent：返回浏览器的名称和版本。</p>
-<p>location：浏览器地址信息，本身不是字符串，是object格式。</p>
-<p>location：就是url地址本身。</p>
-<p>location.search：url中?后面的内容。</p>
-<p>location.hash：url中#后面的内容。</p>
-<h4 id="窗口尺寸与大小"><a href="#窗口尺寸与大小" class="headerlink" title="窗口尺寸与大小"></a>窗口尺寸与大小</h4><p>可视区的尺寸：<code>document.documentElement.clientWidth</code>和<code>document.documentElement.clientHeight</code>。</p>
-<p>滚动条滚动的距离：<code>document.documentElement.scrollTop</code>和<code>document.documentElement.scrollLeft</code>。在chrome浏览器中要使用<code>document.body.scrollTop</code>和<code>document.body.scrollLeft</code>。</p>
-<p>元素内容的宽高：<code>div.scrollHeight</code>和<code>div.scrollWidth</code>。</p>
-<p>文档的宽高：<code>document.documentElement.offsetHeight</code>和<code>document.documentElement.offsetWidth</code>。也可以使用<code>document.body.offsetHeight</code>和<code>document.body.offsetWidth</code>。</p>
-<h4 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h4><p>onscroll：当滚动条滚动的时候触发。</p>
-<p>onresize：当浏览器尺寸改变的时候触发。</p>
-<p>onfocus：当元素获取焦点时触发。</p>
-<p>onblur：当元素失去焦点时触发。</p>
-<p>focus()：给元素设置焦点。</p>
-<p>blur()：让元素失去焦点。</p>
-<p>select()：选择指定元素里面的文本内容。只能选择用户可以输入的内容。</p>
-<p>onmousemove：鼠标在一个元素上移动时触发。</p>
-<p>onkeydown：当键盘按键按下的时候触发。能够响应用户输入的元素才支持键盘事件，和焦点事件一样。如果按下不抬起来会连续触发。</p>
-<p>onkeyup：当键盘按键抬起时触发。</p>
-<p>oncontextmenu：当右键菜单显示出来时触发。</p>
-<p>event事件对象：当一个事件发生时，这个对象发生的这个事件有关的一些详细的信息都会临时保存到event对象中，以便在需要时使用。</p>
-<h4 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h4><p>标准浏览器的方法：<code>div.addEventListener(事件名称，事件处理函数，捕获/冒泡);</code>。false是冒泡，true是捕获。</p>
-<ol>
-<li><p>有捕获。</p>
-</li>
-<li><p>事件名称没有on。</p>
-</li>
-<li><p>this指向调用该函数的对象。</p>
-</li>
-<li><p>事件执行的顺序是正序。</p>
-</li>
-</ol>
-<p>非标准浏览器方法：<code>div.attachEvent(&#39;on&#39;+事件名称，事件处理函数)</code>;</p>
-<ol>
-<li><p>没有捕获。</p>
-</li>
-<li><p>事件名称有on。</p>
-</li>
-<li><p>this指向window(可以通过call()来解决这个问题)。</p>
-</li>
-<li><p>事件执行的顺序是倒序。</p>
-</li>
-</ol>
-<h4 id="事件取消"><a href="#事件取消" class="headerlink" title="事件取消"></a>事件取消</h4><p>非标准浏览器方法：<code>div.dettachEvent(&#39;on&#39;+事件名称,事件处理函数);</code></p>
-<p>标准浏览器方法：<code>div.removeEventListener(事件名称，事件处理函数，捕获/冒泡)</code></p>
-<h4 id="事件流"><a href="#事件流" class="headerlink" title="事件流"></a>事件流</h4><p>事件流和样式位置没关系，和html的结构有关系</p>
-<p>事件冒泡：当一个元素接收到事件的时候，会把它接收到的所有事件传播给它的父级，一直到顶层(window)。父级元素只要有相关的事件处理函数，那么就会被执行。阻止冒泡设置事件函数：<code>event.cancelBubble = true;</code></p>
-<p>冒泡最主要的作用是父元素和子元素都需要的事件处理函数，只需要绑定给父元素就可以了，而如果希望只有子元素才执行的事件处理函数可以通过设置阻止冒泡来接解决。</p>
-<p>事件捕获：捕获和冒泡相反，是从最外层元素传播到目标元素。其他并没什么不同。</p>
-<p>控制事件是捕获还是冒泡是由addEventListener中的第三个参数决定的，false为冒泡事件监控是出去的由内向外的，true为捕获事件监控是进来的由外向内的。</p>
-<h4 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h4><p>cookie的作用就是存储数据。长时间去保存一个值，比如用户上次访问的时间等。</p>
-<p>当用户访问了某个网站时候，可以通过cookie向访问者的电脑上存储数据，每个浏览器存储的位置不同，所以不同浏览器存储的cookie不能互相通用。</p>
-<p>cookie的存储是以域名的形式区分的，也就是说每个网站的cookie文件是不同文件夹存放的，一个域名下的cookie也可能有多个文件。所以每个cookie文件是可以设置名字的。否则cookie文件会很大很乱。</p>
-<p><code>document.cookie = &#39;username=ypj&#39;;</code>这就设置了一个cookie文件的名字和值。</p>
-<p><code>document.cookie;</code>读取当前网站下的下所有的cookie的内容，是字符串格式。</p>
-<p>一个域名下存放cookie的个数是有限制的，不同浏览器存放的个数不同。</p>
-<p>每个cookie存放的内容大小也是有限制的，也是根据浏览器不同限制也不同。</p>
-<p>默认情况下，cookie的周期是整个浏览器结束进程的时候。</p>
-<p>如果想长时间存放一个cookie，需要在设置这个cookie的时候同时给他设置一个过期的时间。当过期后cookie就会被销毁。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> oDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">oDate.setDate(oDate.getDate() + <span class="number">5</span>);  <span class="comment">// 保存5天</span></div><div class="line"><span class="built_in">document</span>.cookie = <span class="string">'username=ypj;expires='</span> + oDate.toGMTString()  <span class="comment">// 将oDate又object转为string;</span></div></pre></td></tr></table></figure>
-<p>cookie在存储特殊字符的时候可能会出现问题，需要通过encodeURI()编码来解决。解码使用decodeURI()方法。参数都是字符。</p>
-<p>用js读取cookie时候只能获取整个字符串，没法直接获取某个cookie的键值，同样设置的时候也不方便，所以可以写两个方法来方便操作。</p>
-<p>获取cookie</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getCookie</span>(<span class="params">key</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> arr1 = <span class="built_in">document</span>.cookie.split(<span class="string">';'</span>);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; arr1.length;i++)&#123;</div><div class="line">        <span class="keyword">var</span> arr2 = arr1[i].split(<span class="string">'='</span>);</div><div class="line">        <span class="keyword">if</span>(arr2[<span class="number">0</span>] == key)&#123;</div><div class="line">            <span class="keyword">return</span> <span class="built_in">decodeURI</span>(arr[<span class="number">1</span>]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>设置cookie</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setCookie</span>(<span class="params">key,value,t</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> oDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">    oDate.setDate(oDate.getDate() + t);</div><div class="line">    <span class="built_in">document</span>.cookie = key + <span class="string">'='</span> + value + <span class="string">';expires='</span> + oDate.toGMTString();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>删除cookie</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeCookie</span>(<span class="params">key</span>)</span>&#123;</div><div class="line">    setCookie(key,<span class="string">''</span>,<span class="number">-1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
+        
+          
+          this的基本用法首先有一个函数
+123function fn1()&#123;    alert(this);&#125;
+直接调用则this指向window
+1fn1();  // 指向window;
+如果是被元素对象调用
+123456div.onclick = function()&#123;
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/21/javascript笔记1/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
       
     </div>
 
     <div>
       
-        
-
-      
     </div>
 
     <div>
       
-        
-
-      
     </div>
 
     <div>
-      
-        
-
       
     </div>
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/javascript笔记/" rel="tag"># javascript笔记</a>
-          
-        </div>
+
       
 
       
-        
-      
 
       
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/06/03/DOM编程艺术-二、javascript图片库/" rel="next" title="DOM编程艺术--二、javascript图片库">
-                <i class="fa fa-chevron-left"></i> DOM编程艺术--二、javascript图片库
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/01/hexo配置/" rel="prev" title="hexo配置">
-                hexo配置 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
       
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
+    
+      
 
-    <div class="post-spread">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/13/DOM编程艺术-一、DOM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="PJ Yu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gary23">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/13/DOM编程艺术-一、DOM/" itemprop="url">
+                  DOM编程艺术--一、DOM
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-13T22:27:25+08:00">
+                2017-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          1、DOM的含义
+文档(D)，指的是document，当创建了一个网页并把它加载到web浏览器中时，DOM就在幕后悄然而生，DOM把我们编写的网页文档转换为一个文档对象。
+
+对象(O)，指的就是javascript中的三种对象，用户定义对象、内建对象、宿主对象。
+
+模型(M)，可以理解为模型Mode
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/13/DOM编程艺术-一、DOM/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
       
     </div>
-  </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/13/Git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="PJ Yu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gary23">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/13/Git/" itemprop="url">
+                  Git
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-13T22:27:25+08:00">
+                2017-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          Git是通过监控文件的状态来实现版本的控制的。
+文件的三种状态分别是已提交(commotted)、已修改(modified)、已暂存(staged)。
+状态改变Git都是可以监听到的。由此引入对应Git项目的。
+Git的三个区域介绍
+Git仓库目：就是Git用来保存项目的源数据和对象数据库的地方。G
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/13/Git/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
 
 
           </div>
@@ -530,10 +707,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
-
 
         </div>
         
@@ -553,17 +726,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -641,22 +805,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#BOM操作的常用属性和方法"><span class="nav-number">1.</span> <span class="nav-text">BOM操作的常用属性和方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#窗口尺寸与大小"><span class="nav-number">1.0.1.</span> <span class="nav-text">窗口尺寸与大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件"><span class="nav-number">1.0.2.</span> <span class="nav-text">事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件绑定"><span class="nav-number">1.0.3.</span> <span class="nav-text">事件绑定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件取消"><span class="nav-number">1.0.4.</span> <span class="nav-text">事件取消</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件流"><span class="nav-number">1.0.5.</span> <span class="nav-text">事件流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cookie"><span class="nav-number">1.0.6.</span> <span class="nav-text">cookie</span></a></li></ol></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -766,10 +914,6 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
-
-
 
   
 

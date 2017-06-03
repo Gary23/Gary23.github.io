@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="javascript笔记," />
+  <meta name="keywords" content="DOM编程艺术," />
 
 
 
@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="BOM操作的常用属性和方法open()：打开一个新的页面，格式为open(页面的url,打开的方式)，如果url为空则打开一个空白页面。如果打开方式为空，默认为新窗口方式打开。这个方法返回新窗口的window对象。 close()：关闭一个页面，但是这个方法有点兼容性问题，firefox默认无法关闭，chrome默认直接关闭，ie：询问用户。 navigator.userAgent：返回浏览器的名">
-<meta name="keywords" content="javascript笔记">
+<meta name="description" content="1、平稳退化和渐进增强什么是平稳退化不管你想通过javascript个改变哪个网页的行为，都必须三思而后行，首先要确认，为这个网页增加这种额外的行为是否有必要。 在所有的javascript特效当中，最臭名昭著的莫过于那些在人们打开网页时弹出的广告窗口，不幸的是有不少用户为此干脆彻底禁用了javascript，这是一个典型的滥用javascript的例子，从技术上讲弹窗解决了如何向用户发送信息，但">
+<meta name="keywords" content="DOM编程艺术">
 <meta property="og:type" content="article">
-<meta property="og:title" content="javascript杂记四">
-<meta property="og:url" content="http://yoursite.com/2017/06/01/javascript杂记四/index.html">
+<meta property="og:title" content="DOM编程艺术--三、最佳实践">
+<meta property="og:url" content="http://yoursite.com/2017/06/03/DOM编程艺术-三、最佳实践/index.html">
 <meta property="og:site_name" content="Gary23">
-<meta property="og:description" content="BOM操作的常用属性和方法open()：打开一个新的页面，格式为open(页面的url,打开的方式)，如果url为空则打开一个空白页面。如果打开方式为空，默认为新窗口方式打开。这个方法返回新窗口的window对象。 close()：关闭一个页面，但是这个方法有点兼容性问题，firefox默认无法关闭，chrome默认直接关闭，ie：询问用户。 navigator.userAgent：返回浏览器的名">
-<meta property="og:updated_time" content="2017-06-01T09:30:31.938Z">
+<meta property="og:description" content="1、平稳退化和渐进增强什么是平稳退化不管你想通过javascript个改变哪个网页的行为，都必须三思而后行，首先要确认，为这个网页增加这种额外的行为是否有必要。 在所有的javascript特效当中，最臭名昭著的莫过于那些在人们打开网页时弹出的广告窗口，不幸的是有不少用户为此干脆彻底禁用了javascript，这是一个典型的滥用javascript的例子，从技术上讲弹窗解决了如何向用户发送信息，但">
+<meta property="og:updated_time" content="2017-06-03T02:15:57.308Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="javascript杂记四">
-<meta name="twitter:description" content="BOM操作的常用属性和方法open()：打开一个新的页面，格式为open(页面的url,打开的方式)，如果url为空则打开一个空白页面。如果打开方式为空，默认为新窗口方式打开。这个方法返回新窗口的window对象。 close()：关闭一个页面，但是这个方法有点兼容性问题，firefox默认无法关闭，chrome默认直接关闭，ie：询问用户。 navigator.userAgent：返回浏览器的名">
+<meta name="twitter:title" content="DOM编程艺术--三、最佳实践">
+<meta name="twitter:description" content="1、平稳退化和渐进增强什么是平稳退化不管你想通过javascript个改变哪个网页的行为，都必须三思而后行，首先要确认，为这个网页增加这种额外的行为是否有必要。 在所有的javascript特效当中，最臭名昭著的莫过于那些在人们打开网页时弹出的广告窗口，不幸的是有不少用户为此干脆彻底禁用了javascript，这是一个典型的滥用javascript的例子，从技术上讲弹窗解决了如何向用户发送信息，但">
 
 
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/06/01/javascript杂记四/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/03/DOM编程艺术-三、最佳实践/"/>
 
 
 
 
 
-  <title> javascript杂记四 | Gary23 </title>
+  <title> DOM编程艺术--三、最佳实践 | Gary23 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -310,7 +310,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/01/javascript杂记四/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/03/DOM编程艺术-三、最佳实践/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="PJ Yu">
@@ -331,7 +331,7 @@
             
             
               
-                javascript杂记四
+                DOM编程艺术--三、最佳实践
               
             
           </h1>
@@ -346,8 +346,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-01T17:29:52+08:00">
-                2017-06-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-03T10:10:16+08:00">
+                2017-06-03
               </time>
             
 
@@ -382,76 +382,60 @@
       
 
       
-        <h2 id="BOM操作的常用属性和方法"><a href="#BOM操作的常用属性和方法" class="headerlink" title="BOM操作的常用属性和方法"></a>BOM操作的常用属性和方法</h2><p>open()：打开一个新的页面，格式为<code>open(页面的url,打开的方式)</code>，如果url为空则打开一个空白页面。如果打开方式为空，默认为新窗口方式打开。这个方法返回新窗口的window对象。</p>
-<p>close()：关闭一个页面，但是这个方法有点兼容性问题，firefox默认无法关闭，chrome默认直接关闭，ie：询问用户。</p>
-<p>navigator.userAgent：返回浏览器的名称和版本。</p>
-<p>location：浏览器地址信息，本身不是字符串，是object格式。</p>
-<p>location：就是url地址本身。</p>
-<p>location.search：url中?后面的内容。</p>
-<p>location.hash：url中#后面的内容。</p>
-<h4 id="窗口尺寸与大小"><a href="#窗口尺寸与大小" class="headerlink" title="窗口尺寸与大小"></a>窗口尺寸与大小</h4><p>可视区的尺寸：<code>document.documentElement.clientWidth</code>和<code>document.documentElement.clientHeight</code>。</p>
-<p>滚动条滚动的距离：<code>document.documentElement.scrollTop</code>和<code>document.documentElement.scrollLeft</code>。在chrome浏览器中要使用<code>document.body.scrollTop</code>和<code>document.body.scrollLeft</code>。</p>
-<p>元素内容的宽高：<code>div.scrollHeight</code>和<code>div.scrollWidth</code>。</p>
-<p>文档的宽高：<code>document.documentElement.offsetHeight</code>和<code>document.documentElement.offsetWidth</code>。也可以使用<code>document.body.offsetHeight</code>和<code>document.body.offsetWidth</code>。</p>
-<h4 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h4><p>onscroll：当滚动条滚动的时候触发。</p>
-<p>onresize：当浏览器尺寸改变的时候触发。</p>
-<p>onfocus：当元素获取焦点时触发。</p>
-<p>onblur：当元素失去焦点时触发。</p>
-<p>focus()：给元素设置焦点。</p>
-<p>blur()：让元素失去焦点。</p>
-<p>select()：选择指定元素里面的文本内容。只能选择用户可以输入的内容。</p>
-<p>onmousemove：鼠标在一个元素上移动时触发。</p>
-<p>onkeydown：当键盘按键按下的时候触发。能够响应用户输入的元素才支持键盘事件，和焦点事件一样。如果按下不抬起来会连续触发。</p>
-<p>onkeyup：当键盘按键抬起时触发。</p>
-<p>oncontextmenu：当右键菜单显示出来时触发。</p>
-<p>event事件对象：当一个事件发生时，这个对象发生的这个事件有关的一些详细的信息都会临时保存到event对象中，以便在需要时使用。</p>
-<h4 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h4><p>标准浏览器的方法：<code>div.addEventListener(事件名称，事件处理函数，捕获/冒泡);</code>。false是冒泡，true是捕获。</p>
+        <h2 id="1、平稳退化和渐进增强"><a href="#1、平稳退化和渐进增强" class="headerlink" title="1、平稳退化和渐进增强"></a>1、平稳退化和渐进增强</h2><h3 id="什么是平稳退化"><a href="#什么是平稳退化" class="headerlink" title="什么是平稳退化"></a>什么是平稳退化</h3><p>不管你想通过javascript个改变哪个网页的行为，都必须三思而后行，首先要确认，为这个网页增加这种额外的行为是否有必要。</p>
+<p>在所有的javascript特效当中，最臭名昭著的莫过于那些在人们打开网页时弹出的广告窗口，不幸的是有不少用户为此干脆彻底禁用了javascript，这是一个典型的滥用javascript的例子，从技术上讲弹窗解决了如何向用户发送信息，但在实践中，频繁弹出的广告窗口却让用户不胜其烦，令人欣慰的是这一问题已经收到了所有人的关注，那些不遵守用户至上原则的网站都在自取灭亡。</p>
+<p>所以如果要使用javascript就要确认，这么做会对浏览体验产生怎样的影响，最重要的是，如果用户的浏览器不支持或禁用了javascript的情况下仍能顺利浏览你的网址，这就是平稳退化。虽然某些功能无法使用，但最基本的操作仍能顺利完成。</p>
+<h3 id="举个例子"><a href="#举个例子" class="headerlink" title="举个例子"></a>举个例子</h3><p>以弹出窗口的例子来说明平稳退化的思想。这里并不是指在加载网页时弹出，而是点击后弹出，例如服务条款，邮费列表等等。</p>
+<p>javascript使用window.open(url,name,features)来创建新的浏览器窗口。</p>
+<ul>
+<li><p>参数1：新窗口里页面的url地址，省略这个参数就是一个空白网页。</p>
+</li>
+<li><p>参数2：新窗口的名字，代码可以通过这个名字与新窗口交互。</p>
+</li>
+<li><p>参数3：以逗号分隔的字符串，包括新窗口尺寸(工具条、菜单条、初始显示位置等等)。</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">popUp</span>(<span class="params">winURL</span>)</span>&#123;</div><div class="line">    <span class="built_in">window</span>.open(winURL,<span class="string">"popup"</span>,<span class="string">"width=320,height=480"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个函数将打开一个320x480像素的新窗口”popup”。</p>
+<p>使用popUp函数的一个办法是使用伪协议。</p>
+<blockquote>
+<p>真协议用来在因特网上的计算机之间传输数据包，比如HTTP、FTP协议等，协议则是一种非标准化的协议。</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span> = <span class="string">"javascript:popUp('http://www.example.com/');return false;"</span>&gt;</span>Example<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>通过”javascript:”为协议调用popUp()函数。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span> = <span class="string">"#"</span> <span class="attr">onclick</span> = <span class="string">"popUp('http://www.example.com/');return false;"</span>&gt;</span>Example<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>这是内嵌式的事件处理函数，这个链接的href没什么用，所以用”#”，表示一个空连接，实际工作由onclick完成。</p>
+<p>但是以上两种方法都很糟糕，因为它们都不能平稳退化。有以下两点原因。</p>
 <ol>
-<li><p>有捕获。</p>
+<li><p>用户如果禁用了javascript功能，这样的链接将毫无作用。</p>
 </li>
-<li><p>事件名称没有on。</p>
-</li>
-<li><p>this指向调用该函数的对象。</p>
-</li>
-<li><p>事件执行的顺序是正序。</p>
+<li><p>第二点是不利于搜索引擎排名，搜索机器人浏览web页的目的是把各种网页添加到搜索引擎的数据库，很少有机器人能理解javascript代码。</p>
 </li>
 </ol>
-<p>非标准浏览器方法：<code>div.attachEvent(&#39;on&#39;+事件名称，事件处理函数)</code>;</p>
+<p>其实为javascript代码预留退路很简单，给href设置真实的URL地址。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span> = <span class="string">"http://www.example.com/"</span> <span class="attr">onclick</span> = <span class="string">"popUp('http://www.example.com/');return false;"</span>&gt;</span>Example<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>这样即使javascript被禁用，这个链接也不是失效的，只是功能上打了点折扣，这是一个经典的平稳退化的例子。</p>
+<h3 id="渐进增强"><a href="#渐进增强" class="headerlink" title="渐进增强"></a>渐进增强</h3><p>所谓”渐进增强”就是用一些额外的信息层去包裹原始数据，按照”渐进增强”原则创建出来的网页几乎都符合”平稳退化”原则，在一个网页中，良好的内容就是一切，只有正确的使用标记语言才能对内容做出准确的描述，CSS指令构成了一个表示层使文档呈现出各种模式，但即使去掉这个表示层，文档的内容也依然可以访问。</p>
+<h2 id="2、分离javascript"><a href="#2、分离javascript" class="headerlink" title="2、分离javascript"></a>2、分离javascript</h2><p>就像css那样把style写到html文档中，虽然可以用，但是这种做法弊大于利，最好的方法是把样式信息存入一个外部文件。在文档的head部分用<code>&lt;link&gt;</code>标签调用这个文件，这样更容易阅读和理解，样式信息也更容易更改，不用去文档里逐一搜索和替换，这个结论同样适用于javascript。</p>
+<p>现在我要把上面弹窗例子中的onclick事件分离出来。具体步骤如下：</p>
 <ol>
-<li><p>没有捕获。</p>
+<li><p>把文档里的所有链接全放入一个数组里。</p>
 </li>
-<li><p>事件名称有on。</p>
+<li><p>遍历数组。</p>
 </li>
-<li><p>this指向window(可以通过call()来解决这个问题)。</p>
-</li>
-<li><p>事件执行的顺序是倒序。</p>
+<li><p>如果某个链接的class属性等于popup，就表示这链接在被点击时应该调用popUp()函数</p>
 </li>
 </ol>
-<h4 id="事件取消"><a href="#事件取消" class="headerlink" title="事件取消"></a>事件取消</h4><p>非标准浏览器方法：<code>div.dettachEvent(&#39;on&#39;+事件名称,事件处理函数);</code></p>
-<p>标准浏览器方法：<code>div.removeEventListener(事件名称，事件处理函数，捕获/冒泡)</code></p>
-<h4 id="事件流"><a href="#事件流" class="headerlink" title="事件流"></a>事件流</h4><p>事件流和样式位置没关系，和html的结构有关系</p>
-<p>事件冒泡：当一个元素接收到事件的时候，会把它接收到的所有事件传播给它的父级，一直到顶层(window)。父级元素只要有相关的事件处理函数，那么就会被执行。阻止冒泡设置事件函数：<code>event.cancelBubble = true;</code></p>
-<p>冒泡最主要的作用是父元素和子元素都需要的事件处理函数，只需要绑定给父元素就可以了，而如果希望只有子元素才执行的事件处理函数可以通过设置阻止冒泡来接解决。</p>
-<p>事件捕获：捕获和冒泡相反，是从最外层元素传播到目标元素。其他并没什么不同。</p>
-<p>控制事件是捕获还是冒泡是由addEventListener中的第三个参数决定的，false为冒泡事件监控是出去的由内向外的，true为捕获事件监控是进来的由外向内的。</p>
-<h4 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h4><p>cookie的作用就是存储数据。长时间去保存一个值，比如用户上次访问的时间等。</p>
-<p>当用户访问了某个网站时候，可以通过cookie向访问者的电脑上存储数据，每个浏览器存储的位置不同，所以不同浏览器存储的cookie不能互相通用。</p>
-<p>cookie的存储是以域名的形式区分的，也就是说每个网站的cookie文件是不同文件夹存放的，一个域名下的cookie也可能有多个文件。所以每个cookie文件是可以设置名字的。否则cookie文件会很大很乱。</p>
-<p><code>document.cookie = &#39;username=ypj&#39;;</code>这就设置了一个cookie文件的名字和值。</p>
-<p><code>document.cookie;</code>读取当前网站下的下所有的cookie的内容，是字符串格式。</p>
-<p>一个域名下存放cookie的个数是有限制的，不同浏览器存放的个数不同。</p>
-<p>每个cookie存放的内容大小也是有限制的，也是根据浏览器不同限制也不同。</p>
-<p>默认情况下，cookie的周期是整个浏览器结束进程的时候。</p>
-<p>如果想长时间存放一个cookie，需要在设置这个cookie的时候同时给他设置一个过期的时间。当过期后cookie就会被销毁。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> oDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">oDate.setDate(oDate.getDate() + <span class="number">5</span>);  <span class="comment">// 保存5天</span></div><div class="line"><span class="built_in">document</span>.cookie = <span class="string">'username=ypj;expires='</span> + oDate.toGMTString()  <span class="comment">// 将oDate又object转为string;</span></div></pre></td></tr></table></figure>
-<p>cookie在存储特殊字符的时候可能会出现问题，需要通过encodeURI()编码来解决。解码使用decodeURI()方法。参数都是字符。</p>
-<p>用js读取cookie时候只能获取整个字符串，没法直接获取某个cookie的键值，同样设置的时候也不方便，所以可以写两个方法来方便操作。</p>
-<p>获取cookie</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getCookie</span>(<span class="params">key</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> arr1 = <span class="built_in">document</span>.cookie.split(<span class="string">';'</span>);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; arr1.length;i++)&#123;</div><div class="line">        <span class="keyword">var</span> arr2 = arr1[i].split(<span class="string">'='</span>);</div><div class="line">        <span class="keyword">if</span>(arr2[<span class="number">0</span>] == key)&#123;</div><div class="line">            <span class="keyword">return</span> <span class="built_in">decodeURI</span>(arr[<span class="number">1</span>]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>设置cookie</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setCookie</span>(<span class="params">key,value,t</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> oDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">    oDate.setDate(oDate.getDate() + t);</div><div class="line">    <span class="built_in">document</span>.cookie = key + <span class="string">'='</span> + value + <span class="string">';expires='</span> + oDate.toGMTString();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>删除cookie</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeCookie</span>(<span class="params">key</span>)</span>&#123;</div><div class="line">    setCookie(key,<span class="string">''</span>,<span class="number">-1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(!<span class="built_in">document</span>.getElementsByTagName) <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    <span class="keyword">var</span> links = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'a'</span>);</div><div class="line">    <span class="keyword">if</span>(links.length &gt; <span class="number">0</span>)&#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; links.length;i++)&#123;</div><div class="line">            <span class="keyword">if</span>(links[i].getAttribute(<span class="string">'class'</span>) == <span class="string">'popup'</span>)&#123;</div><div class="line">                links[i].onlcick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                    popUp(<span class="keyword">this</span>.getAttribute(<span class="string">'href'</span>));</div><div class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>以上代码把调用popUp()函数添加到有关的链接上，存入一个外部javascript文件中。</p>
+<blockquote>
+<p>这里使用了window.onload事件，当onload事件触发时代表整个文档已经加载完毕，当然也包括DOM树，我要让HTML文档先加载这样才可以生成DOM树，起码要在DOM树生成后才可以加载javascript文件，否则获取不到文档中的各个元素，即使把javascript文件放到body的底部，也不能保证哪个先加载结束，浏览器可能一次加载多个文件，因为javascript加载时文档可能还没加载完成，所以DOM也没有加载完，很多功能会无法使用。</p>
+</blockquote>
+<h2 id="3、向后兼容性"><a href="#3、向后兼容性" class="headerlink" title="3、向后兼容性"></a>3、向后兼容性</h2><p>上面的代码中，针对访问者可能未启用javascript功能的情况，需要进行对象检测，在这里用if语句检测访问者的浏览器是否支持document.getElementsByTagName方法。如果不支持，就不会再继续执行，直接return false;这是一种很常见的向后兼容的方法，适用于很多地方。</p>
+<h2 id="4、性能考虑"><a href="#4、性能考虑" class="headerlink" title="4、性能考虑"></a>4、性能考虑</h2><p>在上面案例的for循环开始前检测是否获取到了a元素，没有的话后面的代码也没必要执行，这里将所有a元素存入link变量。出入对性能考虑，我们应该检查查询DOM中某些元素的操作，搜索整个DOM树对性能并没有好处，总之把搜索结果保存在一个全局变量里，或者把一组元素直接以参数形式传递给函数，是最好的方法。</p>
+<blockquote>
+<p>另外，js文件在HTML标签中的位置对页面初次加载时间也有很大影响，通常我习惯放在head中，但位于head中的脚本会导致浏览器无法并行加载其他文件。<br>根绝HTTP规范，浏览器每次从一个域名中最多可能同时下载两个文件，所以把script标签放到文档末尾，之前可以让页面加载更快</p>
+</blockquote>
 
       
     </div>
@@ -481,7 +465,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/javascript笔记/" rel="tag"># javascript笔记</a>
+            <a href="/tags/DOM编程艺术/" rel="tag"># DOM编程艺术</a>
           
         </div>
       
@@ -494,8 +478,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/03/DOM编程艺术-二、javascript图片库/" rel="next" title="DOM编程艺术--二、javascript图片库">
-                <i class="fa fa-chevron-left"></i> DOM编程艺术--二、javascript图片库
+              <a href="/2017/06/03/DOM编程艺术-四、图片库改进/" rel="next" title="DOM编程艺术--四、图片库改进">
+                <i class="fa fa-chevron-left"></i> DOM编程艺术--四、图片库改进
               </a>
             
           </div>
@@ -504,8 +488,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/06/01/hexo配置/" rel="prev" title="hexo配置">
-                hexo配置 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/06/03/DOM编程艺术-二、javascript图片库/" rel="prev" title="DOM编程艺术--二、javascript图片库">
+                DOM编程艺术--二、javascript图片库 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -651,7 +635,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#BOM操作的常用属性和方法"><span class="nav-number">1.</span> <span class="nav-text">BOM操作的常用属性和方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#窗口尺寸与大小"><span class="nav-number">1.0.1.</span> <span class="nav-text">窗口尺寸与大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件"><span class="nav-number">1.0.2.</span> <span class="nav-text">事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件绑定"><span class="nav-number">1.0.3.</span> <span class="nav-text">事件绑定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件取消"><span class="nav-number">1.0.4.</span> <span class="nav-text">事件取消</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件流"><span class="nav-number">1.0.5.</span> <span class="nav-text">事件流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cookie"><span class="nav-number">1.0.6.</span> <span class="nav-text">cookie</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、平稳退化和渐进增强"><span class="nav-number">1.</span> <span class="nav-text">1、平稳退化和渐进增强</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是平稳退化"><span class="nav-number">1.1.</span> <span class="nav-text">什么是平稳退化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#举个例子"><span class="nav-number">1.2.</span> <span class="nav-text">举个例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#渐进增强"><span class="nav-number">1.3.</span> <span class="nav-text">渐进增强</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、分离javascript"><span class="nav-number">2.</span> <span class="nav-text">2、分离javascript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、向后兼容性"><span class="nav-number">3.</span> <span class="nav-text">3、向后兼容性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、性能考虑"><span class="nav-number">4.</span> <span class="nav-text">4、性能考虑</span></a></li></ol></div>
             
 
           </div>
