@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="DOM编程艺术," />
+  <meta name="keywords" content="css笔记," />
 
 
 
@@ -93,17 +93,20 @@
 
 
 
-<meta name="description" content="1、平稳退化和渐进增强什么是平稳退化不管你想通过javascript个改变哪个网页的行为，都必须三思而后行，首先要确认，为这个网页增加这种额外的行为是否有必要。 在所有的javascript特效当中，最臭名昭著的莫过于那些在人们打开网页时弹出的广告窗口，不幸的是有不少用户为此干脆彻底禁用了javascript，这是一个典型的滥用javascript的例子，从技术上讲弹窗解决了如何向用户发送信息，但">
-<meta name="keywords" content="DOM编程艺术">
+<meta name="description" content="png图片的兼容性png的图片在ie6下默认不是透明的，所以需要处理一下。  使用DD_belatedPNG插件，需要在script中调用，DD_belatedPNG.fix(&amp;quot;selector1,selector2&amp;quot;)，缺点是不支持body元素。  第二种方法是使用ie6的滤镜属性，这个属性body也可以使用。_background-image:none;_filter:pr">
+<meta name="keywords" content="css笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DOM编程艺术--三、最佳实践">
-<meta property="og:url" content="http://yoursite.com/2017/06/03/DOM编程艺术-三、最佳实践/index.html">
+<meta property="og:title" content="css的ie6兼容问题">
+<meta property="og:url" content="http://yoursite.com/2017/06/13/css的ie6兼容问题/index.html">
 <meta property="og:site_name" content="Gary23">
-<meta property="og:description" content="1、平稳退化和渐进增强什么是平稳退化不管你想通过javascript个改变哪个网页的行为，都必须三思而后行，首先要确认，为这个网页增加这种额外的行为是否有必要。 在所有的javascript特效当中，最臭名昭著的莫过于那些在人们打开网页时弹出的广告窗口，不幸的是有不少用户为此干脆彻底禁用了javascript，这是一个典型的滥用javascript的例子，从技术上讲弹窗解决了如何向用户发送信息，但">
-<meta property="og:updated_time" content="2017-06-03T02:15:57.308Z">
+<meta property="og:description" content="png图片的兼容性png的图片在ie6下默认不是透明的，所以需要处理一下。  使用DD_belatedPNG插件，需要在script中调用，DD_belatedPNG.fix(&amp;quot;selector1,selector2&amp;quot;)，缺点是不支持body元素。  第二种方法是使用ie6的滤镜属性，这个属性body也可以使用。_background-image:none;_filter:pr">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/A1F6F814A5844395851A551F26412AD3?method=download&shareKey=4ced2b2821823cb5936bf5b8724aee9b">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/3033772F09A249C5AB338CCCCE0D2DFA?method=download&shareKey=4ced2b2821823cb5936bf5b8724aee9b">
+<meta property="og:updated_time" content="2017-06-13T05:47:02.422Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DOM编程艺术--三、最佳实践">
-<meta name="twitter:description" content="1、平稳退化和渐进增强什么是平稳退化不管你想通过javascript个改变哪个网页的行为，都必须三思而后行，首先要确认，为这个网页增加这种额外的行为是否有必要。 在所有的javascript特效当中，最臭名昭著的莫过于那些在人们打开网页时弹出的广告窗口，不幸的是有不少用户为此干脆彻底禁用了javascript，这是一个典型的滥用javascript的例子，从技术上讲弹窗解决了如何向用户发送信息，但">
+<meta name="twitter:title" content="css的ie6兼容问题">
+<meta name="twitter:description" content="png图片的兼容性png的图片在ie6下默认不是透明的，所以需要处理一下。  使用DD_belatedPNG插件，需要在script中调用，DD_belatedPNG.fix(&amp;quot;selector1,selector2&amp;quot;)，缺点是不支持body元素。  第二种方法是使用ie6的滤镜属性，这个属性body也可以使用。_background-image:none;_filter:pr">
+<meta name="twitter:image" content="http://note.youdao.com/yws/api/personal/file/A1F6F814A5844395851A551F26412AD3?method=download&shareKey=4ced2b2821823cb5936bf5b8724aee9b">
 
 
 
@@ -131,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/06/03/DOM编程艺术-三、最佳实践/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/13/css的ie6兼容问题/"/>
 
 
 
 
 
-  <title> DOM编程艺术--三、最佳实践 | Gary23 </title>
+  <title> css的ie6兼容问题 | Gary23 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -310,7 +313,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/03/DOM编程艺术-三、最佳实践/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/13/css的ie6兼容问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="PJ Yu">
@@ -331,7 +334,7 @@
             
             
               
-                DOM编程艺术--三、最佳实践
+                css的ie6兼容问题
               
             
           </h1>
@@ -346,8 +349,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-03T10:10:16+08:00">
-                2017-06-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-13T13:45:13+08:00">
+                2017-06-13
               </time>
             
 
@@ -382,60 +385,53 @@
       
 
       
-        <h2 id="1、平稳退化和渐进增强"><a href="#1、平稳退化和渐进增强" class="headerlink" title="1、平稳退化和渐进增强"></a>1、平稳退化和渐进增强</h2><h3 id="什么是平稳退化"><a href="#什么是平稳退化" class="headerlink" title="什么是平稳退化"></a>什么是平稳退化</h3><p>不管你想通过javascript个改变哪个网页的行为，都必须三思而后行，首先要确认，为这个网页增加这种额外的行为是否有必要。</p>
-<p>在所有的javascript特效当中，最臭名昭著的莫过于那些在人们打开网页时弹出的广告窗口，不幸的是有不少用户为此干脆彻底禁用了javascript，这是一个典型的滥用javascript的例子，从技术上讲弹窗解决了如何向用户发送信息，但在实践中，频繁弹出的广告窗口却让用户不胜其烦，令人欣慰的是这一问题已经收到了所有人的关注，那些不遵守用户至上原则的网站都在自取灭亡。</p>
-<p>所以如果要使用javascript就要确认，这么做会对浏览体验产生怎样的影响，最重要的是，如果用户的浏览器不支持或禁用了javascript的情况下仍能顺利浏览你的网址，这就是平稳退化。虽然某些功能无法使用，但最基本的操作仍能顺利完成。</p>
-<h3 id="举个例子"><a href="#举个例子" class="headerlink" title="举个例子"></a>举个例子</h3><p>以弹出窗口的例子来说明平稳退化的思想。这里并不是指在加载网页时弹出，而是点击后弹出，例如服务条款，邮费列表等等。</p>
-<p>javascript使用window.open(url,name,features)来创建新的浏览器窗口。</p>
-<ul>
-<li><p>参数1：新窗口里页面的url地址，省略这个参数就是一个空白网页。</p>
-</li>
-<li><p>参数2：新窗口的名字，代码可以通过这个名字与新窗口交互。</p>
-</li>
-<li><p>参数3：以逗号分隔的字符串，包括新窗口尺寸(工具条、菜单条、初始显示位置等等)。</p>
-</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">popUp</span>(<span class="params">winURL</span>)</span>&#123;</div><div class="line">    <span class="built_in">window</span>.open(winURL,<span class="string">"popup"</span>,<span class="string">"width=320,height=480"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这个函数将打开一个320x480像素的新窗口”popup”。</p>
-<p>使用popUp函数的一个办法是使用伪协议。</p>
-<blockquote>
-<p>真协议用来在因特网上的计算机之间传输数据包，比如HTTP、FTP协议等，协议则是一种非标准化的协议。</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span> = <span class="string">"javascript:popUp('http://www.example.com/');return false;"</span>&gt;</span>Example<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>通过”javascript:”为协议调用popUp()函数。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span> = <span class="string">"#"</span> <span class="attr">onclick</span> = <span class="string">"popUp('http://www.example.com/');return false;"</span>&gt;</span>Example<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>这是内嵌式的事件处理函数，这个链接的href没什么用，所以用”#”，表示一个空连接，实际工作由onclick完成。</p>
-<p>但是以上两种方法都很糟糕，因为它们都不能平稳退化。有以下两点原因。</p>
+        <h2 id="png图片的兼容性"><a href="#png图片的兼容性" class="headerlink" title="png图片的兼容性"></a>png图片的兼容性</h2><p>png的图片在ie6下默认不是透明的，所以需要处理一下。</p>
 <ol>
-<li><p>用户如果禁用了javascript功能，这样的链接将毫无作用。</p>
+<li><p>使用DD_belatedPNG插件，需要在script中调用，<code>DD_belatedPNG.fix(&quot;selector1,selector2&quot;)</code>，缺点是不支持body元素。</p>
 </li>
-<li><p>第二点是不利于搜索引擎排名，搜索机器人浏览web页的目的是把各种网页添加到搜索引擎的数据库，很少有机器人能理解javascript代码。</p>
+<li><p>第二种方法是使用ie6的滤镜属性，这个属性body也可以使用。<code>_background-image:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=&quot;XX.png&quot;,sizingMethod=&quot;crop&quot;);</code>，因为只需要ie6支持所以用了hack。</p>
 </li>
 </ol>
-<p>其实为javascript代码预留退路很简单，给href设置真实的URL地址。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span> = <span class="string">"http://www.example.com/"</span> <span class="attr">onclick</span> = <span class="string">"popUp('http://www.example.com/');return false;"</span>&gt;</span>Example<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>这样即使javascript被禁用，这个链接也不是失效的，只是功能上打了点折扣，这是一个经典的平稳退化的例子。</p>
-<h3 id="渐进增强"><a href="#渐进增强" class="headerlink" title="渐进增强"></a>渐进增强</h3><p>所谓”渐进增强”就是用一些额外的信息层去包裹原始数据，按照”渐进增强”原则创建出来的网页几乎都符合”平稳退化”原则，在一个网页中，良好的内容就是一切，只有正确的使用标记语言才能对内容做出准确的描述，CSS指令构成了一个表示层使文档呈现出各种模式，但即使去掉这个表示层，文档的内容也依然可以访问。</p>
-<h2 id="2、分离javascript"><a href="#2、分离javascript" class="headerlink" title="2、分离javascript"></a>2、分离javascript</h2><p>就像css那样把style写到html文档中，虽然可以用，但是这种做法弊大于利，最好的方法是把样式信息存入一个外部文件。在文档的head部分用<code>&lt;link&gt;</code>标签调用这个文件，这样更容易阅读和理解，样式信息也更容易更改，不用去文档里逐一搜索和替换，这个结论同样适用于javascript。</p>
-<p>现在我要把上面弹窗例子中的onclick事件分离出来。具体步骤如下：</p>
+<h2 id="float在ie6的兼容问题"><a href="#float在ie6的兼容问题" class="headerlink" title="float在ie6的兼容问题"></a>float在ie6的兼容问题</h2><p>有如下结构</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></div><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">400px</span>;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#000000</span>;</div><div class="line">    <span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.left</span> &#123;</div><div class="line">    <span class="attribute">float</span>: left;</div><div class="line">    <span class="attribute">background-color</span>: red;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.right</span> &#123;</div><div class="line">    <span class="attribute">float</span>: right;</div><div class="line">    <span class="attribute">background-color</span>: blue;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">h2</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">30px</span>;</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>左边<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>右边<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>将.left和.right分别左右浮动并设置颜色、h2元素设置高度应该是如下效果。</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/A1F6F814A5844395851A551F26412AD3?method=download&amp;shareKey=4ced2b2821823cb5936bf5b8724aee9b" alt="image"></p>
+<p>但在ie6下会显示成这样，</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/3033772F09A249C5AB338CCCCE0D2DFA?method=download&amp;shareKey=4ced2b2821823cb5936bf5b8724aee9b" alt="image"></p>
+<p>ie6下在浮动的元素下的元素h2设置高度，会独占整行，因为h2是块级元素，但我希望的是浮动元素被内容撑开。这时只要设置样式<code>h2{float:left}</code>就可以解决这个问题。</p>
+<p>另外假设父元素的宽度够长，如果子元素中第一个元素浮动并且宽度为200px，那么第二个元素即是设置了margin-left:200px;那么会有也间隙，所以既然要并排显示那么就都设置浮动，不要一个浮一个不浮。</p>
+<h2 id="ie6浏览器子元素超出宽度问题"><a href="#ie6浏览器子元素超出宽度问题" class="headerlink" title="ie6浏览器子元素超出宽度问题"></a>ie6浏览器子元素超出宽度问题</h2><p>在标准浏览器子元素比父元素宽高大时，会超出父元素，但不会改变父元素大小，但是在ie6下回直接撑大父元素，会导致整个布局乱掉，所以ie6下布局一定要注意子元素的尺寸问题。</p>
+<h2 id="块级元素嵌套规则"><a href="#块级元素嵌套规则" class="headerlink" title="块级元素嵌套规则"></a>块级元素嵌套规则</h2><p>p标签、h标签、td标签是不能嵌套块级元素的，如果在ie6下嵌套了还会莫名多生成一个块级元素占用空间，布局也会乱掉。</p>
+<h2 id="margin的兼容性问题"><a href="#margin的兼容性问题" class="headerlink" title="margin的兼容性问题"></a>margin的兼容性问题</h2><h3 id="margin-top的传递问题"><a href="#margin-top的传递问题" class="headerlink" title="margin-top的传递问题"></a>margin-top的传递问题</h3><p>在子元素中设置margin-top那么父元素也会掉下来。</p>
 <ol>
-<li><p>把文档里的所有链接全放入一个数组里。</p>
-</li>
-<li><p>遍历数组。</p>
-</li>
-<li><p>如果某个链接的class属性等于popup，就表示这链接在被点击时应该调用popUp()函数</p>
-</li>
+<li>给父元素设置边框。</li>
+<li>给父元素设置overflow:hidden。(标准浏览器、ie7及以上浏览器)</li>
+<li>给父元素设置zoom:1;(ie7及以下浏览器)</li>
+<li>在ie7及以下浏览器设置父盒子的宽和高也可以解决。</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(!<span class="built_in">document</span>.getElementsByTagName) <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    <span class="keyword">var</span> links = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'a'</span>);</div><div class="line">    <span class="keyword">if</span>(links.length &gt; <span class="number">0</span>)&#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; links.length;i++)&#123;</div><div class="line">            <span class="keyword">if</span>(links[i].getAttribute(<span class="string">'class'</span>) == <span class="string">'popup'</span>)&#123;</div><div class="line">                links[i].onlcick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                    popUp(<span class="keyword">this</span>.getAttribute(<span class="string">'href'</span>));</div><div class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>以上代码把调用popUp()函数添加到有关的链接上，存入一个外部javascript文件中。</p>
-<blockquote>
-<p>这里使用了window.onload事件，当onload事件触发时代表整个文档已经加载完毕，当然也包括DOM树，我要让HTML文档先加载这样才可以生成DOM树，起码要在DOM树生成后才可以加载javascript文件，否则获取不到文档中的各个元素，即使把javascript文件放到body的底部，也不能保证哪个先加载结束，浏览器可能一次加载多个文件，因为javascript加载时文档可能还没加载完成，所以DOM也没有加载完，很多功能会无法使用。</p>
-</blockquote>
-<h2 id="3、向后兼容性"><a href="#3、向后兼容性" class="headerlink" title="3、向后兼容性"></a>3、向后兼容性</h2><p>上面的代码中，针对访问者可能未启用javascript功能的情况，需要进行对象检测，在这里用if语句检测访问者的浏览器是否支持document.getElementsByTagName方法。如果不支持，就不会再继续执行，直接return false;这是一种很常见的向后兼容的方法，适用于很多地方。</p>
-<h2 id="4、性能考虑"><a href="#4、性能考虑" class="headerlink" title="4、性能考虑"></a>4、性能考虑</h2><p>在上面案例的for循环开始前检测是否获取到了a元素，没有的话后面的代码也没必要执行，这里将所有a元素存入link变量。出入对性能考虑，我们应该检查查询DOM中某些元素的操作，搜索整个DOM树对性能并没有好处，总之把搜索结果保存在一个全局变量里，或者把一组元素直接以参数形式传递给函数，是最好的方法。</p>
-<blockquote>
-<p>另外，js文件在HTML标签中的位置对页面初次加载时间也有很大影响，通常我习惯放在head中，但位于head中的脚本会导致浏览器无法并行加载其他文件。<br>根绝HTTP规范，浏览器每次从一个域名中最多可能同时下载两个文件，所以把script标签放到文档末尾，之前可以让页面加载更快</p>
-</blockquote>
+<h3 id="上下margin的叠压问题"><a href="#上下margin的叠压问题" class="headerlink" title="上下margin的叠压问题"></a>上下margin的叠压问题</h3><p>同级元素如果有上下margin的设置，那么上下两个元素会导致上面元素的下margin和下面元素的上margin重叠。</p>
+<p>解决方法是不要设置margin,而是设置某一个方向的margin，比如margin-top、margin-bottom。</p>
+<h2 id="inline-block的兼容性问题"><a href="#inline-block的兼容性问题" class="headerlink" title="inline-block的兼容性问题"></a>inline-block的兼容性问题</h2><p>ie7及以下浏览器不识别display:inline-block属性。所以在ie7及以下浏览器要用行内块需要设置<code>*display:inline;*zoom:1;</code>。*号是只让ie7、ie6识别。</p>
+<h2 id="ie6的最小高度问题"><a href="#ie6的最小高度问题" class="headerlink" title="ie6的最小高度问题"></a>ie6的最小高度问题</h2><p>在ie6浏览器下最小高度是19px；如果要设置小于19px的元素，那么首先要设置具体高度，然后要加<code>*overflow:hidden</code>属性。剪裁掉多出的部分。</p>
+<h2 id="ie6双边距的问题"><a href="#ie6双边距的问题" class="headerlink" title="ie6双边距的问题"></a>ie6双边距的问题</h2><p>当元素浮动后，再设置margin-left那么就会产生双倍边距。解决办法是给浮动元素设置<code>*display:inline</code>。</p>
+<h2 id="ie6浏览器li的间隙"><a href="#ie6浏览器li的间隙" class="headerlink" title="ie6浏览器li的间隙"></a>ie6浏览器li的间隙</h2><p>ie6浏览器下li元素内部的子元素如果浮动，li之间就会产生4px的间隙。解决方法是给li元素增加<code>*vertical-align:top;</code>属性。</p>
+<h2 id="ie6文字溢出的bug"><a href="#ie6文字溢出的bug" class="headerlink" title="ie6文字溢出的bug"></a>ie6文字溢出的bug</h2><p>ie6下两个浮动元素中间有注释或者内联元素，并且两个浮动元素宽度相加和父级宽度相差在6px以内，就会导致浮动元素内的文字溢出一个重复的，并且每多一个内联元素或者注释就会多出一个重复文字。</p>
+<ol>
+<li>让两个浮动元素之间没有内联元素和注释。</li>
+<li>如果只有一个浮动元素设置了宽度另一个没有宽，那么比父盒子的宽小3px即可。</li>
+<li>如果两个浮动元素都设置了宽，那么两个元素加起来要比父盒子的宽小6px。</li>
+</ol>
+<h2 id="ie6相对定位于overflow-hidden的问题"><a href="#ie6相对定位于overflow-hidden的问题" class="headerlink" title="ie6相对定位于overflow:hidden的问题"></a>ie6相对定位于overflow:hidden的问题</h2><p>ie6下当子元素比父元素大时，并且子元素设置了相对定位，那么父盒子即使使用overflow:hidden也无法剪裁子元素。</p>
+<p>只有将父盒子也设置为相对定位才可以剪裁。</p>
+<h2 id="ie6绝对定位奇数问题"><a href="#ie6绝对定位奇数问题" class="headerlink" title="ie6绝对定位奇数问题"></a>ie6绝对定位奇数问题</h2><p>当父元素设置相对或者绝对定位并且宽高为奇数，那么在ie6中子元素设置绝对定位即使left/right和top/bottom设置为0，也会有1px的距离。</p>
+<p>所以ie6下要使用定位父盒子必须是偶数。</p>
+<h2 id="ie6浮动元素和绝对定位的问题"><a href="#ie6浮动元素和绝对定位的问题" class="headerlink" title="ie6浮动元素和绝对定位的问题"></a>ie6浮动元素和绝对定位的问题</h2><p>父元素设置相对定位，如果子元素设置浮动撑满整个父元素的空间，那么此时再有一个同级子元素设置绝对定位则这个元素会消失。</p>
+<ol>
+<li>造成这个原因的是同级的问题，那么再绝对定位元素外面套一层元素就可解决。</li>
+<li>也可以让浮动的子元素宽加起来比父元素少6px，那么绝对定位的元素也可以显示出来。</li>
+</ol>
+<h2 id="ie6下input间隙问题"><a href="#ie6下input间隙问题" class="headerlink" title="ie6下input间隙问题"></a>ie6下input间隙问题</h2><p>input作为子元素时，父盒子不设高度，那么input设置高度后撑开父盒子会造成上下分别1px的间隙，漏出父盒子。</p>
+<p>解决方法是设置input左浮动</p>
 
       
     </div>
@@ -465,7 +461,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/DOM编程艺术/" rel="tag"># DOM编程艺术</a>
+            <a href="/tags/css笔记/" rel="tag"># css笔记</a>
           
         </div>
       
@@ -478,8 +474,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/03/DOM编程艺术-四、图片库改进/" rel="next" title="DOM编程艺术--四、图片库改进">
-                <i class="fa fa-chevron-left"></i> DOM编程艺术--四、图片库改进
+              <a href="/2017/06/13/锋利的jq-一、认识jq/" rel="next" title="锋利的jq(一、认识jq)">
+                <i class="fa fa-chevron-left"></i> 锋利的jq(一、认识jq)
               </a>
             
           </div>
@@ -488,8 +484,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/06/03/DOM编程艺术-二、javascript图片库/" rel="prev" title="DOM编程艺术--二、javascript图片库">
-                DOM编程艺术--二、javascript图片库 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/06/05/正则表达式/" rel="prev" title="正则表达式">
+                正则表达式 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -635,7 +631,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、平稳退化和渐进增强"><span class="nav-number">1.</span> <span class="nav-text">1、平稳退化和渐进增强</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是平稳退化"><span class="nav-number">1.1.</span> <span class="nav-text">什么是平稳退化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#举个例子"><span class="nav-number">1.2.</span> <span class="nav-text">举个例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#渐进增强"><span class="nav-number">1.3.</span> <span class="nav-text">渐进增强</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、分离javascript"><span class="nav-number">2.</span> <span class="nav-text">2、分离javascript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、向后兼容性"><span class="nav-number">3.</span> <span class="nav-text">3、向后兼容性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、性能考虑"><span class="nav-number">4.</span> <span class="nav-text">4、性能考虑</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#png图片的兼容性"><span class="nav-number">1.</span> <span class="nav-text">png图片的兼容性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#float在ie6的兼容问题"><span class="nav-number">2.</span> <span class="nav-text">float在ie6的兼容问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ie6浏览器子元素超出宽度问题"><span class="nav-number">3.</span> <span class="nav-text">ie6浏览器子元素超出宽度问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#块级元素嵌套规则"><span class="nav-number">4.</span> <span class="nav-text">块级元素嵌套规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#margin的兼容性问题"><span class="nav-number">5.</span> <span class="nav-text">margin的兼容性问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#margin-top的传递问题"><span class="nav-number">5.1.</span> <span class="nav-text">margin-top的传递问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上下margin的叠压问题"><span class="nav-number">5.2.</span> <span class="nav-text">上下margin的叠压问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#inline-block的兼容性问题"><span class="nav-number">6.</span> <span class="nav-text">inline-block的兼容性问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ie6的最小高度问题"><span class="nav-number">7.</span> <span class="nav-text">ie6的最小高度问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ie6双边距的问题"><span class="nav-number">8.</span> <span class="nav-text">ie6双边距的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ie6浏览器li的间隙"><span class="nav-number">9.</span> <span class="nav-text">ie6浏览器li的间隙</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ie6文字溢出的bug"><span class="nav-number">10.</span> <span class="nav-text">ie6文字溢出的bug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ie6相对定位于overflow-hidden的问题"><span class="nav-number">11.</span> <span class="nav-text">ie6相对定位于overflow:hidden的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ie6绝对定位奇数问题"><span class="nav-number">12.</span> <span class="nav-text">ie6绝对定位奇数问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ie6浮动元素和绝对定位的问题"><span class="nav-number">13.</span> <span class="nav-text">ie6浮动元素和绝对定位的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ie6下input间隙问题"><span class="nav-number">14.</span> <span class="nav-text">ie6下input间隙问题</span></a></li></ol></div>
             
 
           </div>
