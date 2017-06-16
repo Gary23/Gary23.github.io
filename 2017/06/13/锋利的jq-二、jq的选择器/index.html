@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="基本选择器   选择器 描述 返回 示例     #id 根据给定的id匹配一个元素 单个元素 $(&amp;#39;#test&amp;#39;)选取id为test的元素    .class 根据给定的类名匹配元素 集合元素 $(&amp;#39;.test&amp;#39;)选取所有class为test的元素    element 根据给定的元素名匹配元素 集合元素 $(&amp;#39;p&amp;#39;)选取所有&amp;lt;p&amp;gt;元素">
+<meta name="description" content="基本选择器   选择器 描述 返回 示例     #id 根据给定的id匹配一个元素 单个元素 $(&amp;#39;#test&amp;#39;)选取id为test的元素   .class 根据给定的类名匹配元素 集合元素 $(&amp;#39;.test&amp;#39;)选取所有class为test的元素   element 根据给定的元素名匹配元素 集合元素 $(&amp;#39;p&amp;#39;)选取所有&amp;lt;p&amp;gt;元素">
 <meta name="keywords" content="锋利的jQuery">
 <meta property="og:type" content="article">
 <meta property="og:title" content="锋利的jq(二、jq的选择器)">
 <meta property="og:url" content="http://yoursite.com/2017/06/13/锋利的jq-二、jq的选择器/index.html">
 <meta property="og:site_name" content="Gary23">
-<meta property="og:description" content="基本选择器   选择器 描述 返回 示例     #id 根据给定的id匹配一个元素 单个元素 $(&amp;#39;#test&amp;#39;)选取id为test的元素    .class 根据给定的类名匹配元素 集合元素 $(&amp;#39;.test&amp;#39;)选取所有class为test的元素    element 根据给定的元素名匹配元素 集合元素 $(&amp;#39;p&amp;#39;)选取所有&amp;lt;p&amp;gt;元素">
-<meta property="og:updated_time" content="2017-06-13T06:16:49.604Z">
+<meta property="og:description" content="基本选择器   选择器 描述 返回 示例     #id 根据给定的id匹配一个元素 单个元素 $(&amp;#39;#test&amp;#39;)选取id为test的元素   .class 根据给定的类名匹配元素 集合元素 $(&amp;#39;.test&amp;#39;)选取所有class为test的元素   element 根据给定的元素名匹配元素 集合元素 $(&amp;#39;p&amp;#39;)选取所有&amp;lt;p&amp;gt;元素">
+<meta property="og:updated_time" content="2017-06-13T08:24:38.809Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="锋利的jq(二、jq的选择器)">
-<meta name="twitter:description" content="基本选择器   选择器 描述 返回 示例     #id 根据给定的id匹配一个元素 单个元素 $(&amp;#39;#test&amp;#39;)选取id为test的元素    .class 根据给定的类名匹配元素 集合元素 $(&amp;#39;.test&amp;#39;)选取所有class为test的元素    element 根据给定的元素名匹配元素 集合元素 $(&amp;#39;p&amp;#39;)选取所有&amp;lt;p&amp;gt;元素">
+<meta name="twitter:description" content="基本选择器   选择器 描述 返回 示例     #id 根据给定的id匹配一个元素 单个元素 $(&amp;#39;#test&amp;#39;)选取id为test的元素   .class 根据给定的类名匹配元素 集合元素 $(&amp;#39;.test&amp;#39;)选取所有class为test的元素   element 根据给定的元素名匹配元素 集合元素 $(&amp;#39;p&amp;#39;)选取所有&amp;lt;p&amp;gt;元素">
 
 
 
@@ -397,35 +397,30 @@
 <td>根据给定的id匹配一个元素</td>
 <td>单个元素</td>
 <td><code>$(&#39;#test&#39;)</code>选取id为test的元素</td>
-<td></td>
 </tr>
 <tr>
 <td>.class</td>
 <td>根据给定的类名匹配元素</td>
 <td>集合元素</td>
 <td><code>$(&#39;.test&#39;)</code>选取所有class为test的元素</td>
-<td></td>
 </tr>
 <tr>
 <td>element</td>
 <td>根据给定的元素名匹配元素</td>
 <td>集合元素</td>
 <td><code>$(&#39;p&#39;)</code>选取所有<code>&lt;p&gt;</code>元素</td>
-<td></td>
 </tr>
 <tr>
 <td>*</td>
 <td>匹配所有元素</td>
 <td>集合元素</td>
 <td><code>$(&#39;*&#39;)</code>选取所有元素</td>
-<td></td>
 </tr>
 <tr>
 <td>selector1,selector2…</td>
 <td>将每个选择器匹配到的元素合并后一起返回</td>
 <td>集合元素</td>
 <td><code>$(&#39;div,span,p.myClass&#39;)</code>选取所有<code>&lt;div&gt;``&lt;span&gt;</code>和拥有class为myClass的<code>&lt;p&gt;</code>标签的一组元素</td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -652,7 +647,7 @@
 <td><code>$(&#39;div[title*=test]&#39;)</code> 选取属性title含有’test’的<code>&lt;div&gt;</code>元素</td>
 </tr>
 <tr>
-<td>[attribute\</td>
+<td>[attribute</td>
 <td>=value]</td>
 <td>选取属性等于给定字符串或以该字符串为前缀(该字符串后跟一个连字符’-‘的元素)</td>
 <td>集合元素</td>
