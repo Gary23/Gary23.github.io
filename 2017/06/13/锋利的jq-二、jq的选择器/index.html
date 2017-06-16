@@ -100,7 +100,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/06/13/锋利的jq-二、jq的选择器/index.html">
 <meta property="og:site_name" content="Gary23">
 <meta property="og:description" content="基本选择器   选择器 描述 返回 示例     #id 根据给定的id匹配一个元素 单个元素 $(&amp;#39;#test&amp;#39;)选取id为test的元素   .class 根据给定的类名匹配元素 集合元素 $(&amp;#39;.test&amp;#39;)选取所有class为test的元素   element 根据给定的元素名匹配元素 集合元素 $(&amp;#39;p&amp;#39;)选取所有&amp;lt;p&amp;gt;元素">
-<meta property="og:updated_time" content="2017-06-16T06:55:38.489Z">
+<meta property="og:updated_time" content="2017-06-16T06:57:50.830Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="锋利的jq(二、jq的选择器)">
 <meta name="twitter:description" content="基本选择器   选择器 描述 返回 示例     #id 根据给定的id匹配一个元素 单个元素 $(&amp;#39;#test&amp;#39;)选取id为test的元素   .class 根据给定的类名匹配元素 集合元素 $(&amp;#39;.test&amp;#39;)选取所有class为test的元素   element 根据给定的元素名匹配元素 集合元素 $(&amp;#39;p&amp;#39;)选取所有&amp;lt;p&amp;gt;元素">
@@ -647,11 +647,12 @@
 <td><code>$(&#39;div[title*=test]&#39;)</code> 选取属性title含有’test’的<code>&lt;div&gt;</code>元素</td>
 </tr>
 <tr>
-<td>[attribute<span>&#166;</span>=value]</td>
+<td>[attribute<span></span></td>
+<td>=value]</td>
 <td>选取属性等于给定字符串或以该字符串为前缀(该字符串后跟一个连字符’-‘的元素)</td>
 <td>集合元素</td>
-<td>`$(div[title</td>
-<td>=’en’])<code>选取title属性等于en或以en为前缀的</code><div>`元素</div></td>
+<td>$(div[title<span></span></td>
+<td>=’en’])选取title属性等于en或以en为前缀的<code>&lt;div&gt;</code>元素</td>
 </tr>
 <tr>
 <td><code>[attribute~=value]</code></td>
