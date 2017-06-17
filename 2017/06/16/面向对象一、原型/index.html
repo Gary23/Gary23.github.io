@@ -103,7 +103,7 @@
 <meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/BE0482F1FA984AF1A48C499D0D39BC0F?method=download&shareKey=4ced2b2821823cb5936bf5b8724aee9b">
 <meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/6C371B1330494C0BBC06CF3366B5EFBC?method=download&shareKey=4ced2b2821823cb5936bf5b8724aee9b">
 <meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/0A1EAAEC62D244F6BD9B5B18A45CA697?method=download&shareKey=4ced2b2821823cb5936bf5b8724aee9b">
-<meta property="og:updated_time" content="2017-06-17T02:27:42.474Z">
+<meta property="og:updated_time" content="2017-06-17T02:29:10.174Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面向对象一、原型">
 <meta name="twitter:description" content="面向对象的概念面向对象是一种编程思想，核心是解决任何问题的时候首先试图去找到一个对象来帮助解决问题 在编程中，面向对象是调度者，从根本上是将面向过程封装，所以面向过程不可弃之不用。面向过程是执行者，执行顺序一般情况不能打乱。 面向对象的优点：  代码的灵活度高，代码执行顺序可以打乱。面向过程的代码不能打乱。  可维护性高，出现bug只需要在对象上去调试。  扩展性高，扩展时只需要维护局部模块。">
@@ -443,7 +443,7 @@
 <p>这两者只是称谓不同，实际上都是同一个原型。</p>
 <h4 id="proto的兼容性处理："><a href="#proto的兼容性处理：" class="headerlink" title="proto的兼容性处理："></a><strong>proto</strong>的兼容性处理：</h4><p>两个下划线的属性是有兼容性的，这不是W3C的标准属性，只是浏览器给提供的便利的东西。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">getPrototype</span>(<span class="params">obj</span>) </span>&#123;</div><div class="line">    <span class="comment">// 判断浏览器是否兼容__proto__</span></div><div class="line">    <span class="keyword">if</span> (obj.__proto__) &#123; <span class="comment">// 如果支持</span></div><div class="line">        <span class="keyword">return</span> obj.__proto__;</div><div class="line">    &#125; <span class="keyword">else</span> &#123; <span class="comment">// 如果不支持</span></div><div class="line">        <span class="comment">// 获取该对象的构造函数</span></div><div class="line">        <span class="comment">// 在通过此函数的prototype属性获取其原型对象</span></div><div class="line">        <span class="keyword">return</span> obj.constructor.prototype;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 三元表达式写法</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getPrototype</span>(<span class="params">obj</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> !!obj.__proto__ ? obj.__proto__ : obj.constructor.prototype;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>1</p>
+<p>主要就是要考虑哪些属性应该保留在构造函数内部，哪些属性提取出来放在原型上。</p>
 <h2 id="标准构造函数写法"><a href="#标准构造函数写法" class="headerlink" title="标准构造函数写法"></a>标准构造函数写法</h2><p>主要就是要考虑哪些属性应该保留在构造函数内部，哪些属性提取出来放在原型上。</p>
 <p>和对象息息相关的属性，这些属性都要写在构造函数内部。像姓名、年龄这些属性，是随着对象不同而改变的，所以没法放在原型上，而是要放到构造函数内部。</p>
 <p>而那些为了共享的属性并且是每个对象都具有的属性，值也不会随对象变化而变化是确定的值。可以写在原型上。比如每个人都生活在地球上。</p>
