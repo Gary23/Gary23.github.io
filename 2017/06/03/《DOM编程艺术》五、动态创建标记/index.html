@@ -1,0 +1,973 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="DOM编程艺术," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="这一章节主要通过一些DOM方法，通过创建新元素和修改现有元素来改变网页结构，用DOM的方法改变标记。 1、创建元素节点和文本节点DOM是文档的表示，DOM所包含的信息与文档里的信息一一对应，你只要学会问正确的问题，就可以从获取DOM节点上任何一个节点的细节。 DOM是一条双向车道，不仅可以获取文档的内容，还可以更新文档的内容，如果改变了DOM节点树，文档在浏览器里的呈现就会发生变化，所以与其说是创">
+<meta name="keywords" content="DOM编程艺术">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《DOM编程艺术》五、动态创建标记">
+<meta property="og:url" content="http://yoursite.com/2017/06/03/《DOM编程艺术》五、动态创建标记/index.html">
+<meta property="og:site_name" content="Gary23">
+<meta property="og:description" content="这一章节主要通过一些DOM方法，通过创建新元素和修改现有元素来改变网页结构，用DOM的方法改变标记。 1、创建元素节点和文本节点DOM是文档的表示，DOM所包含的信息与文档里的信息一一对应，你只要学会问正确的问题，就可以从获取DOM节点上任何一个节点的细节。 DOM是一条双向车道，不仅可以获取文档的内容，还可以更新文档的内容，如果改变了DOM节点树，文档在浏览器里的呈现就会发生变化，所以与其说是创">
+<meta property="og:updated_time" content="2017-07-06T00:48:24.503Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《DOM编程艺术》五、动态创建标记">
+<meta name="twitter:description" content="这一章节主要通过一些DOM方法，通过创建新元素和修改现有元素来改变网页结构，用DOM的方法改变标记。 1、创建元素节点和文本节点DOM是文档的表示，DOM所包含的信息与文档里的信息一一对应，你只要学会问正确的问题，就可以从获取DOM节点上任何一个节点的细节。 DOM是一条双向车道，不仅可以获取文档的内容，还可以更新文档的内容，如果改变了DOM节点树，文档在浏览器里的呈现就会发生变化，所以与其说是创">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/06/03/《DOM编程艺术》五、动态创建标记/"/>
+
+
+
+
+
+  <title> 《DOM编程艺术》五、动态创建标记 | Gary23 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Gary23</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/03/《DOM编程艺术》五、动态创建标记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="PJ Yu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gary23">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                《DOM编程艺术》五、动态创建标记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-03T10:25:52+08:00">
+                2017-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这一章节主要通过一些DOM方法，通过创建新元素和修改现有元素来改变网页结构，用DOM的方法改变标记。</p>
+<h2 id="1、创建元素节点和文本节点"><a href="#1、创建元素节点和文本节点" class="headerlink" title="1、创建元素节点和文本节点"></a>1、创建元素节点和文本节点</h2><p>DOM是文档的表示，DOM所包含的信息与文档里的信息一一对应，你只要学会问正确的问题，就可以从获取DOM节点上任何一个节点的细节。</p>
+<p>DOM是一条双向车道，不仅可以获取文档的内容，还可以更新文档的内容，如果改变了DOM节点树，文档在浏览器里的呈现就会发生变化，所以与其说是创建标记，不如说是在改变DOM节点树，在DOM的角度来看，一个文档就是一颗节点树，如果想在节点树上添加内容，就必须插入新的节点，如果想添加一些标记文档，就必须插入元素节点。</p>
+<p>比如现有一个HTML元素<code>&lt;div id = &quot;testdiv&quot;&gt;&lt;/div&gt;</code>，我要在其中插入一段文本，需要4个步骤。</p>
+<ol>
+<li><p>创建一个新的元素。</p>
+</li>
+<li><p>把这个新的元素插入节点树。</p>
+</li>
+<li><p>创建一个文本节点。</p>
+</li>
+<li><p>把文本节点插入新元素的节点树。</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> pare = <span class="built_in">document</span>.createElement(<span class="string">'p'</span>);</div><div class="line">    <span class="keyword">var</span> testdiv = <span class="built_in">document</span>.getElementById(<span class="string">'testdiv'</span>);</div><div class="line">    testdiv.appendChild(pare);</div><div class="line">    <span class="keyword">var</span> txt = <span class="built_in">document</span>.createTextNode(<span class="string">'Hello World'</span>);</div><div class="line">    pare.appendChild(txt);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这些代码会在页面上显示”Hello World”，并且包含在<code>&lt;div id = &quot;testdiv&quot;&gt;&lt;/div&gt;</code>中。</p>
+<p>首先用document.createElement方法创建一个<code>&lt;p&gt;</code>元素，创建以后<code>&lt;p&gt;</code>元素还不是任何一颗DOM树的组成部分，它只是游荡在javascript世界里的一个孤儿，这种情况被称为文档碎片(document frogment)，不过，这时<code>&lt;p&gt;</code>元素已经有了自己的DOM属性，比如nodeType和nodeName。</p>
+<p>现在要让<code>&lt;p&gt;</code>元素成为testdiv的一个子节点，appendChild方法可以完成这一任务，这个方法的语法是<code>parent.appendChild(child)</code>。</p>
+<p>最后我要给<code>&lt;p&gt;</code>元素增加文本内容，也就是创建一个文本节点并让其成为<code>&lt;p&gt;</code>元素的子节点，使用document.createTextNode方法可以实现，用法和document.createElement相同，同样这个本文节点也是一个孤儿节点，需要使用appendChild添加到<code>&lt;p&gt;</code>元素中。</p>
+<p>其实我也可以改变上面的执行顺序，先创建两个节点，再依次加入DOM树中也是一样的。</p>
+<h2 id="2、重回图片库案例"><a href="#2、重回图片库案例" class="headerlink" title="2、重回图片库案例"></a>2、重回图片库案例</h2><p>现在图片库的html文件中有一个图片和一段文字仅仅是为showPic脚本服务的，既然这些元素的存在只是为了让DOM方法处理它们，那么用DOM方法来创建它们才是最合适的选择。动态创建需要完成的步骤如下：</p>
+<ol>
+<li><p>创建一个img元素节点。</p>
+</li>
+<li><p>设置这个节点的id属性、src属性、alt属性。</p>
+</li>
+<li><p>创建一个p元素节点。</p>
+</li>
+<li><p>创建这个节点的id属性。</p>
+</li>
+<li><p>创建一个文本节点。</p>
+</li>
+<li><p>把这个本文节点追加到p元素上。</p>
+</li>
+<li><p>把p元素和img元素插入到gallery.html文档。</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">preparePlaceholder</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(!<span class="built_in">document</span>.createElement) <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    <span class="keyword">if</span>(!<span class="built_in">document</span>.createTextNode) <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    <span class="keyword">if</span>(!<span class="built_in">document</span>.getElementById) <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    <span class="keyword">if</span>(!<span class="built_in">document</span>.getElementById(<span class="string">'imagegallery'</span>)) <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    <span class="keyword">var</span> placeholder  = <span class="built_in">document</span>.createElement(<span class="string">'img'</span>);</div><div class="line">    placeholder.setAttribute(<span class="string">'id'</span>,<span class="string">'placeholder'</span>);</div><div class="line">    placeholder.setAttribute(<span class="string">'src'</span>,<span class="string">'images/placeholder.gif'</span>);</div><div class="line">    placeholder.setAttribute(<span class="string">'alt'</span>,<span class="string">'my image gallery'</span>);</div><div class="line">    <span class="keyword">var</span> description = <span class="built_in">document</span>.createElement(<span class="string">'p'</span>);</div><div class="line">    description.setAttribute(<span class="string">'id'</span>,<span class="string">'description'</span>);</div><div class="line">    <span class="keyword">var</span> desctext = <span class="built_in">document</span>.createTextNode(<span class="string">'Chose an image'</span>);</div><div class="line">    description.appendChild(desctext);</div><div class="line">    <span class="keyword">var</span> gallery = <span class="built_in">document</span>.getElementById(<span class="string">'imagegallery'</span>);</div><div class="line">    insertAfter(placeholder,gallery);</div><div class="line">    insertAfter(description,placeholder);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>现在我可以将html中图片展示的元素和文字描述的元素删除了。</p>
+<p>为了确保退路，函数的第一部分仍是检测浏览器是否支持这些方法，这里主要说一下insterAfter方法，它的功能是把一个节点插入到另一个节点之后，DOM本身并没有提供这个方法，所以我们可以自己编写一个函数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertAfter</span>(<span class="params">newElement,targetElement</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> parent = targetElement.parentNode;</div><div class="line">    <span class="keyword">if</span>(parent.lastChild == targetElement)&#123;</div><div class="line">        parent.appendChild(newElement);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        parent.insertBefore(newElement,targetElement.nextSibling);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个函数的步骤如下：</p>
+<ol>
+<li><p>这个函数有连个参数，第一个是要插入的新元素，第二个是目标元素。</p>
+</li>
+<li><p>获取目标元素的父元素，存到parent变量。</p>
+</li>
+<li><p>检测目标元素是不是其父元素的最后一个元素。</p>
+</li>
+<li><p>如果是就用appendChild把新元素追加到parent元素上。</p>
+</li>
+<li><p>如果不是就把新元素插入到目标元素和其下一个兄弟元素之间，使用nextSibling属性获取这个元素的下一个兄弟元素，使用insertBefore方法把下一个元素插入到另一个元素之前，语法是<code>parentElement.insertBefore(newElement,targetElement)</code>。</p>
+</li>
+</ol>
+<h2 id="3、Ajax"><a href="#3、Ajax" class="headerlink" title="3、Ajax"></a>3、Ajax</h2><p>Ajax主要用于异步加载页面内容的技术，用Ajax可以做到只更新页面的一小部分，不必刷新整个页面。</p>
+<p>Ajax的优势就是对页面的请求以异步的方式发送到服务器，而服务器不会用整个页面来相应请求，它会在后台处理请求，与此同时用户还能继续浏览页面并与页面交互，而脚本则可以按需加载内容。</p>
+<h3 id="XMLHttpRequest对象"><a href="#XMLHttpRequest对象" class="headerlink" title="XMLHttpRequest对象"></a>XMLHttpRequest对象</h3><p>Ajax技术的核心就是XMLHttpRequest对象，这个对象充当着浏览器中的脚本与服务器之间的中间人的角色，以往的请求都是浏览器发出，而javascript通过这个对象也可与自己发送请求，同时也自己处理响应。</p>
+<p>不同浏览器对实现XMLHttpRequest对象方式不太一样，为了解决兼容性问题，我们可以自己封装一个函数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getHttpObject</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> XMLHttpRequest == <span class="string">'undefind'</span>)&#123;</div><div class="line">        XMLHttpRequest = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="keyword">try</span>&#123;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">new</span> ActiveXObject(<span class="string">'Msxml2.XMLHTTP6.0'</span>);</div><div class="line">            &#125;<span class="keyword">catch</span>(e)&#123;&#125;</div><div class="line">            <span class="keyword">try</span>&#123;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">new</span> ActiveXObject(<span class="string">'Msxml2.XMLHTTP3.0'</span>);</div><div class="line">            &#125;<span class="keyword">catch</span>(e)&#123;&#125;</div><div class="line">            <span class="keyword">try</span>&#123;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">new</span> ActiveXObject(<span class="string">'Msxml2.XMLHTTP'</span>);</div><div class="line">            &#125;<span class="keyword">catch</span>(e)&#123;&#125;</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个函数通过对象检测技术检测了XMLHttpRequest，如果失败则继续检测其他方法，最终返回一个false或新的XMLHttpRequest对象。</p>
+<p>其中ActiveXObject是IE的实现方法，实现了一个名叫XMLHTTP的对象，IE版本中使用的XMLHTTP对象也不完全相同。</p>
+<h3 id="XMLHttpRequest发送请求的方法"><a href="#XMLHttpRequest发送请求的方法" class="headerlink" title="XMLHttpRequest发送请求的方法"></a>XMLHttpRequest发送请求的方法</h3><p>XMLHttpRequest对象有许多的方法，下面通过一个新的函数来具体看XMLHttpRequest的执行过程和方法，这里假设example.txt是接口的地址</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getNewContent</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> request = getHttpObject();</div><div class="line">    <span class="keyword">if</span>(request)&#123;</div><div class="line">        request.open(<span class="string">'GET'</span>,<span class="string">'example.txt'</span>,<span class="literal">true</span>);</div><div class="line">        request.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="keyword">if</span>(request.readyState == <span class="number">4</span>)&#123;</div><div class="line">                <span class="keyword">var</span> txt = request.responseText;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        request.send(<span class="literal">null</span>);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        alert(<span class="string">'你的浏览器不支持XMLHttpRequest'</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>首先最有用的就是open方法，用open方法来指定服务器上要访问的文件、指定请求类型、指定请求是否以异步的方法发送和处理。</p>
+<p>onreadystatechange方法会在服务器给出回应的时候被触发执行，在这个函数中，可以根据服务器的具体响应做相应的处理。</p>
+<p>send方法用于发送数据，通常写在指定请求的目标并明确如何处理响应之后。</p>
+<h3 id="服务器回响XMLHttpRequest的方法"><a href="#服务器回响XMLHttpRequest的方法" class="headerlink" title="服务器回响XMLHttpRequest的方法"></a>服务器回响XMLHttpRequest的方法</h3><p>服务器在向XMLHttpRequest对象发送回响时，该对象有许多属性可用。</p>
+<p>readyState属性，浏览器会在不同阶段更新readyState属性的值。</p>
+<ul>
+<li><p>0 表示未初始化。</p>
+</li>
+<li><p>1 表示正在加载。</p>
+</li>
+<li><p>2 表示加载完毕。</p>
+</li>
+<li><p>3 表示正在交互。</p>
+</li>
+<li><p>4 表示完成。</p>
+</li>
+</ul>
+<p>所以只要readyState属性的值变为4，就可以访问服务器发送回来的数据了。</p>
+<p>responseText和responseXML属性用于保存服务器发送回来的数据，responseText用于保存文本字符形式的数据，responseXML用于保存Content-Type头部中制定为’text/xml’的数据。</p>
+<p>另外，只要是依赖于服务器响应的脚本，都要写在onreadystatechange属性的函数中，因为在发送XMLHttpRequest请求之后，脚本仍然会继续执行，不会等待响应返回，如果把依赖服务器返回内容的代码写在onreadystatechange之后，可能会导致这些代码执行了但数据还没有获取到。send方法就是最好的证明，它会优先于onreadystatechange执行。</p>
+<blockquote>
+<p>Ajax应用的一个特色就是减少重复加载页面的次数，但这种缺少状态记录的技术会与浏览器的一些使用惯例产生冲突，导致用户无法使用后退按钮或者无法为特定状态下的页面添加书签，理想情况，用户每一次操作都应该得到一个清晰明确的结果，为此，web设计人员必须在向服务器发出请求和服务器返回相应时，给用户明确提示。</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/DOM编程艺术/" rel="tag"># DOM编程艺术</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/03/《DOM编程艺术》六、充实文档内容/" rel="next" title="《DOM编程艺术》六、充实文档内容">
+                <i class="fa fa-chevron-left"></i> 《DOM编程艺术》六、充实文档内容
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/03/《DOM编程艺术》四、图片库改进/" rel="prev" title="《DOM编程艺术》四、图片库改进">
+                《DOM编程艺术》四、图片库改进 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="PJ Yu" />
+          <p class="site-author-name" itemprop="name">PJ Yu</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Gary23" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com/Gary23" title="Gary23" target="_blank">Gary23</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、创建元素节点和文本节点"><span class="nav-number">1.</span> <span class="nav-text">1、创建元素节点和文本节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、重回图片库案例"><span class="nav-number">2.</span> <span class="nav-text">2、重回图片库案例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、Ajax"><span class="nav-number">3.</span> <span class="nav-text">3、Ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#XMLHttpRequest对象"><span class="nav-number">3.1.</span> <span class="nav-text">XMLHttpRequest对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XMLHttpRequest发送请求的方法"><span class="nav-number">3.2.</span> <span class="nav-text">XMLHttpRequest发送请求的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器回响XMLHttpRequest的方法"><span class="nav-number">3.3.</span> <span class="nav-text">服务器回响XMLHttpRequest的方法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PJ Yu</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
