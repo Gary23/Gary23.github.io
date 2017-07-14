@@ -100,12 +100,12 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/13/《DOM编程艺术》一、DOM/index.html">
 <meta property="og:site_name" content="Gary23">
 <meta property="og:description" content="1、DOM的含义 文档(D)，指的是document，当创建了一个网页并把它加载到web浏览器中时，DOM就在幕后悄然而生，DOM把我们编写的网页文档转换为一个文档对象。  对象(O)，指的就是javascript中的三种对象，用户定义对象、内建对象、宿主对象。  模型(M)，可以理解为模型Model或者地图Map，我们可以通过javascript代码来读取这张地图。   要理解模型或者地图的概念">
-<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/86EAA28C0B5B41068D2E8EBA23411BBB?method=download&shareKey=4ced2b2821823cb5936bf5b8724aee9b">
-<meta property="og:updated_time" content="2017-07-06T00:48:41.146Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5140754-e4ce5829e8f2fa46?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-07-14T03:22:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《DOM编程艺术》一、DOM">
 <meta name="twitter:description" content="1、DOM的含义 文档(D)，指的是document，当创建了一个网页并把它加载到web浏览器中时，DOM就在幕后悄然而生，DOM把我们编写的网页文档转换为一个文档对象。  对象(O)，指的就是javascript中的三种对象，用户定义对象、内建对象、宿主对象。  模型(M)，可以理解为模型Model或者地图Map，我们可以通过javascript代码来读取这张地图。   要理解模型或者地图的概念">
-<meta name="twitter:image" content="http://note.youdao.com/yws/api/personal/file/86EAA28C0B5B41068D2E8EBA23411BBB?method=download&shareKey=4ced2b2821823cb5936bf5b8724aee9b">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5140754-e4ce5829e8f2fa46?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -394,7 +394,7 @@
 </ul>
 <p>要理解模型或者地图的概念，首先我们要理解DOM是把一份文档表示为一棵树。以下面文档为例。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span> = <span class="string">"en"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span> = <span class="string">"utf-8"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>Shopping list<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>What to buy<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">title</span> = <span class="string">"a gentle reminder"</span>&gt;</span>Don't forget to buy this stuff<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span> = <span class="string">"purchases"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>A tin of beans<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span> = <span class="string">"sale"</span>&gt;</span>Cheese<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span> = <span class="string">"sale"</span>&gt;</span>Milk<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>上面的一长串代码可以理解为以下的DOM树<br><img src="http://note.youdao.com/yws/api/personal/file/86EAA28C0B5B41068D2E8EBA23411BBB?method=download&amp;shareKey=4ced2b2821823cb5936bf5b8724aee9b" alt="image"></p>
+<p>上面的一长串代码可以理解为以下的DOM树<br><img src="http://upload-images.jianshu.io/upload_images/5140754-e4ce5829e8f2fa46?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
 <p>从上图可以看出，html永远是一个文档的开始，可以看作是树根，再深一层就是head和body，它们位于一层，所以是兄弟关系(sibling)，它们都有各自的子元素(child)，有着共同的父元素(parent)。</p>
 <p>实际上用parent、silbling、child就可以代表整个DOM树的结构，比如ul是ul是body的child元素，而ul又是li的parent元素，ul和p是sibling元素，并且这棵树上的每个元素都是一个DOM节点。</p>
 <h2 id="2、节点"><a href="#2、节点" class="headerlink" title="2、节点"></a>2、节点</h2><p>上面介绍了DOM的概念，由图也可以看出，DOM树是由一个个节点组成的，这些就是DOM节点。分为三种类型。</p>
@@ -485,8 +485,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/13/Git/" rel="next" title="Git">
-                <i class="fa fa-chevron-left"></i> Git
+              <a href="/2017/05/21/javascript杂记一/" rel="next" title="javascript杂记一">
+                <i class="fa fa-chevron-left"></i> javascript杂记一
               </a>
             
           </div>
@@ -494,6 +494,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/13/Git/" rel="prev" title="Git">
+                Git <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -565,7 +569,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

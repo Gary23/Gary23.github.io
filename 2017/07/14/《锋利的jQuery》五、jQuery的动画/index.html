@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="javascript笔记," />
+  <meta name="keywords" content="锋利的jQuery," />
 
 
 
@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="DOM操作的一些常用属性和方法元素节点的nodeType是1 属性节点的nodeType是2 文本节点的nodeType是3 节点的获取childNodes：获取某个元素下的所有子节点，包含文本节点和元素节点。 children：获取某个元素下的所有元素子节点。 nextElementSibling：获取元素的下一个兄弟元素节点。 previousElementSibling：获取元素的上一个兄弟">
-<meta name="keywords" content="javascript笔记">
+<meta name="description" content="show()和hide()hide()方法是让元素隐藏，执行时候其实有两步，第一步是记住元素隐藏前的display属性值，第二步是将display设置为none。 show()方法会获取hide()第一步获取的那个属性并重新设置给元素的display属性。 这两个方法可以接收一个速度参数，显示和隐藏的毫秒值，$(&amp;#39;#box&amp;#39;).hide(1000)这样$(&amp;#39;#box&amp;#39">
+<meta name="keywords" content="锋利的jQuery">
 <meta property="og:type" content="article">
-<meta property="og:title" content="javascript杂记三">
-<meta property="og:url" content="http://yoursite.com/2017/06/01/javascript杂记三/index.html">
+<meta property="og:title" content="《锋利的jQuery》五、jQuery的动画">
+<meta property="og:url" content="http://yoursite.com/2017/07/14/《锋利的jQuery》五、jQuery的动画/index.html">
 <meta property="og:site_name" content="Gary23">
-<meta property="og:description" content="DOM操作的一些常用属性和方法元素节点的nodeType是1 属性节点的nodeType是2 文本节点的nodeType是3 节点的获取childNodes：获取某个元素下的所有子节点，包含文本节点和元素节点。 children：获取某个元素下的所有元素子节点。 nextElementSibling：获取元素的下一个兄弟元素节点。 previousElementSibling：获取元素的上一个兄弟">
+<meta property="og:description" content="show()和hide()hide()方法是让元素隐藏，执行时候其实有两步，第一步是记住元素隐藏前的display属性值，第二步是将display设置为none。 show()方法会获取hide()第一步获取的那个属性并重新设置给元素的display属性。 这两个方法可以接收一个速度参数，显示和隐藏的毫秒值，$(&amp;#39;#box&amp;#39;).hide(1000)这样$(&amp;#39;#box&amp;#39">
 <meta property="og:updated_time" content="2017-07-14T03:22:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="javascript杂记三">
-<meta name="twitter:description" content="DOM操作的一些常用属性和方法元素节点的nodeType是1 属性节点的nodeType是2 文本节点的nodeType是3 节点的获取childNodes：获取某个元素下的所有子节点，包含文本节点和元素节点。 children：获取某个元素下的所有元素子节点。 nextElementSibling：获取元素的下一个兄弟元素节点。 previousElementSibling：获取元素的上一个兄弟">
+<meta name="twitter:title" content="《锋利的jQuery》五、jQuery的动画">
+<meta name="twitter:description" content="show()和hide()hide()方法是让元素隐藏，执行时候其实有两步，第一步是记住元素隐藏前的display属性值，第二步是将display设置为none。 show()方法会获取hide()第一步获取的那个属性并重新设置给元素的display属性。 这两个方法可以接收一个速度参数，显示和隐藏的毫秒值，$(&amp;#39;#box&amp;#39;).hide(1000)这样$(&amp;#39;#box&amp;#39">
 
 
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/06/01/javascript杂记三/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/07/14/《锋利的jQuery》五、jQuery的动画/"/>
 
 
 
 
 
-  <title> javascript杂记三 | Gary23 </title>
+  <title> 《锋利的jQuery》五、jQuery的动画 | Gary23 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -310,7 +310,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/01/javascript杂记三/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/14/《锋利的jQuery》五、jQuery的动画/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="PJ Yu">
@@ -331,7 +331,7 @@
             
             
               
-                javascript杂记三
+                《锋利的jQuery》五、jQuery的动画
               
             
           </h1>
@@ -346,8 +346,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-01T10:31:19+08:00">
-                2017-06-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-14T11:19:00+08:00">
+                2017-07-14
               </time>
             
 
@@ -382,46 +382,46 @@
       
 
       
-        <h2 id="DOM操作的一些常用属性和方法"><a href="#DOM操作的一些常用属性和方法" class="headerlink" title="DOM操作的一些常用属性和方法"></a>DOM操作的一些常用属性和方法</h2><p>元素节点的nodeType是1</p>
-<p>属性节点的nodeType是2</p>
-<p>文本节点的nodeType是3</p>
-<h4 id="节点的获取"><a href="#节点的获取" class="headerlink" title="节点的获取"></a>节点的获取</h4><p>childNodes：获取某个元素下的所有子节点，包含文本节点和元素节点。</p>
-<p>children：获取某个元素下的所有元素子节点。</p>
-<p>nextElementSibling：获取元素的下一个兄弟元素节点。</p>
-<p>previousElementSibling：获取元素的上一个兄弟元素节点。</p>
-<p>firstElementChild：获取元素下的第一个元素子节点。</p>
-<p>lastElementChild：获取元素下的第一个元素子节点。</p>
-<p>parentNode：获取元素的父节点。</p>
-<p>nodeValue：查看节点的属性值。</p>
-<p>nodeName：查看节点的属性名。</p>
-<p>nodeType：查看节点的类型。</p>
-<h4 id="属性的获取和设置"><a href="#属性的获取和设置" class="headerlink" title="属性的获取和设置"></a>属性的获取和设置</h4><p>offsetParent：获取最近有定位属性的祖先节点。如果没有直接获取body。</p>
-<p>offsetLeft：左外边框到有定位的最近的父级元素的内边框的距离。不带px单位。父级没有带定位的就是到body的距离。</p>
-<p>offsetTop：上外边框到有定位的最近的父级元素的内边框的距离。不带px单位。父级没有带定位的就是到body的距离。</p>
-<p>getAttribute()：获取元素的行内设置的属性值。参数是属性名。</p>
-<p>setAttribute()：设置元素的行内设置的属性值。参数是属性名和属性值。</p>
-<p>removeAttribute()：删除元素的行内设置的属性值。参数是属性名。</p>
-<p>getBoundingClientRect()：  当前元素距离body的四个方向的距离和宽高的对象。获取的值会随着页面滚动位置而改变。值是不带单位的。</p>
-<p>clientWidth：获取元素不计算边框的宽度。<code>document.documentElement.clientWidth</code>是浏览器窗口可是区域的宽度。</p>
-<p>clientHeight：获取元素不计算边框的高度。<code>document.documentElement.clientHeight</code>是浏览器窗口可是区域的高度。</p>
-<p>offsetWidth：获取元素计算边框的宽度。</p>
-<p>offsetHeight：获取元素计算边框的高度。</p>
-<h4 id="操作节点"><a href="#操作节点" class="headerlink" title="操作节点"></a>操作节点</h4><p>document.createElement()：创建一个元素节点，参数是元素的名称，字符串格式。</p>
-<p>appendChild()：将一个元素节点添加到另一个元素节点的最后，格式为<code>父节点.appendChild(要添加的节点)</code>。</p>
-<p>insertBefore()：将一个元素节点添加到一个元素节点的指定子节点的前面。格式为<code>父节点.insertBefore(要添加的节点,添加到这个节点之前)</code>，假如第二个参数是不存在的，节点将会添加到父节点的最后。</p>
-<p>removeChild()：删除一个指定的元素子节点，如果指定的节点找不到会报错。格式为<code>父节点.removeChild(要删除的节点)</code>。</p>
-<p>replaceChild()：替换一个元素节点，格式是<code>父节点.replaceChild(要添加的节点,被替换的节点)</code>。</p>
-<p>cloneNode()：克隆一个元素节点，默认只会克隆节点本身，不会克隆它的子节点，如果要将这个节点下的所有子节点也都克隆需要传参数true，格式为<code>要克隆的节点.cloneNode(true)</code>。</p>
+        <h2 id="show-和hide"><a href="#show-和hide" class="headerlink" title="show()和hide()"></a>show()和hide()</h2><p><code>hide()</code>方法是让元素隐藏，执行时候其实有两步，第一步是记住元素隐藏前的<code>display</code>属性值，第二步是将<code>display</code>设置为<code>none</code>。</p>
+<p><code>show()</code>方法会获取<code>hide()</code>第一步获取的那个属性并重新设置给元素的<code>display</code>属性。</p>
+<p>这两个方法可以接收一个速度参数，显示和隐藏的毫秒值，<code>$(&#39;#box&#39;).hide(1000)</code>这样<code>$(&#39;#box&#39;)</code>元素从显示到隐藏会经过1000毫秒的动画过度，不会突然消失，执行过渡时，会同时改变元素的高度、宽度和不透明度，直至这三个属性都为0最后元素css会改为<code>display: none</code>。</p>
+<p>参数也可以直接传入<code>&#39;slow&#39;</code>、<code>&#39;normal&#39;</code>、<code>&#39;fast&#39;</code>，分别代表600毫秒、400毫秒、200毫秒。也可以传入毫秒数。</p>
+<h2 id="fadeIn-和fadeOut"><a href="#fadeIn-和fadeOut" class="headerlink" title="fadeIn()和fadeOut()"></a>fadeIn()和fadeOut()</h2><p>与<code>show()</code>方法不同的是，这两个方法只改变不透明度。<code>fadeOut()</code>方法会在指定的一段时间内降低元素的不透明度，直到<code>display:none</code>。<code>fadeIn()</code>方法则相反。</p>
+<h2 id="slideUp-和slideDown"><a href="#slideUp-和slideDown" class="headerlink" title="slideUp()和slideDown()"></a>slideUp()和slideDown()</h2><p>改变元素的高度，如果一个元素是<code>display:none</code>，当调用<code>slideDown()</code>时，这个元素将由上至下延伸显示。<code>slideUp()</code>方法正好相反。元素将由下至上缩短隐藏。</p>
 <blockquote>
-<p>appendChild()、insertBefore()、replaceChild()在操作一个已有元素时，是将已有元素移动，而不是复制一份进行操作。</p>
+<p>以上几种动画第一个参数是速度，都可以传<code>&#39;slow&#39;</code>、<code>&#39;normal&#39;</code>、<code>&#39;fast&#39;</code>参数或者直接传入毫秒数。第二个参数是easing，是动画的运动方式，可选<code>&#39;swing&#39;、&#39;linear&#39;</code>分别是慢-快-慢和匀速。第三个参数是callback回调函数。</p>
 </blockquote>
-<h4 id="操作表格"><a href="#操作表格" class="headerlink" title="操作表格"></a>操作表格</h4><p>对于表格的操作javascript提供了一些简单的获取方式。</p>
-<p>假设table是已经获取到的表格元素。</p>
-<p>table.tHead：获取表格头部。</p>
-<p>table.tFoot：获取表格底部。</p>
-<p>table.tBodies：获取表格主体。</p>
-<p>table.tBodies<a href="tHead、tFoot">n</a>.rows[n]：获取表格的行，就是tr。</p>
-<p>table.tBodies<a href="tHead、tFoot">n</a>.rows[n].cells[n]：获取单元格，就是td。</p>
+<h2 id="自定义动画animate"><a href="#自定义动画animate" class="headerlink" title="自定义动画animate()"></a>自定义动画animate()</h2><p>常用格式为<code>animate(params,speed,easing,callback)</code>。</p>
+<p><code>params</code>:一个包含样式属性及值的对象。例如<code>{top:&#39;200px&#39;,left:&#39;200px&#39;}</code></p>
+<p><code>speed</code>:速度参数，可选参数。</p>
+<p><code>easing</code>:设置动画的节奏，可选值是<code>swing</code>慢-快-慢和<code>linear</code>匀速，可选参数。</p>
+<p><code>callback</code>:在动画完成时执行的函数，可选参数。</p>
+<h3 id="定义一个普通的动画"><a href="#定义一个普通的动画" class="headerlink" title="定义一个普通的动画"></a>定义一个普通的动画</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#box'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    $(<span class="keyword">this</span>).animate(&#123;<span class="attr">left</span>:<span class="string">'500px'</span>&#125;,<span class="number">3000</span>);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="累加、累减动画"><a href="#累加、累减动画" class="headerlink" title="累加、累减动画"></a>累加、累减动画</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#box'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    $(<span class="keyword">this</span>).animate(&#123;<span class="attr">left</span>:<span class="string">'+=500px'</span>&#125;,<span class="number">3000</span>);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>在当前位置累加500px;当然也可以累减。</p>
+<h3 id="多重动画"><a href="#多重动画" class="headerlink" title="多重动画"></a>多重动画</h3><p>同时改变元素的高度的位置。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#box'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    $(<span class="keyword">this</span>).animate(&#123;</div><div class="line">        <span class="attr">left</span>:<span class="string">'500px'</span>,</div><div class="line">        <span class="attr">height</span>:<span class="string">'200px'</span></div><div class="line">    &#125;,<span class="number">3000</span>);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>先改变元素的位置，移动完成后再改变元素的高度。在left执行完之前不会改变height的值。这种有先后顺序执行的动画称为动画队列。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#box'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    $(<span class="keyword">this</span>).animate(&#123;</div><div class="line">        <span class="attr">left</span>:<span class="string">'500px'</span></div><div class="line">    &#125;,<span class="number">3000</span>).animate(&#123;</div><div class="line">        <span class="attr">height</span>:<span class="string">'200px'</span></div><div class="line">    &#125;,<span class="number">3000</span>);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这里如果在最后直接写<code>.css(...)</code>，那么会不等动画执行，直接执行css的改变。<code>css()</code>方法不会加入队列，只有动画的方法才能加入队列。如果想让非动画方法方法加入队列就要写在回调函数里。</p>
+</blockquote>
+<h2 id="停止动画"><a href="#停止动画" class="headerlink" title="停止动画"></a>停止动画</h2><p>格式为：<code>stop([clearQueue],[gotoEnd])</code></p>
+<p><code>clearQueue</code>和<code>gotoEnd</code>都是可选参数，布尔值。</p>
+<p><code>clearQueue</code>代表是否要清空未执行完的动画队列。<code>gotoEnd</code>代表是否将正在执行的动画跳转到末状态。</p>
+<h3 id="判断动画执行状态"><a href="#判断动画执行状态" class="headerlink" title="判断动画执行状态"></a>判断动画执行状态</h3><p>使用animate要避免动画重复累计的执行，可以提前进行判断。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(!$(<span class="string">'#box'</span>)is(<span class="string">':animate'</span>))&#123;</div><div class="line">    <span class="comment">// 如果没有动画正在执行就加入新动画。</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="延迟动画"><a href="#延迟动画" class="headerlink" title="延迟动画"></a>延迟动画</h3><p>在动画执行过程中，如果想延迟执行，可以使用<code>delay()</code>方法。可以将队列中的函数延迟执行，参数是毫秒值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#box'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    $(<span class="keyword">this</span>).animate(&#123;</div><div class="line">        <span class="attr">left</span>:<span class="string">'500px'</span></div><div class="line">    &#125;,<span class="number">3000</span>)</div><div class="line">    .delay(<span class="number">1000</span>)</div><div class="line">    .animate(&#123;</div><div class="line">        <span class="attr">height</span>:<span class="string">'200px'</span></div><div class="line">    &#125;,<span class="number">3000</span>);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h2 id="用于交互的动画方法"><a href="#用于交互的动画方法" class="headerlink" title="用于交互的动画方法"></a>用于交互的动画方法</h2><h3 id="toggle"><a href="#toggle" class="headerlink" title="toggle()"></a>toggle()</h3><p>格式为：<code>toggle(speed,easing,callback)</code></p>
+<p><code>toggle()</code>方法可以切换元素的可见状态。如果元素是可见的，则切换为隐藏的；如果元素是隐藏的，则切换为可见的。相当于先后执行了<code>show()</code>和<code>hide()</code>。</p>
+<h3 id="slideToggle"><a href="#slideToggle" class="headerlink" title="slideToggle()"></a>slideToggle()</h3><p>格式为：<code>slideToggle(speed,easing,callback)</code></p>
+<p>通过高度变化来切换匹配元素的可见性，这个动画效果只调整元素的高度。相当于先后执行了<code>slideUp()</code>和<code>slideDown()</code>方法。</p>
+<p>可以设置参数speed、callback。</p>
+<h3 id="fadeTo"><a href="#fadeTo" class="headerlink" title="fadeTo()"></a>fadeTo()</h3><p>格式为：<code>fadeTo(speed,opacity,easing,callback)</code></p>
+<p>把元素的不透明度以渐进的方式调整到指定的值。只调整元素的不透明度。</p>
+<h3 id="fadeToggle"><a href="#fadeToggle" class="headerlink" title="fadeToggle()"></a>fadeToggle()</h3><p>格式为：<code>fadeToggle(speed,easing,callback)</code></p>
+<p>通过不透明度来切换匹配元素的可见性，只能调整不透明度，相当于先后执行了<code>fadeOut()</code>和<code>fadeIn()</code>方法。</p>
 
       
     </div>
@@ -451,7 +451,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/javascript笔记/" rel="tag"># javascript笔记</a>
+            <a href="/tags/锋利的jQuery/" rel="tag"># 锋利的jQuery</a>
           
         </div>
       
@@ -464,18 +464,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/01/hexo配置/" rel="next" title="hexo配置">
-                <i class="fa fa-chevron-left"></i> hexo配置
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/06/01/javascript杂记二/" rel="prev" title="javascript杂记二">
-                javascript杂记二 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/07/flexbox-布局/" rel="prev" title="flex布局">
+                flex布局 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -621,7 +617,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM操作的一些常用属性和方法"><span class="nav-number">1.</span> <span class="nav-text">DOM操作的一些常用属性和方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#节点的获取"><span class="nav-number">1.0.1.</span> <span class="nav-text">节点的获取</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#属性的获取和设置"><span class="nav-number">1.0.2.</span> <span class="nav-text">属性的获取和设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#操作节点"><span class="nav-number">1.0.3.</span> <span class="nav-text">操作节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#操作表格"><span class="nav-number">1.0.4.</span> <span class="nav-text">操作表格</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#show-和hide"><span class="nav-number">1.</span> <span class="nav-text">show()和hide()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fadeIn-和fadeOut"><span class="nav-number">2.</span> <span class="nav-text">fadeIn()和fadeOut()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#slideUp-和slideDown"><span class="nav-number">3.</span> <span class="nav-text">slideUp()和slideDown()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义动画animate"><span class="nav-number">4.</span> <span class="nav-text">自定义动画animate()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义一个普通的动画"><span class="nav-number">4.1.</span> <span class="nav-text">定义一个普通的动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#累加、累减动画"><span class="nav-number">4.2.</span> <span class="nav-text">累加、累减动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多重动画"><span class="nav-number">4.3.</span> <span class="nav-text">多重动画</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#停止动画"><span class="nav-number">5.</span> <span class="nav-text">停止动画</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#判断动画执行状态"><span class="nav-number">5.1.</span> <span class="nav-text">判断动画执行状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#延迟动画"><span class="nav-number">5.2.</span> <span class="nav-text">延迟动画</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用于交互的动画方法"><span class="nav-number">6.</span> <span class="nav-text">用于交互的动画方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#toggle"><span class="nav-number">6.1.</span> <span class="nav-text">toggle()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#slideToggle"><span class="nav-number">6.2.</span> <span class="nav-text">slideToggle()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fadeTo"><span class="nav-number">6.3.</span> <span class="nav-text">fadeTo()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fadeToggle"><span class="nav-number">6.4.</span> <span class="nav-text">fadeToggle()</span></a></li></ol></li></ol></div>
             
 
           </div>

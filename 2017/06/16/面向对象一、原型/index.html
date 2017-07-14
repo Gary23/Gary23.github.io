@@ -100,14 +100,14 @@
 <meta property="og:url" content="http://yoursite.com/2017/06/16/面向对象一、原型/index.html">
 <meta property="og:site_name" content="Gary23">
 <meta property="og:description" content="面向对象的概念面向对象是一种编程思想，核心是解决任何问题的时候首先试图去找到一个对象来帮助解决问题 在编程中，面向对象是调度者，从根本上是将面向过程封装，所以面向过程不可弃之不用。面向过程是执行者，执行顺序一般情况不能打乱。 面向对象的优点：  代码的灵活度高，代码执行顺序可以打乱。面向过程的代码不能打乱。  可维护性高，出现bug只需要在对象上去调试。  扩展性高，扩展时只需要维护局部模块。">
-<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/BE0482F1FA984AF1A48C499D0D39BC0F?method=download&shareKey=4ced2b2821823cb5936bf5b8724aee9b">
-<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/6C371B1330494C0BBC06CF3366B5EFBC?method=download&shareKey=4ced2b2821823cb5936bf5b8724aee9b">
-<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/0A1EAAEC62D244F6BD9B5B18A45CA697?method=download&shareKey=4ced2b2821823cb5936bf5b8724aee9b">
-<meta property="og:updated_time" content="2017-06-22T01:39:17.668Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5140754-ce880d6eb5d3547a?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5140754-6882ba0484683b74?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5140754-62d7012a26f6f473?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-07-14T03:22:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面向对象一、原型">
 <meta name="twitter:description" content="面向对象的概念面向对象是一种编程思想，核心是解决任何问题的时候首先试图去找到一个对象来帮助解决问题 在编程中，面向对象是调度者，从根本上是将面向过程封装，所以面向过程不可弃之不用。面向过程是执行者，执行顺序一般情况不能打乱。 面向对象的优点：  代码的灵活度高，代码执行顺序可以打乱。面向过程的代码不能打乱。  可维护性高，出现bug只需要在对象上去调试。  扩展性高，扩展时只需要维护局部模块。">
-<meta name="twitter:image" content="http://note.youdao.com/yws/api/personal/file/BE0482F1FA984AF1A48C499D0D39BC0F?method=download&shareKey=4ced2b2821823cb5936bf5b8724aee9b">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5140754-ce880d6eb5d3547a?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -500,12 +500,12 @@
 <p>函数具有<strong><code>prototype</code></strong>属性</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> o = &#123;&#125;; <span class="comment">//Object对象，对象都有__proto__属性</span></div><div class="line"></div><div class="line"><span class="comment">// 对象的__proto__是它的原型对象</span></div><div class="line"><span class="built_in">console</span>.log(o.__proto__)</div><div class="line"></div><div class="line"><span class="comment">// 对象的constructor是它的数据类型Object</span></div><div class="line"><span class="built_in">console</span>.log(o.constructor)</div><div class="line"></div><div class="line"><span class="comment">// 对象的原型就是Object.prototype</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype === o.__proto_);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(o.__proto__.__proto__); </div><div class="line"><span class="comment">// 也就是console.log(Object.prototype.__proto__);</span></div><div class="line"><span class="comment">// 返回null</span></div><div class="line"><span class="comment">// 所以 o -&gt; Object.prototype -&gt; null</span></div><div class="line"></div><div class="line"><span class="comment">// Object对象的继承层次：</span></div><div class="line"><span class="comment">// obj -&gt; Object.prototype -&gt; null</span></div><div class="line"></div><div class="line"><span class="comment">// 以数组为例</span></div><div class="line"><span class="keyword">var</span> arr = [];</div><div class="line"><span class="built_in">console</span>.log(arr.constructor === <span class="built_in">Array</span>);    <span class="comment">// true</span></div><div class="line"><span class="built_in">console</span>.log(arr.__proto__ === <span class="built_in">Array</span>.prototype);     <span class="comment">// true</span></div><div class="line"><span class="comment">// arr -&gt;  Array.prototype -&gt; Object.prototype -&gt; null</span></div></pre></td></tr></table></figure>
 <p>用一张图来表示原型链：这是最简单最基础的原型链</p>
-<p><img src="http://note.youdao.com/yws/api/personal/file/BE0482F1FA984AF1A48C499D0D39BC0F?method=download&amp;shareKey=4ced2b2821823cb5936bf5b8724aee9b" alt="image"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5140754-ce880d6eb5d3547a?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
 <p>用两个例子来深入体会原型链：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">parent</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> parent;</div></pre></td></tr></table></figure>
-<p><img src="http://note.youdao.com/yws/api/personal/file/6C371B1330494C0BBC06CF3366B5EFBC?method=download&amp;shareKey=4ced2b2821823cb5936bf5b8724aee9b" alt="image"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5140754-6882ba0484683b74?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">B</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line">B.prototype = <span class="keyword">new</span> A; <span class="comment">// 这时B.prototype的构造函数就是A()，</span></div><div class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> B;</div></pre></td></tr></table></figure>
-<p><img src="http://note.youdao.com/yws/api/personal/file/0A1EAAEC62D244F6BD9B5B18A45CA697?method=download&amp;shareKey=4ced2b2821823cb5936bf5b8724aee9b" alt="image"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5140754-62d7012a26f6f473?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
 <h2 id="属性搜索原则"><a href="#属性搜索原则" class="headerlink" title="属性搜索原则"></a>属性搜索原则</h2><p>当访问对象成员时，首先在当前对象上查找，如果找到就直接返回（调用）并且停止查找</p>
 <p>如果没有找到就向其原型对象上去查找，如果找到就直接返回（调用）</p>
 <p>如果还是没有找到，就继续向原型对象的原型对象上查找，直到Object.prototype。</p>
@@ -668,7 +668,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

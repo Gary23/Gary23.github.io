@@ -100,13 +100,13 @@
 <meta property="og:url" content="http://yoursite.com/2017/06/13/css的ie6兼容问题/index.html">
 <meta property="og:site_name" content="Gary23">
 <meta property="og:description" content="png图片的兼容性png的图片在ie6下默认不是透明的，所以需要处理一下。  使用DD_belatedPNG插件，需要在script中调用，DD_belatedPNG.fix(&amp;quot;selector1,selector2&amp;quot;)，缺点是不支持body元素。  第二种方法是使用ie6的滤镜属性，这个属性body也可以使用。_background-image:none;_filter:pr">
-<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/A1F6F814A5844395851A551F26412AD3?method=download&shareKey=4ced2b2821823cb5936bf5b8724aee9b">
-<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/3033772F09A249C5AB338CCCCE0D2DFA?method=download&shareKey=4ced2b2821823cb5936bf5b8724aee9b">
-<meta property="og:updated_time" content="2017-06-13T05:47:02.422Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5140754-3739ebe32abaa1c1?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5140754-f81beff3bf8fb58d?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-07-14T03:22:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css的ie6兼容问题">
 <meta name="twitter:description" content="png图片的兼容性png的图片在ie6下默认不是透明的，所以需要处理一下。  使用DD_belatedPNG插件，需要在script中调用，DD_belatedPNG.fix(&amp;quot;selector1,selector2&amp;quot;)，缺点是不支持body元素。  第二种方法是使用ie6的滤镜属性，这个属性body也可以使用。_background-image:none;_filter:pr">
-<meta name="twitter:image" content="http://note.youdao.com/yws/api/personal/file/A1F6F814A5844395851A551F26412AD3?method=download&shareKey=4ced2b2821823cb5936bf5b8724aee9b">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5140754-3739ebe32abaa1c1?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -395,9 +395,9 @@
 <h2 id="float在ie6的兼容问题"><a href="#float在ie6的兼容问题" class="headerlink" title="float在ie6的兼容问题"></a>float在ie6的兼容问题</h2><p>有如下结构</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></div><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">400px</span>;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#000000</span>;</div><div class="line">    <span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.left</span> &#123;</div><div class="line">    <span class="attribute">float</span>: left;</div><div class="line">    <span class="attribute">background-color</span>: red;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.right</span> &#123;</div><div class="line">    <span class="attribute">float</span>: right;</div><div class="line">    <span class="attribute">background-color</span>: blue;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">h2</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">30px</span>;</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>左边<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>右边<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>将.left和.right分别左右浮动并设置颜色、h2元素设置高度应该是如下效果。</p>
-<p><img src="http://note.youdao.com/yws/api/personal/file/A1F6F814A5844395851A551F26412AD3?method=download&amp;shareKey=4ced2b2821823cb5936bf5b8724aee9b" alt="image"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5140754-3739ebe32abaa1c1?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
 <p>但在ie6下会显示成这样，</p>
-<p><img src="http://note.youdao.com/yws/api/personal/file/3033772F09A249C5AB338CCCCE0D2DFA?method=download&amp;shareKey=4ced2b2821823cb5936bf5b8724aee9b" alt="image"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5140754-f81beff3bf8fb58d?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
 <p>ie6下在浮动的元素下的元素h2设置高度，会独占整行，因为h2是块级元素，但我希望的是浮动元素被内容撑开。这时只要设置样式<code>h2{float:left}</code>就可以解决这个问题。</p>
 <p>另外假设父元素的宽度够长，如果子元素中第一个元素浮动并且宽度为200px，那么第二个元素即是设置了margin-left:200px;那么会有也间隙，所以既然要并排显示那么就都设置浮动，不要一个浮一个不浮。</p>
 <h2 id="ie6浏览器子元素超出宽度问题"><a href="#ie6浏览器子元素超出宽度问题" class="headerlink" title="ie6浏览器子元素超出宽度问题"></a>ie6浏览器子元素超出宽度问题</h2><p>在标准浏览器子元素比父元素宽高大时，会超出父元素，但不会改变父元素大小，但是在ie6下回直接撑大父元素，会导致整个布局乱掉，所以ie6下布局一定要注意子元素的尺寸问题。</p>
@@ -558,7 +558,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

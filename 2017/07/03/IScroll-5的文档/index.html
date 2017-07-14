@@ -1,0 +1,1077 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="javascript常用插件," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="结构使用IScroll这个脚本库时，DOM树的结构要足够简单，移除不必要的标签，尽量避免过多的标签嵌套使用。 最优的使用iScroll的结构如下所示 123456&amp;lt;div id=&quot;wrapper&quot;&amp;gt;  &amp;lt;ul&amp;gt;    &amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;    .....  &amp;lt;/ul&amp;gt;&amp;lt;/div&amp;gt; 只有wrapper里的第一个子元素才可以滚动，">
+<meta name="keywords" content="javascript常用插件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IScroll-5的文档">
+<meta property="og:url" content="http://yoursite.com/2017/07/03/IScroll-5的文档/index.html">
+<meta property="og:site_name" content="Gary23">
+<meta property="og:description" content="结构使用IScroll这个脚本库时，DOM树的结构要足够简单，移除不必要的标签，尽量避免过多的标签嵌套使用。 最优的使用iScroll的结构如下所示 123456&amp;lt;div id=&quot;wrapper&quot;&amp;gt;  &amp;lt;ul&amp;gt;    &amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;    .....  &amp;lt;/ul&amp;gt;&amp;lt;/div&amp;gt; 只有wrapper里的第一个子元素才可以滚动，">
+<meta property="og:updated_time" content="2017-07-14T03:22:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IScroll-5的文档">
+<meta name="twitter:description" content="结构使用IScroll这个脚本库时，DOM树的结构要足够简单，移除不必要的标签，尽量避免过多的标签嵌套使用。 最优的使用iScroll的结构如下所示 123456&amp;lt;div id=&quot;wrapper&quot;&amp;gt;  &amp;lt;ul&amp;gt;    &amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;    .....  &amp;lt;/ul&amp;gt;&amp;lt;/div&amp;gt; 只有wrapper里的第一个子元素才可以滚动，">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/07/03/IScroll-5的文档/"/>
+
+
+
+
+
+  <title> IScroll-5的文档 | Gary23 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Gary23</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/03/IScroll-5的文档/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="PJ Yu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gary23">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                IScroll-5的文档
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-03T11:10:40+08:00">
+                2017-07-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>使用IScroll这个脚本库时，DOM树的结构要足够简单，移除不必要的标签，尽量避免过多的标签嵌套使用。</p>
+<p>最优的使用iScroll的结构如下所示</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"wrapper"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    .....</div><div class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>只有wrapper里的第一个子元素才可以滚动，如果你想要更多的元素可以滚动，那么你可以试试下面的这种写法</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"wrapper"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"scroller"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">	  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">	  ...</div><div class="line">	<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">	  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">	  ...</div><div class="line">	<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="实例化IScroll"><a href="#实例化IScroll" class="headerlink" title="实例化IScroll"></a>实例化IScroll</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">  <span class="keyword">var</span> myscroll=<span class="keyword">new</span> IScroll(<span class="string">"wrapper"</span>,&#123;<span class="attr">hScrollbar</span>:<span class="literal">false</span>, <span class="attr">vScrollbar</span>:<span class="literal">false</span>&#125;);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<p>第一个参数是滚动元素外层容器的选择器字符串，也可以是元素对象。</p>
+<blockquote>
+<p>注意，IScroll使用的是querySelector 而不是 querySelectorAll，所以IScroll只会作用到选择器选中元素的第一个。如果你需要对多个对象使用IScroll，你需要构建自己的循环机制。</p>
+</blockquote>
+<p>第二个参数是一个对象。</p>
+<p>在初始化之后，可以通过options对象访问标准化值。如果设置了浏览器不支持的属性，那么即使在初始化时设置为<code>true</code>，在这里也会显示为<code>false</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(myScroll.options);</div></pre></td></tr></table></figure>
+<h2 id="IScroll的核心参数"><a href="#IScroll的核心参数" class="headerlink" title="IScroll的核心参数"></a>IScroll的核心参数</h2><h3 id="options-useTransform"><a href="#options-useTransform" class="headerlink" title="options.useTransform"></a>options.useTransform</h3><p>默认值是<code>true</code></p>
+<p>如果设置为<code>false</code>，将使用<code>top/left</code>属性这种老的方式进行滚动。 </p>
+<p>这个属性在滚动器感知到Flash，iframe或者视频插件内容时会有用，但是需要注意：性能会有极大的损耗。</p>
+<h3 id="options-useTransition"><a href="#options-useTransition" class="headerlink" title="options.useTransition"></a>options.useTransition</h3><p>默认是<code>true</code></p>
+<p>使用css的<code>transition</code>实现动画效果(动量和弹力)，如果设置为<code>false</code>，将使用<code>requestAnimationFrame</code>代替，在旧设备上<code>transition</code>执行的更好</p>
+<h3 id="options-HWCompositing"><a href="#options-HWCompositing" class="headerlink" title="options.HWCompositing"></a>options.HWCompositing</h3><p>默认是为<code>true</code></p>
+<p>这个选项尝试使用<code>translate(0)</code>来把滚动器附加到硬件层，以此来改变css属性，在移动设备上将提高性能</p>
+<blockquote>
+<p>如果不确定IScroll的最优配置，从性能角度出发，上面的所有选项都应该设置为true</p>
+</blockquote>
+<h2 id="IScroll的基本参数"><a href="#IScroll的基本参数" class="headerlink" title="IScroll的基本参数"></a>IScroll的基本参数</h2><h3 id="options-bounce"><a href="#options-bounce" class="headerlink" title="options.bounce"></a>options.bounce</h3><p>默认值<code>true</code></p>
+<p>滚动到边界反弹动画，在旧的设备上禁用对实现平滑滚动有帮助。</p>
+<h3 id="options-click"><a href="#options-click" class="headerlink" title="options.click"></a>options.click</h3><p>默认值是<code>false</code></p>
+<p>为了重写原生滚动条，iScroll禁止了一些默认的浏览器行为，比如鼠标的点击。如果你想你的应用程序响应click事件，那么该设置次属性为<code>true</code>。</p>
+<h3 id="options-disableMouse、options-disablePointer、options-disableTouch"><a href="#options-disableMouse、options-disablePointer、options-disableTouch" class="headerlink" title="options.disableMouse、options.disablePointer、options.disableTouch"></a>options.disableMouse、options.disablePointer、options.disableTouch</h3><p>默认值是<code>false</code></p>
+<p>可以把你不需要的事件禁用（鼠标，指针、触摸事件），设置为<code>true</code>是禁用。</p>
+<h3 id="options-eventPassthrough"><a href="#options-eventPassthrough" class="headerlink" title="options.eventPassthrough"></a>options.eventPassthrough</h3><p>有些时候你想保留原生纵向滚动条，但是想为横向滚动条增加IScroll功能。就可设置为true。</p>
+<p>实现横向滚动的代码如下：</p>
+<p>js部分</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myScroll = <span class="keyword">new</span> IScroll(<span class="string">'#wrapper'</span>, &#123;</div><div class="line">	<span class="attr">eventPassthrough</span>: <span class="literal">true</span>,</div><div class="line">	<span class="attr">scrollX</span>: <span class="literal">true</span>, </div><div class="line">	<span class="attr">scrollY</span>: <span class="literal">false</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>html部分</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"wrapper"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"scroller"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">li</span>&gt;</span>11111111111<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            ......</div><div class="line">		<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>css部分</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#wrapper</span> &#123;</div><div class="line">	<span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">	<span class="attribute">background</span>: <span class="number">#eeeeee</span>;</div><div class="line">	<span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-id">#scroller</span> &#123;</div><div class="line">	<span class="attribute">z-index</span>: <span class="number">1</span>;</div><div class="line">	<span class="attribute">width</span>: <span class="number">1010px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-id">#scroller</span> <span class="selector-tag">li</span> &#123;</div><div class="line">	<span class="attribute">width</span>: <span class="number">100px</span>;</div><div class="line">	<span class="attribute">float</span>: left;</div><div class="line">	<span class="attribute">font-size</span>: <span class="number">14px</span>;</div><div class="line">	<span class="attribute">overflow</span>: hidden;</div><div class="line">	<span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="options-freeScroll"><a href="#options-freeScroll" class="headerlink" title="options.freeScroll"></a>options.freeScroll</h3><p>默认值是<code>false</code></p>
+<p>可以横轴和纵轴同时滚动，需要设置为<code>true</code>。代码实例如下：</p>
+<p>js部分</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">myScroll = <span class="keyword">new</span> IScroll(<span class="string">'#wrapper'</span>, &#123;</div><div class="line">	<span class="attr">scrollX</span>: <span class="literal">true</span>,</div><div class="line">	<span class="attr">freeScroll</span>: <span class="literal">true</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>html部分</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"wrapper"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"scroller"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span>111111111111111111111111111111111111<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">		......</div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>css部分</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#wrapper</span> &#123;</div><div class="line">	<span class="attribute">position</span>: relative;</div><div class="line">	<span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">	<span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">	<span class="attribute">background</span>: <span class="number">#666</span>;</div><div class="line">	<span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-id">#scroller</span> &#123;</div><div class="line">	<span class="attribute">position</span>: absolute;</div><div class="line">	<span class="attribute">z-index</span>: <span class="number">2</span>;</div><div class="line">	<span class="attribute">width</span>: <span class="number">2000px</span>;</div><div class="line">	<span class="attribute">background</span>: <span class="number">#fff</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">p</span> &#123;</div><div class="line">	<span class="attribute">font-size</span>: <span class="number">16px</span>;</div><div class="line">	<span class="attribute">line-height</span>: <span class="number">1</span>;</div><div class="line">	<span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="options-keyBindings"><a href="#options-keyBindings" class="headerlink" title="options.keyBindings"></a>options.keyBindings</h3><p>默认值<code>false</code></p>
+<p>设置为<code>true</code>时可以激活键盘绑定。</p>
+<h3 id="options-invertWheelDirection"><a href="#options-invertWheelDirection" class="headerlink" title="options.invertWheelDirection"></a>options.invertWheelDirection</h3><p>默认为<code>false</code></p>
+<p>当鼠标滚轮支持激活后，在有些情况下需要反转滚动的方向。（比如，鼠标滚轮向下滚动条向上）。</p>
+<h3 id="options-momentum"><a href="#options-momentum" class="headerlink" title="options.momentum"></a>options.momentum</h3><p>默认值<code>true</code></p>
+<p>在用户快速触摸屏幕时，你可以开/关势能动画。关闭此功能将大幅度提升性能。</p>
+<h3 id="options-mouseWheel"><a href="#options-mouseWheel" class="headerlink" title="options.mouseWheel"></a>options.mouseWheel</h3><p>默认值<code>false</code></p>
+<p>是否监听鼠标滚轮事件。</p>
+<h3 id="options-preventDefault"><a href="#options-preventDefault" class="headerlink" title="options.preventDefault"></a>options.preventDefault</h3><p>默认值<code>true</code></p>
+<p>当事件触发时是否执行<code>preventDefault()</code>。此属性应该设置为<code>true</code>。</p>
+<h3 id="options-preventDefault-1"><a href="#options-preventDefault-1" class="headerlink" title="options.preventDefault"></a>options.preventDefault</h3><p>默认值<code>false</code></p>
+<p>是否显示为默认的滚动条。</p>
+<h3 id="options-scrollX、options-scrollY"><a href="#options-scrollX、options-scrollY" class="headerlink" title="options.scrollX、options.scrollY"></a>options.scrollX、options.scrollY</h3><p><code>scrollX</code>默认值<code>false</code>，<code>scrollY</code>默认值<code>true</code></p>
+<p><code>scrollX</code>为是否进行横向滚动，<code>scrollY</code>为是否进行纵向滚动</p>
+<h3 id="options-startX、options-startY"><a href="#options-startX、options-startY" class="headerlink" title="options.startX、options.startY"></a>options.startX、options.startY</h3><p>默认值0</p>
+<p>默认情况下iScroll从0, 0 (top left)00位置开始，通过此属性可以让滚动条从不同的位置开始滚动。</p>
+<h3 id="options-tap"><a href="#options-tap" class="headerlink" title="options.tap"></a>options.tap</h3><p>默认<code>false</code></p>
+<p>设置此属性为<code>true</code>，当滚动区域被点击或者触摸但并没有滚动时，可以让iScroll抛出一个自定义的tap事件。</p>
+<h2 id="滚动条"><a href="#滚动条" class="headerlink" title="滚动条"></a>滚动条</h2><p>滚动条不只是像名字所表达的意义一样，在内部它们是作为indicators的引用。</p>
+<p>一个指示器侦听滚动条的位置并且现实它在全局中的位置，但是它可以做更多的事情。</p>
+<h3 id="options-scrollbars"><a href="#options-scrollbars" class="headerlink" title="options.scrollbars"></a>options.scrollbars</h3><p>激活滚动条，代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myScroll = <span class="keyword">new</span> IScroll(<span class="string">'#wrapper'</span>, &#123;</div><div class="line">    <span class="attr">scrollbars</span>: <span class="literal">true</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="options-fadeScrollbars"><a href="#options-fadeScrollbars" class="headerlink" title="options.fadeScrollbars"></a>options.fadeScrollbars</h3><p>默认值<code>false</code></p>
+<p>设置为<code>true</code>则滚动条使用淡入淡出的方式，不适用淡入淡出比较节省资源。</p>
+<h3 id="options-interactiveScrollbars"><a href="#options-interactiveScrollbars" class="headerlink" title="options.interactiveScrollbars"></a>options.interactiveScrollbars</h3><p>默认值<code>false</code></p>
+<p>设置为<code>true</code>可以让滚动条能拖动</p>
+<h3 id="options-resizeScrollbars"><a href="#options-resizeScrollbars" class="headerlink" title="options.resizeScrollbars"></a>options.resizeScrollbars</h3><p>默认值<code>true</code></p>
+<p>滚动条尺寸改变基于容器和滚动区域的宽/高之间的比例。此属性设置为<code>false</code>让滚动条固定大小。这可能有助于自定义滚动条样式</p>
+<h3 id="options-shrinkScrollbars"><a href="#options-shrinkScrollbars" class="headerlink" title="options.shrinkScrollbars"></a>options.shrinkScrollbars</h3><p>有效值是<code>clip</code>和<code>scale</code></p>
+<p><code>clip</code>是移动指示器到它容器的外面，效果就是滚动条收缩起来，简单的移动到屏幕以外的区域。属性设置为此值后将大大的提升整个iScroll的性能。</p>
+<p><code>scale</code>关闭属性<code>useTransition</code>，之后所有的动画效果将使用<code>requestAnimationFrame</code>实现。指示器实际上有各种尺寸，并且最终的效果最好。</p>
+<p>如果页面在多种设备上运行最好使用<code>scale</code>，在旧的设备上应该设置为<code>clip</code>。</p>
+<h3 id="滚动条样式"><a href="#滚动条样式" class="headerlink" title="滚动条样式"></a>滚动条样式</h3><p>如果不喜欢默认的滚动条样式，可以自定义。</p>
+<p>第一步是设置选项<code>scrollbars</code>的值为<code>custom</code>。</p>
+<p>以下内容是自定义滚动条需要设置的css类名</p>
+<h4 id="iScrollHorizontalScrollbar"><a href="#iScrollHorizontalScrollbar" class="headerlink" title=".iScrollHorizontalScrollbar"></a>.iScrollHorizontalScrollbar</h4><p>这个样式应用到横向滚动条的容器。这个元素实际上承载了滚动条指示器。</p>
+<h4 id="iScrollVerticalScrollbar"><a href="#iScrollVerticalScrollbar" class="headerlink" title=".iScrollVerticalScrollbar"></a>.iScrollVerticalScrollbar</h4><p>和上面的样式类似，只不过适用于纵向滚动条容器。</p>
+<h4 id="iScrollIndicator"><a href="#iScrollIndicator" class="headerlink" title=".iScrollIndicator"></a>.iScrollIndicator</h4><p>真正的滚动条指示器。</p>
+<h4 id="iScrollBothScrollbars"><a href="#iScrollBothScrollbars" class="headerlink" title=".iScrollBothScrollbars"></a>.iScrollBothScrollbars</h4><p>这个样式将在双向滚动条显示的情况下被加载到容器元素上。通常情况下其中一个（横向或者纵向）是可见的。</p>
+<h2 id="指示器"><a href="#指示器" class="headerlink" title="指示器"></a>指示器</h2><p>上面所有关于滚动条的选项实际上是包装了一个底层的选项indicators。它看起来或多或少像这样</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myScroll = <span class="keyword">new</span> IScroll(<span class="string">'#wrapper'</span>, &#123;</div><div class="line">    <span class="attr">indicators</span>: &#123;</div><div class="line">        <span class="attr">el</span>: [element|element selector]</div><div class="line">        fade: <span class="literal">false</span>,</div><div class="line">        <span class="attr">ignoreBoundaries</span>: <span class="literal">false</span>,</div><div class="line">        <span class="attr">interactive</span>: <span class="literal">false</span>,</div><div class="line">        <span class="attr">listenX</span>: <span class="literal">true</span>,</div><div class="line">        <span class="attr">listenY</span>: <span class="literal">true</span>,</div><div class="line">        <span class="attr">resize</span>: <span class="literal">true</span>,</div><div class="line">        <span class="attr">shrink</span>: <span class="literal">false</span>,</div><div class="line">        <span class="attr">speedRatioX</span>: <span class="number">0</span>,</div><div class="line">        <span class="attr">speedRatioY</span>: <span class="number">0</span>,</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="options-indicators-el"><a href="#options-indicators-el" class="headerlink" title="options.indicators.el"></a>options.indicators.el</h3><p>这是一个强制性的参数，它保留了指向滚动条容器元素的引用，容器里的第一个子元素就是指示器，而且滚动条可以在文档的任何地方，它不需要在滚动条包装器内。</p>
+<p>格式如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">indicators: &#123;</div><div class="line">    <span class="attr">el</span>: <span class="built_in">document</span>.getElementById(<span class="string">'indicator'</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">indicators: &#123;</div><div class="line">    <span class="attr">el</span>: <span class="string">'#indicator'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="options-indicators-ignoreBoundaries"><a href="#options-indicators-ignoreBoundaries" class="headerlink" title="options.indicators.ignoreBoundaries"></a>options.indicators.ignoreBoundaries</h3><p>默认值<code>false</code></p>
+<p>这个属性告诉指示器忽略它容器所带来的边界，比如想让指示器是滚动条速度的两倍，指示器将很快到达它的结尾，这个属性被用在视差滚动。</p>
+<h3 id="options-indicators-listenX、options-indicators-listenY"><a href="#options-indicators-listenX、options-indicators-listenY" class="headerlink" title="options.indicators.listenX、options.indicators.listenY"></a>options.indicators.listenX、options.indicators.listenY</h3><p>默认值<code>true</code></p>
+<p>指示器的横向和纵向被侦听。可以设置一个或者都设置</p>
+<h3 id="options-indicators-speedRatioX、options-indicators-speedRatioY"><a href="#options-indicators-speedRatioX、options-indicators-speedRatioY" class="headerlink" title="options.indicators.speedRatioX、options.indicators.speedRatioY"></a>options.indicators.speedRatioX、options.indicators.speedRatioY</h3><p>默认值0</p>
+<p>指示器移动的速度和主要滚动条大小的关系，默认情况下是设置为自动。基本不需要改变的参数。</p>
+<h3 id="options-indicators-fade、options-indicators-interactive、options-indicators-resize、options-indicators-shrink"><a href="#options-indicators-fade、options-indicators-interactive、options-indicators-resize、options-indicators-shrink" class="headerlink" title="options.indicators.fade、options.indicators.interactive、options.indicators.resize、options.indicators.shrink"></a>options.indicators.fade、options.indicators.interactive、options.indicators.resize、options.indicators.shrink</h3><p>这几个选项和已经介绍过的滚动条中的一样，可以参考下面这个案例</p>
+<p>js部分</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">myScroll = <span class="keyword">new</span> IScroll(<span class="string">'#wrapper'</span>, &#123;</div><div class="line">	<span class="attr">startX</span>: <span class="number">-359</span>,	<span class="comment">// 初始位置</span></div><div class="line">	startY: <span class="number">-85</span>,</div><div class="line">	<span class="attr">scrollY</span>: <span class="literal">true</span>,	<span class="comment">// 横向纵向可同时滚动</span></div><div class="line">	scrollX: <span class="literal">true</span>,</div><div class="line">	<span class="attr">freeScroll</span>: <span class="literal">true</span>,	</div><div class="line">	<span class="attr">mouseWheel</span>: <span class="literal">true</span>,</div><div class="line">	<span class="attr">indicators</span>: &#123;		</div><div class="line">		<span class="attr">el</span>: <span class="built_in">document</span>.getElementById(<span class="string">'minimap'</span>),    <span class="comment">// 指向滚动条容器元素的引用，容器里的第一个子元素就是指示器</span></div><div class="line">		interactive: <span class="literal">true</span>		<span class="comment">// 让指示器可滚动</span></div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>html部分</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"wrapper"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"scroller"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"minimap"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"minimap-indicator"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>css部分</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#wrapper</span> &#123;</div><div class="line">	<span class="attribute">position</span>: absolute;</div><div class="line">	<span class="attribute">z-index</span>: <span class="number">1</span>;</div><div class="line">	<span class="attribute">width</span>: <span class="number">235px</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">321px</span>;</div><div class="line">	<span class="attribute">top</span>: <span class="number">0</span>;</div><div class="line">	<span class="attribute">left</span>: <span class="number">0</span>;</div><div class="line">	<span class="attribute">background</span>: <span class="number">#555</span>;</div><div class="line">	<span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div><div class="line"><span class="selector-id">#scroller</span> &#123;</div><div class="line">	<span class="attribute">position</span>: absolute;</div><div class="line">	<span class="attribute">z-index</span>: <span class="number">1</span>;</div><div class="line">	<span class="attribute">width</span>: <span class="number">797px</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">1087px</span>;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">url</span>(ermine.jpg);</div><div class="line">&#125;</div><div class="line"><span class="selector-id">#minimap</span> &#123;</div><div class="line">	<span class="attribute">position</span>: absolute;</div><div class="line">	<span class="attribute">z-index</span>: <span class="number">1</span>;</div><div class="line">	<span class="attribute">width</span>: <span class="number">235px</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">321px</span>;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">url</span>(ermine.jpg);</div><div class="line">	<span class="attribute">background-size</span>: <span class="number">235px</span> <span class="number">321px</span>;</div><div class="line">	<span class="attribute">top</span>: <span class="number">0px</span>;</div><div class="line">	<span class="attribute">left</span>: <span class="number">245px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-id">#minimap-indicator</span> &#123;</div><div class="line">	<span class="attribute">position</span>: absolute;</div><div class="line">	<span class="attribute">z-index</span>: <span class="number">1</span>;</div><div class="line">	<span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#fe0</span>;</div><div class="line">	<span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">5px</span> <span class="number">#000</span>;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">rgba</span>(255,255,255,0.15);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="视差滚动"><a href="#视差滚动" class="headerlink" title="视差滚动"></a>视差滚动</h3><p>视差滚动时指示器的一个功能，指示器是一个遵循主滚动条移动和动画的层。增加这个功能就可以创建任意数量的指示器和视差滚动。</p>
+<p>js部分</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">myScroll = <span class="keyword">new</span> IScroll(<span class="string">'#wrapper'</span>, &#123;</div><div class="line">	<span class="attr">mouseWheel</span>: <span class="literal">true</span>,</div><div class="line">	<span class="attr">indicators</span>: [&#123;</div><div class="line">		<span class="attr">el</span>: <span class="built_in">document</span>.getElementById(<span class="string">'starfield1'</span>),</div><div class="line">		<span class="attr">resize</span>: <span class="literal">false</span>,</div><div class="line">		<span class="attr">ignoreBoundaries</span>: <span class="literal">true</span>,</div><div class="line">		<span class="attr">speedRatioY</span>: <span class="number">0.4</span></div><div class="line">	&#125;, &#123;</div><div class="line">		<span class="attr">el</span>: <span class="built_in">document</span>.getElementById(<span class="string">'starfield2'</span>),</div><div class="line">		<span class="attr">resize</span>: <span class="literal">false</span>,</div><div class="line">		<span class="attr">ignoreBoundaries</span>: <span class="literal">true</span>,</div><div class="line">		<span class="attr">speedRatioY</span>: <span class="number">0.2</span></div><div class="line">	&#125;]</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>html部分</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"wrapper"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"scroller"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"starfield1"</span> <span class="attr">class</span>=<span class="string">"starfield"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"stars1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"starfield2"</span> <span class="attr">class</span>=<span class="string">"starfield"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"stars2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>css部分</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#wrapper</span> &#123;</div><div class="line">	<span class="attribute">position</span>: absolute;</div><div class="line">	<span class="attribute">z-index</span>: <span class="number">3</span>;</div><div class="line">	<span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">	<span class="attribute">top</span>: <span class="number">0</span>;</div><div class="line">	<span class="attribute">left</span>: <span class="number">0</span>;</div><div class="line">	<span class="attribute">bottom</span>: <span class="number">0</span>;</div><div class="line">	<span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-id">#scroller</span> &#123;</div><div class="line">	<span class="attribute">position</span>: absolute;</div><div class="line">	<span class="attribute">z-index</span>: <span class="number">3</span>;</div><div class="line">	<span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">4000px</span>;</div><div class="line">	<span class="attribute">overflow</span>: hidden;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">url</span>(galaxies1.png);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-id">#starfield1</span> &#123;</div><div class="line">	<span class="attribute">z-index</span>: <span class="number">2</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.starfield</span> &#123;</div><div class="line">	<span class="attribute">position</span>: absolute;</div><div class="line">	<span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">	<span class="attribute">top</span>: <span class="number">0</span>;</div><div class="line">	<span class="attribute">left</span>: <span class="number">0</span>;</div><div class="line">	<span class="attribute">bottom</span>: <span class="number">0</span>;</div><div class="line">	<span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.starfield</span> <span class="selector-tag">div</span> &#123;</div><div class="line">	<span class="attribute">position</span>: absolute;</div><div class="line">	<span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">	<span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-id">#stars1</span> &#123;</div><div class="line">	<span class="attribute">z-index</span>: <span class="number">2</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">3000px</span>;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">url</span>(galaxies2.png);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-id">#stars2</span> &#123;</div><div class="line">	<span class="attribute">z-index</span>: <span class="number">1</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">2000px</span>;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">url</span>(stars.jpg);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="滚动的接口"><a href="#滚动的接口" class="headerlink" title="滚动的接口"></a>滚动的接口</h3><p>可以通过下面的方法滚动到指定位置</p>
+<h4 id="scrollTo-x-y-time-easing"><a href="#scrollTo-x-y-time-easing" class="headerlink" title="scrollTo(x, y, time, easing)"></a>scrollTo(x, y, time, easing)</h4><p>初始化IScroll之后会创建一个<code>myScroll</code>实例(名字是自己定义的变量)，可以通过<code>myScroll.scrollTo(0, -100)</code>滚动到任意位置。因为左上角永远是0，所以向下滚动一定是负数</p>
+<p>参数<code>time</code>和<code>easing</code>是可选项，他们控制滚动周期（毫秒）和动画的擦除效果。动画擦除对象是<code>IScroll.utils.ease</code>，可擦除动画类型有<code>quadratic</code>, <code>circular</code>, <code>back</code>, <code>bounce</code>, <code>elastic</code>。</p>
+<p>示例：<code>myScroll.scrollTo(0, -100, 1000, IScroll.utils.ease.elastic);</code></p>
+<h4 id="scrollBy-x-y-time-easing"><a href="#scrollBy-x-y-time-easing" class="headerlink" title="scrollBy(x, y, time, easing)"></a>scrollBy(x, y, time, easing)</h4><p>和上面一个方法类似，但是可以传递X和Y的值从当前位置进行滚动。</p>
+<p><code>myScroll.scrollBy(0, -10)</code>会在当前位置向下滚动10个像素。</p>
+<h4 id="scrollToElement-el-time-offsetX-offsetY-easing"><a href="#scrollToElement-el-time-offsetX-offsetY-easing" class="headerlink" title="scrollToElement(el, time, offsetX, offsetY, easing)"></a>scrollToElement(el, time, offsetX, offsetY, easing)</h4><p>在这个方法中只有一个强制的参数就是el。传递一个元素或者一个选择器，IScroll将尝试滚动到这个元素的左上角位置。</p>
+<p><code>time</code>是可选项，用于设置动画周期。</p>
+<p><code>offsetX</code> 和 <code>offsetY</code>定义像素级的偏移量，如果把这两个参数设置为true，元素将会位于屏幕的中间。</p>
+<p><code>easing</code>和之前的一样。</p>
+<h2 id="对齐"><a href="#对齐" class="headerlink" title="对齐"></a>对齐</h2><p>iScroll能对齐到固定的位置和元素。</p>
+<h3 id="options-snap"><a href="#options-snap" class="headerlink" title="options.snap"></a>options.snap</h3><p>按照页面容器大小自动分割滚动条</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myScroll = <span class="keyword">new</span> IScroll(<span class="string">'#wrapper'</span>, &#123;</div><div class="line">    <span class="attr">snap</span>: <span class="literal">true</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>也可以设置滚动条将要对齐的元素的选择器</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myScroll = <span class="keyword">new</span> IScroll(<span class="string">'#wrapper'</span>, &#123;</div><div class="line">    <span class="attr">snap</span>: <span class="string">'li'</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="goToPage-x-y-time-easing"><a href="#goToPage-x-y-time-easing" class="headerlink" title="goToPage(x, y, time, easing)"></a>goToPage(x, y, time, easing)</h3><p><code>x</code>和<code>y</code>呈现想滚动到横向轴或者纵向轴的页面数，如果需要咋单个纬度上使用滚动条，只需要为你不需要的轴上传递0值。</p>
+<p><code>time</code>属性是动画周期，可选项</p>
+<p><code>easing</code>属性是滚动到指定点使用的擦除功能类型，参照option.bounceEasing对象，可选项</p>
+<p>在一秒钟内沿着横向滚动到第10页 <code>myScroll.goToPage(10, 0, 1000);</code></p>
+<h2 id="缩放"><a href="#缩放" class="headerlink" title="缩放"></a>缩放</h2><p>为了使用缩放功能，你最好使用iscroll-zoom.js脚本。</p>
+<h3 id="options-zoom"><a href="#options-zoom" class="headerlink" title="options.zoom"></a>options.zoom</h3><p>默认值<code>false</code></p>
+<p>此属性设置为<code>true</code>启用缩放功能。</p>
+<h3 id="options-zoomMax"><a href="#options-zoomMax" class="headerlink" title="options.zoomMax"></a>options.zoomMax</h3><p>默认值4</p>
+<p>最大缩放级数</p>
+<h3 id="options-zoomMin"><a href="#options-zoomMin" class="headerlink" title="options.zoomMin"></a>options.zoomMin</h3><p>默认值1</p>
+<p>最小缩放级数</p>
+<h3 id="options-startZoom"><a href="#options-startZoom" class="headerlink" title="options.startZoom"></a>options.startZoom</h3><p>默认值1</p>
+<p>初始的缩放级数</p>
+<h3 id="options-wheelAction"><a href="#options-wheelAction" class="headerlink" title="options.wheelAction"></a>options.wheelAction</h3><p>鼠标滚轮的动作可以设置为<code>zoom</code>，这样在滚动滚轮时缩放操作会代替原来的滚动操作。</p>
+<p>放大的示例：</p>
+<p>js部分</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">myScroll = <span class="keyword">new</span> IScroll(<span class="string">'#wrapper'</span>, &#123;</div><div class="line">	<span class="attr">zoom</span>: <span class="literal">true</span>,</div><div class="line">	<span class="attr">scrollX</span>: <span class="literal">true</span>,</div><div class="line">	<span class="attr">scrollY</span>: <span class="literal">true</span>,</div><div class="line">	<span class="attr">mouseWheel</span>: <span class="literal">true</span>,</div><div class="line">	<span class="attr">wheelAction</span>: <span class="string">'zoom'</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>html部分</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"wrapper"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"scroller"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span>111111111111111111111111111<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">        ......</div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>css部分</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#wrapper</span> &#123;</div><div class="line">	<span class="attribute">position</span>: absolute;</div><div class="line">	<span class="attribute">z-index</span>: <span class="number">1</span>;</div><div class="line">	<span class="attribute">top</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">bottom</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">left</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">right</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">background</span>: <span class="number">#ccc</span>;</div><div class="line">	<span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-id">#scroller</span> &#123;</div><div class="line">	<span class="attribute">position</span>: absolute;</div><div class="line">	<span class="attribute">z-index</span>: <span class="number">1</span>;</div><div class="line">	<span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="zoom-scale-x-y-time"><a href="#zoom-scale-x-y-time" class="headerlink" title="zoom(scale, x, y, time)"></a>zoom(scale, x, y, time)</h3><p><code>scale</code>是缩放因子</p>
+<p><code>x</code> 和 <code>y</code>是缩放关注点，即缩放的中心。如果没有指定，这个中心就是屏幕中心。</p>
+<p><code>time</code>是毫秒级别的动画周期,可选</p>
+<blockquote>
+<p>缩放功能使用的CSS的转换功能。iScroll只能在支持此CSS功能的浏览器上执行。<br>一些浏览器（特别是基于webkit的）采取的快照缩放区域就放在硬件合成层(比如当你申请转换)。该快照作为纹理的缩放区域,它几乎不能被更新。这意味着您的纹理将基于 scale 1 进行缩放,将导致文本和图像模糊,清晰度低。<br>一个简单的解决方案是使用实际分辨率双倍（或者三倍）装载内容，然后 放到一个按照scale(0.5)比例缩小的div中。这种方法大多数情况下能适用。</p>
+</blockquote>
+<h2 id="刷新"><a href="#刷新" class="headerlink" title="刷新"></a>刷新</h2><p>IScroll需要知道包装器和滚动器确切的尺寸，在IScroll初始化的时候进行计算，如果元素大小发生了变化，需要告诉IScroll DOM发生了变化。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">ajax(<span class="string">'page.php'</span>, onCompletion);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">onCompletion</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// 更新DOM</span></div><div class="line">    setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        myScroll.refresh();</div><div class="line">    &#125;, <span class="number">0</span>);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>这里调用<code>refresh()</code>使用了零秒等待，如果你需要立即刷新IScroll边界就是如此使用。当然还有其他方法可以等待页面重绘，但零超时方式相当稳定。</p>
+<h2 id="自定义事件"><a href="#自定义事件" class="headerlink" title="自定义事件"></a>自定义事件</h2><p>使用<code>on(type, fn)</code>方法注册事件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">myScroll = <span class="keyword">new</span> IScroll(<span class="string">'#wrapper'</span>);</div><div class="line">myScroll.on(<span class="string">'scrollEnd'</span>, doSomething);</div></pre></td></tr></table></figure>
+<p>可用的事件列表如下：</p>
+<ul>
+<li><p>beforeScrollStart，在用户触摸屏幕但还没有开始滚动时触发。</p>
+</li>
+<li><p>scrollCancel，滚动初始化完成，但没有执行。</p>
+</li>
+<li><p>scrollStart，开始滚动</p>
+</li>
+<li><p>scroll，内容滚动时触发，只有在scroll-probe.js版本中有效，请参考onScroll event。</p>
+</li>
+<li><p>scrollEnd，停止滚动时触发。</p>
+</li>
+<li><p>flick，用户打开左/右。</p>
+</li>
+<li><p>zoomStart，开始缩放。</p>
+</li>
+<li><p>zoomEnd，缩放结束。</p>
+</li>
+</ul>
+<h2 id="滚动条信息"><a href="#滚动条信息" class="headerlink" title="滚动条信息"></a>滚动条信息</h2><p>iScroll存储了很多有用的信息，您可以使用它们来增强应用场景，可以说要用IScroll做一个功能这个信息是必不可少的。</p>
+<p>最常用到的信息有</p>
+<ul>
+<li><p><code>myScroll.x / y</code> 当前位置</p>
+</li>
+<li><p><code>myScroll.directionX / Y</code> 最后的方向（-1 down / right，0 still，1 up / left） </p>
+</li>
+<li><p><code>myScroll.currentPage</code> 当前对齐捕获点</p>
+</li>
+</ul>
+<p>在回调中，通过<code>this</code>就可获取到所有的滚动条信息。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">myScroll = <span class="keyword">new</span> IScroll(<span class="string">'#wrapper'</span>);</div><div class="line">myScroll.on(<span class="string">'scrollEnd'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> ( <span class="keyword">this</span>.x &lt; <span class="number">-1000</span> ) &#123;</div><div class="line">        <span class="comment">// do something</span></div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h2 id="销毁"><a href="#销毁" class="headerlink" title="销毁"></a>销毁</h2><p>在不需要使用iScoll的时候调用iScroll实例的公共方法destroy()可以释放一些内存。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">myScroll.destroy();</div><div class="line">myScroll = <span class="literal">null</span>;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript常用插件/" rel="tag"># javascript常用插件</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/06/《锋利的jQuery》四、jQuery的事件/" rel="next" title="《锋利的jQuery》四、jQuery的事件">
+                <i class="fa fa-chevron-left"></i> 《锋利的jQuery》四、jQuery的事件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/03/《锋利的jQuery》三、jQuery的DOM操作/" rel="prev" title="《锋利的jQuery》三、jQuery的DOM操作">
+                《锋利的jQuery》三、jQuery的DOM操作 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="PJ Yu" />
+          <p class="site-author-name" itemprop="name">PJ Yu</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Gary23" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com/Gary23" title="Gary23" target="_blank">Gary23</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#结构"><span class="nav-number">1.</span> <span class="nav-text">结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例化IScroll"><span class="nav-number">2.</span> <span class="nav-text">实例化IScroll</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IScroll的核心参数"><span class="nav-number">3.</span> <span class="nav-text">IScroll的核心参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#options-useTransform"><span class="nav-number">3.1.</span> <span class="nav-text">options.useTransform</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#options-useTransition"><span class="nav-number">3.2.</span> <span class="nav-text">options.useTransition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#options-HWCompositing"><span class="nav-number">3.3.</span> <span class="nav-text">options.HWCompositing</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IScroll的基本参数"><span class="nav-number">4.</span> <span class="nav-text">IScroll的基本参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#options-bounce"><span class="nav-number">4.1.</span> <span class="nav-text">options.bounce</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#options-click"><span class="nav-number">4.2.</span> <span class="nav-text">options.click</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#options-disableMouse、options-disablePointer、options-disableTouch"><span class="nav-number">4.3.</span> <span class="nav-text">options.disableMouse、options.disablePointer、options.disableTouch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#options-eventPassthrough"><span class="nav-number">4.4.</span> <span class="nav-text">options.eventPassthrough</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#options-freeScroll"><span class="nav-number">4.5.</span> <span class="nav-text">options.freeScroll</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#options-keyBindings"><span class="nav-number">4.6.</span> <span class="nav-text">options.keyBindings</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#options-invertWheelDirection"><span class="nav-number">4.7.</span> <span class="nav-text">options.invertWheelDirection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#options-momentum"><span class="nav-number">4.8.</span> <span class="nav-text">options.momentum</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#options-mouseWheel"><span class="nav-number">4.9.</span> <span class="nav-text">options.mouseWheel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#options-preventDefault"><span class="nav-number">4.10.</span> <span class="nav-text">options.preventDefault</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#options-preventDefault-1"><span class="nav-number">4.11.</span> <span class="nav-text">options.preventDefault</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#options-scrollX、options-scrollY"><span class="nav-number">4.12.</span> <span class="nav-text">options.scrollX、options.scrollY</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#options-startX、options-startY"><span class="nav-number">4.13.</span> <span class="nav-text">options.startX、options.startY</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#options-tap"><span class="nav-number">4.14.</span> <span class="nav-text">options.tap</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#滚动条"><span class="nav-number">5.</span> <span class="nav-text">滚动条</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#options-scrollbars"><span class="nav-number">5.1.</span> <span class="nav-text">options.scrollbars</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#options-fadeScrollbars"><span class="nav-number">5.2.</span> <span class="nav-text">options.fadeScrollbars</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#options-interactiveScrollbars"><span class="nav-number">5.3.</span> <span class="nav-text">options.interactiveScrollbars</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#options-resizeScrollbars"><span class="nav-number">5.4.</span> <span class="nav-text">options.resizeScrollbars</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#options-shrinkScrollbars"><span class="nav-number">5.5.</span> <span class="nav-text">options.shrinkScrollbars</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#滚动条样式"><span class="nav-number">5.6.</span> <span class="nav-text">滚动条样式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#iScrollHorizontalScrollbar"><span class="nav-number">5.6.1.</span> <span class="nav-text">.iScrollHorizontalScrollbar</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#iScrollVerticalScrollbar"><span class="nav-number">5.6.2.</span> <span class="nav-text">.iScrollVerticalScrollbar</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#iScrollIndicator"><span class="nav-number">5.6.3.</span> <span class="nav-text">.iScrollIndicator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#iScrollBothScrollbars"><span class="nav-number">5.6.4.</span> <span class="nav-text">.iScrollBothScrollbars</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指示器"><span class="nav-number">6.</span> <span class="nav-text">指示器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#options-indicators-el"><span class="nav-number">6.1.</span> <span class="nav-text">options.indicators.el</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#options-indicators-ignoreBoundaries"><span class="nav-number">6.2.</span> <span class="nav-text">options.indicators.ignoreBoundaries</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#options-indicators-listenX、options-indicators-listenY"><span class="nav-number">6.3.</span> <span class="nav-text">options.indicators.listenX、options.indicators.listenY</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#options-indicators-speedRatioX、options-indicators-speedRatioY"><span class="nav-number">6.4.</span> <span class="nav-text">options.indicators.speedRatioX、options.indicators.speedRatioY</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#options-indicators-fade、options-indicators-interactive、options-indicators-resize、options-indicators-shrink"><span class="nav-number">6.5.</span> <span class="nav-text">options.indicators.fade、options.indicators.interactive、options.indicators.resize、options.indicators.shrink</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视差滚动"><span class="nav-number">6.6.</span> <span class="nav-text">视差滚动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#滚动的接口"><span class="nav-number">6.7.</span> <span class="nav-text">滚动的接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#scrollTo-x-y-time-easing"><span class="nav-number">6.7.1.</span> <span class="nav-text">scrollTo(x, y, time, easing)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scrollBy-x-y-time-easing"><span class="nav-number">6.7.2.</span> <span class="nav-text">scrollBy(x, y, time, easing)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scrollToElement-el-time-offsetX-offsetY-easing"><span class="nav-number">6.7.3.</span> <span class="nav-text">scrollToElement(el, time, offsetX, offsetY, easing)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对齐"><span class="nav-number">7.</span> <span class="nav-text">对齐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#options-snap"><span class="nav-number">7.1.</span> <span class="nav-text">options.snap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#goToPage-x-y-time-easing"><span class="nav-number">7.2.</span> <span class="nav-text">goToPage(x, y, time, easing)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缩放"><span class="nav-number">8.</span> <span class="nav-text">缩放</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#options-zoom"><span class="nav-number">8.1.</span> <span class="nav-text">options.zoom</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#options-zoomMax"><span class="nav-number">8.2.</span> <span class="nav-text">options.zoomMax</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#options-zoomMin"><span class="nav-number">8.3.</span> <span class="nav-text">options.zoomMin</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#options-startZoom"><span class="nav-number">8.4.</span> <span class="nav-text">options.startZoom</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#options-wheelAction"><span class="nav-number">8.5.</span> <span class="nav-text">options.wheelAction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zoom-scale-x-y-time"><span class="nav-number">8.6.</span> <span class="nav-text">zoom(scale, x, y, time)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#刷新"><span class="nav-number">9.</span> <span class="nav-text">刷新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义事件"><span class="nav-number">10.</span> <span class="nav-text">自定义事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#滚动条信息"><span class="nav-number">11.</span> <span class="nav-text">滚动条信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#销毁"><span class="nav-number">12.</span> <span class="nav-text">销毁</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PJ Yu</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
