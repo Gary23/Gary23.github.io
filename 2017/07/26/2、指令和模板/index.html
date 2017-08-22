@@ -93,14 +93,17 @@
 
 
 
+<meta name="description" content="指令什么是指令指令是一种特殊的自定义行间属性，指令的职责就是当其表达式的值改变时，响应的将某些行为应用到DOM上，在Vue中，指令以v-开头。以v-bind指令为例： 1234&amp;lt;div id=&quot;app&quot;&amp;gt;    &amp;lt;!--v-bind是指令，作用是动态的绑定数据，简写为&apos;:&apos;，id是它的参数--&amp;gt;    &amp;lt;span v-bind:id=&quot;&amp;#123;&amp;#123; id">
 <meta name="keywords" content="vue笔记(妙味)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2、指令和模板">
 <meta property="og:url" content="http://yoursite.com/2017/07/26/2、指令和模板/index.html">
 <meta property="og:site_name" content="Gary23">
-<meta property="og:updated_time" content="2017-08-22T07:37:31.661Z">
+<meta property="og:description" content="指令什么是指令指令是一种特殊的自定义行间属性，指令的职责就是当其表达式的值改变时，响应的将某些行为应用到DOM上，在Vue中，指令以v-开头。以v-bind指令为例： 1234&amp;lt;div id=&quot;app&quot;&amp;gt;    &amp;lt;!--v-bind是指令，作用是动态的绑定数据，简写为&apos;:&apos;，id是它的参数--&amp;gt;    &amp;lt;span v-bind:id=&quot;&amp;#123;&amp;#123; id">
+<meta property="og:updated_time" content="2017-08-22T07:49:58.468Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2、指令和模板">
+<meta name="twitter:description" content="指令什么是指令指令是一种特殊的自定义行间属性，指令的职责就是当其表达式的值改变时，响应的将某些行为应用到DOM上，在Vue中，指令以v-开头。以v-bind指令为例： 1234&amp;lt;div id=&quot;app&quot;&amp;gt;    &amp;lt;!--v-bind是指令，作用是动态的绑定数据，简写为&apos;:&apos;，id是它的参数--&amp;gt;    &amp;lt;span v-bind:id=&quot;&amp;#123;&amp;#123; id">
 
 
 
@@ -379,7 +382,40 @@
       
 
       
-        
+        <h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><h3 id="什么是指令"><a href="#什么是指令" class="headerlink" title="什么是指令"></a>什么是指令</h3><p>指令是一种特殊的自定义行间属性，指令的职责就是当其表达式的值改变时，响应的将某些行为应用到DOM上，在Vue中，指令以<code>v-</code>开头。以<code>v-bind</code>指令为例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!--v-bind是指令，作用是动态的绑定数据，简写为':'，id是它的参数--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-bind:id</span>=<span class="string">"&#123;&#123; id &#125;&#125;"</span>&gt;</span>&#123;&#123; message &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">    <span class="attr">el</span>: <span class="string">'#app'</span>,</div><div class="line">    <span class="attr">data</span>: &#123;</div><div class="line">        <span class="attr">message</span>: <span class="string">'hello,Vue!'</span>,</div><div class="line">        <span class="attr">id</span>:<span class="string">'123'</span></div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>还有很多常用指令可以查看官网的API。</p>
+<h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><p>Vue中有三种模板可以使用，html模板、字符串模板(template)、render函数。</p>
+<h3 id="html模板"><a href="#html模板" class="headerlink" title="html模板"></a>html模板</h3><p>基于DOM的模板，只要是有效的可解析的html就可以。</p>
+<h4 id="html模板的插值"><a href="#html模板的插值" class="headerlink" title="html模板的插值"></a>html模板的插值</h4><p>插值就是写在 <code>{ { } }</code> 内部的内容。有以下四种情况可以使用：</p>
+<ol>
+<li><p>文本：就是 <code>{ { key } }</code>，替换实例上的data里的属性值，插值内容会自动更新。</p>
+</li>
+<li><p>原生的html： 上面 <code>{ { } }</code> 输出的是文本，不会解析html，如果在data中有<code>html: &#39;&lt;div&gt;hello Vue&lt;/div&gt;&#39;</code>这样的数据，直接<code>{ { html } }</code>只会将其当做文本而不是html元素。如果需要被当做dom渲染，需要在父元素设置<code>v-html=&quot;html&quot;</code>。</p>
+</li>
+<li><p>行内的属性：使用<code>v-bind</code>进行绑定，可以响应变化。</p>
+</li>
+<li><p>使用javascript表达式：<code>{ { } }</code>内部可以写简单的表达式(不要写复杂语句)，可以写比如<code>{ { true?&#39;yes&#39;:&#39;noe&#39; } }</code>或者<code>{ { &#39;data&#39;+message } }</code>，如果复杂的就写到计算属性中去。</p>
+</li>
+</ol>
+<h3 id="字符串模板-template"><a href="#字符串模板-template" class="headerlink" title="字符串模板(template)"></a>字符串模板(template)</h3><p>template是Vue实例中的选项的一个属性。</p>
+<p>模板将会替换挂载的元素，挂载元素的内容都将被忽略，根节点只能有一个，也可以将html结构写在一对<code>&lt;script&gt;</code>标签中，设置type=”X-template”</p>
+<h4 id="字符串的方式"><a href="#字符串的方式" class="headerlink" title="字符串的方式"></a>字符串的方式</h4><p>替换挂载元素：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"demo1"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>hi Vue<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">'&lt;span&gt;&#123;&#123; message ]&#125;&#125;&lt;/span&gt;'</span></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">    <span class="attr">el</span>: <span class="string">'#demo1'</span>,</div><div class="line">    <span class="attr">data</span>:&#123;</div><div class="line">        <span class="attr">message</span>: <span class="string">'hello Vue'</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">template</span>:str</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>最终页面会显示hello Vue，会将新渲染的字符串模板替换掉原来的元素</p>
+<p>需要注意的是：根节点只能有一个，<code>var str = &#39;&lt;span&gt;{ { message ]} }&lt;/span&gt;&lt;span&gt;11&lt;/span&gt;&#39;</code>这种写法是错误的，因为最外层的根节点只能是一个。只能去包含别的元素，比如<code>var str = &#39;&lt;span&gt;{ { message ] }}&lt;span&gt;11&lt;/span&gt;&lt;/span&gt;&#39;</code>这样就是对的。</p>
+<h4 id="script标签的方式"><a href="#script标签的方式" class="headerlink" title="script标签的方式"></a>script标签的方式</h4><p>这种模板也可以写在<code>&lt;script&gt;</code>标签中，就和平时用的模板文件是相同的。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"X-template"</span> <span class="attr">id</span>=<span class="string">"temp"</span>&gt;</span><span class="xml"></span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span></div><div class="line">        &#123;&#123; message ]&#125;&#125;</div><div class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>11<span class="tag">&lt;<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">    <span class="attr">el</span>: <span class="string">'#demo1'</span>,</div><div class="line">    <span class="attr">data</span>:&#123;</div><div class="line">        <span class="attr">message</span>: <span class="string">'hello Vue'</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">template</span>: <span class="string">'#temp'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="render函数"><a href="#render函数" class="headerlink" title="render函数"></a>render函数</h3><p>render是Vue实例中的属性，在写组件会经常使用。</p>
+<p>通过上面字符串方式创建的元素不会直接放到页面上，而是要通过render函数编辑，虚拟DOM树到真实DOM树就是通过render实现的。</p>
+<p>render函数需要传入<code>createElement</code>参数，用这个参数创建模板并return。<code>createElement</code>也是一个方法。</p>
+<p>第一个参数是要创建模板的根元素。</p>
+<p>第二个参数是可选参数，表示该根元素上的属性，这里的属性遵循的是指令的规则而不是普通DOM中的写法。其中类名是<code>class</code>、样式属性是<code>style</code>、自定义属性是<code>attrs</code>、绑定事件时<code>on</code>、dom元素属性是<code>domProps</code>。其中dom元素属性不是标签里的属性，而是元素对象身上的。就好比length一样。</p>
+<p>第三个参数是数组，数组的元素是模板中的子元素。同样使用<code>createElement</code>创建。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">    <span class="attr">el</span>: <span class="string">'#demo'</span>,</div><div class="line">    <span class="attr">data</span>: &#123;</div><div class="line">        <span class="attr">class</span>: <span class="literal">true</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">render</span>: <span class="function"><span class="keyword">function</span>(<span class="params">createElement</span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> createElement(</div><div class="line">            <span class="string">'ul'</span>,       <span class="comment">// 根元素</span></div><div class="line">            &#123;       </div><div class="line">                <span class="attr">class</span>: &#123;       <span class="comment">// 这里的属性是遵循v-bind:class而不是dom中的那种class。</span></div><div class="line">                    bg: <span class="literal">true</span>   <span class="comment">// 添加class名为bg</span></div><div class="line">                &#125;,</div><div class="line">                <span class="attr">style</span>: &#123;     <span class="comment">// 设置行内样式,也是和v-bind:style一样的</span></div><div class="line">                    fontSize: <span class="string">'50px'</span></div><div class="line">                &#125;,</div><div class="line">                <span class="attr">attrs</span>: &#123;    <span class="comment">// 设置自定义属性</span></div><div class="line">                    abc: <span class="string">'miaov'</span></div><div class="line">                &#125;,</div><div class="line">                <span class="attr">domProps</span>: &#123;   </div><div class="line">                    <span class="attr">innerHTML</span>: <span class="string">'&lt;li&gt;我是html&lt;/li&gt;'</span>      <span class="comment">// 这里创建了innerHTML相当于是ul.innerHTML='&lt;li&gt;我是html&lt;/li&gt;'，下面数组里的那些就会被覆盖了</span></div><div class="line">                &#125;,</div><div class="line">                <span class="attr">on</span>: &#123;</div><div class="line">                    <span class="comment">// 这里绑定事件，和v-on是一样的</span></div><div class="line">                &#125;</div><div class="line">            &#125;,</div><div class="line">            [       <span class="comment">// 子元素写在数组里，</span></div><div class="line">                createElement(<span class="string">'li'</span>,<span class="number">1</span>),</div><div class="line">                createElement(<span class="string">'li'</span>,<span class="number">2</span>),</div><div class="line">                createElement(<span class="string">'li'</span>,<span class="number">3</span>)</div><div class="line">            ]</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -480,8 +516,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -559,6 +604,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#指令"><span class="nav-number">1.</span> <span class="nav-text">指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是指令"><span class="nav-number">1.1.</span> <span class="nav-text">什么是指令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模板"><span class="nav-number">2.</span> <span class="nav-text">模板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#html模板"><span class="nav-number">2.1.</span> <span class="nav-text">html模板</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#html模板的插值"><span class="nav-number">2.1.1.</span> <span class="nav-text">html模板的插值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串模板-template"><span class="nav-number">2.2.</span> <span class="nav-text">字符串模板(template)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串的方式"><span class="nav-number">2.2.1.</span> <span class="nav-text">字符串的方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#script标签的方式"><span class="nav-number">2.2.2.</span> <span class="nav-text">script标签的方式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#render函数"><span class="nav-number">2.3.</span> <span class="nav-text">render函数</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
