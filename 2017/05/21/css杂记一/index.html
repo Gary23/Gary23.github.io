@@ -100,7 +100,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/21/css杂记一/index.html">
 <meta property="og:site_name" content="Gary23">
 <meta property="og:description" content="word-spacing 单词间距判断是否是单词的依据是有没有空格 行高的测量方式假如文字是12px，行高是16px，那么文字上下空隙分别是2px，假如行高是15px，那么上方是1px，下方是2px。 white-space 强制不换行值为nowrap为强制不换行，默认是normal。 text-indent  首行缩进。通常设置em，这样文字尺寸改变了也不用该缩进值，只需要设置2em便一直是2个">
-<meta property="og:updated_time" content="2017-07-14T03:22:17.000Z">
+<meta property="og:updated_time" content="2017-08-22T07:05:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css杂记一">
 <meta name="twitter:description" content="word-spacing 单词间距判断是否是单词的依据是有没有空格 行高的测量方式假如文字是12px，行高是16px，那么文字上下空隙分别是2px，假如行高是15px，那么上方是1px，下方是2px。 white-space 强制不换行值为nowrap为强制不换行，默认是normal。 text-indent  首行缩进。通常设置em，这样文字尺寸改变了也不用该缩进值，只需要设置2em便一直是2个">
@@ -427,6 +427,64 @@
 <p>user-select有2个值（none表示不能选中文本，text表示可以选择文本）</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-moz-user-select</span><span class="selector-pseudo">:none</span>;	<span class="comment">/*火狐*/</span></div><div class="line"></div><div class="line"><span class="selector-tag">-webkit-user-select</span><span class="selector-pseudo">:none</span>;	<span class="comment">/*webkit浏览器*/</span></div><div class="line"></div><div class="line"><span class="selector-tag">-ms-user-select</span><span class="selector-pseudo">:none</span>;	<span class="comment">/*IE10*/</span></div><div class="line"></div><div class="line"><span class="selector-tag">-khtml-user-select</span><span class="selector-pseudo">:none</span>;	<span class="comment">/*早期浏览器*/</span></div><div class="line"></div><div class="line"><span class="selector-tag">user-select</span><span class="selector-pseudo">:none</span>;</div></pre></td></tr></table></figure>
 <p>ie6至ie9还没发现有css属性支持</p>
+<h2 id="opacity的兼容性"><a href="#opacity的兼容性" class="headerlink" title="opacity的兼容性"></a>opacity的兼容性</h2><p>opacity是设置透明度，标准写法是<code>opacity:1;</code>,兼容ie的写法是<code>filter:alpha(opacity=100);</code></p>
+<h2 id="超出2行隐藏-强制2行"><a href="#超出2行隐藏-强制2行" class="headerlink" title="超出2行隐藏(强制2行)"></a>超出2行隐藏(强制2行)</h2><p>首先css有三个属性：</p>
+<p><code>overflow:hidden</code>超出的内容隐藏。</p>
+<p><code>text-overflow:ellipsis</code>溢出用省略号显示</p>
+<p><code>white-space:nowrap</code>溢出不换行</p>
+<p>这样只能强制一行显示，如果要强制2行显示要用css3的属性。</p>
+<p><code>display:-webkit-box</code>将对象作为弹性伸缩盒子模型显示</p>
+<p><code>webkit-box-orient:vertical</code>设置伸缩盒子的子元素排列方式(从上到下垂直排列子元素)</p>
+<p><code>-webkit-line-clamp:2</code>显示的行数，不能单独出现。</p>
+<p>最后css样式如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">overflow</span>: <span class="selector-tag">hidden</span>;</div><div class="line"><span class="selector-tag">text-overflow</span>: <span class="selector-tag">ellipsis</span>;</div><div class="line"><span class="selector-tag">display</span>: <span class="selector-tag">-webkit-box</span>;</div><div class="line"><span class="selector-tag">-webkit-box-orient</span>: <span class="selector-tag">vertical</span>;</div><div class="line"><span class="selector-tag">-webkit-line-clamp</span><span class="selector-pseudo">:2</span>;</div></pre></td></tr></table></figure>
+<h2 id="css命名参考"><a href="#css命名参考" class="headerlink" title="css命名参考"></a>css命名参考</h2><p>头：header head</p>
+<p>内容：content container</p>
+<p>尾：footer</p>
+<p>导航：nav navigation</p>
+<p>侧栏：sidebar aside</p>
+<p>栏目：column</p>
+<p>页面外围控制整体布局宽度：wrapper wrap</p>
+<p>左右中：left right middle center</p>
+<p>登录条：login</p>
+<p>标志：logo</p>
+<p>广告：banner</p>
+<p>页面主体：main body main-content page-main</p>
+<p>热点：hot</p>
+<p>新闻：news</p>
+<p>下载：download</p>
+<p>子导航：subnav</p>
+<p>菜单：menu dropmenu</p>
+<p>子菜单：submenu</p>
+<p>标题：title ttl caption small-caption</p>
+<p>摘要：summary</p>
+<p>搜索：search</p>
+<p>友情链接：friend-link flink</p>
+<p>页脚：footer</p>
+<p>版权：copyright</p>
+<p>滚动：scroll</p>
+<p>标签页：tab</p>
+<p>文章列表：list</p>
+<p>栏目标题：title</p>
+<p>服务：service</p>
+<p>注册：register</p>
+<p>投票：vote</p>
+<p>加入我们：joinus</p>
+<p>状态：status status-bar</p>
+<p>按钮：btn-</p>
+<p>图标：ico- icon-</p>
+<p>滚动：scroll</p>
+<p>标签页：tab</p>
+<p>文章列表：list</p>
+<p>弹出层：pop popup</p>
+<p>对话框：dialog dlg</p>
+<p>状态提醒：success error alert notice caution</p>
+<p>提示信息：msg message message-box</p>
+<p>当前的：active act current curr selected on</p>
+<p>小技巧：tips</p>
+<p>注释：note　notice</p>
+<p>指南：guide</p>
+<h2 id="移动端弹窗时暴力禁止html滚动"><a href="#移动端弹窗时暴力禁止html滚动" class="headerlink" title="移动端弹窗时暴力禁止html滚动"></a>移动端弹窗时暴力禁止html滚动</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">html</span><span class="selector-class">.lock-html</span> &#123;</div><div class="line">	<span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">	<span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -469,8 +527,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/01/javascript杂记二/" rel="next" title="javascript杂记二">
-                <i class="fa fa-chevron-left"></i> javascript杂记二
+              <a href="/2017/06/03/《DOM编程艺术》二、javascript图片库/" rel="next" title="《DOM编程艺术》二、javascript图片库">
+                <i class="fa fa-chevron-left"></i> 《DOM编程艺术》二、javascript图片库
               </a>
             
           </div>
@@ -479,8 +537,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/21/javascript杂记一/" rel="prev" title="javascript杂记一">
-                javascript杂记一 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/13/《DOM编程艺术》一、DOM/" rel="prev" title="《DOM编程艺术》一、DOM">
+                《DOM编程艺术》一、DOM <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -553,7 +611,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">26</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -566,7 +624,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
@@ -626,7 +684,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#word-spacing-单词间距"><span class="nav-number">1.</span> <span class="nav-text">word-spacing 单词间距</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#行高的测量方式"><span class="nav-number">2.</span> <span class="nav-text">行高的测量方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#white-space-强制不换行"><span class="nav-number">3.</span> <span class="nav-text">white-space 强制不换行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#text-indent-首行缩进。"><span class="nav-number">4.</span> <span class="nav-text">text-indent  首行缩进。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文字和空格的大小"><span class="nav-number">5.</span> <span class="nav-text">文字和空格的大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#伪类的顺序"><span class="nav-number">6.</span> <span class="nav-text">伪类的顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clear属性"><span class="nav-number">7.</span> <span class="nav-text">clear属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清除浮动的方法"><span class="nav-number">8.</span> <span class="nav-text">清除浮动的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#加高度"><span class="nav-number">8.1.</span> <span class="nav-text">加高度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#父级浮动"><span class="nav-number">8.2.</span> <span class="nav-text">父级浮动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#inline-block"><span class="nav-number">8.3.</span> <span class="nav-text">inline-block</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用空白元素"><span class="nav-number">8.4.</span> <span class="nav-text">使用空白元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#br"><span class="nav-number">8.5.</span> <span class="nav-text">br</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伪类清除浮动"><span class="nav-number">8.6.</span> <span class="nav-text">伪类清除浮动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#overflow"><span class="nav-number">8.7.</span> <span class="nav-text">overflow</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BFC和haslayout"><span class="nav-number">9.</span> <span class="nav-text">BFC和haslayout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css-hack"><span class="nav-number">10.</span> <span class="nav-text">css hack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#禁止选中文字"><span class="nav-number">11.</span> <span class="nav-text">禁止选中文字</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#word-spacing-单词间距"><span class="nav-number">1.</span> <span class="nav-text">word-spacing 单词间距</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#行高的测量方式"><span class="nav-number">2.</span> <span class="nav-text">行高的测量方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#white-space-强制不换行"><span class="nav-number">3.</span> <span class="nav-text">white-space 强制不换行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#text-indent-首行缩进。"><span class="nav-number">4.</span> <span class="nav-text">text-indent  首行缩进。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文字和空格的大小"><span class="nav-number">5.</span> <span class="nav-text">文字和空格的大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#伪类的顺序"><span class="nav-number">6.</span> <span class="nav-text">伪类的顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clear属性"><span class="nav-number">7.</span> <span class="nav-text">clear属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清除浮动的方法"><span class="nav-number">8.</span> <span class="nav-text">清除浮动的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#加高度"><span class="nav-number">8.1.</span> <span class="nav-text">加高度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#父级浮动"><span class="nav-number">8.2.</span> <span class="nav-text">父级浮动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#inline-block"><span class="nav-number">8.3.</span> <span class="nav-text">inline-block</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用空白元素"><span class="nav-number">8.4.</span> <span class="nav-text">使用空白元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#br"><span class="nav-number">8.5.</span> <span class="nav-text">br</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伪类清除浮动"><span class="nav-number">8.6.</span> <span class="nav-text">伪类清除浮动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#overflow"><span class="nav-number">8.7.</span> <span class="nav-text">overflow</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BFC和haslayout"><span class="nav-number">9.</span> <span class="nav-text">BFC和haslayout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css-hack"><span class="nav-number">10.</span> <span class="nav-text">css hack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#禁止选中文字"><span class="nav-number">11.</span> <span class="nav-text">禁止选中文字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#opacity的兼容性"><span class="nav-number">12.</span> <span class="nav-text">opacity的兼容性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#超出2行隐藏-强制2行"><span class="nav-number">13.</span> <span class="nav-text">超出2行隐藏(强制2行)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css命名参考"><span class="nav-number">14.</span> <span class="nav-text">css命名参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移动端弹窗时暴力禁止html滚动"><span class="nav-number">15.</span> <span class="nav-text">移动端弹窗时暴力禁止html滚动</span></a></li></ol></div>
             
 
           </div>

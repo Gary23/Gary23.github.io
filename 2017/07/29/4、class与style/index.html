@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="锋利的jQuery," />
+  <meta name="keywords" content="vue笔记(妙味)," />
 
 
 
@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="XMLHttpRequest对象是Ajax的核心，它有许多的属性、方法和事件以便于js处理和控制HTTP的请求与响应。 readyState属性当一个XMLHttpRequest被创建后，通过readyState属性可以查看此次请求的状态。    值 说明     0 初始化状态：此时，已经创建了一个XMLHttpRequest对象，但是没有初始化。   1 准备发送状态：已经调用了open()方">
-<meta name="keywords" content="锋利的jQuery">
+<meta name="description" content="数据绑定一个常见需求是，操作元素的class列表，和它的style时，因为他们都是属性所以可以用 v-bind 处理他们 但是字符串拼接麻烦又易错。因此在v-bind用于class和style时，Vue专门增强了它。表达式的结果类型除了字符串之外，还可以是对象或数组。 绑定class这里class是否为active取决于isActive是否为真12&amp;lt;!--class=&quot;active&quot;--&amp;g">
+<meta name="keywords" content="vue笔记(妙味)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《锋利的jQuery》九、XMLHttpRequest对象">
-<meta property="og:url" content="http://yoursite.com/2017/08/15/《锋利的jQuery》九、XMLHttpRequest对象/index.html">
+<meta property="og:title" content="4、class与style">
+<meta property="og:url" content="http://yoursite.com/2017/07/29/4、class与style/index.html">
 <meta property="og:site_name" content="Gary23">
-<meta property="og:description" content="XMLHttpRequest对象是Ajax的核心，它有许多的属性、方法和事件以便于js处理和控制HTTP的请求与响应。 readyState属性当一个XMLHttpRequest被创建后，通过readyState属性可以查看此次请求的状态。    值 说明     0 初始化状态：此时，已经创建了一个XMLHttpRequest对象，但是没有初始化。   1 准备发送状态：已经调用了open()方">
+<meta property="og:description" content="数据绑定一个常见需求是，操作元素的class列表，和它的style时，因为他们都是属性所以可以用 v-bind 处理他们 但是字符串拼接麻烦又易错。因此在v-bind用于class和style时，Vue专门增强了它。表达式的结果类型除了字符串之外，还可以是对象或数组。 绑定class这里class是否为active取决于isActive是否为真12&amp;lt;!--class=&quot;active&quot;--&amp;g">
 <meta property="og:updated_time" content="2017-08-22T07:05:54.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《锋利的jQuery》九、XMLHttpRequest对象">
-<meta name="twitter:description" content="XMLHttpRequest对象是Ajax的核心，它有许多的属性、方法和事件以便于js处理和控制HTTP的请求与响应。 readyState属性当一个XMLHttpRequest被创建后，通过readyState属性可以查看此次请求的状态。    值 说明     0 初始化状态：此时，已经创建了一个XMLHttpRequest对象，但是没有初始化。   1 准备发送状态：已经调用了open()方">
+<meta name="twitter:title" content="4、class与style">
+<meta name="twitter:description" content="数据绑定一个常见需求是，操作元素的class列表，和它的style时，因为他们都是属性所以可以用 v-bind 处理他们 但是字符串拼接麻烦又易错。因此在v-bind用于class和style时，Vue专门增强了它。表达式的结果类型除了字符串之外，还可以是对象或数组。 绑定class这里class是否为active取决于isActive是否为真12&amp;lt;!--class=&quot;active&quot;--&amp;g">
 
 
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/08/15/《锋利的jQuery》九、XMLHttpRequest对象/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/07/29/4、class与style/"/>
 
 
 
 
 
-  <title> 《锋利的jQuery》九、XMLHttpRequest对象 | Gary23 </title>
+  <title> 4、class与style | Gary23 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -310,7 +310,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/15/《锋利的jQuery》九、XMLHttpRequest对象/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/29/4、class与style/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="PJ Yu">
@@ -331,7 +331,7 @@
             
             
               
-                《锋利的jQuery》九、XMLHttpRequest对象
+                4、class与style
               
             
           </h1>
@@ -346,8 +346,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-15T21:35:00+08:00">
-                2017-08-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-29T22:55:13+08:00">
+                2017-07-29
               </time>
             
 
@@ -382,59 +382,18 @@
       
 
       
-        <p><code>XMLHttpRequest</code>对象是Ajax的核心，它有许多的属性、方法和事件以便于js处理和控制HTTP的请求与响应。</p>
-<h2 id="readyState属性"><a href="#readyState属性" class="headerlink" title="readyState属性"></a>readyState属性</h2><p>当一个XMLHttpRequest被创建后，通过readyState属性可以查看此次请求的状态。</p>
-<table>
-<thead>
-<tr>
-<th>值</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>初始化状态：此时，已经创建了一个<code>XMLHttpRequest</code>对象，但是没有初始化。</td>
-</tr>
-<tr>
-<td>1</td>
-<td>准备发送状态：已经调用了<code>open()</code>方法，并且<code>XMLHttpRequest</code>对象已经准备好将一个请求发送到服务器。</td>
-</tr>
-<tr>
-<td>2</td>
-<td>已发送状态：已经通过<code>send()</code>方法把一个请求发送到服务器端。</td>
-</tr>
-<tr>
-<td>3</td>
-<td>正在接受状态：已经接到HTTP的响应头部信息，但是消息体部分还没有完全接收到。</td>
-</tr>
-<tr>
-<td>4</td>
-<td>完成响应状态：已经完成了<code>HttpResponse</code>响应的接收。</td>
-</tr>
-</tbody>
-</table>
-<h2 id="responseText属性"><a href="#responseText属性" class="headerlink" title="responseText属性"></a>responseText属性</h2><p>包含客户端接收到的HTTP响应的文本内容。<code>readyState</code>为0、1、2时是一个空字符串，<code>readyState</code>为3时响应中包含客户端还未完成的响应信息，<code>readyState</code>为4时才是完整的信息。</p>
-<h2 id="responseXML属性"><a href="#responseXML属性" class="headerlink" title="responseXML属性"></a>responseXML属性</h2><p>只有当<code>readyState</code>为4时，并且响应头部的Content-Type的MIME类型被指定为XML(text/xml)时，该属性才会有值并且被解析为一个XML文档。</p>
-<h2 id="status属性"><a href="#status属性" class="headerlink" title="status属性"></a>status属性</h2><p>描述了HTTP的状态码，只有在<code>readyState</code>为3或者4时才可以使用该属性，否则会报错。</p>
-<h2 id="statusText属性"><a href="#statusText属性" class="headerlink" title="statusText属性"></a>statusText属性</h2><p>和上面相同，只是描述了HTTP的状态码文本，而不只是状态码。</p>
-<h2 id="open-方法"><a href="#open-方法" class="headerlink" title="open()方法"></a>open()方法</h2><p><code>XMLHttpRequest</code>对象是通过调用<code>open()</code>方法来进行初始化工作的。调用该方法将得到一个可以用来进行发送的对象。</p>
-<p>该方法有五个参数 <code>open(method,uri,async,username,password)</code>。</p>
-<ol>
-<li><p><code>method</code>：该参数是必须提供的，用于确定<code>GET</code>发送还是<code>POST</code>发送，该参数要大写。</p>
-</li>
-<li><p><code>uri</code>：用于指定<code>XMLHttpRequest</code>对象把请求发送到的服务器相应的URI。</p>
-</li>
-<li><p><code>async</code>：用于指定是否请求是异步的，默认值是<code>true</code>，发送同步请求需要设置为<code>false</code>。</p>
-</li>
-<li><p>如果服务器要验证访问用户的情况，那么可以设置<code>username</code>及<code>password</code>。</p>
-</li>
-</ol>
-<h2 id="send"><a href="#send" class="headerlink" title="send()"></a>send()</h2><p>调用<code>send()</code>方法可以将<code>open()</code>方法设定的参数请求进行发送。<code>send()</code>方法在<code>readyState</code>属性值为1时，即是在<code>open()</code>之后才可以调用。</p>
-<p><code>send()</code>的参数可以作为POST方式发送的参数，在调用<code>send()</code>之前，先使用<code>setRequestHeader()</code>方法设置<code>Content-Type</code>的头部。</p>
-<h2 id="abort-方法"><a href="#abort-方法" class="headerlink" title="abort()方法"></a>abort()方法</h2><p>该方法可以暂停一个<code>HttpRequest</code>的请求发送或者<code>HttpResponse</code>的接收，并将<code>XMLHttpRequest</code>设置为初始化状态。</p>
-<h2 id="setRequestHeader-方法"><a href="#setRequestHeader-方法" class="headerlink" title="setRequestHeader()方法"></a>setRequestHeader()方法</h2><p>用来设置头部信息，当<code>readyState</code>属性值为1时，可以在调用<code>open()</code>方法后调用这个方法，该方法的格式为：<code>setRequestHeader(header, value)</code>。    </p>
-<h2 id="getRequestHeader-方法"><a href="#getRequestHeader-方法" class="headerlink" title="getRequestHeader()方法"></a>getRequestHeader()方法</h2><p>检索响应的头部值，仅当<code>readyState</code>值为3或者4时才可以调用这个方法，否则会返回一个空字符串。</p>
+        <p>数据绑定一个常见需求是，操作元素的<code>class</code>列表，和它的<code>style</code>时，因为他们都是属性所以可以用 <code>v-bind</code> 处理他们</p>
+<p>但是字符串拼接麻烦又易错。因此在<code>v-bind</code>用于<code>class</code>和<code>style</code>时，Vue专门增强了它。表达式的结果类型除了字符串之外，还可以是对象或数组。</p>
+<h2 id="绑定class"><a href="#绑定class" class="headerlink" title="绑定class"></a>绑定class</h2><p>这里class是否为active取决于isActive是否为真<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--class="active"--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:class</span>=<span class="string">"&#123; active: isActive &#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>可以在对象中传入更多属性用来动态切换多个class，此外，v-bind:class指令可以与普通的class属性共存<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--class="static active",如果为true就是class="static active text-danger"--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"static"</span> <span class="attr">v-bind:class</span>=<span class="string">"&#123; active: isActive, text-danger: hasError &#125;"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>通过一个对象获取class名<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--class="active text-danger"--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:class</span>=<span class="string">"classObject"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>通过一个数组获取class名<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--class="active text-danger"--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:class</span>=<span class="string">"[activeClass,errorClass]"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>上面三种写法在Vue中的数据处理：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</div><div class="line">    ...</div><div class="line">    data: &#123;</div><div class="line">        <span class="attr">isActive</span>: <span class="literal">true</span>, </div><div class="line">        <span class="attr">hasError</span>: <span class="literal">false</span>,  </div><div class="line">        <span class="attr">activeClass</span>: <span class="string">'active'</span>,</div><div class="line">        <span class="attr">errorClass</span>: <span class="string">'text-danger'</span>,</div><div class="line">        <span class="attr">classObject</span>: &#123;    </div><div class="line">            <span class="attr">active</span>: <span class="literal">true</span>,</div><div class="line">            text-danger: <span class="literal">true</span></div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">computed</span>:&#123;</div><div class="line">        <span class="attr">classObject</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="keyword">return</span> &#123;</div><div class="line">                <span class="attr">active</span>:<span class="keyword">this</span>.isActive &amp;&amp; !<span class="keyword">this</span>.error,</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>需要注意的是，<code>class</code>中如果包括用<code>-</code>连接的类名。一定要写为字符串的形式。</p>
+<h2 id="绑定style"><a href="#绑定style" class="headerlink" title="绑定style"></a>绑定style</h2><p><code>v-bind:style</code>的语法十分直观，看着非常像<code>css</code>，但其实是一个<code>js</code>对象。<code>css</code>属性名可以用驼峰式，或者配合引号的短横分隔命名。另外对于css3的前缀，vue会自动添加。</p>
+<p>最直接的方式<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--color: red; font-size: 30px;--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:style</span>=<span class="string">"&#123;color:activeColor,fontSize:fontSize + 'px'&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>直接绑定一个对象通常更好,也可以将多个对象用在一个元素上<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--color: red; font-size: 13px;--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:style</span>=<span class="string">"styleObject"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>在Vue中的数据处理<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</div><div class="line">    ...</div><div class="line">    data:&#123;</div><div class="line">        <span class="attr">activeColor</span>:<span class="string">'red'</span>,</div><div class="line">        <span class="attr">fontSize</span>:<span class="number">30</span>,</div><div class="line">        <span class="attr">styleObject</span>:&#123;</div><div class="line">            <span class="attr">color</span>:<span class="string">'red'</span>,</div><div class="line">            <span class="attr">fontSize</span>:<span class="string">'13px'</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -464,7 +423,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/锋利的jQuery/" rel="tag"># 锋利的jQuery</a>
+            <a href="/tags/vue笔记-妙味/" rel="tag"># vue笔记(妙味)</a>
           
         </div>
       
@@ -477,8 +436,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/16/《锋利的jQuery》十、jQuery性能优化/" rel="next" title="《锋利的jQuery》十、jQuery性能优化">
-                <i class="fa fa-chevron-left"></i> 《锋利的jQuery》十、jQuery性能优化
+              <a href="/2017/07/31/5、条件渲染/" rel="next" title="5、条件渲染">
+                <i class="fa fa-chevron-left"></i> 5、条件渲染
               </a>
             
           </div>
@@ -487,8 +446,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/08/01/6、列表渲染/" rel="prev" title="6、列表渲染">
-                6、列表渲染 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/27/3、计算属性/" rel="prev" title="3、计算属性">
+                3、计算属性 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -634,7 +593,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#readyState属性"><span class="nav-number">1.</span> <span class="nav-text">readyState属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#responseText属性"><span class="nav-number">2.</span> <span class="nav-text">responseText属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#responseXML属性"><span class="nav-number">3.</span> <span class="nav-text">responseXML属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#status属性"><span class="nav-number">4.</span> <span class="nav-text">status属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#statusText属性"><span class="nav-number">5.</span> <span class="nav-text">statusText属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#open-方法"><span class="nav-number">6.</span> <span class="nav-text">open()方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#send"><span class="nav-number">7.</span> <span class="nav-text">send()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#abort-方法"><span class="nav-number">8.</span> <span class="nav-text">abort()方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#setRequestHeader-方法"><span class="nav-number">9.</span> <span class="nav-text">setRequestHeader()方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#getRequestHeader-方法"><span class="nav-number">10.</span> <span class="nav-text">getRequestHeader()方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#绑定class"><span class="nav-number">1.</span> <span class="nav-text">绑定class</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绑定style"><span class="nav-number">2.</span> <span class="nav-text">绑定style</span></a></li></ol></div>
             
 
           </div>
