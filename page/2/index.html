@@ -307,7 +307,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/13/css的ie6兼容问题/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/13/《锋利的jQuery》二、jQuery的选择器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="PJ Yu">
@@ -329,8 +329,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/06/13/css的ie6兼容问题/" itemprop="url">
-                  css的ie6兼容问题
+                <a class="post-title-link" href="/2017/06/13/《锋利的jQuery》二、jQuery的选择器/" itemprop="url">
+                  《锋利的jQuery》二、jQuery的选择器
                 </a>
               
             
@@ -346,7 +346,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-13T13:45:13+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-13T14:14:37+08:00">
                 2017-06-13
               </time>
             
@@ -384,15 +384,34 @@
       
         
           
-          png图片的兼容性png的图片在ie6下默认不是透明的，所以需要处理一下。
+          基本选择器
 
-使用DD_belatedPNG插件，需要在script中调用，DD_belatedPNG.fix(&quot;selector1,selector2&quot;)，缺点是不支持body元素。
 
-第二种方法是使用ie6的滤镜
+选择器
+描述
+返回
+示例
+
+
+
+
+#id
+根据给定的id匹配一个元素
+单个元素
+$(&#39;#test&#39;)选取id为test的元素
+
+
+.class
+根据给定的类名匹配元素
+集合元素
+$(&#39;.test&#39;)选取所有class为test的元素
+
+
+element
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/06/13/css的ie6兼容问题/#more" rel="contents">
+            <a class="btn" href="/2017/06/13/《锋利的jQuery》二、jQuery的选择器/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -438,7 +457,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/05/正则表达式/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/13/《锋利的jQuery》一、认识jQuery/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="PJ Yu">
@@ -460,8 +479,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/06/05/正则表达式/" itemprop="url">
-                  正则表达式
+                <a class="post-title-link" href="/2017/06/13/《锋利的jQuery》一、认识jQuery/" itemprop="url">
+                  《锋利的jQuery》一、认识jQuery
                 </a>
               
             
@@ -477,8 +496,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-05T11:27:54+08:00">
-                2017-06-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-13T14:14:24+08:00">
+                2017-06-13
               </time>
             
 
@@ -515,17 +534,12 @@
       
         
           
-          正则的意思就是让计算机能读懂我们想要的格式和规则。
-初始化一个正则表达式
-1var re = new RegExp('a');
-简单的写法，推荐这种写法，但是如果写在函数里正则需要传参的话就必须用new的写法
-1var re = /a/;
-正则表达式是区分大小写的，如果不想区分在最后加i。
-1var
+          window.onload和$(document).ready()window.onload：必须等网页中所有的内容加载完毕后(包括图片)才能执行，不能同时编写多个。
+$(document.ready())：网页中所有DOM结构绘制完毕后就执行，可能DOM元素关联的东西并没有加载完，可以同时编写多个
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/06/05/正则表达式/#more" rel="contents">
+            <a class="btn" href="/2017/06/13/《锋利的jQuery》一、认识jQuery/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1213,7 +1227,7 @@ DOM是一条双向车道，不仅可以获取文档的
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/01/javascript杂记四/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/13/《DOM编程艺术》一、DOM/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="PJ Yu">
@@ -1235,8 +1249,8 @@ DOM是一条双向车道，不仅可以获取文档的
             
               
                 
-                <a class="post-title-link" href="/2017/06/01/javascript杂记四/" itemprop="url">
-                  javascript杂记四
+                <a class="post-title-link" href="/2017/04/13/《DOM编程艺术》一、DOM/" itemprop="url">
+                  《DOM编程艺术》一、DOM
                 </a>
               
             
@@ -1252,8 +1266,8 @@ DOM是一条双向车道，不仅可以获取文档的
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-01T17:29:52+08:00">
-                2017-06-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-13T22:27:25+08:00">
+                2017-04-13
               </time>
             
 
@@ -1290,276 +1304,16 @@ DOM是一条双向车道，不仅可以获取文档的
       
         
           
-          BOM操作的常用属性和方法open()：打开一个新的页面，格式为open(页面的url,打开的方式)，如果url为空则打开一个空白页面。如果打开方式为空，默认为新窗口方式打开。这个方法返回新窗口的window对象。
-close()：关闭一个页面，但是这个方法有点兼容性问题，firefox默认无法关闭
+          1、DOM的含义
+文档(D)，指的是document，当创建了一个网页并把它加载到web浏览器中时，DOM就在幕后悄然而生，DOM把我们编写的网页文档转换为一个文档对象。
+
+对象(O)，指的就是javascript中的三种对象，用户定义对象、内建对象、宿主对象。
+
+模型(M)，可以理解为模型Mode
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/06/01/javascript杂记四/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/01/hexo配置/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="PJ Yu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gary23">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/01/hexo配置/" itemprop="url">
-                  hexo配置
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-01T11:31:26+08:00">
-                2017-06-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          安装hexo安装过程使用以下命令下载hexo
-$ npm install hexo-cli -g
-如果在安装过程中遇到以下错误
-ERROR Deployer not found : github
-则运行以下命令,或者你直接先运行这个命令更好。
-$ npm install hexo-deployer-
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/01/hexo配置/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/01/javascript杂记三/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="PJ Yu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gary23">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/01/javascript杂记三/" itemprop="url">
-                  javascript杂记三
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-01T10:31:19+08:00">
-                2017-06-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          DOM操作的一些常用属性和方法元素节点的nodeType是1
-属性节点的nodeType是2
-文本节点的nodeType是3
-节点的获取childNodes：获取某个元素下的所有子节点，包含文本节点和元素节点。
-children：获取某个元素下的所有元素子节点。
-nextElementSibling
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/01/javascript杂记三/#more" rel="contents">
+            <a class="btn" href="/2017/04/13/《DOM编程艺术》一、DOM/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1600,7 +1354,7 @@ nextElementSibling
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
   </nav>
 
 
@@ -1645,7 +1399,7 @@ nextElementSibling
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1658,7 +1412,7 @@ nextElementSibling
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>

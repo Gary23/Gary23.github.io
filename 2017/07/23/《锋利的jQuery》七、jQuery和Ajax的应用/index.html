@@ -1,0 +1,1021 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="锋利的jQuery," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="在jQuery中对Ajax进行了封装，在jQuery中$.ajax()属于最底层方法，第二层是$.post()、load()、$.get()方法，第三层是$.getScript()和$.getJson()方法。通常第二层的方法使用频率最高。 load()方法load()方法能载入远程html页面到dom中。 格式为：load( url , [data] , [callback] ) url：请求h">
+<meta name="keywords" content="锋利的jQuery">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《锋利的jQuery》七、jQuery和Ajax的应用">
+<meta property="og:url" content="http://yoursite.com/2017/07/23/《锋利的jQuery》七、jQuery和Ajax的应用/index.html">
+<meta property="og:site_name" content="Gary23">
+<meta property="og:description" content="在jQuery中对Ajax进行了封装，在jQuery中$.ajax()属于最底层方法，第二层是$.post()、load()、$.get()方法，第三层是$.getScript()和$.getJson()方法。通常第二层的方法使用频率最高。 load()方法load()方法能载入远程html页面到dom中。 格式为：load( url , [data] , [callback] ) url：请求h">
+<meta property="og:updated_time" content="2017-08-22T07:05:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《锋利的jQuery》七、jQuery和Ajax的应用">
+<meta name="twitter:description" content="在jQuery中对Ajax进行了封装，在jQuery中$.ajax()属于最底层方法，第二层是$.post()、load()、$.get()方法，第三层是$.getScript()和$.getJson()方法。通常第二层的方法使用频率最高。 load()方法load()方法能载入远程html页面到dom中。 格式为：load( url , [data] , [callback] ) url：请求h">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/07/23/《锋利的jQuery》七、jQuery和Ajax的应用/"/>
+
+
+
+
+
+  <title> 《锋利的jQuery》七、jQuery和Ajax的应用 | Gary23 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Gary23</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/23/《锋利的jQuery》七、jQuery和Ajax的应用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="PJ Yu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gary23">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                《锋利的jQuery》七、jQuery和Ajax的应用
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-23T22:48:00+08:00">
+                2017-07-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在jQuery中对Ajax进行了封装，在jQuery中<code>$.ajax()</code>属于最底层方法，第二层是<code>$.post()</code>、<code>load()</code>、<code>$.get()</code>方法，第三层是<code>$.getScript()</code>和<code>$.getJson()</code>方法。通常第二层的方法使用频率最高。</p>
+<h2 id="load-方法"><a href="#load-方法" class="headerlink" title="load()方法"></a>load()方法</h2><p><code>load()</code>方法能载入远程html页面到dom中。</p>
+<p>格式为：<code>load( url , [data] , [callback] )</code></p>
+<p>url：请求html页面的地址。</p>
+<p>data: 可选参数，发送至服务器的数据。</p>
+<p>callback：可选参数，请求完成后的回调，不论请求成功或者失败。</p>
+<h3 id="载入html文档"><a href="#载入html文档" class="headerlink" title="载入html文档"></a>载入html文档</h3><p>假设有一个test.html的页面，那么只需要这样写就能引入这个test到当前页面。</p>
+<p>当前页面的html部分<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">""</span><span class="attr">resText</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>当前页面发送请求</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#resText'</span>).load(<span class="string">'text.html'</span>);</div></pre></td></tr></table></figure>
+<h3 id="筛选载入html文档"><a href="#筛选载入html文档" class="headerlink" title="筛选载入html文档"></a>筛选载入html文档</h3><p>上面是将test.html的所有内容都加载进来，如果只需要加载一部分那么只需要改变url参数即可，格式为：<code>url selector</code>。</p>
+<p>只将test.html页面中类名为<code>.para</code>的元素加载进来。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#resText'</span>).load(<span class="string">'text.html .para'</span>)</div></pre></td></tr></table></figure>
+<h3 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h3><p><code>load()</code>的回调有三个参数，分别是：</p>
+<p>responseText：请求返回的内容。</p>
+<p>textStatus：请求状态：success、error、notmodified、timeout 四种。</p>
+<p>XMLHttpRequest： XMLHttpRequest对象。</p>
+<h2 id="get-和-post-方法"><a href="#get-和-post-方法" class="headerlink" title="$.get()和$.post()方法"></a>$.get()和$.post()方法</h2><p>使用get的方式进行异步请求，格式为：<code>$.get( url , [data] , [callback] , [type] )</code>。</p>
+<p>url：请求的文件地址。</p>
+<p>data：可选参数，发送至服务器的数据，会附加到url地址中。</p>
+<p>callback：可选参数，载入成功时回调函数，只有当Response返回的状态是success才能调用。</p>
+<p>type：可选参数，服务器返回的格式，包括 xml、html、script、json、text、_default。</p>
+<h3 id="回调函数-1"><a href="#回调函数-1" class="headerlink" title="回调函数"></a>回调函数</h3><p>回调函数只有当数据成功返回(success)才能被调用，这点和<code>load()</code>方法不同，回调函数有两个参数，分别是<code>data</code>、<code>textStatus</code>。</p>
+<p><code>data</code>是成功后返回的数据，<code>textStatus</code>是请求状态。</p>
+<h2 id="getScript-和-getJson-方法"><a href="#getScript-和-getJson-方法" class="headerlink" title="$.getScript()和$.getJson()方法"></a>$.getScript()和$.getJson()方法</h2><p><code>$.getScript()</code>用于加载一个新的js文件，和写一个<code>&lt;script&gt;</code>标签的效果是一样的，但因为在页面初次加载时就取得所有js文件是没有必要的，所以就需要这个方法。</p>
+<p><code>$.getScript()</code>的第一个参数是js文件的地址，第二个参数是回调函数，回调只会在js文件成功加载后才会运行。</p>
+<p><code>$.getJson()</code>用于获取json文件，使用方法和<code>$.getScript()</code>相同。只是在回调函数中可用一个参数来获取json的内容。</p>
+<h2 id="ajax-方法"><a href="#ajax-方法" class="headerlink" title="$.ajax()方法"></a>$.ajax()方法</h2><p><code>$.ajax()</code>是jQuery最底层的ajax实现，上面的所有方法都可以用这个方法代替。</p>
+<p><code>$.ajax()</code>的参数是一个对象，对象中的每个参数都是可选的，具体的参数如下：</p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>string</td>
+<td>默认是当前页面，发送请求的地址</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>请求方式，默认为get方式</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>number</td>
+<td>设置请求超时的时间，单位是毫秒</td>
+</tr>
+<tr>
+<td>data</td>
+<td>object或string</td>
+<td>发送到服务器的数据</td>
+</tr>
+<tr>
+<td>dataType</td>
+<td>string</td>
+<td>预期服务器返回的数据类型，如果不指定，jQuery将自动根绝http的MIME信息返回responseXML或responseText，可选择的格式有：xml(xml文档)、html(纯html文本，包含的script标签会在插入dom时执行)、script(返回纯文本js代码，不会自动缓存结果，如果是跨域请求，则post方式都会转为get方式)、json(返回json数据)、jsonp(跨域获取数据，使用jsonp形式调用函数时，url地址的最后一个参数名是callback，值是?，这个?将由jQuery替换为正确的函数名，用以执行回调函数)、text(纯文本)</td>
+</tr>
+<tr>
+<td>beforeSend</td>
+<td>function</td>
+<td>发送请求前可以更改XMLHttpRequest对象的函数，例如添加自定义http头，在beforeSend中返回false可以取消本次ajax的请求，改函数的唯一参数就是XMLHttpRequest对象，this是本次ajax请求时传递的options参数</td>
+</tr>
+<tr>
+<td>complete</td>
+<td>function</td>
+<td>请求完成后调用的回调函数，失败和成功都会调用，第一个参数是XMLHttpRequest对象，第二个参数是描述成功请求类型的字符串，this是本次ajax请求时传递的options参数</td>
+</tr>
+<tr>
+<td>success</td>
+<td>function</td>
+<td>请求成功后的回调函数，第一个参数是返回的数据，第二个参数是描述状态的字符串，this是本次ajax请求时传递的options参数</td>
+</tr>
+<tr>
+<td>error</td>
+<td>function</td>
+<td>请求失败时调用的函数，第一个参数是XMLHttpRequest对象，第二个参数是错误信息，第三个参数是捕获的错误对象，this是本次ajax请求时传递的options参数</td>
+</tr>
+<tr>
+<td>global</td>
+<td>boolean</td>
+<td>默认为true，表示是否触发全局ajax事件，设置为false将不会触发。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>需要注意的是，如果将传递给服务器的数据使用字符串拼接的方式拼接到<code>url</code>上，必须使用<code>encodeURIComponent()</code>方法转码，如果是写到<code>data</code>属性则不需要。</p>
+</blockquote>
+<h2 id="序列化元素"><a href="#序列化元素" class="headerlink" title="序列化元素"></a>序列化元素</h2><h3 id="serialize-方法"><a href="#serialize-方法" class="headerlink" title="serialize()方法"></a>serialize()方法</h3><p>在提交表单的时候，需要给服务器传表单中的数据，如果表单的内容比较多，一个个获取比较麻烦，jQuery提供了一个简化的方法<code>serialize()</code>,它能够将dom元素的内容序列化为字符串，用于ajax请求。例如表单的id为form，那么可以将ajax的data属性直接写为<code>$(&#39;#form&#39;).serialize()</code>。</p>
+<h3 id="serializeArray-方法"><a href="#serializeArray-方法" class="headerlink" title="serializeArray()方法"></a>serializeArray()方法</h3><p>和<code>serialize()</code>方法类似，但是<code>serializeArray()</code>方法不是返回字符串，而是将DOM元素序列化后，返回json格式的数据。</p>
+<p>html代码<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"user"</span> <span class="attr">value</span>=<span class="string">"1"</span> <span class="attr">checked</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"user"</span> <span class="attr">value</span>=<span class="string">"2"</span> <span class="attr">checked</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"user"</span> <span class="attr">value</span>=<span class="string">"3"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"user"</span> <span class="attr">value</span>=<span class="string">"4"</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>js代码<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fields = $(<span class="string">":checkbox"</span>).serializeArray();</div><div class="line"><span class="built_in">console</span>.log(fields);   <span class="comment">// 打印一个数组[ &#123;name:'user',value:'1'&#125; , &#123;name:'user',value:'2'&#125; ]</span></div></pre></td></tr></table></figure></p>
+<h3 id="param-方法"><a href="#param-方法" class="headerlink" title="$.param()方法"></a>$.param()方法</h3><p>这是<code>serialize()</code>方法的核心，用以将一个数组或对象按照key/value进行序列化。比如将一个普通对象序列化</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">a</span>:<span class="number">1</span>,<span class="attr">b</span>:<span class="number">2</span>,<span class="attr">c</span>:<span class="number">3</span> &#125;;</div><div class="line"><span class="keyword">var</span> k = $.param(obj);</div><div class="line"><span class="built_in">console</span>.log(k);      <span class="comment">// 输出a=1&amp;b=2&amp;c=3</span></div></pre></td></tr></table></figure>
+<h2 id="Ajax全局事件"><a href="#Ajax全局事件" class="headerlink" title="Ajax全局事件"></a>Ajax全局事件</h2><p>通过jQuery提供的一些自定义全局函数，能够为各种与Ajax相关的事件注册回调函数。</p>
+<p>例如当请求开始时，会触发<code>ajaxStart()</code>方法的回调函数，当请求结束时，会触发<code>ajaxStop()</code>方法的回调函数。这些都是全局方法，因此无论创建它们于代码何处，只要有Ajax请求发生时，就会触发它们。</p>
+<p>html代码<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"loading"</span>&gt;</span>加载中...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>js代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#loading'</span>).ajaxStart(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    $(<span class="keyword">this</span>).show();</div><div class="line">&#125;)</div><div class="line"></div><div class="line">$(<span class="string">'#loading'</span>).ajaxStop(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    $(<span class="keyword">this</span>).hide();</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>还有另外几个方法：</p>
+<table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ajaxComplete(callback)</td>
+<td>Ajax请求完成时执行的函数</td>
+</tr>
+<tr>
+<td>ajaxError(cakkback)</td>
+<td>Ajax请求发生错误时执行的函数，捕捉到的错误可以作为最后一个参数传递</td>
+</tr>
+<tr>
+<td>ajaxSend(callback)</td>
+<td>Ajax请求发送前执行的函数</td>
+</tr>
+<tr>
+<td>ajaxSuccess(callback)</td>
+<td>Ajax请求成功时执行的函数</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>如果不想让Ajax触发这些全局方法，可以将<code>global</code>设置为<code>false</code>，在jQuery1.5版本之后可以设置：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$.ajaxPrefilter(<span class="function"><span class="keyword">function</span>(<span class="params">options</span>)</span>&#123;</div><div class="line">    options.global = <span class="literal">true</span>;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/锋利的jQuery/" rel="tag"># 锋利的jQuery</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/23/《锋利的jQuery》六、jQuery的表单与表格/" rel="next" title="《锋利的jQuery》六、jQuery的表单与表格">
+                <i class="fa fa-chevron-left"></i> 《锋利的jQuery》六、jQuery的表单与表格
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/14/《锋利的jQuery》五、jQuery的动画/" rel="prev" title="《锋利的jQuery》五、jQuery的动画">
+                《锋利的jQuery》五、jQuery的动画 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="PJ Yu" />
+          <p class="site-author-name" itemprop="name">PJ Yu</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Gary23" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com/Gary23" title="Gary23" target="_blank">Gary23</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#load-方法"><span class="nav-number">1.</span> <span class="nav-text">load()方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#载入html文档"><span class="nav-number">1.1.</span> <span class="nav-text">载入html文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#筛选载入html文档"><span class="nav-number">1.2.</span> <span class="nav-text">筛选载入html文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回调函数"><span class="nav-number">1.3.</span> <span class="nav-text">回调函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#get-和-post-方法"><span class="nav-number">2.</span> <span class="nav-text">$.get()和$.post()方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#回调函数-1"><span class="nav-number">2.1.</span> <span class="nav-text">回调函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#getScript-和-getJson-方法"><span class="nav-number">3.</span> <span class="nav-text">$.getScript()和$.getJson()方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ajax-方法"><span class="nav-number">4.</span> <span class="nav-text">$.ajax()方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#序列化元素"><span class="nav-number">5.</span> <span class="nav-text">序列化元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#serialize-方法"><span class="nav-number">5.1.</span> <span class="nav-text">serialize()方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#serializeArray-方法"><span class="nav-number">5.2.</span> <span class="nav-text">serializeArray()方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#param-方法"><span class="nav-number">5.3.</span> <span class="nav-text">$.param()方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ajax全局事件"><span class="nav-number">6.</span> <span class="nav-text">Ajax全局事件</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PJ Yu</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

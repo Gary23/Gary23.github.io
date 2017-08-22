@@ -1,0 +1,931 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="锋利的jQuery," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="表单的应用表单的组成部分 表单标签：包含处理表单数据所用的服务器端程序URL以及数据提交到服务器的方法。  表单域：包含文本框、密码框、隐藏域、多行文本框、复选框、单选框、下拉选择框和文件上传框等。  表单按钮：包括提交按钮、复位按钮和一般按钮，用于将数据传送到服务器上或者取消传送，还可以用来控制其它定义了处理脚本的处理工作。   文本框单行文本框有失去和获取焦点事件。 12345$(&apos;input">
+<meta name="keywords" content="锋利的jQuery">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《锋利的jQuery》六、jQuery的表单与表格">
+<meta property="og:url" content="http://yoursite.com/2017/07/23/《锋利的jQuery》六、jQuery的表单与表格/index.html">
+<meta property="og:site_name" content="Gary23">
+<meta property="og:description" content="表单的应用表单的组成部分 表单标签：包含处理表单数据所用的服务器端程序URL以及数据提交到服务器的方法。  表单域：包含文本框、密码框、隐藏域、多行文本框、复选框、单选框、下拉选择框和文件上传框等。  表单按钮：包括提交按钮、复位按钮和一般按钮，用于将数据传送到服务器上或者取消传送，还可以用来控制其它定义了处理脚本的处理工作。   文本框单行文本框有失去和获取焦点事件。 12345$(&apos;input">
+<meta property="og:updated_time" content="2017-08-22T07:05:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《锋利的jQuery》六、jQuery的表单与表格">
+<meta name="twitter:description" content="表单的应用表单的组成部分 表单标签：包含处理表单数据所用的服务器端程序URL以及数据提交到服务器的方法。  表单域：包含文本框、密码框、隐藏域、多行文本框、复选框、单选框、下拉选择框和文件上传框等。  表单按钮：包括提交按钮、复位按钮和一般按钮，用于将数据传送到服务器上或者取消传送，还可以用来控制其它定义了处理脚本的处理工作。   文本框单行文本框有失去和获取焦点事件。 12345$(&apos;input">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/07/23/《锋利的jQuery》六、jQuery的表单与表格/"/>
+
+
+
+
+
+  <title> 《锋利的jQuery》六、jQuery的表单与表格 | Gary23 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Gary23</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/23/《锋利的jQuery》六、jQuery的表单与表格/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="PJ Yu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gary23">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                《锋利的jQuery》六、jQuery的表单与表格
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-23T22:48:00+08:00">
+                2017-07-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="表单的应用"><a href="#表单的应用" class="headerlink" title="表单的应用"></a>表单的应用</h2><h3 id="表单的组成部分"><a href="#表单的组成部分" class="headerlink" title="表单的组成部分"></a>表单的组成部分</h3><ol>
+<li><p>表单标签：包含处理表单数据所用的服务器端程序URL以及数据提交到服务器的方法。</p>
+</li>
+<li><p>表单域：包含文本框、密码框、隐藏域、多行文本框、复选框、单选框、下拉选择框和文件上传框等。</p>
+</li>
+<li><p>表单按钮：包括提交按钮、复位按钮和一般按钮，用于将数据传送到服务器上或者取消传送，还可以用来控制其它定义了处理脚本的处理工作。</p>
+</li>
+</ol>
+<h3 id="文本框"><a href="#文本框" class="headerlink" title="文本框"></a>文本框</h3><p>单行文本框有失去和获取焦点事件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'input'</span>).focus(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    </div><div class="line">&#125;).blur(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    </div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>也可以不传参数直接<code>focus()</code>和<code>blur()</code>，可以直接让文本框失去和获得焦点。</p>
+<h3 id="复选框"><a href="#复选框" class="headerlink" title="复选框"></a>复选框</h3><p>jQuery可以控制复选框的就是是否被选择，checked属性如果为true就是被选中，为false就是没有选中。而最常用的就是全选、反选、全不选这三种按钮控制复选框的状态。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 全选</span></div><div class="line">$(<span class="string">'input:checkbox'</span>).prop(<span class="string">'checked'</span>,<span class="string">'true'</span>);</div><div class="line"></div><div class="line"><span class="comment">// 全不选</span></div><div class="line">$(<span class="string">'input:checkbox'</span>).prop(<span class="string">'checked'</span>,<span class="string">'false'</span>);</div><div class="line"></div><div class="line"><span class="comment">// 反选</span></div><div class="line">$(<span class="string">'input:checkbox'</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    $(<span class="keyword">this</span>).prop(<span class="string">'checked'</span>,!$(<span class="keyword">this</span>).prop(<span class="string">'checked'</span>));</div><div class="line">    <span class="comment">// 这里也可以直接用原生来写</span></div><div class="line">    <span class="comment">// this.checked = !this.checked;</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>还有一种复选框是 全选/全不选，这是用一个复选框控制其他复选框选项的状态。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 全选和全不选</span></div><div class="line">$(<span class="string">'#allChecked'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    $(<span class="string">'input:checkbox'</span>).prop(<span class="string">'checked'</span>,$(<span class="keyword">this</span>).prop(<span class="string">'checked'</span>))</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// 在其他选项被取消勾选后，全选的状态也应该改为false</span></div><div class="line">$(<span class="string">'input:checkbox'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> flag = <span class="literal">true</span>;</div><div class="line">    <span class="keyword">if</span>(!$(<span class="keyword">this</span>).prop(<span class="string">'checked'</span>))&#123;</div><div class="line">        flag = <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line">    $(<span class="string">'#allChecked'</span>).prop(<span class="string">'checked'</span>,flag);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="下拉框"><a href="#下拉框" class="headerlink" title="下拉框"></a>下拉框</h3><p>下拉框的应用通常是在左右两个<code>&lt;select&gt;</code>元素中相互移动<code>&lt;option&gt;</code>选项，常用的包括将选中项添加到右边/左边，全部添加到右边/左边。还有双击移动选中的选项。</p>
+<p>选项从左边<code>&lt;select&gt;</code>移动到右边<code>&lt;select&gt;</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 获取选中的选项</span></div><div class="line"><span class="keyword">var</span> $options = $(<span class="string">'#select1 option:selected'</span>);</div><div class="line"><span class="comment">// 追加给对方，appendTo方法会移动且删除原来的元素。</span></div><div class="line">$options.appendTo($(<span class="string">'#select2'</span>));</div></pre></td></tr></table></figure>
+<p>全部添加到右边</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 获取全部选项</span></div><div class="line"><span class="keyword">var</span> $options = $(<span class="string">'#select1 option'</span>);</div><div class="line"><span class="comment">// 追加给对方</span></div><div class="line">$options.appendTo($(<span class="string">'#select2'</span>));</div></pre></td></tr></table></figure>
+<p>双击某个选项添加给对方<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#select1'</span>).dblclick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> $options = $(<span class="keyword">this</span>).find(<span class="string">'option:selected'</span>);</div><div class="line">    $options.appendTo(<span class="string">'#select2'</span>)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h3 id="表单验证"><a href="#表单验证" class="headerlink" title="表单验证"></a>表单验证</h3><p>表单注册最常用的地方就是登录注册，比如有些设置为required的必填项要检查其是否填写正确。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'form:input'</span>).blur(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> $parent = $(<span class="keyword">this</span>).parent();</div><div class="line">    <span class="comment">// 需要先将上次的提示删除</span></div><div class="line">    $parent.find(<span class="string">'span'</span>).remove();</div><div class="line">    </div><div class="line">    <span class="comment">// 验证用户名</span></div><div class="line">    <span class="keyword">if</span>($(<span class="keyword">this</span>).is(<span class="string">'#username'</span>))&#123;</div><div class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>.value == <span class="string">''</span> || <span class="keyword">this</span>.value.length &lt; <span class="number">6</span>)&#123;</div><div class="line">            <span class="keyword">var</span> errMsg = <span class="string">'至少要输入6位的用户名'</span>;</div><div class="line">            $parent.append(<span class="string">'&lt;span class="tips error"&gt;'</span> + errMsg + <span class="string">'&lt;/span&gt;'</span>);</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            <span class="keyword">var</span> okMsg = <span class="string">'输入正确'</span>;</div><div class="line">            $parent.append(<span class="string">'&lt;span class="tips success"&gt;'</span> + okMsg + <span class="string">'&lt;/span&gt;'</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">// 其他密码、邮箱等验证都是类似的，只是判断规则不同</span></div><div class="line">    ......</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// 表单提交时对整个表单再做一次验证</span></div><div class="line">$(<span class="string">'#submit'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    $(<span class="string">'form:input'</span>).blur();</div><div class="line">    <span class="keyword">var</span> numErr = $(<span class="string">'form:input .error'</span>).length;</div><div class="line">    <span class="keyword">if</span>(numErr)&#123;</div><div class="line">        <span class="comment">// 阻止表单提交</span></div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line">    alert(<span class="string">'注册成功'</span>)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>除了在表单<code>blur</code>时判断，也可以在其输入文字时进行实时判断。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'form:input'</span>).blur(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">// 上面的事件处理程序，这里就不再重复写了</span></div><div class="line">&#125;).keyup(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">// 输入文字时执行blur的事件处理程序，triggerHandler不会触发blur的浏览器默认事件，所以不会真的失去焦点导致无法输入</span></div><div class="line">    $(<span class="keyword">this</span>).triggerHandler(<span class="string">'blur'</span>)  </div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h2 id="表格的应用"><a href="#表格的应用" class="headerlink" title="表格的应用"></a>表格的应用</h2><h3 id="表格变色"><a href="#表格变色" class="headerlink" title="表格变色"></a>表格变色</h3><h4 id="普通的隔行变色"><a href="#普通的隔行变色" class="headerlink" title="普通的隔行变色"></a>普通的隔行变色</h4><p>css部分<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.even</span> &#123;</div><div class="line">    <span class="attribute">background</span>:<span class="number">#fff38f</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.odd</span> &#123;</div><div class="line">    <span class="attribute">background</span>:<span class="number">#ffffff</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>js部分<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'tbody &gt; tr:odd'</span>).addClass(<span class="string">'odd'</span>);  <span class="comment">// 奇数行</span></div><div class="line">$(<span class="string">'tbody &gt; tr:even'</span>).addClass(<span class="string">'even'</span>);   <span class="comment">// 偶数行</span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p><code>:odd</code>和<code>:even</code>选择器的索引是从0开始，所以第一行是偶数。</p>
+</blockquote>
+<h4 id="单选框控制表格行高亮"><a href="#单选框控制表格行高亮" class="headerlink" title="单选框控制表格行高亮"></a>单选框控制表格行高亮</h4><p>有种表格的选择是，点击当前行之后，当前行会变色，有可能在第一列是一个单选框，也需要被选中。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'tbody&gt;tr'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">// 给当前行增加selected样式</span></div><div class="line">    $(<span class="keyword">this</span>).addClass(<span class="string">'selected'</span>).siblings().removeClass(<span class="string">'selected'</span>).end().find(<span class="string">':radio'</span>).attr(<span class="string">'checked'</span>,<span class="literal">true</span>);</div><div class="line">&#125;)</div><div class="line"><span class="comment">// 初始化表格时让默认选中的行业要变色</span></div><div class="line">$(<span class="string">'table :radio:checked'</span>).parent().parent().addClass(<span class="string">'selected'</span>)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这里使用了<code>end()</code>方法，当执行<code>siblings()</code>时，<code>this</code>已经被改变为当前元素的兄弟元素，而使用<code>end()</code>则会让<code>this</code>重新回归原本的元素。</p>
+</blockquote>
+<h4 id="复选框控制表格高亮"><a href="#复选框控制表格高亮" class="headerlink" title="复选框控制表格高亮"></a>复选框控制表格高亮</h4><p>和上面的样式相似，只是单选改为复选框</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'tbody&gt;tr'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">// 判断是否被选中，有selected类名就是被选中了</span></div><div class="line">    <span class="keyword">var</span> hasSelected = $(<span class="keyword">this</span>).hasClass(<span class="string">'selected'</span>);</div><div class="line">    <span class="comment">// 如果选中移除selected类，否则就加上</span></div><div class="line">    $(<span class="keyword">this</span>)[hasSelected?<span class="string">'removeClass'</span>:<span class="string">'addClass'</span>].(<span class="string">'selected'</span>);</div><div class="line">    <span class="comment">// 查找内部的checkbox，设置相对应的属性</span></div><div class="line">    $(<span class="keyword">this</span>).find(<span class="string">':checkbox'</span>).attr(<span class="string">'checked'</span>,!hasSelected);</div><div class="line">&#125;)</div><div class="line"><span class="comment">// 初始化表格时让默认选中的行业要变色</span></div><div class="line">$(<span class="string">'table :checkbox:checked'</span>).parent().parent().addClass(<span class="string">'selected'</span>)</div></pre></td></tr></table></figure>
+<h3 id="表格的内容筛选"><a href="#表格的内容筛选" class="headerlink" title="表格的内容筛选"></a>表格的内容筛选</h3><p>相对是在表格内部进行姓名的搜索，输入’王’就显示出所有名字带有’王’字的行。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#inputName'</span>).keyup(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    $(<span class="string">'table tbody tr'</span>).hide().filter(<span class="string">':contains("'</span> + ( $(<span class="keyword">this</span>).val() ) + <span class="string">'")'</span>).show();</div><div class="line">&#125;).keyup();  <span class="comment">// 打开页面时自动执行一次</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p><code>:contains()</code>是匹配包含指定文本的元素，在这里指的是输入的文字，<code>filter()</code>是在<code>this</code>中筛选出符合条件的元素集合</p>
+</blockquote>
+<h2 id="其他应用"><a href="#其他应用" class="headerlink" title="其他应用"></a>其他应用</h2><h3 id="网页字体大小"><a href="#网页字体大小" class="headerlink" title="网页字体大小"></a>网页字体大小</h3><p>假设字体的放大和缩小都是span标签，文字内容元素的id为para。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'span'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> thisEle = $(<span class="string">'#para'</span>).css(<span class="string">'font-size'</span>);</div><div class="line">    <span class="keyword">var</span> textFontSize = <span class="built_in">parseInt</span>(thisEle,<span class="number">10</span>);</div><div class="line">    <span class="comment">// 获取现在的字号的单位</span></div><div class="line">    <span class="keyword">var</span> unit = thisEle.slice(<span class="number">2</span>);</div><div class="line">    <span class="keyword">var</span> cName = $(<span class="keyword">this</span>).attr(<span class="string">'class'</span>);</div><div class="line">    <span class="comment">// 根据按钮的类名判断是放大还是缩小</span></div><div class="line">    <span class="keyword">if</span>(cName == <span class="string">'bigger'</span>)&#123;</div><div class="line">        textFontSize += <span class="number">2</span>;</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(cName == <span class="string">'smaller'</span>)&#123;</div><div class="line">        textFontSize -= <span class="number">2</span>;</div><div class="line">    &#125;</div><div class="line">    $(<span class="string">'#para'</span>).css(<span class="string">'font-size'</span>,textFontSize + unit);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/锋利的jQuery/" rel="tag"># 锋利的jQuery</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/24/《锋利的jQuery》八、jQuery插件的写法/" rel="next" title="《锋利的jQuery》八、jQuery插件的使用和写法">
+                <i class="fa fa-chevron-left"></i> 《锋利的jQuery》八、jQuery插件的使用和写法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/23/《锋利的jQuery》七、jQuery和Ajax的应用/" rel="prev" title="《锋利的jQuery》七、jQuery和Ajax的应用">
+                《锋利的jQuery》七、jQuery和Ajax的应用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="PJ Yu" />
+          <p class="site-author-name" itemprop="name">PJ Yu</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Gary23" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com/Gary23" title="Gary23" target="_blank">Gary23</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#表单的应用"><span class="nav-number">1.</span> <span class="nav-text">表单的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#表单的组成部分"><span class="nav-number">1.1.</span> <span class="nav-text">表单的组成部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本框"><span class="nav-number">1.2.</span> <span class="nav-text">文本框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复选框"><span class="nav-number">1.3.</span> <span class="nav-text">复选框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下拉框"><span class="nav-number">1.4.</span> <span class="nav-text">下拉框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表单验证"><span class="nav-number">1.5.</span> <span class="nav-text">表单验证</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表格的应用"><span class="nav-number">2.</span> <span class="nav-text">表格的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#表格变色"><span class="nav-number">2.1.</span> <span class="nav-text">表格变色</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#普通的隔行变色"><span class="nav-number">2.1.1.</span> <span class="nav-text">普通的隔行变色</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单选框控制表格行高亮"><span class="nav-number">2.1.2.</span> <span class="nav-text">单选框控制表格行高亮</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复选框控制表格高亮"><span class="nav-number">2.1.3.</span> <span class="nav-text">复选框控制表格高亮</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表格的内容筛选"><span class="nav-number">2.2.</span> <span class="nav-text">表格的内容筛选</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他应用"><span class="nav-number">3.</span> <span class="nav-text">其他应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网页字体大小"><span class="nav-number">3.1.</span> <span class="nav-text">网页字体大小</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PJ Yu</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
