@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="javascript笔记," />
+  <meta name="keywords" content="javascript," />
 
 
 
@@ -94,20 +94,20 @@
 
 
 <meta name="description" content="创建方式声明式123function foo ()&amp;#123;  &amp;#125; 表达式123var foo = function () &amp;#123;  &amp;#125; 构造函数方式格式:new Function(arg1,arg2,......,argn,body) arg1,arg2,……,argn是可选的形参列表，表达为创建出来函数的形参列表，数据类型是字符串 body 字符串类型，表达为创建出">
-<meta name="keywords" content="javascript笔记">
+<meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面向对象二、函数">
 <meta property="og:url" content="http://yoursite.com/2017/06/16/面向对象二、函数/index.html">
 <meta property="og:site_name" content="Gary23">
 <meta property="og:description" content="创建方式声明式123function foo ()&amp;#123;  &amp;#125; 表达式123var foo = function () &amp;#123;  &amp;#125; 构造函数方式格式:new Function(arg1,arg2,......,argn,body) arg1,arg2,……,argn是可选的形参列表，表达为创建出来函数的形参列表，数据类型是字符串 body 字符串类型，表达为创建出">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5140754-e1918c4289b0a236?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5140754-b155baad1146a6e9?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5140754-4582e2a9a6e56d4c?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-08-22T07:05:54.000Z">
+<meta property="og:image" content="http://picabstract.preview.ftn.qq.com:8080/ftn_pic_abs_v2/9f05ec2a92bd3e24238f0a80ce228094994cc22bc4a5d554d171c1f719f53b5b259cb367408b2d27a9c8a68fcd733a9c?pictype=scale&from=30012&version=2.0.0.2&uin=406490508&fname=20170904-11.png&size=1024">
+<meta property="og:image" content="http://picabstract.preview.ftn.qq.com:8080/ftn_pic_abs_v2/50d7d19c6932e9babe4fb350babc66ccbf42cee22d5b2aba1d32725fecdd3156cbc1e574e0d8143b91486aa19a89e6c3?pictype=scale&from=30012&version=2.0.0.2&uin=406490508&fname=20170904-12.png&size=1024">
+<meta property="og:image" content="http://picabstract.preview.ftn.qq.com:8080/ftn_pic_abs_v2/913d52676b58a849daa82bfbe75eaea5f2066da91b6f8c48170af7526c55b04baf509e54c0d0e75aba59ec5739ddcf45?pictype=scale&from=30012&version=2.0.0.2&uin=406490508&fname=20170904-13.png&size=1024">
+<meta property="og:updated_time" content="2017-09-21T02:05:10.411Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面向对象二、函数">
 <meta name="twitter:description" content="创建方式声明式123function foo ()&amp;#123;  &amp;#125; 表达式123var foo = function () &amp;#123;  &amp;#125; 构造函数方式格式:new Function(arg1,arg2,......,argn,body) arg1,arg2,……,argn是可选的形参列表，表达为创建出来函数的形参列表，数据类型是字符串 body 字符串类型，表达为创建出">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5140754-e1918c4289b0a236?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="http://picabstract.preview.ftn.qq.com:8080/ftn_pic_abs_v2/9f05ec2a92bd3e24238f0a80ce228094994cc22bc4a5d554d171c1f719f53b5b259cb367408b2d27a9c8a68fcd733a9c?pictype=scale&from=30012&version=2.0.0.2&uin=406490508&fname=20170904-11.png&size=1024">
 
 
 
@@ -408,7 +408,7 @@
 <p>以上结构都为true,也就是说这些内置函数和自定义函数都是通过Function这个构造函数创建的，他们的原型对象<strong>proto</strong>也就是Function.prototype</p>
 <h3 id="函数原型链的绘制"><a href="#函数原型链的绘制" class="headerlink" title="函数原型链的绘制"></a>函数原型链的绘制</h3><p>绘制原型链时将函数（内置函数和自定义函数）成为函数对象，为了避免混淆，其他对象称为普通对象</p>
 <p>Function.prototype 即是函数也是对象类型，而所有的原型对象都没有 prototype 属性，并且只有原型对象才有 constructor 属性</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5140754-e1918c4289b0a236?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p><img src="http://picabstract.preview.ftn.qq.com:8080/ftn_pic_abs_v2/9f05ec2a92bd3e24238f0a80ce228094994cc22bc4a5d554d171c1f719f53b5b259cb367408b2d27a9c8a68fcd733a9c?pictype=scale&amp;from=30012&amp;version=2.0.0.2&amp;uin=406490508&amp;fname=20170904-11.png&amp;size=1024" alt="image"></p>
 <h2 id="arguments对象"><a href="#arguments对象" class="headerlink" title="arguments对象"></a>arguments对象</h2><h3 id="arguments对象属性"><a href="#arguments对象属性" class="headerlink" title="arguments对象属性"></a>arguments对象属性</h3><p>length：实参的个数</p>
 <p>callee：返回正在执行的函数；应用在匿名函数递归调用</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span> (<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>);</div><div class="line">&#125;</div><div class="line">foo()</div><div class="line"><span class="comment">/*</span></div><div class="line">[callee: function, Symbol(Symbol.iterator): function]</div><div class="line">  callee:function foo()</div><div class="line">  length:0</div><div class="line">*/</div></pre></td></tr></table></figure>
@@ -429,11 +429,11 @@
 <p>每次函数调用自己都相当于进栈一次，循环调用了几次,栈里就有几个函数，当n===1时开始return，也就开始依次出栈。我们实际return的是v的值，每次出栈让v+d，然后根据d来确定是出几次栈，也就是做几次操作。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">dengCha</span>(<span class="params">v, d, n</span>) </span>&#123;</div><div class="line">  <span class="comment">// 过滤n小于1的无效值</span></div><div class="line">  <span class="keyword">if</span> (n &lt; <span class="number">1</span>) &#123;</div><div class="line">	<span class="keyword">return</span> <span class="literal">undefined</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="comment">// 如果n为1，就直接返回V 此时不要继续递归,让函数从v的值开始每次+d，加的次数就是循环调用的次数。</span></div><div class="line">  <span class="keyword">else</span> <span class="keyword">if</span>(n === <span class="number">1</span>)&#123;</div><div class="line">    <span class="keyword">return</span> v;</div><div class="line">  &#125;</div><div class="line">  <span class="comment">// 此时如果传入的n值&gt;1,就需要递归了</span></div><div class="line">  <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">return</span> dengCha(v,d,n<span class="number">-1</span>) + d</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>用一张图来表示函数执行过程：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5140754-b155baad1146a6e9?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p><img src="http://picabstract.preview.ftn.qq.com:8080/ftn_pic_abs_v2/50d7d19c6932e9babe4fb350babc66ccbf42cee22d5b2aba1d32725fecdd3156cbc1e574e0d8143b91486aa19a89e6c3?pictype=scale&amp;from=30012&amp;version=2.0.0.2&amp;uin=406490508&amp;fname=20170904-12.png&amp;size=1024" alt="image"></p>
 <h3 id="斐波那契函数"><a href="#斐波那契函数" class="headerlink" title="斐波那契函数"></a>斐波那契函数</h3><p>案例2：<br>fib数列 1,1,2,3,5,8,13,21,34，…<br>fib的规律：<br>1: 1<br>2: 1<br>3: 2<br>4: 3<br>5: 5<br>n: n-1+n-2</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 这是一个匿名函数，用v来接收匿名函数的返回值</span></div><div class="line"><span class="keyword">var</span> v = (<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</div><div class="line"><span class="keyword">if</span>(n &lt; <span class="number">1</span>)&#123;</div><div class="line">  <span class="keyword">return</span> <span class="literal">undefined</span>;</div><div class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(n === <span class="number">1</span> || n ===<span class="number">2</span>)&#123;</div><div class="line">  <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">&#125;<span class="keyword">else</span> &#123;</div><div class="line">  <span class="keyword">return</span> <span class="built_in">arguments</span>.callee(n<span class="number">-1</span>) + <span class="built_in">arguments</span>.callee(n<span class="number">-2</span>);</div><div class="line">&#125;&#125;(<span class="number">6</span>))</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(v);</div></pre></td></tr></table></figure>
 <p>用一张图来表示函数内部操作步骤</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5140754-4582e2a9a6e56d4c?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p><img src="http://picabstract.preview.ftn.qq.com:8080/ftn_pic_abs_v2/913d52676b58a849daa82bfbe75eaea5f2066da91b6f8c48170af7526c55b04baf509e54c0d0e75aba59ec5739ddcf45?pictype=scale&amp;from=30012&amp;version=2.0.0.2&amp;uin=406490508&amp;fname=20170904-13.png&amp;size=1024" alt="image"></p>
 <h2 id="函数的四种调用模式"><a href="#函数的四种调用模式" class="headerlink" title="函数的四种调用模式"></a>函数的四种调用模式</h2><h3 id="普通函数执行"><a href="#普通函数执行" class="headerlink" title="普通函数执行"></a>普通函数执行</h3><p>这声明一个函数后，就直接调用。这种模式下this指向window对象</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>);</div><div class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span> === <span class="built_in">window</span>);</div><div class="line">&#125;</div><div class="line">foo();</div></pre></td></tr></table></figure>
 <h3 id="方法调用模式"><a href="#方法调用模式" class="headerlink" title="方法调用模式"></a>方法调用模式</h3><p>通过一个对象来调用方法。把某一个函数当做对象的方法，this指向该方法的调用者</p>
@@ -454,7 +454,6 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getType</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> t = <span class="built_in">Object</span>.prototype.toString.call(obj).slice(<span class="number">8</span>,<span class="number">-1</span>);</div><div class="line">  <span class="comment">// 想让括号里传的参数做怎样的操作就调用怎样的方法</span></div><div class="line">  <span class="keyword">return</span> t.toLowerCase();</div><div class="line">&#125;</div><div class="line">getType(<span class="keyword">new</span> <span class="built_in">Array</span>)		<span class="comment">// 返回array</span></div></pre></td></tr></table></figure>
 <h4 id="将伪数组变成真数组"><a href="#将伪数组变成真数组" class="headerlink" title="将伪数组变成真数组"></a>将伪数组变成真数组</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 借用上面的函数getType</span></div><div class="line"><span class="keyword">var</span> doms = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>);</div><div class="line"><span class="keyword">var</span> domArr = <span class="built_in">Array</span>.prototype.slice.call(doms);</div><div class="line"><span class="built_in">console</span>.log(getType(doms));    <span class="comment">// 打印htmlcollection，伪数组</span></div><div class="line"><span class="built_in">console</span>.log(getType(domArr));	  <span class="comment">// 打印array，真数组</span></div></pre></td></tr></table></figure>
 <h4 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span> , <span class="string">'1'</span>];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span>(<span class="params">a</span>) </span>&#123;			</div><div class="line">  <span class="keyword">var</span> ret = [];</div><div class="line">  <span class="comment">// 如果不支持indexOf方法</span></div><div class="line">  <span class="comment">// 自己实现数组的indexOf方法，并添加到数组的原型对象上。</span></div><div class="line">  <span class="keyword">if</span>(!ret.indexOf)&#123;</div><div class="line">	<span class="built_in">Array</span>.prototype.indexOf = <span class="function"><span class="keyword">function</span>(<span class="params">val</span>) </span>&#123;</div><div class="line">	  <span class="comment">// this指向的就是 indexOf的调用者 （数组对象）</span></div><div class="line">	  <span class="comment">// 如果循环顺利执行完，就表示没有val值，返回-1；</span></div><div class="line">      <span class="comment">// 否则返回val在当前数组中的下标值。</span></div><div class="line">	  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>,l = <span class="keyword">this</span>.length; i &lt; l; i++)&#123;</div><div class="line">		<span class="keyword">if</span>(<span class="keyword">this</span>[i] === val) <span class="keyword">return</span> i;</div><div class="line">	  &#125;										</div><div class="line">	  <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">	&#125;;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>,l = a.length;i &lt; l; i++)&#123;</div><div class="line">    <span class="comment">// 如果ret中不存在当前遍历到的元素，就添加到ret中</span></div><div class="line">	<span class="comment">// 否则就不要添加</span></div><div class="line">	<span class="keyword">if</span>( ret.indexOf(a[i]) === <span class="number">-1</span> )&#123;</div><div class="line">	  ret.push(a[i]);</div><div class="line">	&#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> ret;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(unique(arr));		<span class="comment">// 打印[1,2,'1']</span></div></pre></td></tr></table></figure>
-
       
     </div>
 
@@ -483,7 +482,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/javascript笔记/" rel="tag"># javascript笔记</a>
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
           
         </div>
       
@@ -580,7 +579,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -593,7 +592,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>

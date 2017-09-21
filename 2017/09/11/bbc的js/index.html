@@ -1,0 +1,986 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="bbc," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="工具类函数 tools.js判断是否为 dom 元素函数： isElement(dom) 作用： 判断参数是否为一个 dom 元素。 参数：   jQuery对象或dom对象  返回值： (Boolean)是 dom 对象返回 true，否则返回 false。 12345678//判断是否为dom元素function isElement(dom) &amp;#123;    if(dom instance">
+<meta name="keywords" content="bbc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="bbc的tool.js">
+<meta property="og:url" content="http://yoursite.com/2017/09/11/bbc的js/index.html">
+<meta property="og:site_name" content="Gary23">
+<meta property="og:description" content="工具类函数 tools.js判断是否为 dom 元素函数： isElement(dom) 作用： 判断参数是否为一个 dom 元素。 参数：   jQuery对象或dom对象  返回值： (Boolean)是 dom 对象返回 true，否则返回 false。 12345678//判断是否为dom元素function isElement(dom) &amp;#123;    if(dom instance">
+<meta property="og:updated_time" content="2017-09-21T02:04:52.718Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="bbc的tool.js">
+<meta name="twitter:description" content="工具类函数 tools.js判断是否为 dom 元素函数： isElement(dom) 作用： 判断参数是否为一个 dom 元素。 参数：   jQuery对象或dom对象  返回值： (Boolean)是 dom 对象返回 true，否则返回 false。 12345678//判断是否为dom元素function isElement(dom) &amp;#123;    if(dom instance">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/11/bbc的js/"/>
+
+
+
+
+
+  <title> bbc的tool.js | Gary23 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Gary23</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/11/bbc的js/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="PJ Yu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gary23">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                bbc的tool.js
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-11T17:26:21+08:00">
+                2017-09-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="工具类函数-tools-js"><a href="#工具类函数-tools-js" class="headerlink" title="工具类函数 tools.js"></a>工具类函数 tools.js</h2><h3 id="判断是否为-dom-元素"><a href="#判断是否为-dom-元素" class="headerlink" title="判断是否为 dom 元素"></a>判断是否为 dom 元素</h3><p>函数： isElement(dom)</p>
+<p>作用： 判断参数是否为一个 dom 元素。</p>
+<p>参数： </p>
+<ul>
+<li>jQuery对象或dom对象</li>
+</ul>
+<p>返回值： (Boolean)是 dom 对象返回 true，否则返回 false。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//判断是否为dom元素</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isElement</span>(<span class="params">dom</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span>(dom <span class="keyword">instanceof</span> jQuery) &#123;</div><div class="line">        dom = dom[<span class="number">0</span>];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(!dom) <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    <span class="keyword">return</span> dom.nodeName &amp;&amp; dom.nodeType === <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用isElement：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = <span class="built_in">document</span>.getElementById(<span class="string">'box'</span>);</div><div class="line"><span class="keyword">var</span> flag = isElement($(<span class="string">'#box'</span>));   <span class="comment">// true</span></div><div class="line"><span class="keyword">var</span> falg1 = isElement(box);    <span class="comment">// true</span></div><div class="line"><span class="keyword">var</span> flag2 = isElement(<span class="string">'#box'</span>)   <span class="comment">// false</span></div></pre></td></tr></table></figure>
+<h3 id="模板字符替换"><a href="#模板字符替换" class="headerlink" title="模板字符替换"></a>模板字符替换</h3><p>函数： substitute(string, object)</p>
+<p>作用： 以json直接量替换字符串中的 {xx} 部分，可看做一个简单的html模板</p>
+<p>参数： </p>
+<ul>
+<li><p>string：要被替换的字符串 </p>
+</li>
+<li><p>object：对应的json直接量</p>
+</li>
+</ul>
+<p>返回值： (String)被替换后的字符串</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">substitute</span>(<span class="params">string, object</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> string.replace(<span class="regexp">/\\?\&#123;([^&#123;&#125;]+)\&#125;/g</span>, <span class="function"><span class="keyword">function</span>(<span class="params">match, name</span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span> (match.charAt(<span class="number">0</span>) === <span class="string">'\\'</span>) <span class="keyword">return</span> match.slice(<span class="number">1</span>);</div><div class="line">        <span class="keyword">return</span> (object[name] != <span class="literal">null</span>) ? object[name] : <span class="string">''</span>;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用substitute：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> config = &#123;</div><div class="line">    <span class="attr">data</span> : &#123;<span class="attr">value</span> : <span class="string">'123'</span>,<span class="attr">text</span>:<span class="string">'abc'</span>&#125;,</div><div class="line">    <span class="attr">template</span> : <span class="string">'&lt;label&gt;&#123;text&#125;&lt;/label&gt;&lt;input type="text" value="&#123;value&#125;"/&gt;'</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> s = substitute(config.template,config.data);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(s);</div><div class="line"><span class="comment">// 打印: &lt;label&gt;abc&lt;/label&gt;&lt;input type="text" value="123"/&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="页面最大-z-index"><a href="#页面最大-z-index" class="headerlink" title="页面最大 z-index"></a>页面最大 z-index</h3><p>函数： maxZindex(scope, increase)</p>
+<p>作用： 获取页面所有元素中最大的z-index是多少</p>
+<p>参数： </p>
+<ul>
+<li><p>scope：查找范围的dom元素，这里dom元素不是指的父元素，而是直接含有定位属性的元素。</p>
+</li>
+<li><p>increase：增量</p>
+</li>
+</ul>
+<p>返回值： (Number)最终计算的结果</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">maxZindex</span>(<span class="params">scope, increase</span>) </span>&#123;</div><div class="line">    scope = scope || <span class="string">'div'</span>;</div><div class="line">    scope = $(scope);</div><div class="line">    <span class="keyword">var</span> max = <span class="number">0</span>;</div><div class="line">    <span class="keyword">if</span>(scope.length) &#123;</div><div class="line">        <span class="keyword">var</span> pos = scope.filter(<span class="function"><span class="keyword">function</span>(<span class="params">i,el</span>)</span>&#123;</div><div class="line">            <span class="comment">// 如果el不是一个dom对象，或者是'script', 'link', 'base', 'style'中的一个就没必要去管</span></div><div class="line">            <span class="keyword">if</span>(!isElement(el) || [<span class="string">'script'</span>, <span class="string">'link'</span>, <span class="string">'base'</span>, <span class="string">'style'</span>].indexOf(el.tagName.toLowerCase()) &gt; <span class="number">-1</span>) <span class="keyword">return</span>;</div><div class="line">            <span class="comment">// 判断el有没有'absolute','relative','fixed'中的一个属性</span></div><div class="line">            <span class="keyword">return</span> [<span class="string">'absolute'</span>,<span class="string">'relative'</span>,<span class="string">'fixed'</span>].indexOf($(el).css(<span class="string">'position'</span>)) &gt; <span class="number">-1</span>;</div><div class="line">        &#125;);</div><div class="line">        <span class="comment">// 获取有定位的元素中最大的z-index值</span></div><div class="line">        <span class="keyword">if</span>(pos.length) &#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>, j=pos.length;i&lt;j;i++) &#123;</div><div class="line">                <span class="keyword">var</span> z = pos.eq(i).css(<span class="string">'z-index'</span>);</div><div class="line">                max = <span class="built_in">Math</span>.max(max, <span class="built_in">isNaN</span>(z) ? <span class="number">0</span> : z);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(increase) max += <span class="built_in">parseInt</span>(increase);</div><div class="line">    <span class="comment">// z-index的最大值是2147483647</span></div><div class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.min(max, <span class="number">2147483647</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用maxZindex：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> maxZ = maxZindex(<span class="string">'div'</span>,<span class="number">10</span>);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(maxZ);     <span class="comment">// 假如页面中的div元素定位最高为100，那么会打印110</span></div></pre></td></tr></table></figure>
+<h3 id="获取配置项"><a href="#获取配置项" class="headerlink" title="获取配置项"></a>获取配置项</h3><p>函数： dataOptions(element, prefix)</p>
+<p>作用： 从元素的 data- 属性中组织出配置项，以JSON方式输出，主要是对 data-xxx-xxx 这种两个-及以上连接的属性，目的就是只保留最后一个 xxx 作为属性名。</p>
+<p>参数： </p>
+<ul>
+<li><p>element: 要获取的目标dom元素。</p>
+</li>
+<li><p>prefix: 必需，前缀，在 data- 后面、要获取的配置项名前面。</p>
+</li>
+</ul>
+<p>返回值： (JSON)最终配置项</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">dataOptions1</span>(<span class="params">element, prefix</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(!prefix) <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    <span class="comment">// prefix参数的值为select</span></div><div class="line">    <span class="comment">// 这里通过data后，像data-select-time会被解析为selectTime，去取消-改为驼峰</span></div><div class="line">    <span class="keyword">var</span> data = $(element).data(),</div><div class="line">        out = &#123;&#125;, inkey,</div><div class="line">        replace = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'^'</span> + prefix.toLowerCase() + <span class="string">'([A-Z])'</span>);</div><div class="line">    <span class="comment">// replace是为了获取驼峰写法/select([A-Z])/</span></div><div class="line">    prefix = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'^'</span> + prefix.toLowerCase());</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> data) &#123;</div><div class="line">        <span class="comment">// 匹配所有带有select的属性，key现在是驼峰写法selectT</span></div><div class="line">        <span class="keyword">if</span> (prefix.test(key))&#123;	</div><div class="line">            inkey = key.replace(replace, <span class="function"><span class="keyword">function</span>(<span class="params">_, a</span>)</span>&#123;</div><div class="line">                <span class="comment">// 将selectT替换为小写t</span></div><div class="line">                <span class="keyword">return</span> a.toLowerCase();		</div><div class="line">            &#125;);</div><div class="line">            out[inkey] = data[key];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> out;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用dataOptions1：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"test"</span> <span class="attr">data-select-time</span>=<span class="string">"3000"</span> <span class="attr">data-select-name</span>=<span class="string">"box"</span>&gt;</span></div><div class="line">	1111111111111111</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = dataOptions1(<span class="string">'.test'</span>,<span class="string">'select'</span>)</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(obj)</div><div class="line"></div><div class="line"><span class="comment">// 打印 &#123; name: "box",time: 3000 &#125;</span></div></pre></td></tr></table></figure>
+<h3 id="倒计时时钟"><a href="#倒计时时钟" class="headerlink" title="倒计时时钟"></a>倒计时时钟</h3><p>函数： countdown(element, options)</p>
+<p>作用： 通用倒计时，包括倒计时所在容器，倒数秒数，显示方式，回调。</p>
+<p>参数： </p>
+<ul>
+<li><p>element: 要显示的位置的dom元素 </p>
+</li>
+<li><p>options: 配置参数，包含以下参数： </p>
+</li>
+<li><p>start：倒计时的秒数 </p>
+</li>
+<li><p>secondOnly：显示方式（是否只显示秒） </p>
+</li>
+<li><p>callback：倒计时完成后的回调</p>
+</li>
+</ul>
+<p>返回值： 无</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">countdown</span>(<span class="params">element, options</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line">    options = $.extend(&#123;</div><div class="line">        <span class="attr">start</span>: <span class="number">60</span>,</div><div class="line">        <span class="attr">secondOnly</span>: <span class="literal">false</span>,</div><div class="line">        <span class="attr">callback</span>: <span class="literal">null</span></div><div class="line">    &#125;, options || &#123;&#125;);</div><div class="line">    <span class="keyword">var</span> t = options.start;      </div><div class="line">    <span class="keyword">var</span> sec = options.secondOnly;</div><div class="line">    <span class="keyword">var</span> fn = options.callback;</div><div class="line">    <span class="keyword">var</span> d = +<span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">    <span class="keyword">var</span> diff = <span class="built_in">Math</span>.round((d + t * <span class="number">1000</span>) / <span class="number">1000</span>);   </div><div class="line">    <span class="keyword">this</span>.timer = timeout(element, diff, fn);    </div><div class="line">    <span class="keyword">this</span>.stop = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        clearTimeout(self.timer);</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">timeout</span>(<span class="params">element, until, fn</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> str = <span class="string">''</span>,</div><div class="line">            started = <span class="literal">false</span>,</div><div class="line">            left = &#123;<span class="attr">d</span>: <span class="number">0</span>, <span class="attr">h</span>: <span class="number">0</span>, <span class="attr">m</span>: <span class="number">0</span>, <span class="attr">s</span>: <span class="number">0</span>, <span class="attr">t</span>: <span class="number">0</span>&#125;,</div><div class="line">            current = <span class="built_in">Math</span>.round(+<span class="keyword">new</span> <span class="built_in">Date</span>() / <span class="number">1000</span>),</div><div class="line">            data = &#123;<span class="attr">d</span>: <span class="string">'天'</span>, <span class="attr">h</span>: <span class="string">'时'</span>, <span class="attr">m</span>: <span class="string">'分'</span>, <span class="attr">s</span>: <span class="string">'秒'</span>&#125;;</div><div class="line"></div><div class="line">        left.s = until - current;  </div><div class="line"></div><div class="line">        <span class="keyword">if</span> (left.s &lt; <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(left.s == <span class="number">0</span>) &#123; </div><div class="line">            <span class="comment">// fn &amp;&amp; fn();</span></div><div class="line">            fn &amp;&amp; fn.call(element,<span class="literal">null</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(!sec) &#123;</div><div class="line">            <span class="keyword">if</span> (<span class="built_in">Math</span>.floor(left.s / <span class="number">86400</span>) &gt; <span class="number">0</span>) &#123;</div><div class="line">              left.d = <span class="built_in">Math</span>.floor(left.s / <span class="number">86400</span>);  </div><div class="line">              left.s = left.s % <span class="number">86400</span>; </div><div class="line">              str += left.d + data.d; </div><div class="line">              started = <span class="literal">true</span>;   </div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (<span class="built_in">Math</span>.floor(left.s / <span class="number">3600</span>) &gt; <span class="number">0</span>) &#123;</div><div class="line">              left.h = <span class="built_in">Math</span>.floor(left.s / <span class="number">3600</span>); </div><div class="line">              left.s = left.s % <span class="number">3600</span>; </div><div class="line">              started = <span class="literal">true</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (started) &#123;</div><div class="line">          str += <span class="string">' '</span> + left.h + data.h; </div><div class="line">          started = <span class="literal">true</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(!sec) &#123;</div><div class="line">            <span class="keyword">if</span> (<span class="built_in">Math</span>.floor(left.s / <span class="number">60</span>) &gt; <span class="number">0</span>) &#123;</div><div class="line">              left.m = <span class="built_in">Math</span>.floor(left.s / <span class="number">60</span>); </div><div class="line">              left.s = left.s % <span class="number">60</span>; </div><div class="line">              started = <span class="literal">true</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (started) &#123;</div><div class="line">          str += <span class="string">' '</span> + left.m + data.m;</div><div class="line">          started = <span class="literal">true</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (<span class="built_in">Math</span>.floor(left.s) &gt; <span class="number">0</span>) &#123;   </div><div class="line">          started = <span class="literal">true</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (started) &#123;</div><div class="line">          str += <span class="string">' '</span> + left.s + data.s;</div><div class="line">          started = <span class="literal">true</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        $(element).html(str);</div><div class="line">        <span class="keyword">return</span> setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;timeout(element, until,fn);&#125;, <span class="number">1000</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用countdown：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">countdown($(<span class="string">'#box'</span>),&#123;</div><div class="line">    <span class="attr">start</span>: <span class="number">6000</span>,</div><div class="line">    <span class="attr">secondOnly</span>: <span class="literal">false</span>,</div><div class="line">    <span class="attr">callback</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="comment">// do something;</span></div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="获取元素的内补或外补"><a href="#获取元素的内补或外补" class="headerlink" title="获取元素的内补或外补"></a>获取元素的内补或外补</h3><p>函数： $.fn.patch(type)</p>
+<p>作用： 获取元素内边距、外边距或边框宽度</p>
+<p>参数： </p>
+<ul>
+<li>type：获取哪一部分样式，可以为padding、margin、border，不传参数是三个都获取。</li>
+</ul>
+<p>返回值： (JSON)根据type计算出的最终结果{x:number, y:number}，x是left+right，y是top+bottom</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">$.fn.patch = <span class="function"><span class="keyword">function</span> (<span class="params">type</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> el = <span class="keyword">this</span>;</div><div class="line">    <span class="keyword">var</span> args;</div><div class="line">    <span class="keyword">if</span> (type) &#123;</div><div class="line">        args = $.makeArray(type);	<span class="comment">// 将参数转换为真数组</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> &#123;</div><div class="line">        args = [<span class="string">'margin'</span>, <span class="string">'padding'</span>, <span class="string">'border'</span>];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> _return = &#123;</div><div class="line">        <span class="attr">x</span>: <span class="number">0</span>,</div><div class="line">        <span class="attr">y</span>: <span class="number">0</span></div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="comment">// 这里遍历2次（x、y）</span></div><div class="line">    $.each(&#123;<span class="attr">x</span>: [<span class="string">'left'</span>, <span class="string">'right'</span>], <span class="attr">y</span>: [<span class="string">'top'</span>, <span class="string">'bottom'</span>]&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">p1, p2</span>) </span>&#123;</div><div class="line">        <span class="comment">// 这里遍历2次（['left', 'right']和['top', 'bottom']）</span></div><div class="line">        $.each(p2, <span class="function"><span class="keyword">function</span>(<span class="params">i, p</span>) </span>&#123;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                <span class="comment">// 遍历三次（'margin', 'padding', 'border'），或者是1次（参数）</span></div><div class="line">                $.each(args, <span class="function"><span class="keyword">function</span>(<span class="params">i, arg</span>) </span>&#123;</div><div class="line">                    <span class="comment">// ['margin', 'padding', 'border']的left、right、top、bottom</span></div><div class="line">                    arg += <span class="string">'-'</span> + p;		</div><div class="line">                    <span class="comment">// 如果是border只需要获取width就行，因为border 有很多其他属性</span></div><div class="line">                    <span class="keyword">if</span> (arg.indexOf(<span class="string">'border'</span>) == <span class="number">0</span>) arg += <span class="string">'-width'</span>;</div><div class="line">                    _return[p1] += <span class="built_in">parseInt</span>(el.css(arg)) || <span class="number">0</span>;</div><div class="line">                &#125;);</div><div class="line">            &#125; <span class="keyword">catch</span>(e) &#123;&#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">return</span> _return;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>使用patch：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></div><div class="line">    <span class="selector-class">.test</span>&#123;</div><div class="line">        <span class="attribute">margin</span>: <span class="number">10px</span>;</div><div class="line">        <span class="attribute">padding</span>: <span class="number">10px</span> <span class="number">20px</span>;</div><div class="line">        <span class="attribute">border</span>: <span class="number">2px</span> solid <span class="number">#000</span>;</div><div class="line">    &#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"test"</span> <span class="attr">data-select-time</span>=<span class="string">"3000"</span> <span class="attr">data-select-name</span>=<span class="string">"box"</span>&gt;</span></div><div class="line">1111111111111111</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> result =  $(<span class="string">'.test'</span>).patch()</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(result);	</div><div class="line"></div><div class="line"><span class="comment">// 打印 &#123; x: 64, y: 44&#125;</span></div></pre></td></tr></table></figure>
+<h3 id="dom-9点定位"><a href="#dom-9点定位" class="headerlink" title="dom 9点定位"></a>dom 9点定位</h3><p>函数： $.fn.locate(options)</p>
+<p>作用： 根据9个方位由一个dom定位到另一个dom上的位置</p>
+<p>参数： - options：配置项的JSON直接量，包括： - relative：调用元素的父元素，默认为body - x：定位dom的x轴的位置，默认为center，可选left、right - y：定位dom的y轴的位置，默认为center，可选top、bottom  - pos：定位方式，可选absolute和fixed，默认absolute  - offset：设置偏移量，默认是 0。</p>
+<p>返回值： (DOM)自身</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//双dom9点定位，支持绝对定位和固定定位</span></div><div class="line">$.fn.locate = <span class="function"><span class="keyword">function</span> (<span class="params">options</span>) </span>&#123;</div><div class="line">    options = $.extend(&#123;</div><div class="line">        <span class="attr">relative</span>: <span class="built_in">document</span>.body, <span class="comment">// 应该是父元素</span></div><div class="line">        x: <span class="string">'center'</span>, <span class="comment">//left center right</span></div><div class="line">        y: <span class="string">'center'</span>,  <span class="comment">// top center riht</span></div><div class="line">        pos: <span class="string">'absolute'</span>, <span class="comment">// 定位方式</span></div><div class="line">        <span class="comment">//top center bottom</span></div><div class="line">        offset: &#123; <span class="comment">//偏移量</span></div><div class="line">            x: <span class="number">0</span>,</div><div class="line">            <span class="attr">y</span>: <span class="number">0</span></div><div class="line">        &#125;</div><div class="line">    &#125;, options);</div><div class="line"></div><div class="line">    <span class="keyword">var</span> left,</div><div class="line">        top,</div><div class="line">        x,</div><div class="line">        y,</div><div class="line">        offset = options.offset,</div><div class="line">        el = $(options.relative),   <span class="comment">// el是父元素</span></div><div class="line">        $<span class="keyword">this</span> = $(<span class="keyword">this</span>).css(<span class="string">'position'</span>, options.pos),   <span class="comment">// 调用元素的定位方式</span></div><div class="line">        h = $<span class="keyword">this</span>.height(),     <span class="comment">// 调用元素的高度</span></div><div class="line">        w = $<span class="keyword">this</span>.width(),      <span class="comment">// 调用元素的宽度</span></div><div class="line">        <span class="comment">// innerHeight不含边框和外边距</span></div><div class="line">        elH = (el.is(<span class="string">'body'</span>) ? $(<span class="string">'body'</span>) : el).innerHeight(),       <span class="comment">// 判断父元素是不是body，获取父元素的高度</span></div><div class="line">        elW = el.innerWidth();      <span class="comment">// 获取父元素的宽度</span></div><div class="line"></div><div class="line">    <span class="comment">// 绝对定位</span></div><div class="line">    <span class="keyword">if</span> (options.pos === <span class="string">'absolute'</span>) &#123;</div><div class="line">        <span class="comment">//left定位</span></div><div class="line">        <span class="keyword">switch</span> (options.x) &#123; </div><div class="line">            <span class="keyword">case</span> <span class="number">0</span>:</div><div class="line">            <span class="keyword">case</span> <span class="string">'left'</span>:</div><div class="line">                x = <span class="number">0</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> <span class="string">'right'</span>:</div><div class="line">                x = elW - w;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">default</span>:</div><div class="line">                x = <span class="built_in">parseInt</span>((elW - w) / <span class="number">2</span>); <span class="comment">// 默认居中</span></div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// top定位</span></div><div class="line">        <span class="keyword">switch</span> (options.y) &#123; </div><div class="line">            <span class="keyword">case</span> <span class="number">0</span>:</div><div class="line">            <span class="keyword">case</span> <span class="string">'top'</span>:</div><div class="line">                y = <span class="number">0</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> <span class="string">'bottom'</span>:</div><div class="line">                y = elH - h;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">default</span>:</div><div class="line">                y = <span class="built_in">parseInt</span>((elH - h) / <span class="number">2</span>);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// 定位的数值加上父元素的边距  el.scrollLeft()???</span></div><div class="line">        left = <span class="built_in">Math</span>.max(<span class="number">0</span>, <span class="built_in">Math</span>.floor(x + (el.offset() ? el.offset().left : <span class="number">0</span>) + el.scrollLeft()));</div><div class="line"></div><div class="line">        top = <span class="built_in">Math</span>.max(<span class="number">0</span>, <span class="built_in">Math</span>.floor(y + (el.offset() ? el.offset().top : <span class="number">0</span>) + el.scrollTop()));</div><div class="line"></div><div class="line">        <span class="keyword">if</span> ($.isPlainObject(offset)) &#123;</div><div class="line">            left += offset.x || <span class="number">0</span>;</div><div class="line">            top += offset.y || <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        $<span class="keyword">this</span>.css(&#123;</div><div class="line">            <span class="attr">left</span>: left,</div><div class="line">            <span class="attr">top</span>: top</div><div class="line">        &#125;);</div><div class="line">    <span class="comment">// 固定定位只能居中</span></div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (options.pos === <span class="string">'fixed'</span>) &#123;</div><div class="line">        left = <span class="string">'50%'</span>;</div><div class="line">        top = <span class="string">'50%'</span>;</div><div class="line"></div><div class="line">        $<span class="keyword">this</span>.css(&#123;</div><div class="line">            <span class="attr">left</span>: left,</div><div class="line">            <span class="attr">top</span>: top,</div><div class="line">            <span class="attr">marginLeft</span>: -w / <span class="number">2</span>,</div><div class="line">            <span class="attr">marginTop</span>: -h / <span class="number">2</span></div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="数组some方法"><a href="#数组some方法" class="headerlink" title="数组some方法"></a>数组some方法</h3><p>函数： Array.some(fn, thisArg)</p>
+<p>作用： 为不支持数组some方法的浏览器增加some方法，使得回调中执行的结果只要有一个为真值，就返回true，否则为false。它只对数组中的非空元素执行指定的函数，没有赋值或者已经删除的元素将被忽略。 some 不会改变原有数组。</p>
+<p>参数： - fn：要对每个数组元素执行的回调函数，此函数可以有三个参数：当前元素，当前元素的索引和当前的数组对象。 - thisArg：在执行回调函数时定义的this对象。如果没有定义或者为null，那么将会使用全局对象。</p>
+<p>返回值： (Boolean)根据执行结果返回true或false</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">if</span> (!<span class="built_in">Array</span>.prototype.some) &#123;</div><div class="line">    <span class="built_in">Array</span>.prototype.some = <span class="function"><span class="keyword">function</span>(<span class="params">fn, thisArg</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> i = <span class="number">0</span>, n = <span class="keyword">this</span>.length;</div><div class="line">        </div><div class="line">        <span class="keyword">for</span> (; i &lt; n; i++) &#123;</div><div class="line">            <span class="comment">// 给isBigEnough传值</span></div><div class="line">            <span class="keyword">if</span> (i <span class="keyword">in</span> <span class="keyword">this</span> &amp;&amp; fn.call(thisArg, <span class="keyword">this</span>[i], i, <span class="keyword">this</span>)) &#123;</div><div class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用some方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isBigEnough</span>(<span class="params">element, index, array</span>) </span>&#123;</div><div class="line">    <span class="comment">// 这里是判断数组是否有比10大的数字</span></div><div class="line">    <span class="keyword">return</span> (element &gt;= <span class="number">10</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> passed = [<span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">1</span>, <span class="number">4</span>].some(isBigEnough); </div><div class="line"><span class="comment">// false</span></div></pre></td></tr></table></figure>
+<h3 id="数组every方法"><a href="#数组every方法" class="headerlink" title="数组every方法"></a>数组every方法</h3><p>函数： Array.every(fn, thisArg)</p>
+<p>作用： 为不支持数组every方法的浏览器增加every方法，使得回调中执行的结果必须全部为真值，才返回true，否则为false。它只对数组中的非空元素执行指定的函数，没有赋值或者已经删除的元素将被忽略。 every 不会改变原有数组。</p>
+<p>参数： - fn：要对每个数组元素执行的回调函数，此函数可以有三个参数：当前元素，当前元素的索引和当前的数组对象。 - thisArg：在执行回调函数时定义的this对象。如果没有定义或者为null，那么将会使用全局对象。</p>
+<p>返回值： (Boolean)根据执行结果返回true或false</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!<span class="built_in">Array</span>.prototype.every) &#123;</div><div class="line">    <span class="built_in">Array</span>.prototype.every = <span class="function"><span class="keyword">function</span>(<span class="params">fn, thisArg</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> i = <span class="number">0</span>, n = <span class="keyword">this</span>.length;</div><div class="line">        <span class="keyword">for</span> (; i &lt; n; i++) &#123;</div><div class="line">            <span class="keyword">if</span> (i <span class="keyword">in</span> <span class="keyword">this</span> &amp;&amp; !fn.call(thisArg, <span class="keyword">this</span>[i], i, <span class="keyword">this</span>)) &#123;</div><div class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用some方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isBigEnough</span>(<span class="params">element, index, array</span>) </span>&#123;</div><div class="line">    <span class="comment">// 这里是判断数组的元素是否全部大于10</span></div><div class="line">    <span class="keyword">return</span> (element &gt;= <span class="number">10</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> passed = [<span class="number">12</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">130</span>, <span class="number">44</span>].every(isBigEnough);</div><div class="line"><span class="comment">// false</span></div><div class="line"><span class="keyword">var</span> passed1 = [<span class="number">12</span>, <span class="number">54</span>, <span class="number">18</span>, <span class="number">130</span>, <span class="number">44</span>].every(isBigEnough);</div><div class="line"><span class="comment">// true</span></div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/bbc/" rel="tag"># bbc</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/11/wamp安装/" rel="next" title="wamp安装">
+                <i class="fa fa-chevron-left"></i> wamp安装
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/10/ionic环境配置(android)/" rel="prev" title="ionic环境配置(android)">
+                ionic环境配置(android) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="PJ Yu" />
+          <p class="site-author-name" itemprop="name">PJ Yu</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Gary23" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com/Gary23" title="Gary23" target="_blank">Gary23</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#工具类函数-tools-js"><span class="nav-number">1.</span> <span class="nav-text">工具类函数 tools.js</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#判断是否为-dom-元素"><span class="nav-number">1.1.</span> <span class="nav-text">判断是否为 dom 元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模板字符替换"><span class="nav-number">1.2.</span> <span class="nav-text">模板字符替换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面最大-z-index"><span class="nav-number">1.3.</span> <span class="nav-text">页面最大 z-index</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取配置项"><span class="nav-number">1.4.</span> <span class="nav-text">获取配置项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#倒计时时钟"><span class="nav-number">1.5.</span> <span class="nav-text">倒计时时钟</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取元素的内补或外补"><span class="nav-number">1.6.</span> <span class="nav-text">获取元素的内补或外补</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dom-9点定位"><span class="nav-number">1.7.</span> <span class="nav-text">dom 9点定位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组some方法"><span class="nav-number">1.8.</span> <span class="nav-text">数组some方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组every方法"><span class="nav-number">1.9.</span> <span class="nav-text">数组every方法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PJ Yu</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
