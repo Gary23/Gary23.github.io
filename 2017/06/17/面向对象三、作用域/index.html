@@ -100,12 +100,12 @@
 <meta property="og:url" content="http://yoursite.com/2017/06/17/面向对象三、作用域/index.html">
 <meta property="og:site_name" content="Gary23">
 <meta property="og:description" content="instanceof 运算符语法object instanceof fn   如果运算符后面的函数的prototype属性引用的对象出现在运算符面前对象的原型链上的话就返回true，否则返回false。 123456789101112131415function foo ()&amp;#123;&amp;#125;var f = new foo;console.log(f instanceof foo);">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5140754-0639070220f328c7?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-08-22T07:05:54.000Z">
+<meta property="og:image" content="http://picabstract.preview.ftn.qq.com:8080/ftn_pic_abs_v2/1501a8615f12aa68564bbaa00eb51e50582ada5aceda04c749a1aa74e58c5c592167a2fbd731b6077192c54328bf0c4c?pictype=scale&from=30012&version=2.0.0.2&uin=406490508&fname=20170904-10.png&size=1024">
+<meta property="og:updated_time" content="2017-09-21T01:38:44.672Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面向对象三、作用域">
 <meta name="twitter:description" content="instanceof 运算符语法object instanceof fn   如果运算符后面的函数的prototype属性引用的对象出现在运算符面前对象的原型链上的话就返回true，否则返回false。 123456789101112131415function foo ()&amp;#123;&amp;#125;var f = new foo;console.log(f instanceof foo);">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5140754-0639070220f328c7?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="http://picabstract.preview.ftn.qq.com:8080/ftn_pic_abs_v2/1501a8615f12aa68564bbaa00eb51e50582ada5aceda04c749a1aa74e58c5c592167a2fbd731b6077192c54328bf0c4c?pictype=scale&from=30012&version=2.0.0.2&uin=406490508&fname=20170904-10.png&size=1024">
 
 
 
@@ -397,7 +397,7 @@
 </ol>
 <p>以下面的函数举例来<strong>绘制作用域链</strong>：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> n = <span class="number">123</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> n = <span class="number">12</span>;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> n = <span class="number">1</span>;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	  <span class="keyword">var</span> n = <span class="number">0</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">f3</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	  <span class="keyword">var</span> n = <span class="number">0</span>;</div><div class="line">	&#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><img src="http://upload-images.jianshu.io/upload_images/5140754-0639070220f328c7?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p><img src="http://picabstract.preview.ftn.qq.com:8080/ftn_pic_abs_v2/1501a8615f12aa68564bbaa00eb51e50582ada5aceda04c749a1aa74e58c5c592167a2fbd731b6077192c54328bf0c4c?pictype=scale&amp;from=30012&amp;version=2.0.0.2&amp;uin=406490508&amp;fname=20170904-10.png&amp;size=1024" alt="enter image description here"></p>
 <h2 id="变量的搜索原则"><a href="#变量的搜索原则" class="headerlink" title="变量的搜索原则"></a>变量的搜索原则</h2><ol>
 <li><p>当访问一个变量时，首先在当前变量所处的作用域上查找，如果找到就直接使用，并停止查找</p>
 </li>
@@ -493,7 +493,6 @@
 </li>
 </ol>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 结构：</span></div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="comment">//代码块</span></div><div class="line">&#125;());</div><div class="line"></div><div class="line"><span class="comment">// 经典的沙箱模式：</span></div><div class="line"><span class="keyword">var</span> n = <span class="number">2</span></div><div class="line">(<span class="function"><span class="keyword">function</span>  (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// 这个n不会污染外部的n。所以这样能保证自己的代码安全执行（别人也污染不了我），也不会污染全局变量或其他作用域的变量</span></div><div class="line">  <span class="keyword">var</span> n = <span class="number">1</span>;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">foo</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(n);</div><div class="line">  &#125;</div><div class="line">  <span class="comment">//window.fn 相当于设定了一个全局变量</span></div><div class="line">  <span class="built_in">window</span>.fn = foo;</div><div class="line">&#125;())</div><div class="line">fn();</div></pre></td></tr></table></figure>
-
       
     </div>
 
@@ -545,8 +544,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/06/16/面向对象二、函数/" rel="prev" title="面向对象二、函数">
-                面向对象二、函数 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/06/16/面向对象一、原型/" rel="prev" title="面向对象一、原型">
+                面向对象一、原型 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -619,7 +618,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -632,7 +631,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>

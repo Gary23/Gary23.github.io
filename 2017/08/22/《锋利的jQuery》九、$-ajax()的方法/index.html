@@ -1,0 +1,1038 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="《锋利的jQuery》," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="参数名称 类型 说明     accepts Map 内容类型发送请求头，告诉服务器什么样的响应会接受返回。如果accepts设置需要修改，推荐在$.ajaxSetup()方法中做一次。   async Boolean 默认设置下（默认为true），所有请求均为异步请求。如果需要发送同步请求，要将此选项设置为false，跨域不支持同步操作。   beforeSend Function 发送请">
+<meta name="keywords" content="《锋利的jQuery》">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《锋利的jQuery》九、$.ajax()的方法">
+<meta property="og:url" content="http://yoursite.com/2017/08/22/《锋利的jQuery》九、$-ajax()的方法/index.html">
+<meta property="og:site_name" content="Gary23">
+<meta property="og:description" content="参数名称 类型 说明     accepts Map 内容类型发送请求头，告诉服务器什么样的响应会接受返回。如果accepts设置需要修改，推荐在$.ajaxSetup()方法中做一次。   async Boolean 默认设置下（默认为true），所有请求均为异步请求。如果需要发送同步请求，要将此选项设置为false，跨域不支持同步操作。   beforeSend Function 发送请">
+<meta property="og:updated_time" content="2017-09-21T01:33:13.083Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《锋利的jQuery》九、$.ajax()的方法">
+<meta name="twitter:description" content="参数名称 类型 说明     accepts Map 内容类型发送请求头，告诉服务器什么样的响应会接受返回。如果accepts设置需要修改，推荐在$.ajaxSetup()方法中做一次。   async Boolean 默认设置下（默认为true），所有请求均为异步请求。如果需要发送同步请求，要将此选项设置为false，跨域不支持同步操作。   beforeSend Function 发送请">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/22/《锋利的jQuery》九、$-ajax()的方法/"/>
+
+
+
+
+
+  <title> 《锋利的jQuery》九、$.ajax()的方法 | Gary23 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Gary23</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/22/《锋利的jQuery》九、$-ajax()的方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="PJ Yu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gary23">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                《锋利的jQuery》九、$.ajax()的方法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-22T21:25:20+08:00">
+                2017-08-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>accepts</td>
+<td>Map</td>
+<td>内容类型发送请求头，告诉服务器什么样的响应会接受返回。如果accepts设置需要修改，推荐在$.ajaxSetup()方法中做一次。</td>
+</tr>
+<tr>
+<td>async</td>
+<td>Boolean</td>
+<td>默认设置下（默认为true），所有请求均为异步请求。如果需要发送同步请求，要将此选项设置为false，跨域不支持同步操作。</td>
+</tr>
+<tr>
+<td>beforeSend</td>
+<td>Function</td>
+<td>发送请求前可修改XMLHttpRequest对象的函数，返回false可取消本次请求，<code>function(XMLHttpRequest){ this是请求时传递的option参数 }</code></td>
+</tr>
+<tr>
+<td>cache</td>
+<td>Boolean</td>
+<td>默认true，当跨域时默认为false，false时将不会从浏览器缓存中加载请求信息</td>
+</tr>
+<tr>
+<td>complete</td>
+<td>Function</td>
+<td>请求完成后的回调函数，<code>function(XMLHttpRequest, textStatus){ this是请求时传递的option参数 }</code></td>
+</tr>
+<tr>
+<td>contents</td>
+<td>Map</td>
+<td>以”{ 字符串: 正则表达式 }”配对的对象，用来确定jQuery将如何解析响应，给定其内容类型。</td>
+</tr>
+<tr>
+<td>contentType</td>
+<td>String</td>
+<td>当发送信息至服务器时，内容编码类型默认为”application/x-www-form-urlencoded”</td>
+</tr>
+<tr>
+<td>context</td>
+<td>Object</td>
+<td>这个对象用于设置Ajax相关回调函数的上下文，也就是回调函数this的设置，默认是传递的option参数</td>
+</tr>
+<tr>
+<td>converters</td>
+<td>Map</td>
+<td>一个数据类型对数据类型转换器的对象。每个转换器的值是一个函数，返回相应的转化值。</td>
+</tr>
+<tr>
+<td>crossDomain</td>
+<td></td>
+<td>同域请求为false，跨域请求为true，如果要通过JSONP请求同域应该设置为true。</td>
+</tr>
+<tr>
+<td>data</td>
+<td>Object或String</td>
+<td>发送到服务器的数据</td>
+</tr>
+<tr>
+<td>dataFilter</td>
+<td>Function</td>
+<td>给Ajax返回的原始数据进行预处理的函数。<code>function(data, type){ data是Ajax返回的原始数据，type是调用$.ajax时提供的dataType参数，最后需要return data }</code></td>
+</tr>
+<tr>
+<td>dataType</td>
+<td>String</td>
+<td>预期服务器返回的数据类型。如果不指定将根据MIME信息返回，可用类型：xml、html、script、json、jsonp、text</td>
+</tr>
+<tr>
+<td>error</td>
+<td>Function</td>
+<td>请求失败时被调用的函数 <code>function(XMLHttpRequest, textStatus, errorThrown){ this是请求时传递的option参数 }</code></td>
+</tr>
+<tr>
+<td>global</td>
+<td>Boolean</td>
+<td>是否触发全局Ajax事件，默认为true。</td>
+</tr>
+<tr>
+<td>Headers</td>
+<td>Map</td>
+<td>一个额外的”{ 键: 值 }”对映射到请求一起发送，此设置被设置之前beforeSend函数被调用，因此，消息头中的值设置可以在覆盖beforeSend函数范围内的任何设置</td>
+</tr>
+<tr>
+<td>ifModified</td>
+<td>Boolean</td>
+<td>默认:false 仅在服务器数据改变时获取新数据，使用HTTP包Last-Modified头信息判断，也会检查服务器指定的’etag’来确定数据没有被修改过</td>
+</tr>
+<tr>
+<td>isLocal</td>
+<td>Boolean</td>
+<td>允许当前环境被认定为”本地”(比如系统文件)，即使jQuery默认情况下不会承认它。以下协议目前目前公认为本地：file、*-extension、widget。如果要修改isLocal，建议在$.ajaxSetup()中做</td>
+</tr>
+<tr>
+<td>jsonp</td>
+<td>String</td>
+<td>在一个jsonp请求中重写回调函数的名字，这个值用来替代在”callback=?”这种GET货POST请求中URL参数里的”callback”部分，jsonp可是设置为false，为了阻止在URL中加入callback参数，但仍然要设置jsonpCallback参数。</td>
+</tr>
+<tr>
+<td>jsonpCallback</td>
+<td>String，Function</td>
+<td>为jsonp请求指定一个回调函数名，这个值将用来取代jQuery自动生成的随机函数名。</td>
+</tr>
+<tr>
+<td>mimeType</td>
+<td>String</td>
+<td>一个mime类型用来覆盖XHR的MIME的类型</td>
+</tr>
+<tr>
+<td>password</td>
+<td>String</td>
+<td>用于响应HTTP访问认证请求的密码</td>
+</tr>
+<tr>
+<td>processData</td>
+<td>Boolean</td>
+<td>默认为true，默认情况下，发送的数据将被转换为对象(实际上是非字符串)以配合默认内容类型”application/x-www-form-urlencoded”。如果要发送DOM树信息或者其他不希望转换的信息，要设置为false。</td>
+</tr>
+<tr>
+<td>scriptCharset</td>
+<td>String</td>
+<td>只有当请求dataType为”jsonp”或者”script”，并且type时GET时才会用于强制修改字符集(charset)。通常在本地和远程的内容编码不同时使用。</td>
+</tr>
+<tr>
+<td>statusCode</td>
+<td>Map</td>
+<td>一组数值的HTTP代码和函数对象，当响应时调用了相应的代码，例如，如果响应状态是404，将触发以下报警：<code>statusCode: { 404: function(){ alert(&#39;page not found&#39;) } }</code></td>
+</tr>
+<tr>
+<td>success</td>
+<td>Function</td>
+<td>请求成功后的回调函数，三个参数，返回的数据、描述状态的字符串、jqXHR对象</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>Number</td>
+<td>设置请求超时时间(毫秒)，此设置将覆盖$.ajaxSetup方法的全局设置。</td>
+</tr>
+<tr>
+<td>traditional</td>
+<td>Boolean</td>
+<td>如果想要用传统的方法来序列化数据，那么就设置为true，可以参考jQuery.param方法。</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>String</td>
+<td>请求方式(POST或GET)，默认为GET，跨域只能是GET方式。</td>
+</tr>
+<tr>
+<td>url</td>
+<td>String</td>
+<td>发送请求的地址，默认为当前页面</td>
+</tr>
+<tr>
+<td>username</td>
+<td>String</td>
+<td>用于响应HTTP访问认证请求的用户名</td>
+</tr>
+<tr>
+<td>xhr</td>
+<td>Function</td>
+<td>回调创建XMLHttpRequest对象，当可用时默认为ActiveObject（IE）中，否则为XMLHttpRequest</td>
+</tr>
+<tr>
+<td>xhrFields</td>
+<td>Map</td>
+<td>一对”文件名-文件值”在本机设置XHR对象。例如，如果需要德华，可以用它来设置withCredentials为true的跨域请求</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/《锋利的jQuery》/" rel="tag"># 《锋利的jQuery》</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/23/《锋利的jQuery》十三、jQuery加载并解析XML/" rel="next" title="《锋利的jQuery》十三、jQuery加载并解析XML">
+                <i class="fa fa-chevron-left"></i> 《锋利的jQuery》十三、jQuery加载并解析XML
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/18/《锋利的jQuery》十二、jQuery的技巧/" rel="prev" title="《锋利的jQuery》十二、jQuery的技巧">
+                《锋利的jQuery》十二、jQuery的技巧 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="PJ Yu" />
+          <p class="site-author-name" itemprop="name">PJ Yu</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Gary23" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com/Gary23" title="Gary23" target="_blank">Gary23</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PJ Yu</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

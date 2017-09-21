@@ -100,7 +100,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/07/26/2、指令和模板/index.html">
 <meta property="og:site_name" content="Gary23">
 <meta property="og:description" content="指令什么是指令指令是一种特殊的自定义行间属性，指令的职责就是当其表达式的值改变时，响应的将某些行为应用到DOM上，在Vue中，指令以v-开头。以v-bind指令为例： 1234&amp;lt;div id=&quot;app&quot;&amp;gt;    &amp;lt;!--v-bind是指令，作用是动态的绑定数据，简写为&apos;:&apos;，id是它的参数--&amp;gt;    &amp;lt;span v-bind:id=&quot;&amp;#123;&amp;#123; id">
-<meta property="og:updated_time" content="2017-08-22T08:05:56.697Z">
+<meta property="og:updated_time" content="2017-09-21T01:39:05.941Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2、指令和模板">
 <meta name="twitter:description" content="指令什么是指令指令是一种特殊的自定义行间属性，指令的职责就是当其表达式的值改变时，响应的将某些行为应用到DOM上，在Vue中，指令以v-开头。以v-bind指令为例： 1234&amp;lt;div id=&quot;app&quot;&amp;gt;    &amp;lt;!--v-bind是指令，作用是动态的绑定数据，简写为&apos;:&apos;，id是它的参数--&amp;gt;    &amp;lt;span v-bind:id=&quot;&amp;#123;&amp;#123; id">
@@ -415,7 +415,6 @@
 <p>第二个参数是可选参数，表示该根元素上的属性，这里的属性遵循的是指令的规则而不是普通DOM中的写法。其中类名是<code>class</code>、样式属性是<code>style</code>、自定义属性是<code>attrs</code>、绑定事件时<code>on</code>、dom元素属性是<code>domProps</code>。其中dom元素属性不是标签里的属性，而是元素对象身上的。就好比length一样。</p>
 <p>第三个参数是数组，数组的元素是模板中的子元素。同样使用<code>createElement</code>创建。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">    <span class="attr">el</span>: <span class="string">'#demo'</span>,</div><div class="line">    <span class="attr">data</span>: &#123;</div><div class="line">        <span class="attr">class</span>: <span class="literal">true</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">render</span>: <span class="function"><span class="keyword">function</span>(<span class="params">createElement</span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> createElement(</div><div class="line">            <span class="string">'ul'</span>,       <span class="comment">// 根元素</span></div><div class="line">            &#123;       </div><div class="line">                <span class="attr">class</span>: &#123;       <span class="comment">// 这里的属性是遵循v-bind:class而不是dom中的那种class。</span></div><div class="line">                    bg: <span class="literal">true</span>   <span class="comment">// 添加class名为bg</span></div><div class="line">                &#125;,</div><div class="line">                <span class="attr">style</span>: &#123;     <span class="comment">// 设置行内样式,也是和v-bind:style一样的</span></div><div class="line">                    fontSize: <span class="string">'50px'</span></div><div class="line">                &#125;,</div><div class="line">                <span class="attr">attrs</span>: &#123;    <span class="comment">// 设置自定义属性</span></div><div class="line">                    abc: <span class="string">'miaov'</span></div><div class="line">                &#125;,</div><div class="line">                <span class="attr">domProps</span>: &#123;   </div><div class="line">                    <span class="attr">innerHTML</span>: <span class="string">'&lt;li&gt;我是html&lt;/li&gt;'</span>      <span class="comment">// 这里创建了innerHTML相当于是ul.innerHTML='&lt;li&gt;我是html&lt;/li&gt;'，下面数组里的那些就会被覆盖了</span></div><div class="line">                &#125;,</div><div class="line">                <span class="attr">on</span>: &#123;</div><div class="line">                    <span class="comment">// 这里绑定事件，和v-on是一样的</span></div><div class="line">                &#125;</div><div class="line">            &#125;,</div><div class="line">            [       <span class="comment">// 子元素写在数组里，</span></div><div class="line">                createElement(<span class="string">'li'</span>,<span class="number">1</span>),</div><div class="line">                createElement(<span class="string">'li'</span>,<span class="number">2</span>),</div><div class="line">                createElement(<span class="string">'li'</span>,<span class="number">3</span>)</div><div class="line">            ]</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-
       
     </div>
 
@@ -541,7 +540,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -554,7 +553,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>

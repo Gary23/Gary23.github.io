@@ -1,0 +1,1014 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="blog和git," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Git的三个区域介绍Git仓库Git仓库目录就是Git用来保存项目的源数据和对象数据库的地方。Git中最重要的部分，从其它计算机克隆仓库时，拷贝的就是这里的数据。 工作目录工作目录是对项目的某个版本独立提取出来的内容。这些从Git仓库的压缩数据库中提取出来的文件，放在磁盘上供用户使用或修改 暂存区暂存区域是一个文件，保存了下次将提交的文件列表信息，一般在Git仓库目录中。有时候也被称作“索引”（I">
+<meta name="keywords" content="blog和git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git">
+<meta property="og:url" content="http://yoursite.com/2017/09/19/Git/index.html">
+<meta property="og:site_name" content="Gary23">
+<meta property="og:description" content="Git的三个区域介绍Git仓库Git仓库目录就是Git用来保存项目的源数据和对象数据库的地方。Git中最重要的部分，从其它计算机克隆仓库时，拷贝的就是这里的数据。 工作目录工作目录是对项目的某个版本独立提取出来的内容。这些从Git仓库的压缩数据库中提取出来的文件，放在磁盘上供用户使用或修改 暂存区暂存区域是一个文件，保存了下次将提交的文件列表信息，一般在Git仓库目录中。有时候也被称作“索引”（I">
+<meta property="og:image" content="http://picabstract.preview.ftn.qq.com:8080/ftn_pic_abs_v2/01b9027ad082480b4ecaf5c3d409b1669c7ce659ea1121640d6bab9d45dc16ec59ec3e1c848ed864295f6979aa83574e?pictype=scale&from=30012&version=2.0.0.2&uin=406490508&fname=20170904-1.jpg&size=1024">
+<meta property="og:image" content="http://picabstract.preview.ftn.qq.com:8080/ftn_pic_abs_v2/b658772ba6bbbab37dd0b23106c82297c3c8220aa654739332ffa57c42cfad64bf3ee9a9f157550d014c4490bd79f257?pictype=scale&from=30012&version=2.0.0.2&uin=406490508&fname=20170904-2.jpg&size=1024">
+<meta property="og:image" content="http://picabstract.preview.ftn.qq.com:8080/ftn_pic_abs_v2/2b986b6310f8871bd5510d7e00358cc515a9d96645960fa508f1930864885cb4c22eccd824f7e4006244ce2eec5929e5?pictype=scale&from=30012&version=2.0.0.2&uin=406490508&fname=20170904-3.jpg&size=1024">
+<meta property="og:image" content="http://picabstract.preview.ftn.qq.com:8080/ftn_pic_abs_v2/a982aefd65ce1404b046fc07890e5612070551e26984b013f339185807b1f8ff2c65f5c439e17e63377cfc1bd03b869c?pictype=scale&from=30012&version=2.0.0.2&uin=406490508&fname=20170904-4.jpg&size=1024">
+<meta property="og:updated_time" content="2017-09-21T01:34:47.088Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git">
+<meta name="twitter:description" content="Git的三个区域介绍Git仓库Git仓库目录就是Git用来保存项目的源数据和对象数据库的地方。Git中最重要的部分，从其它计算机克隆仓库时，拷贝的就是这里的数据。 工作目录工作目录是对项目的某个版本独立提取出来的内容。这些从Git仓库的压缩数据库中提取出来的文件，放在磁盘上供用户使用或修改 暂存区暂存区域是一个文件，保存了下次将提交的文件列表信息，一般在Git仓库目录中。有时候也被称作“索引”（I">
+<meta name="twitter:image" content="http://picabstract.preview.ftn.qq.com:8080/ftn_pic_abs_v2/01b9027ad082480b4ecaf5c3d409b1669c7ce659ea1121640d6bab9d45dc16ec59ec3e1c848ed864295f6979aa83574e?pictype=scale&from=30012&version=2.0.0.2&uin=406490508&fname=20170904-1.jpg&size=1024">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/19/Git/"/>
+
+
+
+
+
+  <title> Git | Gary23 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Gary23</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/19/Git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="PJ Yu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gary23">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Git
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-19T16:16:58+08:00">
+                2017-09-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Git的三个区域介绍"><a href="#Git的三个区域介绍" class="headerlink" title="Git的三个区域介绍"></a>Git的三个区域介绍</h2><h3 id="Git仓库"><a href="#Git仓库" class="headerlink" title="Git仓库"></a>Git仓库</h3><p>Git仓库目录就是Git用来保存项目的源数据和对象数据库的地方。Git中最重要的部分，从其它计算机克隆仓库时，拷贝的就是这里的数据。</p>
+<h3 id="工作目录"><a href="#工作目录" class="headerlink" title="工作目录"></a>工作目录</h3><p>工作目录是对项目的某个版本独立提取出来的内容。这些从Git仓库的压缩数据库中提取出来的文件，放在磁盘上供用户使用或修改</p>
+<h3 id="暂存区"><a href="#暂存区" class="headerlink" title="暂存区"></a>暂存区</h3><p>暂存区域是一个文件，保存了下次将提交的文件列表信息，一般在Git仓库目录中。有时候也被称作“索引”（Index）,不过一般说法还是叫暂存区。</p>
+<h2 id="Git-本地版本管理"><a href="#Git-本地版本管理" class="headerlink" title="Git 本地版本管理"></a>Git 本地版本管理</h2><h3 id="基本的Git工作流程"><a href="#基本的Git工作流程" class="headerlink" title="基本的Git工作流程"></a>基本的Git工作流程</h3><ol>
+<li><p>在工作目录中国修改文件。</p>
+</li>
+<li><p>暂存文件，将文件的快照放入暂存区域。</p>
+</li>
+<li><p>提交文件，找到暂存区域的文件，将快照永久性存储到Git仓库目录。</p>
+</li>
+</ol>
+<h3 id="操作方法和命令"><a href="#操作方法和命令" class="headerlink" title="操作方法和命令"></a>操作方法和命令</h3><h4 id="本地仓库"><a href="#本地仓库" class="headerlink" title="本地仓库"></a>本地仓库</h4><p>根目录右键：<strong>Git Bash Here</strong>，打开Git Bash。</p>
+<p>输入：<strong>git init</strong>     </p>
+<p>就可以让git来管理目录。这个命令只是创建了一个名为 .git 的隐藏目录，这个目录就是存储我们历史版本的仓库。  </p>
+<h4 id="添加到缓存"><a href="#添加到缓存" class="headerlink" title="添加到缓存"></a>添加到缓存</h4><p><strong>git add index.html</strong><br>将index.html文件放到暂存区</p>
+<p><strong>git add js css</strong><br>将js和css文件夹的文档都放到暂存区</p>
+<p><strong>git add * 或 -A</strong><br>所有文件都放到暂存区</p>
+<blockquote>
+<p>git会自动过滤空目录。</p>
+</blockquote>
+<h4 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h4><p><strong>git status</strong><br>检测当前仓库文件的状态，红色表示被修改，放到暂存区的文件被标记成了绿色等待提交。</p>
+<p><strong>git checkout  index.html</strong><br>将index.html从暂存区还原到工作区。</p>
+<h4 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h4><p><strong>git commit  -m  ‘frist’</strong><br>已提交状态，-m是mark的意思，将暂存区的内容全部文件提交，将暂存区被标记成绿色的文件，全部提交到本地仓库存储，’frist’ 是对本次提交内容的说明。</p>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p><strong>git log</strong><br>查看存盘点，每次提交会生成一个随机id值</p>
+<p><strong>git reset –hard id值</strong><br>还原代码到该id值得版本</p>
+<p>第一次使用git时需要配置。</p>
+<p><strong>git config –global user.name pj.Yu</strong><br>设置自己的名字。</p>
+<p><strong>git config –global user.email 406490508@qq.com</strong><br>设置自己的邮箱</p>
+<h2 id="Git分支"><a href="#Git分支" class="headerlink" title="Git分支"></a>Git分支</h2><h3 id="为什么需要分支"><a href="#为什么需要分支" class="headerlink" title="为什么需要分支"></a>为什么需要分支</h3><p>同时开发多个需求的情况十分常见，比如当你正在专注开发一个功能时，突然有一个紧急的BUG需要来修复，这个时候我们当然希望在能够保存当前任务进度，再去修改这个BUG，等这个BUG修复完成后再继续我们的任务。通过Git创建分支来解决实际开发中类似的问题。</p>
+<h3 id="分支的好处"><a href="#分支的好处" class="headerlink" title="分支的好处"></a>分支的好处</h3><p>开发时在另一个分支上开发新功能A然后上线，然后再写另一个分支另外一个功能B，这时A功能有bug再去调试，不会影响其他分支的状态。</p>
+<h3 id="分支原理"><a href="#分支原理" class="headerlink" title="分支原理"></a>分支原理</h3><p>当我们初始化仓库时候，实际上就是产生了第一次提交。Git会默认帮我们创建一个master的分支，每次commit操作生成一个新的版本（存盘点）。而且会生成一个sha值，master是主干，这些版本就是在主干上的存盘点，每一次的历史按本都是基于分支存在的。</p>
+<h3 id="分支功能实现"><a href="#分支功能实现" class="headerlink" title="分支功能实现"></a>分支功能实现</h3><h4 id="建立新的分支"><a href="#建立新的分支" class="headerlink" title="建立新的分支"></a>建立新的分支</h4><p><strong>git branch share</strong><br>建立一个名为share的分支，建立后现在还是在master主干上。</p>
+<p><strong>git checkout share</strong><br>切换到share分支，切换之前尽量先commit。</p>
+<p><strong>git  branch</strong><br>查看当前都有哪些分支。*号表示当前处于哪个分支。</p>
+<p><strong>git checkout -b share</strong><br>创建并切换到share分支</p>
+<p>另外分支是有继承关系的。新建的自分支会继承父分支的所有提交历史。</p>
+<h4 id="合并两个分支"><a href="#合并两个分支" class="headerlink" title="合并两个分支"></a>合并两个分支</h4><p><strong>git  merge  share</strong><br>当前分支合并share分支。同一个文件被修改会产生冲突。</p>
+<p><strong>&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</strong><br>冲突开始的位置</p>
+<p><strong>===========</strong>.<br>之上是当前分支的代码，之下是share分支的代码</p>
+<p>.<strong>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; share</strong><br>冲突结束的位置</p>
+<p>根据需求留下想要的代码，将标识符都删除掉就解决冲突了。</p>
+<h4 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h4><p><strong>git branch -d share</strong><br>删除share分支</p>
+<h3 id="git的分支管理规范"><a href="#git的分支管理规范" class="headerlink" title="git的分支管理规范"></a>git的分支管理规范</h3><ol>
+<li><p>不要有太多的分支，分支太多管理起来太费劲，毕竟是多人开发制定策略太复杂</p>
+</li>
+<li><p>要有一个稳定的平行分支，即master分支不要轻易修改，这个稳定的文分支不能有bug。</p>
+</li>
+<li><p>要有一个开发分支(developer)，保证master分支的稳定性</p>
+</li>
+<li><p>所有的功能分支(feature)从developer创建，功能写完后合并到developer，但不能直接合并到master，因为要保证始终有一个没有bug的稳定分支</p>
+</li>
+<li><p>所有功能开发完成后新建发布分支(release)，用作测试，测试完全没问题就合并到master分支。</p>
+</li>
+</ol>
+<h2 id="Git-协同开发"><a href="#Git-协同开发" class="headerlink" title="Git 协同开发"></a>Git 协同开发</h2><p>多个人共同开发，改完代码后放到共享仓库，其他人就可以取到代码。借助一个远程仓库，大家可以共享代码、历史版本等数据</p>
+<h3 id="在自己电脑创建一个共享仓库"><a href="#在自己电脑创建一个共享仓库" class="headerlink" title="在自己电脑创建一个共享仓库"></a>在自己电脑创建一个共享仓库</h3><p>Git要求<strong>共享仓库是一个以.git结尾的目录</strong>。</p>
+<ol>
+<li><p><strong>mkdir repo.git</strong> 创建以.git结尾的repo文件夹目录</p>
+</li>
+<li><p><strong>cd repo.git</strong> 进入这个目录</p>
+</li>
+<li><p><strong>git init –bare</strong> 初始化一个共享仓库，也叫裸仓库 注意选项–bare</p>
+</li>
+<li><p>假设自己的本地仓库和repo是同级目录，回到自己的本地仓库执行  <strong>git push ../repo.git master</strong> 就把master分支的代码共享到了共享库中</p>
+</li>
+<li><p>从共享仓库里取出内容  另一个开发者执行 <strong>git pull ./repo.git master</strong> 获取共享仓库的master分支。</p>
+</li>
+<li><p>将本地仓库上传到服务器：git push 用户名@IP地址:/路径名 master。</p>
+</li>
+</ol>
+<p>以上是以自己电脑为例创建了一个共享仓库，而在实际中，<strong>gitHub</strong>就是一个共享仓库功能的网站</p>
+<p>gitHub提供共享仓库的功能，类似于一个博客空间</p>
+<h3 id="在gitHub中新建一个仓库"><a href="#在gitHub中新建一个仓库" class="headerlink" title="在gitHub中新建一个仓库"></a>在gitHub中新建一个仓库</h3><p><img src="http://picabstract.preview.ftn.qq.com:8080/ftn_pic_abs_v2/01b9027ad082480b4ecaf5c3d409b1669c7ce659ea1121640d6bab9d45dc16ec59ec3e1c848ed864295f6979aa83574e?pictype=scale&amp;from=30012&amp;version=2.0.0.2&amp;uin=406490508&amp;fname=20170904-1.jpg&amp;size=1024" alt="enter image description here"></p>
+<p>首先创建一个新的项目，要输入项目名，项目描述，是否公开。其实就相当于新建一个共享库。</p>
+<p><img src="http://picabstract.preview.ftn.qq.com:8080/ftn_pic_abs_v2/b658772ba6bbbab37dd0b23106c82297c3c8220aa654739332ffa57c42cfad64bf3ee9a9f157550d014c4490bd79f257?pictype=scale&amp;from=30012&amp;version=2.0.0.2&amp;uin=406490508&amp;fname=20170904-2.jpg&amp;size=1024" alt="enter image description here"></p>
+<p>以表格形式创建一个仓库，并且会提供给我们一个仓库地址。</p>
+<p>由于主机名太长，可以简写成主机名。以后只填写主机名就行，就不用写远程仓库地址了。</p>
+<p><strong>git remote</strong><br>管理远程地址用</p>
+<p><strong>git remote add “主机名” “远程仓库地址”</strong><br>添加远程主机  其实就是给远成仓库地址起一个比较短的名字</p>
+<p><strong>git remote show “主机名”</strong><br>查看这个主机名对应的主机名是谁</p>
+<p><strong>git remote</strong><br>显示所有主机名</p>
+<p><img src="http://picabstract.preview.ftn.qq.com:8080/ftn_pic_abs_v2/2b986b6310f8871bd5510d7e00358cc515a9d96645960fa508f1930864885cb4c22eccd824f7e4006244ce2eec5929e5?pictype=scale&amp;from=30012&amp;version=2.0.0.2&amp;uin=406490508&amp;fname=20170904-3.jpg&amp;size=1024" alt="enter image description here"></p>
+<p>地址下面会告诉用户应该怎样操作，如何创建.git并上传等设置，这里根据自己的实际情况，并不是每一步骤都要设置，有可能之前已经设置好了</p>
+<p><img src="http://picabstract.preview.ftn.qq.com:8080/ftn_pic_abs_v2/a982aefd65ce1404b046fc07890e5612070551e26984b013f339185807b1f8ff2c65f5c439e17e63377cfc1bd03b869c?pictype=scale&amp;from=30012&amp;version=2.0.0.2&amp;uin=406490508&amp;fname=20170904-4.jpg&amp;size=1024" alt="enter image description here"></p>
+<p>设置之后就可以push了，但是这时会有权限问题，也就是公钥和私钥，需要将本电脑的公钥传到gitHub上。</p>
+<p>为了免密码共享代码需要通过SSH来实现：<br>创建公钥：<strong>ssh-keygen -t rsa</strong> 一直回车。在用户的文件里创建了一文件夹.ssh里边创建了对公钥和私钥.pub是公钥。</p>
+<p>将公钥放到gitHub对应账号下，在个人设置里有SSH的选项，复制进去就行。相当于在自己电脑和gitHub之间建立了连接。私钥不需要管<br>如果有两台电脑就要添加两个SSH key</p>
+<p>权限解决之后就可以随意  <strong>git push gitHun仓库地址  分支</strong> 和 <strong>git pull gitHun仓库地址  分支</strong></p>
+<p><strong>git push origin login:master</strong><br>把本地的login分支的修改共享到远程的master分支上去  如果远程没有这个分支就会创建一个。</p>
+<h2 id="fork功能"><a href="#fork功能" class="headerlink" title="fork功能"></a>fork功能</h2><p>gitHub除了创建共享仓库，还有一个目的是coding，大家一起来共享代码</p>
+<p>这里的项目都是公开的开源项目，除了自己可以维护功能，其他来自全世界的人都可以共同进行开发，并且其他开发者可以对原有的项目进行修改</p>
+<p>但是程序员水平参差不齐，所以项目不允许其他人直接修改。需要先forking一份到自己的目录下，然后通过克隆、pull、push等操作，修改自己目录下的这份副本。</p>
+<p>自己改完以后经过自己测试，没问题的话可以申请原有项目合并自己的修改。<strong>申请合并是pull requests选项，在gitLab中是Merge Requests选项</strong>。要填写合并哪个项目的哪个分支，还要填写更改的说明，和发邮件类似，这样发送请求就成功了。</p>
+<p>对方会受到申请并且检验，如果对方觉得改的不错，同意后可进行合并，否则拒绝</p>
+<h2 id="克隆远程仓库"><a href="#克隆远程仓库" class="headerlink" title="克隆远程仓库"></a>克隆远程仓库</h2><p>当仓库已经有项目了，项目已经开始开发了，可以执行克隆操作。 </p>
+<p><strong>git clone “仓库地址”</strong><br>拿下来的就是仓库了  就不用再执行init了</p>
+<p>克隆下来后，查看分支，当前只有 master 分支，因为克隆的就是主干分支。</p>
+<p><strong>git fetch “仓库地址”</strong><br>这时就把其他分支都拿下来了</p>
+<p><strong>git branch -A</strong><br>可以看远程仓库的分支，除了主干都是红色的</p>
+<p>总结来看，我如果使用git clone “仓库地址”  相当于完成了以下步骤：<br>mkdir 目录  -&gt;  cd 目录  -&gt;  git init  -&gt;  git remote add origin “仓库地址”  -&gt;  git pull origin master</p>
+<h2 id="gitLab"><a href="#gitLab" class="headerlink" title="gitLab"></a>gitLab</h2><p>通过gitHub管理仓库实在是太方便了，可是只能免费使用公开仓库，私有仓库又是需要交“保护费”的，而gitLab就是免费私有的这么一个网站。</p>
+<p>gitLab也是一个可以通过Web界面管理仓库的网站程序，我们可以把它架设到公司自已的服务器上，实现仓库私有化，这也是大部分公司通常采用的方法，其使用方法与gitHub十分相似。</p>
+<p>由于操作和gitHub一样，就取一部分使用作为笔记记录，比如在公司内开发的应用场景，在公司内的代码肯定是要私有化的，而gitHub又是收费的，所以用gitLab更常用</p>
+<h3 id="给项目添加成员"><a href="#给项目添加成员" class="headerlink" title="给项目添加成员"></a>给项目添加成员</h3><p>进入一个项目后，右上角的设置有个Menbers选项，就是成员的意思，如果希望有个人一起合作写这个项目，就可以邀请并分配权限，通常分配Developer权限。现在对方就可以随意push代码，但是不能操作master分支。</p>
+<h3 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h3><p>很多时候我们需要创建一个分组，相当于建立一个群。Groups，在左边的菜单栏里。</p>
+<p>分组可以直接添加分组成员，步骤和项目添加成员相同。</p>
+<p>在分组里可以建立项目，作为小组的成员也会自动生成一个项目目录，大家就可以一起开发这个项目，之后的步骤和上面相同。</p>
+<h3 id="Protexted-Branches"><a href="#Protexted-Branches" class="headerlink" title="Protexted Branches"></a>Protexted Branches</h3><p>受保护的分支，默认情况下保护的是master分支， 也可以自行根据权限设置保护的分支。</p>
+<h2 id="gitignore-忽略文件"><a href="#gitignore-忽略文件" class="headerlink" title="gitignore 忽略文件"></a>gitignore 忽略文件</h2><p>有些文件不需要提交，比如笔记，图片等。这时就可以忽略掉</p>
+<p>忽略方式：创建一个没有文件名的.gitignore后缀文件，通过另存为来保存。也可以用命令行创建将要忽略的文件名存进去，就忽略了。</p>
+<h2 id="比较差异"><a href="#比较差异" class="headerlink" title="比较差异"></a>比较差异</h2><p>当内容被修改时，我们无法确定修改哪些内容时，可以通过git diff来进行差异比较。</p>
+<p><strong>git difftool</strong><br>比较暂存区和修改的文件的差异，接一个sha值比较暂存区和历史记录的差异,两个sha值就是历史版本和历史版本的差异</p>
+<h2 id="回滚（撤销）操作"><a href="#回滚（撤销）操作" class="headerlink" title="回滚（撤销）操作"></a>回滚（撤销）操作</h2><p>如果刚刚上传完后又发现一个bug， 可以用 <strong>git reset</strong> 把某一个版本的代码还原到工作目录</p>
+<p>–hard 工作区会变，历史会变，暂存区也会变<br>–soft 只会变历史区域的代码，即是回滚在工作区也看不见。<br>–mixed 历史会变，暂存区也会变，工作区不变</p>
+<p>工作区指的能看的见的代码，.git目录就是仓库区域，暂存区也在.git目录下就是index文件。</p>
+<p><strong>git checkout</strong><br>可以从某一个版本取出某一个特定的文件。</p>
+<p><strong>git checkout SHA值 – index.html</strong><br>只拿出index到工作区中，其他文件不变 历史不变。</p>
+<h2 id="更新仓库"><a href="#更新仓库" class="headerlink" title="更新仓库"></a>更新仓库</h2><p>在项目开发过程中，经常性的会遇到远程（共享）仓库和本地仓库不一致，我们可以通过 <strong>git fetch</strong> 命令来更新本地仓库，使本地仓库和远程（共享）仓库保持一致。</p>
+<p><strong>git fetch  “远程主机”</strong>  或者   <strong>git fetch “远程主机” “分支名称”</strong>获取的更新会保存在本地仓库中，但是并没有体现到我们的工作目录中，需要我们再次利用 <strong>git merge</strong> 来将对应的分支合并（融合）到特定分支。<br>用 <strong>git merge remotes/主机名/分支名</strong> 当前分支合并remotes/主机名/分支名</p>
+<p>也可以用 <strong>git pull 主机名 分支名</strong> ，这个命令等于做了两个操作：<br><strong>git fetch</strong> 和 <strong>git merge origin/某个分支</strong></p>
+<p><strong>git branch -a</strong><br>便可以查看所有(本地+远程仓库)分支了</p>
+<p><strong>git push origin –delete 分支名称</strong><br>删除远程分支</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/blog和git/" rel="tag"># blog和git</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/20/gulp/" rel="next" title="gulp">
+                <i class="fa fa-chevron-left"></i> gulp
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/19/版本控制/" rel="prev" title="版本控制">
+                版本控制 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="PJ Yu" />
+          <p class="site-author-name" itemprop="name">PJ Yu</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Gary23" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com/Gary23" title="Gary23" target="_blank">Gary23</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git的三个区域介绍"><span class="nav-number">1.</span> <span class="nav-text">Git的三个区域介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Git仓库"><span class="nav-number">1.1.</span> <span class="nav-text">Git仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工作目录"><span class="nav-number">1.2.</span> <span class="nav-text">工作目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#暂存区"><span class="nav-number">1.3.</span> <span class="nav-text">暂存区</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-本地版本管理"><span class="nav-number">2.</span> <span class="nav-text">Git 本地版本管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本的Git工作流程"><span class="nav-number">2.1.</span> <span class="nav-text">基本的Git工作流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作方法和命令"><span class="nav-number">2.2.</span> <span class="nav-text">操作方法和命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本地仓库"><span class="nav-number">2.2.1.</span> <span class="nav-text">本地仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加到缓存"><span class="nav-number">2.2.2.</span> <span class="nav-text">添加到缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看状态"><span class="nav-number">2.2.3.</span> <span class="nav-text">查看状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#提交"><span class="nav-number">2.2.4.</span> <span class="nav-text">提交</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他"><span class="nav-number">2.2.5.</span> <span class="nav-text">其他</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git分支"><span class="nav-number">3.</span> <span class="nav-text">Git分支</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么需要分支"><span class="nav-number">3.1.</span> <span class="nav-text">为什么需要分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分支的好处"><span class="nav-number">3.2.</span> <span class="nav-text">分支的好处</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分支原理"><span class="nav-number">3.3.</span> <span class="nav-text">分支原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分支功能实现"><span class="nav-number">3.4.</span> <span class="nav-text">分支功能实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#建立新的分支"><span class="nav-number">3.4.1.</span> <span class="nav-text">建立新的分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#合并两个分支"><span class="nav-number">3.4.2.</span> <span class="nav-text">合并两个分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除分支"><span class="nav-number">3.4.3.</span> <span class="nav-text">删除分支</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git的分支管理规范"><span class="nav-number">3.5.</span> <span class="nav-text">git的分支管理规范</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-协同开发"><span class="nav-number">4.</span> <span class="nav-text">Git 协同开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在自己电脑创建一个共享仓库"><span class="nav-number">4.1.</span> <span class="nav-text">在自己电脑创建一个共享仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在gitHub中新建一个仓库"><span class="nav-number">4.2.</span> <span class="nav-text">在gitHub中新建一个仓库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fork功能"><span class="nav-number">5.</span> <span class="nav-text">fork功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#克隆远程仓库"><span class="nav-number">6.</span> <span class="nav-text">克隆远程仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gitLab"><span class="nav-number">7.</span> <span class="nav-text">gitLab</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#给项目添加成员"><span class="nav-number">7.1.</span> <span class="nav-text">给项目添加成员</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分组"><span class="nav-number">7.2.</span> <span class="nav-text">分组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Protexted-Branches"><span class="nav-number">7.3.</span> <span class="nav-text">Protexted Branches</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gitignore-忽略文件"><span class="nav-number">8.</span> <span class="nav-text">gitignore 忽略文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比较差异"><span class="nav-number">9.</span> <span class="nav-text">比较差异</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回滚（撤销）操作"><span class="nav-number">10.</span> <span class="nav-text">回滚（撤销）操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新仓库"><span class="nav-number">11.</span> <span class="nav-text">更新仓库</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PJ Yu</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,953 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="html," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="简介概念H5提供的一个新的标签元素。相当于画纸 描述canvas是指可以在其上面绘制图形（通过js）、图像以及制作动画的标签。canvas不具有绘图能力，只是用来展示（渲染） 兼容在浏览器不支持canvas时，会将其当做div标签来解析，在IE低版本中会将其当做文本节点来解析。 基本使用创建一个画布 &amp;lt;canvas&amp;gt;内容&amp;lt;/canvas&amp;gt;，其中内容如果浏览器不支持就会显示。">
+<meta name="keywords" content="html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Canvas(2d)">
+<meta property="og:url" content="http://yoursite.com/2017/09/20/Canvas(2d)/index.html">
+<meta property="og:site_name" content="Gary23">
+<meta property="og:description" content="简介概念H5提供的一个新的标签元素。相当于画纸 描述canvas是指可以在其上面绘制图形（通过js）、图像以及制作动画的标签。canvas不具有绘图能力，只是用来展示（渲染） 兼容在浏览器不支持canvas时，会将其当做div标签来解析，在IE低版本中会将其当做文本节点来解析。 基本使用创建一个画布 &amp;lt;canvas&amp;gt;内容&amp;lt;/canvas&amp;gt;，其中内容如果浏览器不支持就会显示。">
+<meta property="og:updated_time" content="2017-09-21T01:36:29.961Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Canvas(2d)">
+<meta name="twitter:description" content="简介概念H5提供的一个新的标签元素。相当于画纸 描述canvas是指可以在其上面绘制图形（通过js）、图像以及制作动画的标签。canvas不具有绘图能力，只是用来展示（渲染） 兼容在浏览器不支持canvas时，会将其当做div标签来解析，在IE低版本中会将其当做文本节点来解析。 基本使用创建一个画布 &amp;lt;canvas&amp;gt;内容&amp;lt;/canvas&amp;gt;，其中内容如果浏览器不支持就会显示。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/20/Canvas(2d)/"/>
+
+
+
+
+
+  <title> Canvas(2d) | Gary23 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Gary23</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/20/Canvas(2d)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="PJ Yu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gary23">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Canvas(2d)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-20T09:42:09+08:00">
+                2017-09-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>H5提供的一个新的标签元素。相当于画纸</p>
+<h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><p>canvas是指可以在其上面绘制图形（通过js）、图像以及制作动画的标签。canvas不具有绘图能力，只是用来展示（渲染）</p>
+<h3 id="兼容"><a href="#兼容" class="headerlink" title="兼容"></a>兼容</h3><p>在浏览器不支持canvas时，会将其当做div标签来解析，在IE低版本中会将其当做文本节点来解析。</p>
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><h3 id="创建一个画布"><a href="#创建一个画布" class="headerlink" title="创建一个画布"></a>创建一个画布</h3><p> <code>&lt;canvas&gt;内容&lt;/canvas&gt;</code>，其中内容如果浏览器不支持就会显示。</p>
+<p> 在创建一个canvas标签时，如果没有指定宽高，默认是300*150。</p>
+<p> 只能用canvas本身的宽高属性去定义宽高，而且不加单位，直接写值。如果用css样式去指定宽高，会在默认值得基础上进行缩放，而在缩放时，并没有增加canvas的内部的像素点的个数。</p>
+<h3 id="获取绘制工具（canvas提供的）"><a href="#获取绘制工具（canvas提供的）" class="headerlink" title="获取绘制工具（canvas提供的）"></a>获取绘制工具（canvas提供的）</h3><h4 id="getConText方法"><a href="#getConText方法" class="headerlink" title="getConText方法"></a><code>getConText</code>方法</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> convas = <span class="built_in">document</span>.querySelector(<span class="string">'canvas'</span>)</div><div class="line"><span class="keyword">var</span> ctx = canvas.getContext(<span class="string">'2d'</span>)     <span class="comment">// 值有两个，2d和WebGL</span></div></pre></td></tr></table></figure>
+<p>2d：获取绘制平面图形的工具。</p>
+<p>WebGL：获取绘制立体图形的工具。</p>
+<h3 id="canvas的坐标系规则"><a href="#canvas的坐标系规则" class="headerlink" title="canvas的坐标系规则"></a>canvas的坐标系规则</h3><p>原点在canvas的左上角，水平方向是x轴，垂直方向是y轴</p>
+<h3 id="绘制工具的API方法"><a href="#绘制工具的API方法" class="headerlink" title="绘制工具的API方法"></a>绘制工具的API方法</h3><h4 id="moveTo-x-y"><a href="#moveTo-x-y" class="headerlink" title="moveTo(x,y)"></a><code>moveTo(x,y)</code></h4><p>移动笔触方法，x确定点的横坐标，y确定点的纵坐标</p>
+<h4 id="lineTo-x-y"><a href="#lineTo-x-y" class="headerlink" title="lineTo(x,y)"></a><code>lineTo(x,y)</code></h4><p>画线的方法，从当前笔触所在点连线到指定点。</p>
+<h3 id="绘制直线的步骤"><a href="#绘制直线的步骤" class="headerlink" title="绘制直线的步骤"></a>绘制直线的步骤</h3><ol>
+<li><p>移动笔触moveTo</p>
+</li>
+<li><p>画线lineTo</p>
+</li>
+<li><p>描边strike()，填充fill()。</p>
+</li>
+</ol>
+<h3 id="练习：绘制一个矩形"><a href="#练习：绘制一个矩形" class="headerlink" title="练习：绘制一个矩形"></a>练习：绘制一个矩形</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 绘制矩形</span></div><div class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>)</div><div class="line">	ctx = canvas.getContext(<span class="string">'2d'</span>)</div><div class="line"><span class="keyword">var</span> x, y</div><div class="line"><span class="keyword">var</span> w, h</div><div class="line">x = <span class="number">50</span>  <span class="comment">// 矩形的x轴值</span></div><div class="line">y = <span class="number">50</span>  <span class="comment">// 矩形的y轴值</span></div><div class="line">w = <span class="number">150</span> <span class="comment">// 矩形的宽</span></div><div class="line">h = <span class="number">100</span> <span class="comment">// 矩形的高</span></div><div class="line"></div><div class="line"><span class="comment">// 移动笔触至矩形的顶点</span></div><div class="line"><span class="comment">// 并依次连线到矩形的其他各个顶点</span></div><div class="line">ctx.moveTo(x, y)</div><div class="line">ctx.lineTo(x + w, y)</div><div class="line">ctx.lineTo(x + w, y + h)</div><div class="line">ctx.lineTo(x, y + h)</div><div class="line">ctx.lineTo(x, y)</div><div class="line"><span class="comment">// ctx.stroke()</span></div><div class="line">ctx.fill()</div></pre></td></tr></table></figure>
+<h2 id="路径的概念"><a href="#路径的概念" class="headerlink" title="路径的概念"></a>路径的概念</h2><h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p><code>stroke</code> 或者 <code>fill</code> 开头具有描边和填充功能。浏览器没法识别是不是一个新路径。</p>
+<p><code>closePath()</code> 闭合路径，将路径闭合并形成一个封闭空间。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 绘制三角形</span></div><div class="line">ctx.moveTo(<span class="number">50</span>,<span class="number">50</span>)</div><div class="line">ctx.lineTo(<span class="number">250</span>,<span class="number">250</span>)</div><div class="line">ctx.lineTo(<span class="number">50</span>,<span class="number">250</span>)</div><div class="line"><span class="comment">// 让路径自动闭合，必须写在路径最后。这样就不用写原点了，而且避免了锯齿问题</span></div><div class="line">ctx.closePath()</div><div class="line">ctx.strokeStyle = <span class="string">'pink'</span></div><div class="line">ctx.stroke()</div></pre></td></tr></table></figure>
+<p><code>beginPath()</code> 开辟新的路径，告诉解析器这是一个新路径，这样不会影响上一个路径。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 绘制三角形</span></div><div class="line">ctx.beginPath()</div><div class="line">ctx.moveTo(<span class="number">300</span>,<span class="number">50</span>)</div><div class="line">ctx.lineTo(<span class="number">450</span>,<span class="number">200</span>)</div><div class="line">ctx.lineTo(<span class="number">300</span>,<span class="number">200</span>)</div><div class="line">ctx.closePath()</div><div class="line">ctx.strokeStyle = <span class="string">'blue'</span></div><div class="line">ctx.stroke()</div></pre></td></tr></table></figure>
+<p>这里如果不用 <code>beginPath()</code> 的话，上面的那个三角也会变成蓝色。不只是颜色属性，如果不用 <code>beginPath()</code> 的话所有属性都会被最后一个绘制的图形覆盖。</p>
+<p>所以 <code>beginPath()</code> 就是让浏览器知道上个这个路径是新的开始和上一个没有关联。</p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ol>
+<li><p>只有在需要开始新路径时，调用 <code>beginPath()</code>。</p>
+</li>
+<li><p>在需要将图形闭合，形成封闭的图形，那么久可以调用 <code>closePath()</code> 方法。</p>
+</li>
+<li><p>这两个方法并不一定要成对出现。</p>
+</li>
+<li><p>除了 <code>stroke()</code> 或者 <code>fill()</code> 开的方法之外，都只会绘制路径，此时需要手动调用 <code>stroke()</code> 或者 <code>fill()</code> 方法。</p>
+</li>
+</ol>
+<h2 id="线性相关的属性"><a href="#线性相关的属性" class="headerlink" title="线性相关的属性"></a>线性相关的属性</h2><h3 id="使用方法-1"><a href="#使用方法-1" class="headerlink" title="使用方法"></a>使用方法</h3><p><code>lineWidth</code>：设置线宽，值是数值；</p>
+<p><code>strokeStyle</code>：设置线条颜色，值可以为16进制、颜色字符串、rgb、渐变色。</p>
+<p><code>fillStyle</code>：设置填充颜色</p>
+<p><code>lineCap</code>：设置线段两端的样式，有三个值。</p>
+<ul>
+<li><p><code>butt</code>：默认值，没有样式</p>
+</li>
+<li><p><code>round</code>：设置线的两端是突出的圆弧</p>
+</li>
+<li><p><code>square</code>：设置线的两端为突出的方形</p>
+</li>
+</ul>
+<p><code>lineJoin</code>：设置线的相交线的拐点</p>
+<ul>
+<li><p><code>round</code>：线相拐点是圆弧</p>
+</li>
+<li><p><code>bevel</code>：线相拐点是平角</p>
+</li>
+<li><p><code>miter</code>：线相拐点是尖角，是默认值</p>
+</li>
+</ul>
+<h3 id="lineCap和lineJoin的练习"><a href="#lineCap和lineJoin的练习" class="headerlink" title="lineCap和lineJoin的练习"></a><code>lineCap</code>和<code>lineJoin</code>的练习</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// lineCap和lineJoin的练习</span></div><div class="line">ctx.moveTo(<span class="number">50</span>, <span class="number">50</span>)</div><div class="line">ctx.lineTo(<span class="number">250</span>, <span class="number">150</span>)</div><div class="line">ctx.lineTo(<span class="number">450</span>, <span class="number">50</span>)</div><div class="line">ctx.lineWidth = <span class="number">20</span></div><div class="line">ctx.lineCap = <span class="string">'round'</span> <span class="comment">//线的两端是突出的圆弧</span></div><div class="line">ctx.lineJoin = <span class="string">'round'</span> <span class="comment">//线的拐点是圆弧</span></div><div class="line">ctx.stroke()</div><div class="line"></div><div class="line">ctx.beginPath()</div><div class="line">ctx.moveTo(<span class="number">50</span>, <span class="number">100</span>)</div><div class="line">ctx.lineTo(<span class="number">250</span>, <span class="number">200</span>)</div><div class="line">ctx.lineTo(<span class="number">450</span>, <span class="number">100</span>)</div><div class="line">ctx.lineCap = <span class="string">'square'</span> <span class="comment">// 线的两端是突出的方形</span></div><div class="line">ctx.lineJoin = <span class="string">'miter'</span> <span class="comment">// 线的拐点是尖角 ， 默认</span></div><div class="line">ctx.stroke()</div><div class="line"></div><div class="line">ctx.beginPath()</div><div class="line">ctx.moveTo(<span class="number">50</span>, <span class="number">150</span>)</div><div class="line">ctx.lineTo(<span class="number">250</span>, <span class="number">250</span>)</div><div class="line">ctx.lineTo(<span class="number">450</span>, <span class="number">150</span>)</div><div class="line">ctx.lineCap = <span class="string">'butt'</span> <span class="comment">// 线的两端没有样式 吗，默认</span></div><div class="line">ctx.lineJoin = <span class="string">'bevel'</span> <span class="comment">// 线的拐点是平角</span></div><div class="line">ctx.stroke()</div></pre></td></tr></table></figure>
+<h3 id="渐变色练习"><a href="#渐变色练习" class="headerlink" title="渐变色练习"></a>渐变色练习</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 渐变色练习</span></div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">255</span>; i++) &#123;</div><div class="line">    ctx.beginPath()</div><div class="line">    ctx.moveTo(<span class="number">50</span>,<span class="number">50</span>+i)</div><div class="line">    ctx.lineTo(<span class="number">300</span>,<span class="number">50</span>+i)</div><div class="line">    ctx.strokeStyle = <span class="string">"rgb("</span>+ i +<span class="string">",0,0)"</span></div><div class="line">    ctx.stroke()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="非零环绕原则"><a href="#非零环绕原则" class="headerlink" title="非零环绕原则"></a>非零环绕原则</h2><p>目的是确认某一块区域是否需要填充。</p>
+<p>从这个当前区域选取任意点，然后从该点到整个图形外部绘制一条射线，观察和这条射线相交的所有的线段，如果该相交的<strong>线段是顺时针穿过这条射线，那么计数+1</strong>，<strong>如果是逆时针穿过，那么计数-1</strong>，<strong>如果计数为0，那就不填充该区域，如果计数非0，那么就填充该区域</strong>。</p>
+<p>从左只有穿过或从上至下穿过都是顺时针，反之是逆时针。</p>
+<h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 顺时针绘制</span></div><div class="line">ctx.moveTo(<span class="number">50</span>,<span class="number">50</span>)</div><div class="line">ctx.lineTo(<span class="number">500</span>,<span class="number">50</span>)</div><div class="line">ctx.lineTo(<span class="number">500</span>,<span class="number">500</span>)</div><div class="line">ctx.lineTo(<span class="number">50</span>,<span class="number">500</span>)</div><div class="line">ctx.closePath()</div><div class="line"><span class="comment">// 逆时针绘制</span></div><div class="line">ctx.moveTo(<span class="number">80</span>,<span class="number">80</span>)</div><div class="line">ctx.lineTo(<span class="number">80</span>,<span class="number">470</span>)</div><div class="line">ctx.lineTo(<span class="number">470</span>,<span class="number">470</span>)</div><div class="line">ctx.lineTo(<span class="number">470</span>,<span class="number">80</span>)</div><div class="line">ctx.closePath()</div><div class="line">ctx.fill()</div></pre></td></tr></table></figure>
+<h3 id="奇偶原则"><a href="#奇偶原则" class="headerlink" title="奇偶原则"></a>奇偶原则</h3><p>就是看相交线的个数，如果为奇数，就填充；否则就不填充。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/html/" rel="tag"># html</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/20/Canvas(2d)的应用/" rel="next" title="Canvas-2d的应用">
+                <i class="fa fa-chevron-left"></i> Canvas-2d的应用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/20/gulp/" rel="prev" title="gulp">
+                gulp <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="PJ Yu" />
+          <p class="site-author-name" itemprop="name">PJ Yu</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Gary23" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com/Gary23" title="Gary23" target="_blank">Gary23</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念"><span class="nav-number">1.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#描述"><span class="nav-number">1.2.</span> <span class="nav-text">描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#兼容"><span class="nav-number">1.3.</span> <span class="nav-text">兼容</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本使用"><span class="nav-number">2.</span> <span class="nav-text">基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建一个画布"><span class="nav-number">2.1.</span> <span class="nav-text">创建一个画布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取绘制工具（canvas提供的）"><span class="nav-number">2.2.</span> <span class="nav-text">获取绘制工具（canvas提供的）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#getConText方法"><span class="nav-number">2.2.1.</span> <span class="nav-text">getConText方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#canvas的坐标系规则"><span class="nav-number">2.3.</span> <span class="nav-text">canvas的坐标系规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绘制工具的API方法"><span class="nav-number">2.4.</span> <span class="nav-text">绘制工具的API方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#moveTo-x-y"><span class="nav-number">2.4.1.</span> <span class="nav-text">moveTo(x,y)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lineTo-x-y"><span class="nav-number">2.4.2.</span> <span class="nav-text">lineTo(x,y)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绘制直线的步骤"><span class="nav-number">2.5.</span> <span class="nav-text">绘制直线的步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#练习：绘制一个矩形"><span class="nav-number">2.6.</span> <span class="nav-text">练习：绘制一个矩形</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路径的概念"><span class="nav-number">3.</span> <span class="nav-text">路径的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用方法"><span class="nav-number">3.1.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意"><span class="nav-number">3.2.</span> <span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性相关的属性"><span class="nav-number">4.</span> <span class="nav-text">线性相关的属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用方法-1"><span class="nav-number">4.1.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lineCap和lineJoin的练习"><span class="nav-number">4.2.</span> <span class="nav-text">lineCap和lineJoin的练习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#渐变色练习"><span class="nav-number">4.3.</span> <span class="nav-text">渐变色练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#非零环绕原则"><span class="nav-number">5.</span> <span class="nav-text">非零环绕原则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#练习"><span class="nav-number">5.1.</span> <span class="nav-text">练习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#奇偶原则"><span class="nav-number">5.2.</span> <span class="nav-text">奇偶原则</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PJ Yu</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

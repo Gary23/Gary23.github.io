@@ -1,0 +1,944 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="后台相关," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Cookie的原理服务器记录用户上次的登录信息，服务器需要一个类似橱柜的空间存储，橱柜的每个区域要通过钥匙才能打开。 钥匙存储在用户的计算机上，要取信息相当于拿着钥匙去访问服务器。钥匙上有个id号，通过这个id号就知道是哪个柜子的钥匙，这样就能拿到柜子里面的数据。 用户手上的这把钥匙就叫做Cookie。 我们需要Cookie的原因是http协议是一种无状态的协议，服务器从网络连接上无法获知用户身份">
+<meta name="keywords" content="后台相关">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cookie基础">
+<meta property="og:url" content="http://yoursite.com/2017/09/20/Cookie基础/index.html">
+<meta property="og:site_name" content="Gary23">
+<meta property="og:description" content="Cookie的原理服务器记录用户上次的登录信息，服务器需要一个类似橱柜的空间存储，橱柜的每个区域要通过钥匙才能打开。 钥匙存储在用户的计算机上，要取信息相当于拿着钥匙去访问服务器。钥匙上有个id号，通过这个id号就知道是哪个柜子的钥匙，这样就能拿到柜子里面的数据。 用户手上的这把钥匙就叫做Cookie。 我们需要Cookie的原因是http协议是一种无状态的协议，服务器从网络连接上无法获知用户身份">
+<meta property="og:updated_time" content="2017-09-21T01:40:39.283Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Cookie基础">
+<meta name="twitter:description" content="Cookie的原理服务器记录用户上次的登录信息，服务器需要一个类似橱柜的空间存储，橱柜的每个区域要通过钥匙才能打开。 钥匙存储在用户的计算机上，要取信息相当于拿着钥匙去访问服务器。钥匙上有个id号，通过这个id号就知道是哪个柜子的钥匙，这样就能拿到柜子里面的数据。 用户手上的这把钥匙就叫做Cookie。 我们需要Cookie的原因是http协议是一种无状态的协议，服务器从网络连接上无法获知用户身份">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/20/Cookie基础/"/>
+
+
+
+
+
+  <title> Cookie基础 | Gary23 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Gary23</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/20/Cookie基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="PJ Yu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gary23">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Cookie基础
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-20T11:39:48+08:00">
+                2017-09-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Cookie的原理"><a href="#Cookie的原理" class="headerlink" title="Cookie的原理"></a>Cookie的原理</h2><p>服务器记录用户上次的登录信息，服务器需要一个类似橱柜的空间存储，橱柜的每个区域要通过钥匙才能打开。</p>
+<p>钥匙存储在用户的计算机上，要取信息相当于拿着钥匙去访问服务器。钥匙上有个id号，通过这个id号就知道是哪个柜子的钥匙，这样就能拿到柜子里面的数据。</p>
+<p>用户手上的这把钥匙就叫做Cookie。</p>
+<p>我们需要Cookie的原因是http协议是一种无状态的协议，服务器从网络连接上无法获知用户身份，那就只能给每个用户一把钥匙。</p>
+<p>session就是保存用户数据的橱柜，保存在服务端。要记录用户登录的状态信息，也就是存储在session。</p>
+<h2 id="Cookie的过程"><a href="#Cookie的过程" class="headerlink" title="Cookie的过程"></a>Cookie的过程</h2><ol>
+<li><p>浏览器发送了一个请求，这个过程中做了一个封装请求报文。转成二进制，通过tcp协议传输层传输给服务器。</p>
+</li>
+<li><p>在服务器解析，将二进制数据转换请求报文。通过url和请求方式做对应处理。</p>
+</li>
+<li><p>中间件是架设在一次请求与相应之间做的事情。请求过来之后session是接收请求后，将响应做了加工。在响应头添加了一个字段set-cookie: ……  。客户端会接受到相应的响应报文。</p>
+</li>
+<li><p>客户端浏览器在接收到set-cookie的时候会在客户端生成一个文件，里面的内容是connect.sid=………。本次连接结束。</p>
+</li>
+<li><p>这个sid就代表了橱柜的id值。再一次访问，浏览器会根据域来找到对应的cookie，把内容加入请求头。</p>
+</li>
+<li><p>带着cookie去访问网页，就可以用cookie带着的sid去找到存在网站的相应的session信息。</p>
+</li>
+<li><p>cookie是一个技术。session是基于该技术，通过connect.sid找到对应的数据</p>
+</li>
+</ol>
+<h2 id="查看某个网站颁发的Cookie"><a href="#查看某个网站颁发的Cookie" class="headerlink" title="查看某个网站颁发的Cookie"></a>查看某个网站颁发的Cookie</h2><p>在Console中输入JavaScript:alert (document. cookie)就可以了（需要有网才能查看）。</p>
+<p>JavaScript浏览器会弹出一个对话框显示本网站颁发的所有Cookie的内容。</p>
+<h2 id="Cookie的所有属性"><a href="#Cookie的所有属性" class="headerlink" title="Cookie的所有属性"></a>Cookie的所有属性</h2><p><strong>String name</strong><br>该Cookie的名称。Cookie一旦创建，名称便不可更改</p>
+<p><strong>Object value</strong><br>该Cookie的值。如果值为Unicode字符，需要为字符编码。如果值为二进制数据，则需要使用BASE64编码</p>
+<p><strong>int maxAge</strong><br>该Cookie失效的时间，单位秒。如果为正数，则该Cookie在maxAge秒之后失效。如果为负数，该Cookie为临时Cookie，关闭浏览器即失效，浏览器也不会以任何形式保存该Cookie。如果为0，表示删除该Cookie。默认为–1</p>
+<p><strong>boolean secure</strong><br>该Cookie是否仅被使用安全协议传输。安全协议。安全协议有HTTPS，SSL等，在网络上传输数据之前先将数据加密。默认为false</p>
+<p><strong>String path</strong><br>该Cookie的使用路径。如果设置为“/sessionWeb/”，则只有contextPath为“/sessionWeb”的程序可以访问该Cookie。如果设置为“/”，则本域名下contextPath都可以访问该Cookie。注意最后一个字符必须为“/”</p>
+<p><strong>String domain</strong><br>可以访问该Cookie的域名。如果设置为“.google.com”，则所有以“google.com”结尾的域名都可以访问该Cookie。注意第一个字符必须为“.”</p>
+<p><strong>String comment</strong><br>该Cookie的用处说明。浏览器显示Cookie信息的时候显示该说明</p>
+<p><strong>int version</strong><br>该Cookie使用的版本号。0表示遵循Netscape的Cookie规范，1表示遵循W3C的RFC 2109规范</p>
+<h2 id="Cookie的有效期"><a href="#Cookie的有效期" class="headerlink" title="Cookie的有效期"></a>Cookie的有效期</h2><p>Cookie的 <code>maxAge</code> 决定着Cookie的有效期，单位为秒（Second）。Cookie中通过<code>getMaxAge()</code> 方法与 <code>setMaxAge(int maxAge)</code> 方法来读写maxAge属性。</p>
+<p>如果 <code>maxAge</code> 属性为正数，则表示该Cookie会在 <code>maxAge</code> 秒之后自动失效。浏览器会将 <code>maxAge</code> 为正数的Cookie持久化，即写到对应的Cookie文件中。无论客户关闭了浏览器还是电脑，只要还在 <code>maxAge</code> 秒之前，登录网站时该Cookie仍然有效。下面代码中的Cookie信息将永远有效。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Cookie cookie = <span class="keyword">new</span> Cookie(<span class="string">"username"</span>,<span class="string">"helloweenvsfei"</span>);   <span class="comment">// 新建Cookie</span></div><div class="line">cookie.setMaxAge(Integer.MAX_VALUE);    <span class="comment">// 设置生命周期为MAX_VALUE</span></div><div class="line">response.addCookie(cookie);    <span class="comment">// 输出到客户端</span></div></pre></td></tr></table></figure>
+<p>如果 <code>maxAge</code> 为负数，则表示该Cookie仅在本浏览器窗口以及本窗口打开的子窗口内有效，关闭窗口后该Cookie即失效。<code>maxAge</code> 为负数的Cookie，为临时性Cookie，不会被持久化，不会被写到Cookie文件中。Cookie信息保存在浏览器内存中，因此关闭浏览器该Cookie就消失了。Cookie默认的 <code>maxAge</code> 值为–1。</p>
+<p>如果 <code>maxAge</code> 为0，则表示删除该Cookie。Cookie机制没有提供删除Cookie的方法，因此通过设置该Cookie即时失效实现删除Cookie的效果。失效的Cookie会被浏览器从Cookie文件或者内存中删除。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Cookie cookie = <span class="keyword">new</span> Cookie(<span class="string">"username"</span>,<span class="string">"helloweenvsfei"</span>);   <span class="comment">// 新建Cookie</span></div><div class="line">cookie.setMaxAge(<span class="number">0</span>);   <span class="comment">// 设置生命周期为0，不能为负数</span></div><div class="line">response.addCookie(cookie);   <span class="comment">// 必须执行这一句</span></div></pre></td></tr></table></figure>
+<h2 id="Cookie的修改、删除"><a href="#Cookie的修改、删除" class="headerlink" title="Cookie的修改、删除"></a>Cookie的修改、删除</h2><p>Cookie并不提供修改、删除操作。如果要修改某个Cookie，只需要新建一个同名的Cookie，添加到response中覆盖原来的Cookie。</p>
+<p>如果要删除某个Cookie，只需要新建一个同名的Cookie，并将maxAge设置为0，并添加到response中覆盖原来的Cookie。注意是0而不是负数。负数代表其他的意义。读者可以通过上例的程序进行验证，设置不同的属性。</p>
+<h2 id="Cookie的域名"><a href="#Cookie的域名" class="headerlink" title="Cookie的域名"></a>Cookie的域名</h2><p>Domain就是域，根据域来选择相应Cookie，域Domain的值是网站的地址。</p>
+<p>Cookie具有不可跨域名性。根据Cookie规范，浏览器访问Google只会携带Google的Cookie，而不会携带Baidu的Cookie。Google也只能操作Google的Cookie，而不能操作Baidu的Cookie。</p>
+<p>浏览器判断一个网站是否能操作另一个网站Cookie的依据是域名。Google与Baidu的域名不一样，因此Google不能操作Baidu的Cookie</p>
+<p>正常情况下，同一个一级域名下的两个二级域名如www.google.com和images.google.com也不能交互使用Cookie，因为二者的域名并不严格相同。如果想所有google.com名下的二级域名都可以使用该Cookie，需要设置Cookie的domain参数，例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Cookie cookie = <span class="keyword">new</span> Cookie(<span class="string">"time"</span>,<span class="string">"20080808"</span>); <span class="comment">// 新建Cookie</span></div><div class="line">cookie.setDomain(<span class="string">".helloweenvsfei.com"</span>);  <span class="comment">// 设置域名</span></div><div class="line">cookie.setPath(<span class="string">"/"</span>);  <span class="comment">// 设置路径</span></div><div class="line">cookie.setMaxAge(Integer.MAX_VALUE);  <span class="comment">// 设置有效期</span></div><div class="line">response.addCookie(cookie);   <span class="comment">// 输出到客户端</span></div></pre></td></tr></table></figure>
+<h2 id="Cookie的路径"><a href="#Cookie的路径" class="headerlink" title="Cookie的路径"></a>Cookie的路径</h2><p>Domain属性决定运行访问Cookie的域名，而path属性决定允许访问Cookie的路径（ContextPath）。例如，如果只允许/sessionWeb/下的程序使用Cookie，可以这么写：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Cookie cookie = <span class="keyword">new</span> Cookie(<span class="string">"time"</span>,<span class="string">"20080808"</span>);  <span class="comment">// 新建Cookie</span></div><div class="line">cookie.setPath(<span class="string">"/session/"</span>);  <span class="comment">// 设置路径</span></div><div class="line">response.addCookie(cookie);   <span class="comment">// 输出到客户端</span></div></pre></td></tr></table></figure>
+<p>设置为“/”时允许所有路径使用Cookie。path属性需要使用符号“/”结尾。name相同但domain相同的两个Cookie也是两个不同的Cookie。</p>
+<p>注意：页面只能获取它属于的Path的Cookie。例如/session/test/a.jsp不能获取到路径为/session/abc/的Cookie。使用时一定要注意。</p>
+<h2 id="Cookie的安全属性"><a href="#Cookie的安全属性" class="headerlink" title="Cookie的安全属性"></a>Cookie的安全属性</h2><p>HTTP协议不仅是无状态的，而且是不安全的。使用HTTP协议的数据不经过任何加密就直接在网络上传播，有被截获的可能。</p>
+<p>使用HTTP协议传输很机密的内容是一种隐患。如果不希望Cookie在HTTP等非安全协议中传输，可以设置Cookie的secure属性为true。浏览器只会在HTTPS和SSL等安全协议中传输此类Cookie。下面的代码设置secure属性为true：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Cookie cookie = <span class="keyword">new</span> Cookie(<span class="string">"time"</span>, <span class="string">"20080808"</span>); <span class="comment">// 新建Cookie</span></div><div class="line">cookie.setSecure(<span class="literal">true</span>);   <span class="comment">// 设置安全属性</span></div><div class="line">response.addCookie(cookie);  <span class="comment">// 输出到客户端</span></div></pre></td></tr></table></figure>
+<p>提示：secure属性并不能对Cookie内容加密，因而不能保证绝对的安全性。如果需要高安全性，需要在程序中对Cookie内容加密、解密，以防泄密</p>
+<h2 id="JavaScript操作Cookie"><a href="#JavaScript操作Cookie" class="headerlink" title="JavaScript操作Cookie"></a>JavaScript操作Cookie</h2><p>Cookie是保存在浏览器端的，因此浏览器具有操作Cookie的先决条件。浏览器可以使用脚本程序如JavaScript或者VBScript等操作Cookie。</p>
+<p>这里以JavaScript为例介绍常用的Cookie操作。例如下面的代码会输出本页面所有的Cookie。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;<span class="built_in">document</span>.write(<span class="built_in">document</span>.cookie);<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<p>由于JavaScript能够任意地读写Cookie，有些好事者便想使用JavaScript程序去窥探用户在其他网站的Cookie。不过这是徒劳的，W3C组织早就意识到JavaScript对Cookie的读写所带来的安全隐患并加以防备了，W3C标准的浏览器会阻止。</p>
+<p>JavaScript读写任何不属于自己网站的Cookie。换句话说，A网站的JavaScript程序读写B网站的Cookie不会有任何结果。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/后台相关/" rel="tag"># 后台相关</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/20/正则表达式/" rel="next" title="正则表达式">
+                <i class="fa fa-chevron-left"></i> 正则表达式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/20/SVN/" rel="prev" title="SVN">
+                SVN <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="PJ Yu" />
+          <p class="site-author-name" itemprop="name">PJ Yu</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Gary23" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com/Gary23" title="Gary23" target="_blank">Gary23</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie的原理"><span class="nav-number">1.</span> <span class="nav-text">Cookie的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie的过程"><span class="nav-number">2.</span> <span class="nav-text">Cookie的过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看某个网站颁发的Cookie"><span class="nav-number">3.</span> <span class="nav-text">查看某个网站颁发的Cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie的所有属性"><span class="nav-number">4.</span> <span class="nav-text">Cookie的所有属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie的有效期"><span class="nav-number">5.</span> <span class="nav-text">Cookie的有效期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie的修改、删除"><span class="nav-number">6.</span> <span class="nav-text">Cookie的修改、删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie的域名"><span class="nav-number">7.</span> <span class="nav-text">Cookie的域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie的路径"><span class="nav-number">8.</span> <span class="nav-text">Cookie的路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie的安全属性"><span class="nav-number">9.</span> <span class="nav-text">Cookie的安全属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript操作Cookie"><span class="nav-number">10.</span> <span class="nav-text">JavaScript操作Cookie</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PJ Yu</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

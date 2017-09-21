@@ -1,0 +1,953 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="blog和git," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="壳和核的概念概念shell俗称为壳，在cmd中输入的命令就称为shell。 壳的概念是为了区别于核kemel，而核是通过壳才能驱动运行的，假如核是汽车那么壳就是车钥匙。再比如播放视频，双击打开就是壳的部分，壳来驱动存放在硬盘的视频来播放运行视频文件，播放视频就是核。它接收用户命令，然后调用相应的应用程序。  结论：用户 -&amp;gt; 壳 -&amp;gt; 核 -&amp;gt; 硬件  壳的分类图形界面GUI通过">
+<meta name="keywords" content="blog和git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="shell&Vi">
+<meta property="og:url" content="http://yoursite.com/2017/09/19/shell&Vi/index.html">
+<meta property="og:site_name" content="Gary23">
+<meta property="og:description" content="壳和核的概念概念shell俗称为壳，在cmd中输入的命令就称为shell。 壳的概念是为了区别于核kemel，而核是通过壳才能驱动运行的，假如核是汽车那么壳就是车钥匙。再比如播放视频，双击打开就是壳的部分，壳来驱动存放在硬盘的视频来播放运行视频文件，播放视频就是核。它接收用户命令，然后调用相应的应用程序。  结论：用户 -&amp;gt; 壳 -&amp;gt; 核 -&amp;gt; 硬件  壳的分类图形界面GUI通过">
+<meta property="og:image" content="http://picabstract.preview.ftn.qq.com:8080/ftn_pic_abs_v2/af71b5eabff9dc24f8a0a72d5414637bc944fd268d5e93e05bcfa48fdf97b119c8babdb7c15f596cf73c333aa6aeb853?pictype=scale&from=30012&version=2.0.0.2&uin=406490508&fname=20170904-5.jpg&size=1024">
+<meta property="og:image" content="http://picabstract.preview.ftn.qq.com:8080/ftn_pic_abs_v2/919498cf24ae09abbc5b7c36d2a95082abcdd22700e6888a86735d99726cd96ed56c7df40ec444d4b0a721871384cafe?pictype=scale&from=30012&version=2.0.0.2&uin=406490508&fname=20170904-6.jpg&size=1024">
+<meta property="og:updated_time" content="2017-09-21T01:35:04.691Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="shell&Vi">
+<meta name="twitter:description" content="壳和核的概念概念shell俗称为壳，在cmd中输入的命令就称为shell。 壳的概念是为了区别于核kemel，而核是通过壳才能驱动运行的，假如核是汽车那么壳就是车钥匙。再比如播放视频，双击打开就是壳的部分，壳来驱动存放在硬盘的视频来播放运行视频文件，播放视频就是核。它接收用户命令，然后调用相应的应用程序。  结论：用户 -&amp;gt; 壳 -&amp;gt; 核 -&amp;gt; 硬件  壳的分类图形界面GUI通过">
+<meta name="twitter:image" content="http://picabstract.preview.ftn.qq.com:8080/ftn_pic_abs_v2/af71b5eabff9dc24f8a0a72d5414637bc944fd268d5e93e05bcfa48fdf97b119c8babdb7c15f596cf73c333aa6aeb853?pictype=scale&from=30012&version=2.0.0.2&uin=406490508&fname=20170904-5.jpg&size=1024">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/19/shell&Vi/"/>
+
+
+
+
+
+  <title> shell&Vi | Gary23 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Gary23</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/19/shell&Vi/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="PJ Yu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gary23">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                shell&Vi
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-19T15:27:32+08:00">
+                2017-09-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="壳和核的概念"><a href="#壳和核的概念" class="headerlink" title="壳和核的概念"></a>壳和核的概念</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>shell俗称为壳，在cmd中输入的命令就称为shell。</p>
+<p>壳的概念是为了区别于核kemel，而核是通过壳才能驱动运行的，假如核是汽车那么壳就是车钥匙。再比如播放视频，双击打开就是壳的部分，壳来驱动存放在硬盘的视频来播放运行视频文件，播放视频就是核。它接收用户命令，然后调用相应的应用程序。</p>
+<blockquote>
+<p>结论：用户 -&gt; 壳 -&gt; 核 -&gt; 硬件</p>
+</blockquote>
+<h3 id="壳的分类"><a href="#壳的分类" class="headerlink" title="壳的分类"></a>壳的分类</h3><h4 id="图形界面GUI"><a href="#图形界面GUI" class="headerlink" title="图形界面GUI"></a>图形界面GUI</h4><p>通过提供友好的可视化界面，调用相应应用程序。图形界面的代表就是windows等操作系统，相当于一个壳。</p>
+<h4 id="命令行cli"><a href="#命令行cli" class="headerlink" title="命令行cli"></a>命令行cli</h4><p>通过键盘输入特定命令的方式，调用相应的应用程序。在windows有cmd、powershell。在linux有sh(Bourne shell)、bash(Bourne Again shell)</p>
+<h2 id="bash命令"><a href="#bash命令" class="headerlink" title="bash命令"></a>bash命令</h2><p>在window系统下使用bash，需要一个软件，这个软件模拟（还有很多其他软件）集成了bash大部分命令</p>
+<p>windows要支持bash的命令才可以，所以要在windows使用要装GIT和bash，这两个也可以分开装</p>
+<h3 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h3><p>命令[-options] [参数]，如 tar zxvf demo.tar.gz</p>
+<h3 id="查看帮助"><a href="#查看帮助" class="headerlink" title="查看帮助"></a>查看帮助</h3><p>命令 –help</p>
+<h3 id="bash常见命令"><a href="#bash常见命令" class="headerlink" title="bash常见命令"></a>bash常见命令</h3><p><strong>pwd（Print Working Directory）</strong><br>查看当前目录</p>
+<p><strong>cd（Change Directory）</strong><br>切换目录。打开e盘：cd  /e 或者 打开web文件夹： cd  web；返回上一级：cd  ..</p>
+<p><strong>ls（List）</strong><br>查看当前目录下的内容。ls  -al(all list)    ；        查看web文件夹下的内容：ls  web 。</p>
+<p><strong>mkdir（Make Directory）</strong><br>创建文件夹。创建一个blog目录：mkdir  blog。</p>
+<p><strong>touch</strong><br>创建文件。创建一个index.html文件：touch  index.html</p>
+<p><strong>cat</strong><br>查看文件的全部内容。查看文件里编辑的内容：cat  index.html</p>
+<p><strong>less</strong><br>查看文件的部分内容。文件里的内容太长可以用less命令：less  index.html。  可以分页查看，q是退出功能、空格翻页。</p>
+<p><strong>rm(Remove)</strong><br>删除文件。rm  index.html。 加-rf可以删除有子文件的文件夹：rm -rf blog。 小心使用，删除的内容不回回收站。</p>
+<p><strong>rmdir(Remove Directory)</strong><br>删除文件夹。rmdir  web。 只能删除空文件夹，不常用</p>
+<p><strong>mv（move）</strong><br>移动文件或重命名。移动：mv  index.html  ./demo ；重命名：mv  index.html  test.html。</p>
+<p><strong>cp（copy）</strong><br>复制文件。复制时可以顺便改名：cp index.html  ./demo/test.html</p>
+<p><strong>head</strong><br>查看文件内容的前几行。查看前5行内容：head  -5  index.html。</p>
+<p><strong>tail</strong><br>查看文件内容的后几行。查看后5行内容：tail  -5  index.html。</p>
+<p><strong>tab</strong><br>自动补全。连按两次会将所有匹配内容显示出来。</p>
+<p><strong>history</strong><br>查看操作历史</p>
+<p><strong>ssh</strong><br>远程登录。在下面的部分会介绍</p>
+<p><strong>&gt; 和 &gt;&gt;</strong><br>重定向&gt;是覆盖，&gt;&gt;是追加。将原本应该输出在屏幕上的内容输出到README.md中：history  &gt;  README.md。 可以实现复制文件夹里的内容：test.txt &gt; test1.txt。</p>
+<p><strong>wget</strong><br>下载。wget <a href="https://nodejs.org/dist/v4.4.0/node-v4.4.0.tar.gz。" target="_blank" rel="external">https://nodejs.org/dist/v4.4.0/node-v4.4.0.tar.gz。</a></p>
+<p><strong>tar</strong><br>解压缩。tar zxvf node-v4.4.0.tar.gz。只能解压gz格式</p>
+<p><strong>curl</strong><br>网络请求。curl <a href="http://www.baidu.com" target="_blank" rel="external">http://www.baidu.com</a></p>
+<p><strong>whoami</strong><br>查看当前操作系统的用户名</p>
+<p><strong>|</strong><br>管道符可以将多个命令连接使用。把上一次命令的执行结果当成下一次命令的参数</p>
+<p><strong>grep</strong><br>匹配内容。去index.txt中找出匹配index字符的行内容：grep index index.txt (可以匹配正则表达式)。 配合管道符使用。在ls返回的结果中（很多文件）中查找包含index字符的内容行：ls  |  grep  index  (ls  |  就当做第二个参数来使用)</p>
+<h2 id="Vi编辑器"><a href="#Vi编辑器" class="headerlink" title="Vi编辑器"></a>Vi编辑器</h2><p>如同windows下的记事本，vi编辑器是linux下的编辑器。通过它们我可以创建、编辑文件。它是一个随系统一起安装的文本编辑软件。</p>
+<p>vi在编辑文本内容时，在不同模式下进行的操作是不同的，有三种模式：插入模式、命令模式、底行模式。</p>
+<p>打开vi编辑器默认是命令行模式，在命令行模式输入 i 或 a 就进入了输入模式，输入模式按 ESC 就回到了命令行模式，命令行模式输入 : 就进入了底行模式，底行模式按 ESC 就回到了命令行模式。</p>
+<h3 id="vi编辑器的常用操作："><a href="#vi编辑器的常用操作：" class="headerlink" title="vi编辑器的常用操作："></a>vi编辑器的常用操作：</h3><p><strong>打开/创建文件</strong><br>vi 文件路径</p>
+<h4 id="底行模式"><a href="#底行模式" class="headerlink" title="底行模式"></a>底行模式</h4><p><strong>w</strong><br>保存，w 文件名 另存为</p>
+<p><strong>q</strong><br>退出</p>
+<p><strong>wq</strong><br>保存并退出</p>
+<p><strong>e!</strong><br>撤销更改，返回到上一次保存的状态</p>
+<p><strong>q!</strong><br>不保存强制退出</p>
+<p><strong>set nu</strong> 设置行号</p>
+<h4 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h4><p><strong>ZZ</strong><br>保存并退出</p>
+<p><strong>u</strong><br>撤销操作，可多次使用</p>
+<p><strong>dd</strong><br>删除当前行</p>
+<p><strong>yy</strong><br>复制当前行</p>
+<p><strong>p</strong><br>粘贴内容</p>
+<p><strong>ctrl+f</strong><br>向前翻页</p>
+<p><strong>ctrl+b</strong><br>向后翻页</p>
+<p><strong>i</strong><br>进入编辑模式，当前光标出插入</p>
+<p><strong>a</strong><br>进入编辑模式，当前光标后插入</p>
+<p><strong>A</strong><br>进入编辑模式，光标移动到行尾</p>
+<p><strong>o</strong><br>进入编辑模式，当前行下面插入新行</p>
+<p><strong>O</strong><br>进入编辑模式，当前行上面插入新行</p>
+<h2 id="ssh协议"><a href="#ssh协议" class="headerlink" title="ssh协议"></a>ssh协议</h2><h3 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h3><p>SSH是一种网络协议，用于计算机之间的加密登录，在自己的电脑上登录远程服务器。这种协议存在多种实现，就好比HTTP是一个协议它是通过浏览器来实现。linux下使用OpenSSH，在windows下使用PuTTY。</p>
+<p>通过ip就可以访问到远程服务器：ssh student@192.168.21.70  使用student这个用户名来登录192.168.21.70这个服务器，当然这个用户是提前创建好的。</p>
+<h3 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h3><h4 id="对称性加密"><a href="#对称性加密" class="headerlink" title="对称性加密"></a>对称性加密</h4><p>经过算法将原始数据加密，接收方接收到之后解密，两方通过秘钥加密和解密。在第一次发送时会先将秘钥传递到接收方，所以虽然很好用但是秘钥可能会被拦截。</p>
+<p><img src="http://picabstract.preview.ftn.qq.com:8080/ftn_pic_abs_v2/af71b5eabff9dc24f8a0a72d5414637bc944fd268d5e93e05bcfa48fdf97b119c8babdb7c15f596cf73c333aa6aeb853?pictype=scale&amp;from=30012&amp;version=2.0.0.2&amp;uin=406490508&amp;fname=20170904-5.jpg&amp;size=1024" alt="enter image description here"></p>
+<h4 id="非对称性加密"><a href="#非对称性加密" class="headerlink" title="非对称性加密"></a>非对称性加密</h4><p>加密和解密使用的不是同一个秘钥。本地电脑创建一对秘钥，分别是公钥和私钥，可以通过公钥加密数据，这样只能用对应的私钥来解密。也可以通过私钥加密只能用对应的公钥来解密。</p>
+<p>第一次登陆远程计算机时，会将远程计算机的公钥下发下来，保存在本地。这时登陆远程计算机，密码就可以用公钥加密发送。当远程服务器接收到公钥加密的数据后，会自动使用私钥进行加密。</p>
+<p><img src="http://picabstract.preview.ftn.qq.com:8080/ftn_pic_abs_v2/919498cf24ae09abbc5b7c36d2a95082abcdd22700e6888a86735d99726cd96ed56c7df40ec444d4b0a721871384cafe?pictype=scale&amp;from=30012&amp;version=2.0.0.2&amp;uin=406490508&amp;fname=20170904-6.jpg&amp;size=1024" alt="enter image description here"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/blog和git/" rel="tag"># blog和git</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/19/版本控制/" rel="next" title="版本控制">
+                <i class="fa fa-chevron-left"></i> 版本控制
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/11/wamp安装/" rel="prev" title="wamp安装">
+                wamp安装 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="PJ Yu" />
+          <p class="site-author-name" itemprop="name">PJ Yu</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Gary23" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com/Gary23" title="Gary23" target="_blank">Gary23</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#壳和核的概念"><span class="nav-number">1.</span> <span class="nav-text">壳和核的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念"><span class="nav-number">1.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#壳的分类"><span class="nav-number">1.2.</span> <span class="nav-text">壳的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#图形界面GUI"><span class="nav-number">1.2.1.</span> <span class="nav-text">图形界面GUI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命令行cli"><span class="nav-number">1.2.2.</span> <span class="nav-text">命令行cli</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bash命令"><span class="nav-number">2.</span> <span class="nav-text">bash命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#格式"><span class="nav-number">2.1.</span> <span class="nav-text">格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看帮助"><span class="nav-number">2.2.</span> <span class="nav-text">查看帮助</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bash常见命令"><span class="nav-number">2.3.</span> <span class="nav-text">bash常见命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vi编辑器"><span class="nav-number">3.</span> <span class="nav-text">Vi编辑器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vi编辑器的常用操作："><span class="nav-number">3.1.</span> <span class="nav-text">vi编辑器的常用操作：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#底行模式"><span class="nav-number">3.1.1.</span> <span class="nav-text">底行模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命令模式"><span class="nav-number">3.1.2.</span> <span class="nav-text">命令模式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh协议"><span class="nav-number">4.</span> <span class="nav-text">ssh协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念-1"><span class="nav-number">4.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加密"><span class="nav-number">4.2.</span> <span class="nav-text">加密</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对称性加密"><span class="nav-number">4.2.1.</span> <span class="nav-text">对称性加密</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非对称性加密"><span class="nav-number">4.2.2.</span> <span class="nav-text">非对称性加密</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PJ Yu</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

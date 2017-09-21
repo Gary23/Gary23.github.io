@@ -1,0 +1,1006 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="css笔记," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="word-spacing 单词间距判断是否是单词的依据是有没有空格 行高的测量方式假如文字是12px，行高是16px，那么文字上下空隙分别是2px，假如行高是15px，那么上方是1px，下方是2px。 white-space 强制不换行值为nowrap为强制不换行，默认是normal。 text-indent  首行缩进。通常设置em，这样文字尺寸改变了也不用该缩进值，只需要设置2em便一直是2个">
+<meta name="keywords" content="css笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css杂记">
+<meta property="og:url" content="http://yoursite.com/2017/05/21/css杂记/index.html">
+<meta property="og:site_name" content="Gary23">
+<meta property="og:description" content="word-spacing 单词间距判断是否是单词的依据是有没有空格 行高的测量方式假如文字是12px，行高是16px，那么文字上下空隙分别是2px，假如行高是15px，那么上方是1px，下方是2px。 white-space 强制不换行值为nowrap为强制不换行，默认是normal。 text-indent  首行缩进。通常设置em，这样文字尺寸改变了也不用该缩进值，只需要设置2em便一直是2个">
+<meta property="og:image" content="http://picabstract.preview.ftn.qq.com:8080/ftn_pic_abs_v2/59520336b7c28190b615fc5b7f17a94e84b8a80e2fe33267303cb2a5079267e63bdb0ef955e23bcf600d2cfc62311b50?pictype=scale&from=30012&version=2.0.0.2&uin=406490508&fname=20170904-24.png&size=1024">
+<meta property="og:image" content="http://picabstract.preview.ftn.qq.com:8080/ftn_pic_abs_v2/a702cce905d871e58e72b214eccc3d00957920bcdb2daa514f0e70205b8d934a7e01d90ad3d9b5b95d298a12fd4a4ce8?pictype=scale&from=30012&version=2.0.0.2&uin=406490508&fname=20170904-25.png&size=1024">
+<meta property="og:updated_time" content="2017-09-21T01:32:12.155Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css杂记">
+<meta name="twitter:description" content="word-spacing 单词间距判断是否是单词的依据是有没有空格 行高的测量方式假如文字是12px，行高是16px，那么文字上下空隙分别是2px，假如行高是15px，那么上方是1px，下方是2px。 white-space 强制不换行值为nowrap为强制不换行，默认是normal。 text-indent  首行缩进。通常设置em，这样文字尺寸改变了也不用该缩进值，只需要设置2em便一直是2个">
+<meta name="twitter:image" content="http://picabstract.preview.ftn.qq.com:8080/ftn_pic_abs_v2/59520336b7c28190b615fc5b7f17a94e84b8a80e2fe33267303cb2a5079267e63bdb0ef955e23bcf600d2cfc62311b50?pictype=scale&from=30012&version=2.0.0.2&uin=406490508&fname=20170904-24.png&size=1024">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/21/css杂记/"/>
+
+
+
+
+
+  <title> css杂记 | Gary23 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Gary23</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/21/css杂记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="PJ Yu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gary23">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                css杂记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-21T15:52:05+08:00">
+                2017-05-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="word-spacing-单词间距"><a href="#word-spacing-单词间距" class="headerlink" title="word-spacing 单词间距"></a>word-spacing 单词间距</h2><p>判断是否是单词的依据是有没有空格</p>
+<h2 id="行高的测量方式"><a href="#行高的测量方式" class="headerlink" title="行高的测量方式"></a>行高的测量方式</h2><p>假如文字是12px，行高是16px，那么文字上下空隙分别是2px，假如行高是15px，那么上方是1px，下方是2px。</p>
+<h2 id="white-space-强制不换行"><a href="#white-space-强制不换行" class="headerlink" title="white-space 强制不换行"></a>white-space 强制不换行</h2><p>值为nowrap为强制不换行，默认是normal。</p>
+<h2 id="text-indent-首行缩进。"><a href="#text-indent-首行缩进。" class="headerlink" title="text-indent  首行缩进。"></a>text-indent  首行缩进。</h2><p>通常设置em，这样文字尺寸改变了也不用该缩进值，只需要设置2em便一直是2个字的距离。</p>
+<h2 id="文字和空格的大小"><a href="#文字和空格的大小" class="headerlink" title="文字和空格的大小"></a>文字和空格的大小</h2><p>字体本身原本是一张张的图片，通过一定的编码方式确定是哪个文字，文字和文字之间本身也有一定的缝隙，算上缝隙才算是一个文字的大小，所以文字大小最好是从上到下测量。而宋体中一个空格的大小差不多是一个文字的一半。</p>
+<h2 id="伪类的顺序"><a href="#伪类的顺序" class="headerlink" title="伪类的顺序"></a>伪类的顺序</h2><p>a:link 未访问过,a:visited 访问过后,a:bover 鼠标移入,a:active 鼠标按下。</p>
+<h2 id="clear属性"><a href="#clear属性" class="headerlink" title="clear属性"></a>clear属性</h2><p>给一个元素加上clear属性，那么对应方向上的元素就不会浮动了。值可以设置为left|right|both|none|inherit。<br>clear:both是左右两侧都不能浮动。</p>
+<h2 id="清除浮动的方法"><a href="#清除浮动的方法" class="headerlink" title="清除浮动的方法"></a>清除浮动的方法</h2><p>清除浮动是为了让元素回归文档流，回归到同一层级。</p>
+<h3 id="加高度"><a href="#加高度" class="headerlink" title="加高度"></a>加高度</h3><p>给浮动元素的父元素加一个固定的高度。缺点是扩展性不好。有时候高度不能写死。</p>
+<h3 id="父级浮动"><a href="#父级浮动" class="headerlink" title="父级浮动"></a>父级浮动</h3><p>给浮动元素的父元素加浮动，缺点是父元素的父元素仍然会有问题，当前元素的父元素同时也是更上级元素的子元素。而且<code>margin:0 auto;</code>会失效</p>
+<h3 id="inline-block"><a href="#inline-block" class="headerlink" title="inline-block"></a>inline-block</h3><p>给浮动元素的父元素加inline-block，缺点也是<code>margin:0 auto;</code>会失效</p>
+<h3 id="使用空白元素"><a href="#使用空白元素" class="headerlink" title="使用空白元素"></a>使用空白元素</h3><p>在浮动元素的后面增加一个没有内容的块级元素设置css为clear:both。缺点是只要清除浮动就要放一个空白元素，而且ie6仍会有2px的默认高度。</p>
+<h3 id="br"><a href="#br" class="headerlink" title="br"></a>br</h3><p>在浮动元素后面增加一个<code>&lt;br clear=&quot;all&quot; /&gt;</code>。缺点也是只要清除浮动就要放一个空白元素。</p>
+<h3 id="伪类清除浮动"><a href="#伪类清除浮动" class="headerlink" title="伪类清除浮动"></a>伪类清除浮动</h3><p>假设浮动元素的父元素添加一个class名为clearfix。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.clearfix &#123;</div><div class="line">    *zoom:1;</div><div class="line">&#125;</div><div class="line">.clearfix:after &#123;</div><div class="line">    content:&apos;&apos;;</div><div class="line">    display:block;</div><div class="line">    clear:both;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>zoom是为了兼容ie浏览器，当设置了zoom之后会检索设置对象的缩放比例，所设置的元素就会扩大或缩小，高度就被重新计算了，所以可以清除浮动，*号是hack的写法，只有ie6、7浏览器可以识别。</p>
+<h3 id="overflow"><a href="#overflow" class="headerlink" title="overflow"></a>overflow</h3><p>给浮动元素的父元素设置overflow:hidden。原理是触发BFC。缺点是比浮动长的内容会被直接剪裁掉。</p>
+<h2 id="BFC和haslayout"><a href="#BFC和haslayout" class="headerlink" title="BFC和haslayout"></a>BFC和haslayout</h2><p><strong>BFC(block formatting context)</strong>:BFC是块级元素格式化上下文。是标准浏览器块级元素的标准(除了ie6、7、8之外都是标准浏览器)。</p>
+<p><strong>haslayout</strong>:ie浏览器特有的。</p>
+<p>只要触发了这两个其一，那么这个触发的区域就是一个独立的区域不受外界影响，也可以理解为元素就不会脱离标准文档流了。</p>
+<p>触发BFC的情况</p>
+<ol>
+<li>float的值不会none。</li>
+<li>overflow的值不为visble(这就是overflow:hidden可以清楚浮动的原理，让其触发BFC)。</li>
+<li>display的值为table-cell、table-caption、inline-block中的任何一个。</li>
+<li>position的值不为relative和staic。</li>
+<li>width|height|min-width|min-height的值不是auto的时候。</li>
+</ol>
+<p>触发haslayout的情况</p>
+<ol>
+<li>zoom的值不会normal的时候。给ie浏览器设置zoom:1清楚浮动就是为了触发haslayout。</li>
+</ol>
+<h2 id="css-hack"><a href="#css-hack" class="headerlink" title="css hack"></a>css hack</h2><ul>
+<li><p><code>\9</code>所有ie10及以下的浏览器。<code>\9</code>是写在属性值的后面。</p>
+</li>
+<li><p><code>*</code>ie7及以下浏览器，写在属性的开头。</p>
+</li>
+<li><p><code>_</code>ie6及以下浏览器，写在属性的开头。</p>
+</li>
+</ul>
+<p>hack的书写顺序要从高版本往低版本写，因为css是按照顺序执行，后面的覆盖前面的，所以先做统一处理，最后再去处理个别低版本浏览器。另外hack不是一个标准的方法，所以一般不要使用。</p>
+<h2 id="禁止选中文字"><a href="#禁止选中文字" class="headerlink" title="禁止选中文字"></a>禁止选中文字</h2><p>不同的浏览器设置的内容不一样，user-select不是一个W3C的标准，浏览器的支持不完成，需要对不同的浏览器进行调整。</p>
+<p>user-select有2个值（none表示不能选中文本，text表示可以选择文本）</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-moz-user-select</span><span class="selector-pseudo">:none</span>;	<span class="comment">/*火狐*/</span></div><div class="line"></div><div class="line"><span class="selector-tag">-webkit-user-select</span><span class="selector-pseudo">:none</span>;	<span class="comment">/*webkit浏览器*/</span></div><div class="line"></div><div class="line"><span class="selector-tag">-ms-user-select</span><span class="selector-pseudo">:none</span>;	<span class="comment">/*IE10*/</span></div><div class="line"></div><div class="line"><span class="selector-tag">-khtml-user-select</span><span class="selector-pseudo">:none</span>;	<span class="comment">/*早期浏览器*/</span></div><div class="line"></div><div class="line"><span class="selector-tag">user-select</span><span class="selector-pseudo">:none</span>;</div></pre></td></tr></table></figure>
+<p>ie6至ie9还没发现有css属性支持</p>
+<h2 id="opacity的兼容性"><a href="#opacity的兼容性" class="headerlink" title="opacity的兼容性"></a>opacity的兼容性</h2><p>opacity是设置透明度，标准写法是<code>opacity:1;</code>,兼容ie的写法是<code>filter:alpha(opacity=100);</code></p>
+<h2 id="超出2行隐藏-强制2行"><a href="#超出2行隐藏-强制2行" class="headerlink" title="超出2行隐藏(强制2行)"></a>超出2行隐藏(强制2行)</h2><p>首先css有三个属性：</p>
+<p><code>overflow:hidden</code>超出的内容隐藏。</p>
+<p><code>text-overflow:ellipsis</code>溢出用省略号显示</p>
+<p><code>white-space:nowrap</code>溢出不换行</p>
+<p>这样只能强制一行显示，如果要强制2行显示要用css3的属性。</p>
+<p><code>display:-webkit-box</code>将对象作为弹性伸缩盒子模型显示</p>
+<p><code>webkit-box-orient:vertical</code>设置伸缩盒子的子元素排列方式(从上到下垂直排列子元素)</p>
+<p><code>-webkit-line-clamp:2</code>显示的行数，不能单独出现。</p>
+<p>最后css样式如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">overflow</span>: <span class="selector-tag">hidden</span>;</div><div class="line"><span class="selector-tag">text-overflow</span>: <span class="selector-tag">ellipsis</span>;</div><div class="line"><span class="selector-tag">display</span>: <span class="selector-tag">-webkit-box</span>;</div><div class="line"><span class="selector-tag">-webkit-box-orient</span>: <span class="selector-tag">vertical</span>;</div><div class="line"><span class="selector-tag">-webkit-line-clamp</span><span class="selector-pseudo">:2</span>;</div></pre></td></tr></table></figure>
+<h2 id="css命名参考"><a href="#css命名参考" class="headerlink" title="css命名参考"></a>css命名参考</h2><p>头：header head</p>
+<p>内容：content container</p>
+<p>尾：footer</p>
+<p>导航：nav navigation</p>
+<p>侧栏：sidebar aside</p>
+<p>栏目：column</p>
+<p>页面外围控制整体布局宽度：wrapper wrap</p>
+<p>左右中：left right middle center</p>
+<p>登录条：login</p>
+<p>标志：logo</p>
+<p>广告：banner</p>
+<p>页面主体：main body main-content page-main</p>
+<p>热点：hot</p>
+<p>新闻：news</p>
+<p>下载：download</p>
+<p>子导航：subnav</p>
+<p>菜单：menu dropmenu</p>
+<p>子菜单：submenu</p>
+<p>标题：title ttl caption small-caption</p>
+<p>摘要：summary</p>
+<p>搜索：search</p>
+<p>友情链接：friend-link flink</p>
+<p>页脚：footer</p>
+<p>版权：copyright</p>
+<p>滚动：scroll</p>
+<p>标签页：tab</p>
+<p>文章列表：list</p>
+<p>栏目标题：title</p>
+<p>服务：service</p>
+<p>注册：register</p>
+<p>投票：vote</p>
+<p>加入我们：joinus</p>
+<p>状态：status status-bar</p>
+<p>按钮：btn-</p>
+<p>图标：ico- icon-</p>
+<p>滚动：scroll</p>
+<p>标签页：tab</p>
+<p>文章列表：list</p>
+<p>弹出层：pop popup</p>
+<p>对话框：dialog dlg</p>
+<p>状态提醒：success error alert notice caution</p>
+<p>提示信息：msg message message-box</p>
+<p>当前的：active act current curr selected on</p>
+<p>小技巧：tips</p>
+<p>注释：note　notice</p>
+<p>指南：guide</p>
+<h2 id="移动端弹窗时暴力禁止html滚动"><a href="#移动端弹窗时暴力禁止html滚动" class="headerlink" title="移动端弹窗时暴力禁止html滚动"></a>移动端弹窗时暴力禁止html滚动</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">html</span><span class="selector-class">.lock-html</span> &#123;</div><div class="line">	<span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">	<span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="实现文字竖向排版"><a href="#实现文字竖向排版" class="headerlink" title="实现文字竖向排版"></a>实现文字竖向排版</h2><h3 id="模拟竖排文字"><a href="#模拟竖排文字" class="headerlink" title="模拟竖排文字"></a>模拟竖排文字</h3><p>对文字对象的宽度设置只能排下一个文字的宽度距离，让文字一行排不下两个文字使其文字自动换行，就形成了竖立排版需求。</p>
+<h3 id="writing-mode属性"><a href="#writing-mode属性" class="headerlink" title="writing-mode属性"></a>writing-mode属性</h3><p><code>writing-mode</code> 有两套属性，一套是IE私有的，另一套是CSS规范属性。</p>
+<h4 id="CSS规范属性"><a href="#CSS规范属性" class="headerlink" title="CSS规范属性"></a>CSS规范属性</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">writing-mode</span>: <span class="selector-tag">horizontal-tb</span>;    <span class="comment">/* 默认值 */</span></div><div class="line"><span class="selector-tag">writing-mode</span>: <span class="selector-tag">vertical-rl</span>;</div><div class="line"><span class="selector-tag">writing-mode</span>: <span class="selector-tag">vertical-lr</span>;</div></pre></td></tr></table></figure>
+<p><code>vertical-rl</code> 表示文本是垂直方向(vertical)展示，然后阅读的顺序是从右往左(rl:right-left)，跟我们古诗的阅读顺序一致。</p>
+<p><code>vertical-lr</code> 表示文本是垂直方向(vertical)展示，然后阅读的顺序还是默认的从左往右(lr:left-right)，也就是仅仅是水平变垂直。</p>
+<p><img src="http://picabstract.preview.ftn.qq.com:8080/ftn_pic_abs_v2/59520336b7c28190b615fc5b7f17a94e84b8a80e2fe33267303cb2a5079267e63bdb0ef955e23bcf600d2cfc62311b50?pictype=scale&amp;from=30012&amp;version=2.0.0.2&amp;uin=406490508&amp;fname=20170904-24.png&amp;size=1024" alt="enter image description here"></p>
+<h4 id="IE私有属性"><a href="#IE私有属性" class="headerlink" title="IE私有属性"></a>IE私有属性</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">writing-mode: lr-tb | rl-tb | tb-rl | bt-rl | tb-lr | bt-lr | lr-bt | rl-bt | lr | rl | tb</div></pre></td></tr></table></figure>
+<p>IE下的属性特别多，但是需要关注的只有这几个：</p>
+<p>如果是IE8及以上浏览器：<code>lr-tb</code> 、<code>tb-rl</code> 、<code>tb-lr</code>，分别对应于CSS规范中的 <code>horizontal-tb</code> 、<code>vertical-rl 、</code>vertical-lr`。</p>
+<p>如果是IE7浏览器：<code>lr-tb</code> 和 <code>tb-rl</code> 分别对应CSS规范的 <code>horizontal-tb</code> 和 <code>vertical-rl</code>。</p>
+<p><img src="http://picabstract.preview.ftn.qq.com:8080/ftn_pic_abs_v2/a702cce905d871e58e72b214eccc3d00957920bcdb2daa514f0e70205b8d934a7e01d90ad3d9b5b95d298a12fd4a4ce8?pictype=scale&amp;from=30012&amp;version=2.0.0.2&amp;uin=406490508&amp;fname=20170904-25.png&amp;size=1024" alt="enter image description here"></p>
+<h2 id="css的计算属性calc"><a href="#css的计算属性calc" class="headerlink" title="css的计算属性calc()"></a>css的计算属性calc()</h2><p><code>calc()</code> 可以使用百分比、em、px和rem单位值计算出一个值应用于元素上，这样一来你就不用考虑元素DIV的宽度值到底是多少，而把这个烦人的任务交由浏览器去计算。比如说“width:calc(50% + 2em)”。</p>
+<p><code>calc()</code> 的表达式都写在括号里，支持四则运算，运算符前后要加空格，在IE浏览器只能兼容到IE9。这个属性最大的用处就不使用<code>box-sizing</code> 的情况下，元素的宽度如果设置为 100% 之后再设置 <code>margin</code> 、 <code>padding</code>、<code>border</code> 会导致元素实际宽度大于100%，而使用<code>clae()</code> 属性可以解决计算的麻烦，直接可以写为 <code>width: calc( 100% - margin * 2 - padding * 2 - border * 2 )</code>即可算出盒子的实际宽度并应用于元素。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/css笔记/" rel="tag"># css笔记</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/01/javascript（时间、数组、字符串方法）/" rel="next" title="javascript（时间、数组、字符串方法）">
+                <i class="fa fa-chevron-left"></i> javascript（时间、数组、字符串方法）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/21/javascript杂记/" rel="prev" title="javascript杂记">
+                javascript杂记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="PJ Yu" />
+          <p class="site-author-name" itemprop="name">PJ Yu</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Gary23" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com/Gary23" title="Gary23" target="_blank">Gary23</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#word-spacing-单词间距"><span class="nav-number">1.</span> <span class="nav-text">word-spacing 单词间距</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#行高的测量方式"><span class="nav-number">2.</span> <span class="nav-text">行高的测量方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#white-space-强制不换行"><span class="nav-number">3.</span> <span class="nav-text">white-space 强制不换行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#text-indent-首行缩进。"><span class="nav-number">4.</span> <span class="nav-text">text-indent  首行缩进。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文字和空格的大小"><span class="nav-number">5.</span> <span class="nav-text">文字和空格的大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#伪类的顺序"><span class="nav-number">6.</span> <span class="nav-text">伪类的顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clear属性"><span class="nav-number">7.</span> <span class="nav-text">clear属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清除浮动的方法"><span class="nav-number">8.</span> <span class="nav-text">清除浮动的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#加高度"><span class="nav-number">8.1.</span> <span class="nav-text">加高度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#父级浮动"><span class="nav-number">8.2.</span> <span class="nav-text">父级浮动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#inline-block"><span class="nav-number">8.3.</span> <span class="nav-text">inline-block</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用空白元素"><span class="nav-number">8.4.</span> <span class="nav-text">使用空白元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#br"><span class="nav-number">8.5.</span> <span class="nav-text">br</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伪类清除浮动"><span class="nav-number">8.6.</span> <span class="nav-text">伪类清除浮动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#overflow"><span class="nav-number">8.7.</span> <span class="nav-text">overflow</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BFC和haslayout"><span class="nav-number">9.</span> <span class="nav-text">BFC和haslayout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css-hack"><span class="nav-number">10.</span> <span class="nav-text">css hack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#禁止选中文字"><span class="nav-number">11.</span> <span class="nav-text">禁止选中文字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#opacity的兼容性"><span class="nav-number">12.</span> <span class="nav-text">opacity的兼容性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#超出2行隐藏-强制2行"><span class="nav-number">13.</span> <span class="nav-text">超出2行隐藏(强制2行)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css命名参考"><span class="nav-number">14.</span> <span class="nav-text">css命名参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移动端弹窗时暴力禁止html滚动"><span class="nav-number">15.</span> <span class="nav-text">移动端弹窗时暴力禁止html滚动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现文字竖向排版"><span class="nav-number">16.</span> <span class="nav-text">实现文字竖向排版</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模拟竖排文字"><span class="nav-number">16.1.</span> <span class="nav-text">模拟竖排文字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#writing-mode属性"><span class="nav-number">16.2.</span> <span class="nav-text">writing-mode属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS规范属性"><span class="nav-number">16.2.1.</span> <span class="nav-text">CSS规范属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IE私有属性"><span class="nav-number">16.2.2.</span> <span class="nav-text">IE私有属性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css的计算属性calc"><span class="nav-number">17.</span> <span class="nav-text">css的计算属性calc()</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PJ Yu</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

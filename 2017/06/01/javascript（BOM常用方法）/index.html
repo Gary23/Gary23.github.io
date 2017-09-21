@@ -100,7 +100,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/06/01/javascript（BOM常用方法）/index.html">
 <meta property="og:site_name" content="Gary23">
 <meta property="og:description" content="BOM操作的常用属性和方法open()：打开一个新的页面，格式为open(页面的url,打开的方式)，如果url为空则打开一个空白页面。如果打开方式为空，默认为新窗口方式打开。这个方法返回新窗口的window对象。 close()：关闭一个页面，但是这个方法有点兼容性问题，firefox默认无法关闭，chrome默认直接关闭，ie：询问用户。 navigator.userAgent：返回浏览器的名">
-<meta property="og:updated_time" content="2017-08-22T07:05:54.000Z">
+<meta property="og:updated_time" content="2017-09-21T01:37:04.855Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript（BOM常用方法）">
 <meta name="twitter:description" content="BOM操作的常用属性和方法open()：打开一个新的页面，格式为open(页面的url,打开的方式)，如果url为空则打开一个空白页面。如果打开方式为空，默认为新窗口方式打开。这个方法返回新窗口的window对象。 close()：关闭一个页面，但是这个方法有点兼容性问题，firefox默认无法关闭，chrome默认直接关闭，ie：询问用户。 navigator.userAgent：返回浏览器的名">
@@ -452,7 +452,6 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setCookie</span>(<span class="params">key,value,t</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> oDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">    oDate.setDate(oDate.getDate() + t);</div><div class="line">    <span class="built_in">document</span>.cookie = key + <span class="string">'='</span> + value + <span class="string">';expires='</span> + oDate.toGMTString();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>删除cookie</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeCookie</span>(<span class="params">key</span>)</span>&#123;</div><div class="line">    setCookie(key,<span class="string">''</span>,<span class="number">-1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
       
     </div>
 
@@ -578,7 +577,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -591,7 +590,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>

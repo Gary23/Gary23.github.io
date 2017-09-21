@@ -100,7 +100,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/08/01/6、列表渲染/index.html">
 <meta property="og:site_name" content="Gary23">
 <meta property="og:description" content="遍历数组for指令根据一组数据的选项列表进行渲染，需要以item in tiems或item of tiems形式的特殊写法，item是数组的每一项，items是源数据数组。也有(item,index) in items的写法index是该item在数组中的索引。实际就是用for去遍历items数组。 12345&amp;lt;ul id=&quot;example-1&quot;&amp;gt;    &amp;lt;li v-for=&quot;">
-<meta property="og:updated_time" content="2017-08-22T08:24:19.622Z">
+<meta property="og:updated_time" content="2017-09-21T01:39:56.757Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="6、列表渲染">
 <meta name="twitter:description" content="遍历数组for指令根据一组数据的选项列表进行渲染，需要以item in tiems或item of tiems形式的特殊写法，item是数组的每一项，items是源数据数组。也有(item,index) in items的写法index是该item在数组中的索引。实际就是用for去遍历items数组。 12345&amp;lt;ul id=&quot;example-1&quot;&amp;gt;    &amp;lt;li v-for=&quot;">
@@ -429,7 +429,6 @@
 <p>在计算属性不适用的情况下(例如在嵌套<code>v-for</code>循环中)，可以使用一个<code>methods</code>方法</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"app1"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"n in even(numbers)"</span>&gt;</span>&#123;&#123; n &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app1 = <span class="keyword">new</span> Vue(&#123;</div><div class="line">    <span class="attr">el</span>: <span class="string">'#app1'</span>,</div><div class="line">    <span class="attr">data</span>: &#123;</div><div class="line">        <span class="attr">numbers</span>: [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">methods</span>: &#123;</div><div class="line">        <span class="attr">even</span>: <span class="function"><span class="keyword">function</span>(<span class="params">numbers</span>)</span>&#123;</div><div class="line">            <span class="keyword">return</span> numbers.filter(<span class="function"><span class="keyword">function</span>(<span class="params">number</span>)</span>&#123;</div><div class="line">                <span class="keyword">return</span> number % <span class="number">2</span> === <span class="number">0</span></div><div class="line">            &#125;)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-
       
     </div>
 
@@ -471,8 +470,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/15/《锋利的jQuery》九、XMLHttpRequest对象/" rel="next" title="《锋利的jQuery》九、XMLHttpRequest对象">
-                <i class="fa fa-chevron-left"></i> 《锋利的jQuery》九、XMLHttpRequest对象
+              <a href="/2017/08/15/《锋利的jQuery》八、XMLHttpRequest对象/" rel="next" title="《锋利的jQuery》八、XMLHttpRequest对象">
+                <i class="fa fa-chevron-left"></i> 《锋利的jQuery》八、XMLHttpRequest对象
               </a>
             
           </div>
@@ -555,7 +554,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -568,7 +567,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
